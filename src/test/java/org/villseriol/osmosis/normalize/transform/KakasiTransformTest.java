@@ -28,6 +28,7 @@ public class KakasiTransformTest {
             Path fullname = DictionaryLoader.load("fullname");
             Path jinmei = DictionaryLoader.load("jinmei");
             Path law = DictionaryLoader.load("law");
+            Path hukugougo = DictionaryLoader.load("hukugougo");
 
             KakasiConfig config = new KakasiConfig(KakasiConstants.ASCII_CONFIG);
             config.setSeparator(" ");
@@ -37,6 +38,7 @@ public class KakasiTransformTest {
                     add(fullname.toString());
                     add(jinmei.toString());
                     add(law.toString());
+                    add(hukugougo.toString());
                 }
             });
 
