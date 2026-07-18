@@ -2,9 +2,9 @@
 package org.villseriol.osmosis.normalize.v0_6.transform;
 
 import org.villseriol.kakasi.api.Kakasi;
-import org.villseriol.osmosis.normalize.v0_6.enums.UnicodeRange;
 import org.villseriol.osmosis.normalize.v0_6.utils.StringUtils;
 import org.villseriol.osmosis.shared.Transform;
+import org.villseriol.osmosis.shared.UnicodeRange;
 
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSet.SpanCondition;
@@ -48,20 +48,33 @@ public class KakasiTransform implements Transform {
 
             int japaneseEnd = JAPANESE_SET.span(input, i, SpanCondition.CONTAINED);
 
-            if (result.length() > 0 && result.charAt(result.length() - 1) != ' ') {
-                result.append(' ');
+            if (result.length() > 0) {
+                char previous = result.charAt(result.length() - 1);
+
+                if (previous != ' ' && !isBracket(previous)) {
+                    result.append(' ');
+                }
             }
 
             result.append(kakasi.run(input.subSequence(i, japaneseEnd)));
 
-            if (japaneseEnd < length && input.charAt(japaneseEnd) != ' ') {
-                result.append(' ');
+            if (japaneseEnd < length) {
+                char next = input.charAt(japaneseEnd);
+
+                if (next != ' ' && !isBracket(next)) {
+                    result.append(' ');
+                }
             }
 
             i = japaneseEnd;
         }
 
         return result.toString();
+    }
+
+
+    private static boolean isBracket(char c) {
+        return c == '(' || c == ')' || c == '[' || c == ']' || c == '{' || c == '}' || c == '<' || c == '>';
     }
 
 

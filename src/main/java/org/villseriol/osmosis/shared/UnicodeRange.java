@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.normalize.v0_6.enums;
+package org.villseriol.osmosis.shared;
 
 /**
  * Represents a Unicode block (character range), as defined by the Unicode

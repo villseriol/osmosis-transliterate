@@ -27,6 +27,7 @@ public class KakasiTransformTest {
             Path propernoun = DictionaryLoader.load("propernoun");
             Path fullname = DictionaryLoader.load("fullname");
             Path jinmei = DictionaryLoader.load("jinmei");
+            Path law = DictionaryLoader.load("law");
 
             KakasiConfig config = new KakasiConfig(KakasiConstants.ASCII_CONFIG);
             config.setSeparator(" ");
@@ -35,6 +36,7 @@ public class KakasiTransformTest {
                     add(propernoun.toString());
                     add(fullname.toString());
                     add(jinmei.toString());
+                    add(law.toString());
                 }
             });
 
@@ -53,9 +55,8 @@ public class KakasiTransformTest {
 
 
     /**
-     * A test comprising 200 random (name=*, name:ja_rm=*) combinations from an
-     * osm extract of japan. Used to illustrate the differences between kakasi
-     * transliteration when compared to hand-translated values.
+     * A test comprising of hand-picked values from historically processed osm
+     * files for documentation purposes.
      */
     @Test
     public void test200() {
@@ -70,5 +71,13 @@ public class KakasiTransformTest {
         assertEquals("don . kiho^te", transform.action("ドン・キホーテ"));
         assertEquals("daitou machi SS / matsumoto sekiyu", transform.action("大東町SS / 松本石油"));
         assertEquals("BIKE SHOP kotani", transform.action("BIKE SHOP コタニ"));
+        assertEquals("tenma byouin", transform.action("天満病院"));
+
+        assertEquals("EY4180 (kabu)", transform.action("EY4180 (株)"));
+        assertEquals("EY4180 (kabu)", transform.action("EY4180 (株)"));
+        assertEquals("EY4180 )((kabu())", transform.action("EY4180 )((株())"));
+        assertEquals("EY>4180 )((kabu())", transform.action("EY>4180 )((株())"));
+        assertEquals("ka a . ga^den", transform.action("珈亜・ガーデン"));
+        assertEquals("ide yu(ide machi kyoudouyokujou)", transform.action("いで湯(井出町共同浴場)"));
     }
 }

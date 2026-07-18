@@ -1,7 +1,7 @@
 // This software is released into the Public Domain.  See copying.txt for details.
 package org.villseriol.osmosis.normalize.v0_6.utils;
 
-import org.villseriol.osmosis.normalize.v0_6.enums.UnicodeRange;
+import org.villseriol.osmosis.shared.UnicodeRange;
 
 
 public final class StringUtils {
