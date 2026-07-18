@@ -4,6 +4,9 @@ package org.villseriol.osmosis.kakasi.v0_6.transform;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.villseriol.osmosis.shared.Transform;
+import org.villseriol.osmosis.shared.TransformDecorator;
+
 
 public class SplitTransformDecorator extends TransformDecorator {
     // Regex to match known word splitters in the Latin1 codepage (includes
@@ -42,5 +45,12 @@ public class SplitTransformDecorator extends TransformDecorator {
         }
 
         return result.toString();
+    }
+
+
+    @Override
+    public void action(StringBuffer input) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'action'");
     }
 }

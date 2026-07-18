@@ -109,7 +109,7 @@ public final class UserConfiguration {
     }
 
 
-    public List<TagMatch> getTagMatchs() {
+    public List<TagMatch> getTagMatches() {
         return tagEntries.stream().map(t -> (TagMatch) new TagKeyMatch(t.getKey())).collect(Collectors.toList());
     }
 }

@@ -33,7 +33,7 @@ public class UserConfigurationLoaderTest extends AbstractDataTest {
         assertNotNull(replacements);
         assertTrue(replacements.isEmpty());
 
-        List<TagMatch> matches = config.getTagMatchs();
+        List<TagMatch> matches = config.getTagMatches();
         assertNotNull(matches);
         assertTrue(matches.isEmpty());
     }

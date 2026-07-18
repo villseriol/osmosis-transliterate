@@ -4,6 +4,9 @@ package org.villseriol.osmosis.kakasi.v0_6.transform;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.villseriol.osmosis.shared.Transform;
+import org.villseriol.osmosis.shared.TransformDecorator;
+
 
 /**
  * A decorator for applying transforms in a specific order.
@@ -34,5 +37,12 @@ public class SequenceTransformDecorator extends TransformDecorator {
         }
 
         return result;
+    }
+
+
+    @Override
+    public void action(StringBuffer input) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'action'");
     }
 }

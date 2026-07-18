@@ -1,14 +1,16 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.kakasi.v0_6.transform;
+package org.villseriol.osmosis.normalize.v0_6.transform;
 
 import org.villseriol.osmosis.shared.Transform;
 
+import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
 
 
-public class LigatureTransform implements Transform {
+// https://www.unicodepedia.com/groups/greek-and-coptic/
+public class GreekTransform implements Transform {
     private static final Transliterator LIGATURE_ASCII = Transliterator
-            .getInstance("[[:Latin:]]; Any-Latin; Latin-ASCII");
+            .getInstance("[[:Greek:]]; Greek-Latin; Latin-ASCII");
 
     @Override
     public String action(String input) {
@@ -18,7 +20,6 @@ public class LigatureTransform implements Transform {
 
     @Override
     public void action(StringBuffer input) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'action'");
+        LIGATURE_ASCII.transliterate(new ReplaceableString(input));
     }
 }

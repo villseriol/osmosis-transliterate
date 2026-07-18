@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.commons.text.translate.CharSequenceTranslator;
 import org.apache.commons.text.translate.LookupTranslator;
+import org.villseriol.osmosis.shared.Transform;
 
 
 public class ReplacementTransform implements Transform {
@@ -20,5 +21,12 @@ public class ReplacementTransform implements Transform {
     @Override
     public String action(String input) {
         return translator.translate(input);
+    }
+
+
+    @Override
+    public void action(StringBuffer input) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'action'");
     }
 }

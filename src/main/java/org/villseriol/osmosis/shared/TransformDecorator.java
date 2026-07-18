@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.kakasi.v0_6.transform;
+package org.villseriol.osmosis.shared;
 
 public abstract class TransformDecorator implements Transform {
     private final Transform target;

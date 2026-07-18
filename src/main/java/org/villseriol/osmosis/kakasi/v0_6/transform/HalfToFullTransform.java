@@ -4,6 +4,8 @@ package org.villseriol.osmosis.kakasi.v0_6.transform;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.villseriol.osmosis.shared.Transform;
+
 import com.ibm.icu.text.Transliterator;
 
 
@@ -34,5 +36,12 @@ public class HalfToFullTransform implements Transform {
         m.appendTail(sb);
 
         return sb.toString();
+    }
+
+
+    @Override
+    public void action(StringBuffer input) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'action'");
     }
 }

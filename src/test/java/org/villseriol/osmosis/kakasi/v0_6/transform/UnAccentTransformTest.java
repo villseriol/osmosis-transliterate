@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import org.junit.Test;
+import org.villseriol.osmosis.shared.Transform;
 
 
 public class UnAccentTransformTest extends AbstractTransformTest {

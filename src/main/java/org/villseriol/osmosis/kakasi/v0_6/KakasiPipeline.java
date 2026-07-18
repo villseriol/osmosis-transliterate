@@ -13,7 +13,6 @@ import org.openstreetmap.osmosis.core.OsmosisRuntimeException;
 import org.villseriol.kakasi.api.Kakasi;
 import org.villseriol.kakasi.api.KakasiConfig;
 import org.villseriol.kakasi.api.KakasiConstants;
-import org.villseriol.osmosis.kakasi.v0_6.configuration.DictionaryLoader;
 import org.villseriol.osmosis.kakasi.v0_6.configuration.model.DictionaryEntry;
 import org.villseriol.osmosis.kakasi.v0_6.configuration.model.UserConfiguration;
 import org.villseriol.osmosis.kakasi.v0_6.transform.HalfToFullTransform;
@@ -23,10 +22,11 @@ import org.villseriol.osmosis.kakasi.v0_6.transform.NoTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.ReplacementTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.SequenceTransformDecorator;
 import org.villseriol.osmosis.kakasi.v0_6.transform.SplitTransformDecorator;
-import org.villseriol.osmosis.kakasi.v0_6.transform.Transform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.TransformProxy;
 import org.villseriol.osmosis.kakasi.v0_6.transform.TrimTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.UnAccentTransform;
+import org.villseriol.osmosis.shared.DictionaryLoader;
+import org.villseriol.osmosis.shared.Transform;
 
 
 public final class KakasiPipeline {

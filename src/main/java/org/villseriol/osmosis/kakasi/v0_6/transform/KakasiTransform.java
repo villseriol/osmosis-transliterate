@@ -2,6 +2,7 @@
 package org.villseriol.osmosis.kakasi.v0_6.transform;
 
 import org.villseriol.kakasi.api.Kakasi;
+import org.villseriol.osmosis.shared.Transform;
 
 
 public class KakasiTransform implements Transform {
@@ -27,5 +28,12 @@ public class KakasiTransform implements Transform {
     @Override
     public String action(String input) {
         return kakasi.run(input);
+    }
+
+
+    @Override
+    public void action(StringBuffer input) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'action'");
     }
 }
