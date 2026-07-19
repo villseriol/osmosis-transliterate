@@ -9,11 +9,21 @@
                     <when-value-is value="" />
                 </replace-with>
 
-                <replace-with value="·">
+
+                <replace-with value="[">
+                    <when-value-is value="【" />
+                </replace-with>
+
+                <replace-with value="]">
+                    <when-value-is value="】" />
+                </replace-with>
+
+                <replace-with value=" · ">
                     <when-value-is value="・" />
                     <when-value-is value="･" />
                     <when-value-is value="•" />
                 </replace-with>
+
 
                 <replace-with value="&lt;">
                     <when-value-is value="〈" />

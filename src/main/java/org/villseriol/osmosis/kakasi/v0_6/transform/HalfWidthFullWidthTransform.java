@@ -138,8 +138,7 @@ public class HalfWidthFullWidthTransform implements Transform {
         rules.add("｣ > ']';"); // FF63 HALFWIDTH RIGHT CORNER BRACKET
         rules.add("､ > ',';"); // FF64 HALFWIDTH IDEOGRAPHIC COMMA
 
-        rules.add("･ > '\u00B7';"); // FF65 HALFWIDTH KATAKANA MIDDLE DOT -> ·
-                                    // (Latin-1 middle dot)
+        rules.add("･ > '・';"); // FF65 HALFWIDTH KATAKANA MIDDLE DOT -> ・
 
         // FF66–FF9D + FF9E/FF9F combined: halfwidth katakana +
         // dakuten/handakuten

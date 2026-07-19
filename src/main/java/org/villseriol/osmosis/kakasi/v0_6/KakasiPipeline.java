@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import org.apache.commons.lang3.StringUtils;
 import org.openstreetmap.osmosis.core.OsmosisRuntimeException;
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
 import org.openstreetmap.osmosis.core.lifecycle.Completable;
@@ -46,7 +47,7 @@ public class KakasiPipeline implements Completable {
 
     private final KakasiPipelineContext context = new KakasiPipelineContext();
 
-    private Transform combined = new NoTransform();
+    private Transform pipeline = new NoTransform();
 
     public void init() {
     }
@@ -147,6 +148,9 @@ public class KakasiPipeline implements Completable {
 
             transforms.add(new TransformConditionalDecorator(base, () -> {
                 String currentTag = context.getCurrentTag();
+                if (StringUtils.isEmpty(currentTag)) {
+                    return true;
+                }
 
                 if (!localTags.isEmpty()) {
                     return localTags.stream().anyMatch(tag -> tag.getKey().equals(currentTag));
@@ -158,7 +162,7 @@ public class KakasiPipeline implements Completable {
             }));
         }
 
-        combined = new TransformSequenceDecorator(transforms);
+        pipeline = new TransformSequenceDecorator(transforms);
     }
 
 
@@ -170,7 +174,7 @@ public class KakasiPipeline implements Completable {
     public String run(String tag, String value) {
         context.setCurrentTag(tag);
 
-        return combined.action(value);
+        return pipeline.action(value);
     }
 
 
