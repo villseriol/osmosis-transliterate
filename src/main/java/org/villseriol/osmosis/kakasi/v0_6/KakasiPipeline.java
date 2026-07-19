@@ -26,12 +26,14 @@ import org.villseriol.osmosis.kakasi.v0_6.transform.ArrowTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.BoxDrawingTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.CustomMappingTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.CyrillicTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.GeneralPunctuationTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.GeometricShapesTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.GreekTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.HalfWidthFullWidthTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.KakasiTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.LatinTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.NoTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.SmallFormVariantsTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.UnAccentTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.TransformConditionalDecorator;
 import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.TransformSequenceDecorator;
@@ -87,6 +89,11 @@ public class KakasiPipeline implements Completable {
                 base = new CustomMappingTransform(replacements);
                 break;
 
+            case GENERAL_PUNCTUATION:
+                LOG.info("Initializing general-punctuation transform");
+                base = new GeneralPunctuationTransform();
+                break;
+
             case GEOMETRIC_SHAPES:
                 LOG.info("Initializing geometric-shapes transform");
                 base = new GeometricShapesTransform();
@@ -119,6 +126,11 @@ public class KakasiPipeline implements Completable {
             case LATIN:
                 LOG.info("Initializing latin transform");
                 base = new LatinTransform();
+                break;
+
+            case SMALL_FORM:
+                LOG.info("Initializing small-form transform");
+                base = new SmallFormVariantsTransform();
                 break;
 
             case UN_ACCENT:

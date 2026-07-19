@@ -66,8 +66,8 @@ public class GeneralPunctuationTransform implements Transform {
         rules.add("‰ > '%';"); // 2030 PER MILLE SIGN
         rules.add("‱ > '%';"); // 2031 PER TEN THOUSAND SIGN
         rules.add("′ > '';"); // 2032 PRIME -> literal '
-        rules.add("″ > '\\'\\'';"); // 2033 DOUBLE PRIME -> ''
-        rules.add("‴ > '\\'\\'\\'';"); // 2034 TRIPLE PRIME -> '''
+        rules.add("″ > '''';"); // 2033 DOUBLE PRIME -> ''
+        rules.add("‴ > '''''';"); // 2034 TRIPLE PRIME -> '''
         rules.add("‵ > '`';"); // 2035 REVERSED PRIME
         rules.add("‶ > '``';"); // 2036 REVERSED DOUBLE PRIME
         rules.add("‷ > '```';"); // 2037 REVERSED TRIPLE PRIME
@@ -111,7 +111,7 @@ public class GeneralPunctuationTransform implements Transform {
         rules.add("⁔ > '_';"); // 2054 INVERTED UNDERTIE (dup)
         rules.add("⁕ > '*';"); // 2055 FLOWER PUNCTUATION MARK (dup)
         rules.add("⁖ > '...';"); // 2056 THREE DOT PUNCTUATION (dup of ellipsis)
-        rules.add("⁗ > '\\'\\'\\'\\'';"); // 2057 QUADRUPLE PRIME -> ''''
+        rules.add("⁗ > '''''''';"); // 2057 QUADRUPLE PRIME -> ''''
         rules.add("⁘ > '....';"); // 2058 FOUR DOT PUNCTUATION
         rules.add("⁙ > '.....';"); // 2059 FIVE DOT PUNCTUATION
         rules.add("⁚ > '..';"); // 205A TWO DOT PUNCTUATION (dup of two-dot

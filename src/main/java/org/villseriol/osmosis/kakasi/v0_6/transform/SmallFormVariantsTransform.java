@@ -46,7 +46,7 @@ public class SmallFormVariantsTransform implements Transform {
         rules.add("﹥ > '>';"); // FE65 SMALL GREATER-THAN SIGN
         rules.add("﹦ > '=';"); // FE66 SMALL EQUALS SIGN
         // FE67 unassigned -- falls through to catch-all
-        rules.add("﹨ > '\\\\';"); // FE68 SMALL REVERSE SOLIDUS -> literal
+        rules.add("﹨ > '\\';"); // FE68 SMALL REVERSE SOLIDUS -> literal
                                   // backslash
         rules.add("﹩ > '$';"); // FE69 SMALL DOLLAR SIGN
         rules.add("﹪ > '%';"); // FE6A SMALL PERCENT SIGN

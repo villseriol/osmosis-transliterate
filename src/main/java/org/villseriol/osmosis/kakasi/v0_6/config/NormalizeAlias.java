@@ -38,6 +38,13 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.GeneralPunctuationTransform
+     */
+    GENERAL_PUNCTUATION("general-punctuation"),
+
+    /**
+     * TODO.
+     *
      * @see org.villseriol.osmosis.kakasi.v0_6.transform.GeometricShapesTransform
      */
     GEOMETRIC_SHAPES("geometric-shapes"),
@@ -69,6 +76,13 @@ public enum NormalizeAlias {
      * @see org.villseriol.osmosis.kakasi.v0_6.transform.LatinTransform
      */
     LATIN("latin"),
+
+    /**
+     * TODO.
+     *
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.SmallFormVariantsTransform
+     */
+    SMALL_FORM("small-form"),
 
     /**
      * TODO.

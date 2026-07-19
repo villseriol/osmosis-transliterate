@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <pipeline>
-        <run alias="arrow" />
-        <run alias="box-drawing" />
-        <run alias="cyrillic" />
-        <run alias="geometric-shapes" />
-        <run alias="greek" />
-        <run alias="half-width-full-width" />
-        <run alias="latin" />
-        <run alias="un-accent" />
-
+        <!-- Ensure our overrides take priority -->
         <run alias="custom">
             <mapping>
                 <replace-with value="">
@@ -48,6 +40,17 @@
                 </replace-with>
             </mapping>
         </run>
+
+        <run alias="small-form" />
+        <run alias="general-punctuation" />
+        <run alias="arrow" />
+        <run alias="box-drawing" />
+        <run alias="cyrillic" />
+        <run alias="geometric-shapes" />
+        <run alias="greek" />
+        <run alias="half-width-full-width" />
+        <run alias="latin" />
+        <run alias="un-accent" />
 
         <run alias="kakasi">
             <dictionaries>
