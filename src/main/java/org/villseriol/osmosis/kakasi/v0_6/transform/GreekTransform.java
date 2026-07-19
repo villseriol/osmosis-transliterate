@@ -7,18 +7,19 @@ import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
 
 
-public class UnAccentTransform implements Transform {
-    private static final Transliterator TRANSLITERATOR = Transliterator
-            .getInstance("[[:Latin:]]; NFD; [:Nonspacing Mark:] Remove; NFC");
+// https://www.unicodepedia.com/groups/greek-and-coptic/
+public class GreekTransform implements Transform {
+    private static final Transliterator LIGATURE_ASCII = Transliterator
+            .getInstance("[[:Greek:]]; Greek-Latin; Latin-ASCII");
 
     @Override
     public String action(String input) {
-        return TRANSLITERATOR.transliterate(input);
+        return LIGATURE_ASCII.transliterate(input);
     }
 
 
     @Override
     public void action(StringBuffer input) {
-        TRANSLITERATOR.transliterate(new ReplaceableString(input));
+        LIGATURE_ASCII.transliterate(new ReplaceableString(input));
     }
 }

@@ -4,107 +4,165 @@ package org.villseriol.osmosis.kakasi.v0_6;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 import org.openstreetmap.osmosis.core.OsmosisRuntimeException;
-import org.villseriol.kakasi.api.Kakasi;
+import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
+import org.openstreetmap.osmosis.core.lifecycle.Completable;
 import org.villseriol.kakasi.api.KakasiConfig;
 import org.villseriol.kakasi.api.KakasiConstants;
-import org.villseriol.osmosis.kakasi.v0_6.configuration.model.DictionaryEntry;
-import org.villseriol.osmosis.kakasi.v0_6.configuration.model.UserConfiguration;
-import org.villseriol.osmosis.kakasi.v0_6.transform.HalfToFullTransform;
+import org.villseriol.osmosis.kakasi.v0_6.config.DictionaryNode;
+import org.villseriol.osmosis.kakasi.v0_6.config.NormalizeAlias;
+import org.villseriol.osmosis.kakasi.v0_6.config.NormalizeConfiguration;
+import org.villseriol.osmosis.kakasi.v0_6.config.ReplaceWithNode;
+import org.villseriol.osmosis.kakasi.v0_6.config.RunNode;
+import org.villseriol.osmosis.kakasi.v0_6.config.TagNode;
+import org.villseriol.osmosis.kakasi.v0_6.config.WhenValueIsNode;
+import org.villseriol.osmosis.kakasi.v0_6.transform.ArrowTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.BoxDrawingTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.CustomMappingTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.CyrillicTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.GeometricShapesTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.GreekTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.HalfWidthFullWidthTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.KakasiTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.LigatureTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.LatinTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.NoTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.ReplacementTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.SequenceTransformDecorator;
-import org.villseriol.osmosis.kakasi.v0_6.transform.SplitTransformDecorator;
-import org.villseriol.osmosis.kakasi.v0_6.transform.TransformProxy;
-import org.villseriol.osmosis.kakasi.v0_6.transform.TrimTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.UnAccentTransform;
-import org.villseriol.osmosis.shared.DictionaryLoader;
-import org.villseriol.osmosis.shared.Transform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.TransformConditionalDecorator;
+import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.TransformSequenceDecorator;
+import org.villseriol.osmosis.kakasi.v0_6.utils.DictionaryLoader;
+import org.villseriol.osmosis.kakasi.v0_6.utils.Transform;
 
 
-public final class KakasiPipeline {
+public class KakasiPipeline implements Completable {
     private static final Logger LOG = Logger.getLogger(KakasiPipeline.class.getName());
 
-    private final Kakasi kakasi = new Kakasi();
-    private final TransformProxy pre = new TransformProxy();
-    private final TransformProxy post = new TransformProxy();
+    private final KakasiPipelineContext context = new KakasiPipelineContext();
 
-    // Apply the transforms in this order
-    private final Transform combined = new SequenceTransformDecorator(
-            // replace all characters except japanese with latin1
-            new UnAccentTransform(), new LigatureTransform(), new HalfToFullTransform(),
-            // user pre-transform
-            pre,
-            // split the string into runs of words
-            new SplitTransformDecorator(new KakasiTransform(kakasi)),
-            // trim the white space
-            new TrimTransform(),
-            // user post-transform
-            post);
-
-    public KakasiPipeline() {
-        super();
-    }
-
-
-    /**
-     * Set a user configurable pre-transform.
-     *
-     * @param transform the pre-transform to apply
-     */
-    public void setPreTransform(Transform transform) {
-        this.pre.setProxy(transform);
-    }
-
-
-    /**
-     * Set a user configurable post-transform.
-     *
-     * @param transform the post-transform to apply
-     */
-    public void setPostTransform(Transform transform) {
-        this.post.setProxy(transform);
-    }
-
+    private Transform combined = new NoTransform();
 
     public void init() {
-        this.pre.setProxy(new NoTransform());
-        this.post.setProxy(new NoTransform());
-
-        kakasi.configure(KakasiConstants.ASCII_CONFIG);
-
-        warmup();
     }
 
 
-    public void init(UserConfiguration configuration) {
-        KakasiConfig config = new KakasiConfig(KakasiConstants.ASCII_CONFIG);
+    public void init(NormalizeConfiguration configuration) {
+        List<Transform> transforms = new ArrayList<>();
 
-        List<String> dictionaries = configuration.getDictionaryEntries().stream().map(this::resolveDictionaryPath)
-                .map(Path::toString).toList();
-        if (!dictionaries.isEmpty()) {
-            LOG.fine("Loaded " + dictionaries.size() + " dictionaries");
-            config.setDictionaries(dictionaries);
+        for (RunNode run : configuration.getRuns()) {
+            NormalizeAlias alias = run.getAlias();
+
+            Transform base = null;
+
+            switch (alias) {
+            case ARROW:
+                LOG.info("Initializing arrow transform");
+                base = new ArrowTransform();
+                break;
+
+            case BOX_DRAWING:
+                LOG.info("Initializing box-drawing transform");
+                base = new BoxDrawingTransform();
+                break;
+
+            case CYRILLIC:
+                LOG.info("Initializing cyrillic transform");
+                base = new CyrillicTransform();
+                break;
+
+            case CUSTOM:
+                LOG.info("Initializing custom transform");
+                Map<CharSequence, CharSequence> replacements = new HashMap<>();
+
+                for (ReplaceWithNode replaceWith : run.getReplaceWiths()) {
+                    for (WhenValueIsNode whenValueIs : replaceWith.getWhenValues()) {
+                        replacements.put(whenValueIs.getValue(), replaceWith.getValue());
+                    }
+                }
+
+                base = new CustomMappingTransform(replacements);
+                break;
+
+            case GEOMETRIC_SHAPES:
+                LOG.info("Initializing geometric-shapes transform");
+                base = new GeometricShapesTransform();
+                break;
+
+            case GREEK:
+                LOG.info("Initializing greek transform");
+                base = new GreekTransform();
+                break;
+
+            case HALF_WIDTH_FULL_WIDTH:
+                LOG.info("Initializing half-width-full-width transform");
+                base = new HalfWidthFullWidthTransform();
+                break;
+
+            case KAKASI:
+                LOG.info("Initializing kakasi transform");
+                KakasiConfig config = new KakasiConfig(KakasiConstants.ASCII_CONFIG);
+
+                List<String> dictionaries = run.getDictionaries().stream().map(KakasiPipeline::resolveDictionaryPath)
+                        .map(Path::toString).toList();
+                if (!dictionaries.isEmpty()) {
+                    LOG.info("Loaded " + dictionaries.size() + " dictionaries");
+                    config.setDictionaries(dictionaries);
+                }
+
+                base = new KakasiTransform(config);
+                break;
+
+            case LATIN:
+                LOG.info("Initializing latin transform");
+                base = new LatinTransform();
+                break;
+
+            case UN_ACCENT:
+                LOG.info("Initializing un-accent transform");
+                base = new UnAccentTransform();
+                break;
+
+            default:
+                throw new OsmosisRuntimeException("Unknown normalize alias: " + alias);
+            }
+
+            List<TagNode> globalTags = configuration.getTags();
+            List<TagNode> localTags = run.getTags();
+
+            transforms.add(new TransformConditionalDecorator(base, () -> {
+                String currentTag = context.getCurrentTag();
+
+                if (!localTags.isEmpty()) {
+                    return localTags.stream().anyMatch(tag -> tag.getKey().equals(currentTag));
+                } else if (!globalTags.isEmpty()) {
+                    return globalTags.stream().anyMatch(tag -> tag.getKey().equals(currentTag));
+                } else {
+                    return true;
+                }
+            }));
         }
 
-        kakasi.configure(config);
-
-        warmup();
-
-        Map<CharSequence, CharSequence> replacements = configuration.getReplacements().stream()
-                .collect(Collectors.toMap((r) -> r.getFrom(), (r) -> r.getTo()));
-        this.pre.setProxy(new ReplacementTransform(replacements));
+        combined = new TransformSequenceDecorator(transforms);
     }
 
 
-    private Path resolveDictionaryPath(DictionaryEntry entry) {
+    public Tag run(Tag tag) {
+        return new Tag(tag.getKey(), run(tag.getKey(), tag.getValue()));
+    }
+
+
+    public String run(String tag, String value) {
+        context.setCurrentTag(tag);
+
+        return combined.action(value);
+    }
+
+
+    private static Path resolveDictionaryPath(DictionaryNode entry) {
         String path = entry.getPath();
         String alias = entry.getAlias();
         boolean isPathEmpty = path == null || "".equals(path);
@@ -132,21 +190,13 @@ public final class KakasiPipeline {
     }
 
 
-    /**
-     * Run this to ensure correct initialization of kakasi buffers
-     */
-    private void warmup() {
-        String first = kakasi.run("にほんご");
-        if ("nihongo".equalsIgnoreCase(first)) {
-            LOG.fine("Kakasi initialized");
-        } else {
-            LOG.severe("Failed to convert '日本語' to 'nihongo'");
-            throw new OsmosisRuntimeException("Kakasi initialization error");
-        }
+    @Override
+    public void close() {
     }
 
 
-    public String run(String input) {
-        return combined.action(input);
+    @Override
+    public void complete() {
+        // Do nothing.
     }
 }

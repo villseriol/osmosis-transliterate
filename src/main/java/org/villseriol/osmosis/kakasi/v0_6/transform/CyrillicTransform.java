@@ -7,9 +7,9 @@ import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
 
 
-public class UnAccentTransform implements Transform {
+public class CyrillicTransform implements Transform {
     private static final Transliterator TRANSLITERATOR = Transliterator
-            .getInstance("[[:Latin:]]; NFD; [:Nonspacing Mark:] Remove; NFC");
+            .getInstance("[[:Cyrillic:]] Cyrillic-Latin; Latin-ASCII");
 
     @Override
     public String action(String input) {

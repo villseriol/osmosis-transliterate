@@ -111,7 +111,6 @@ public class KakasiPluginLoaderTest extends AbstractDataTest {
         File outputFile = dataUtils.newFile();
 
         File configFile = dataUtils.createDataFile("v0_6/standard-user-config.xml");
-        File addressConfigFile = dataUtils.createDataFile("v0_6/address-user-config.xml");
 
         // @formatter:off
         Osmosis.run(new String[] {
@@ -122,8 +121,6 @@ public class KakasiPluginLoaderTest extends AbstractDataTest {
             sourceFile.getPath(),
             "--kakasi-0.6",
             "file=" + configFile,
-            "--kakasi-0.6",
-            "file=" + addressConfigFile,
             "--tag-sort-0.6",
             "--write-xml-0.6", outputFile.getPath() });
         // @formatter:on

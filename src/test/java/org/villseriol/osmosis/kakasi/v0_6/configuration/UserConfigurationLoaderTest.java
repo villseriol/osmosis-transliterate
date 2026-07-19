@@ -13,41 +13,31 @@ import java.util.List;
 import org.junit.Test;
 import org.openstreetmap.osmosis.core.OsmosisRuntimeException;
 import org.openstreetmap.osmosis.testutil.AbstractDataTest;
-import org.villseriol.osmosis.kakasi.v0_6.configuration.model.DictionaryEntry;
-import org.villseriol.osmosis.kakasi.v0_6.configuration.model.UserConfiguration;
+import org.villseriol.osmosis.kakasi.v0_6.config.NormalizeAlias;
+import org.villseriol.osmosis.kakasi.v0_6.config.NormalizeConfiguration;
+import org.villseriol.osmosis.kakasi.v0_6.config.ReplaceWithNode;
+import org.villseriol.osmosis.kakasi.v0_6.config.RunNode;
+import org.villseriol.osmosis.kakasi.v0_6.config.TagNode;
+import org.villseriol.osmosis.kakasi.v0_6.config.WhenValueIsNode;
+import org.villseriol.osmosis.kakasi.v0_6.utils.XmlLoader;
 
 
 public class UserConfigurationLoaderTest extends AbstractDataTest {
-    private UserConfigurationLoader loader = UserConfigurationLoader.getInstance();
+    private XmlLoader<NormalizeConfiguration> loader = XmlLoader.getInstance(NormalizeConfiguration.class);
 
     @Test
     public void testEmptyConfiguration() {
         File sourceFile = dataUtils.createDataFile("v0_6/empty-user-config.xml");
-        UserConfiguration config = loader.load(sourceFile);
+        NormalizeConfiguration config = loader.load(sourceFile);
         assertNotNull(config);
-        List<DictionaryEntry> dictionaries = config.getDictionaryEntries();
-        assertNotNull(dictionaries);
-        assertTrue(dictionaries.isEmpty());
 
-        List<Replacement> replacements = config.getReplacements();
-        assertNotNull(replacements);
-        assertTrue(replacements.isEmpty());
+        List<RunNode> runs = config.getRuns();
+        assertNotNull(runs);
+        assertTrue(runs.isEmpty());
 
-        List<TagMatch> matches = config.getTagMatches();
+        List<TagNode> matches = config.getTags();
         assertNotNull(matches);
         assertTrue(matches.isEmpty());
-    }
-
-
-    @Test
-    public void testEntityExclusionConfiguration() {
-        File sourceFile = dataUtils.createDataFile("v0_6/exclusion-user-config.xml");
-        UserConfiguration config = loader.load(sourceFile);
-        assertNotNull(config);
-
-        assertTrue(config.isExcludeWays());
-        assertTrue(config.isExcludeRelations());
-        assertFalse(config.isExcludeNodes());
     }
 
 
@@ -67,11 +57,30 @@ public class UserConfigurationLoaderTest extends AbstractDataTest {
     @Test
     public void testReplacementsConfiguration() {
         File sourceFile = dataUtils.createDataFile("v0_6/replacements-user-config.xml");
-        UserConfiguration config = loader.load(sourceFile);
+        NormalizeConfiguration config = loader.load(sourceFile);
         assertNotNull(config);
-        List<Replacement> replacements = config.getReplacements();
+
+        List<RunNode> runs = config.getRuns();
+        assertNotNull(runs);
+        assertFalse(runs.isEmpty());
+
+        RunNode first = runs.get(0);
+        assertNotNull(first);
+        assertEquals(first.getAlias(), NormalizeAlias.CUSTOM);
+
+        List<ReplaceWithNode> replacements = first.getReplaceWiths();
         assertNotNull(replacements);
         assertFalse(replacements.isEmpty());
-        assertEquals(replacements.size(), 11);
+        assertEquals(replacements.size(), 8);
+
+        ReplaceWithNode dotReplacement = replacements.get(1);
+        assertEquals("·", dotReplacement.getValue());
+
+        List<WhenValueIsNode> whenValues = dotReplacement.getWhenValues();
+        assertNotNull(whenValues);
+        assertEquals(3, whenValues.size());
+        assertEquals("・", whenValues.get(0).getValue());
+        assertEquals("･", whenValues.get(1).getValue());
+        assertEquals("•", whenValues.get(2).getValue());
     }
 }
