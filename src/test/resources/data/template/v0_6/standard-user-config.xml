@@ -141,6 +141,7 @@
         <tag key="alt_name" />
         <tag key="brand:ja" />
         <tag key="brand" />
+        <tag key="ref" />
 
         <!-- Addresses -->
         <tag key="addr:city" />
