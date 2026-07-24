@@ -9,9 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openstreetmap.osmosis.core.OsmosisRuntimeException;
+import org.openstreetmap.osmosis.core.domain.v0_6.Entity;
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
 import org.openstreetmap.osmosis.core.lifecycle.Completable;
 import org.villseriol.kakasi.api.KakasiConfig;
@@ -166,6 +168,13 @@ public class KakasiPipeline implements Completable {
     }
 
 
+    public void initContext(Entity entity) {
+        Map<String, String> tags = entity.getTags().stream().collect(Collectors.toMap(Tag::getKey, Tag::getValue));
+        context.setTags(tags);
+        context.setEntityType(entity.getType().name());
+    }
+
+
     public Tag run(Tag tag) {
         return new Tag(tag.getKey(), run(tag.getKey(), tag.getValue()));
     }
@@ -173,6 +182,7 @@ public class KakasiPipeline implements Completable {
 
     public String run(String tag, String value) {
         context.setCurrentTag(tag);
+        context.setCurrentValue(value);
 
         return pipeline.action(value);
     }
@@ -213,6 +223,6 @@ public class KakasiPipeline implements Completable {
 
     @Override
     public void complete() {
-        // Do nothing.
+        context.clear();
     }
 }

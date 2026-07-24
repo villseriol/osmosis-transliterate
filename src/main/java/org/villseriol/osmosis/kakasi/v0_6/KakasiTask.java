@@ -50,6 +50,8 @@ public class KakasiTask implements SinkSource {
         Collection<Tag> removed = new HashSet<>();
         Collection<Tag> updated = new HashSet<>();
 
+        pipeline.initContext(entity);
+
         for (Tag tag : entityTags) {
             Tag next = pipeline.run(tag);
 
