@@ -6,8 +6,8 @@ import java.util.logging.Logger;
 
 import org.villseriol.kakasi.api.Kakasi;
 import org.villseriol.kakasi.api.KakasiConfig;
+import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.Transform;
 import org.villseriol.osmosis.kakasi.v0_6.utils.StringUtils;
-import org.villseriol.osmosis.kakasi.v0_6.utils.Transform;
 import org.villseriol.osmosis.kakasi.v0_6.utils.UnicodeRange;
 
 import com.ibm.icu.text.UnicodeSet;

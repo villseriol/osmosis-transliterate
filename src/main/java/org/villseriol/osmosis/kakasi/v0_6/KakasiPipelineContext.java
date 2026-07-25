@@ -4,11 +4,13 @@ package org.villseriol.osmosis.kakasi.v0_6;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openstreetmap.osmosis.core.domain.v0_6.EntityType;
+
 
 public class KakasiPipelineContext {
     private String currentTag;
     private String currentValue;
-    private String entityType;
+    private EntityType entityType;
     private final Map<String, String> tags = new HashMap<>();
 
     public void setCurrentValue(String currentValue) {
@@ -31,13 +33,33 @@ public class KakasiPipelineContext {
     }
 
 
-    public void setEntityType(String entityType) {
+    public void setEntityType(EntityType entityType) {
         this.entityType = entityType;
     }
 
 
-    public String getEntityType() {
+    public EntityType getEntityType() {
         return entityType;
+    }
+
+
+    public boolean isWay() {
+        return EntityType.Way.equals(entityType);
+    }
+
+
+    public boolean isNode() {
+        return EntityType.Node.equals(entityType);
+    }
+
+
+    public boolean isRelation() {
+        return EntityType.Relation.equals(entityType);
+    }
+
+
+    public boolean isBound() {
+        return EntityType.Bound.equals(entityType);
     }
 
 

@@ -4,7 +4,7 @@ package org.villseriol.osmosis.kakasi.v0_6.transform;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.villseriol.osmosis.kakasi.v0_6.utils.Transform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.Transform;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
@@ -47,7 +47,7 @@ public class SmallFormVariantsTransform implements Transform {
         rules.add("﹦ > '=';"); // FE66 SMALL EQUALS SIGN
         // FE67 unassigned -- falls through to catch-all
         rules.add("﹨ > '\\';"); // FE68 SMALL REVERSE SOLIDUS -> literal
-                                  // backslash
+                                // backslash
         rules.add("﹩ > '$';"); // FE69 SMALL DOLLAR SIGN
         rules.add("﹪ > '%';"); // FE6A SMALL PERCENT SIGN
         rules.add("﹫ > '@';"); // FE6B SMALL COMMERCIAL AT

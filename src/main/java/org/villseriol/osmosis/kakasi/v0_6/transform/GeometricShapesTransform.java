@@ -4,7 +4,7 @@ package org.villseriol.osmosis.kakasi.v0_6.transform;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.villseriol.osmosis.kakasi.v0_6.utils.Transform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.Transform;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;

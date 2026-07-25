@@ -2,7 +2,6 @@
 package org.villseriol.osmosis.kakasi.v0_6.transform.decorators;
 
 import org.villseriol.osmosis.kakasi.v0_6.transform.NoTransform;
-import org.villseriol.osmosis.kakasi.v0_6.utils.Transform;
 
 
 public class TransformProxyDecorator implements Transform {

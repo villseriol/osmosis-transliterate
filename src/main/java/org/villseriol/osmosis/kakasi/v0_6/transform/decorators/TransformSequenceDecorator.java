@@ -4,9 +4,6 @@ package org.villseriol.osmosis.kakasi.v0_6.transform.decorators;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.villseriol.osmosis.kakasi.v0_6.utils.Transform;
-import org.villseriol.osmosis.kakasi.v0_6.utils.TransformDecorator;
-
 
 public class TransformSequenceDecorator extends TransformDecorator {
     private final Collection<Transform> targets = new ArrayList<>();

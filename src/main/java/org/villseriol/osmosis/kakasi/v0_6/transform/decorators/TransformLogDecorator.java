@@ -3,9 +3,6 @@ package org.villseriol.osmosis.kakasi.v0_6.transform.decorators;
 
 import java.util.logging.Logger;
 
-import org.villseriol.osmosis.kakasi.v0_6.utils.Transform;
-import org.villseriol.osmosis.kakasi.v0_6.utils.TransformDecorator;
-
 
 public class TransformLogDecorator extends TransformDecorator {
     private static final Logger LOG = Logger.getLogger(TransformLogDecorator.class.getName());

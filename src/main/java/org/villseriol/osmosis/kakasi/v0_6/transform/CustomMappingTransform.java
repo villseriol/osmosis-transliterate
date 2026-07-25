@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.commons.text.translate.CharSequenceTranslator;
 import org.apache.commons.text.translate.LookupTranslator;
-import org.villseriol.osmosis.kakasi.v0_6.utils.Transform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.Transform;
 
 
 public class CustomMappingTransform implements Transform {

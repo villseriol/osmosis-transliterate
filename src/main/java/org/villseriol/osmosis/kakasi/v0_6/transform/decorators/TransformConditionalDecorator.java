@@ -4,9 +4,6 @@ package org.villseriol.osmosis.kakasi.v0_6.transform.decorators;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-import org.villseriol.osmosis.kakasi.v0_6.utils.Transform;
-import org.villseriol.osmosis.kakasi.v0_6.utils.TransformDecorator;
-
 
 public class TransformConditionalDecorator extends TransformDecorator {
     private final Supplier<Boolean> condition;

@@ -24,7 +24,7 @@ public class KakasiTask implements SinkSource {
     private Sink sink;
 
     private final NormalizeConfiguration configuration;
-    private final KakasiPipeline pipeline;
+    private final KakasiPipelineRunner pipeline;
 
     public KakasiTask(final String configFile) {
         LOG.log(Level.FINE, "Normalize configured with " + configFile);
@@ -32,7 +32,7 @@ public class KakasiTask implements SinkSource {
         XmlLoader<NormalizeConfiguration> loader = XmlLoader.getInstance(NormalizeConfiguration.class);
         this.configuration = loader.load(configFile);
 
-        this.pipeline = new KakasiPipeline();
+        this.pipeline = new KakasiPipelineRunner();
     }
 
 
