@@ -80,6 +80,7 @@
                 <dictionary alias="jinmei" />
                 <dictionary alias="law" />
                 <dictionary alias="hukugougo" />
+                <dictionary alias="mazegaki" />
             </dictionaries>
 
             <conditional>
