@@ -21,26 +21,26 @@ public class MathOperatorsTransform implements Transform {
         rules.add("::[\\u2200-\\u22FF];");
 
         // Quantifiers / basic set theory
-        rules.add("∀ > 'forall';"); // 2200 FOR ALL
+        rules.add("∀ > ' ';"); // 2200 FOR ALL
         rules.add("∁ > '^c';"); // 2201 COMPLEMENT
         rules.add("∂ > 'd';"); // 2202 PARTIAL DIFFERENTIAL
-        rules.add("∃ > 'exists';"); // 2203 THERE EXISTS
-        rules.add("∄ > '!exists';"); // 2204 THERE DOES NOT EXIST
+        rules.add("∃ > ' ';"); // 2203 THERE EXISTS
+        rules.add("∄ > ' ';"); // 2204 THERE DOES NOT EXIST
         rules.add("∅ > '{}';"); // 2205 EMPTY SET
-        rules.add("∆ > 'delta';"); // 2206 INCREMENT
-        rules.add("∇ > 'nabla';"); // 2207 NABLA
-        rules.add("∈ > 'in';"); // 2208 ELEMENT OF
-        rules.add("∉ > '!in';"); // 2209 NOT AN ELEMENT OF
-        rules.add("∊ > 'in';"); // 220A SMALL ELEMENT OF (dup)
-        rules.add("∋ > 'ni';"); // 220B CONTAINS AS MEMBER
-        rules.add("∌ > '!ni';"); // 220C DOES NOT CONTAIN AS MEMBER
-        rules.add("∍ > 'ni';"); // 220D SMALL CONTAINS AS MEMBER (dup)
-        rules.add("∎ > 'QED';"); // 220E END OF PROOF
+        rules.add("∆ > ' ';"); // 2206 INCREMENT
+        rules.add("∇ > ' ';"); // 2207 NABLA
+        rules.add("∈ > ' ';"); // 2208 ELEMENT OF
+        rules.add("∉ > ' ';"); // 2209 NOT AN ELEMENT OF
+        rules.add("∊ > ' ';"); // 220A SMALL ELEMENT OF (dup)
+        rules.add("∋ > ' ';"); // 220B CONTAINS AS MEMBER
+        rules.add("∌ > ' ';"); // 220C DOES NOT CONTAIN AS MEMBER
+        rules.add("∍ > ' ';"); // 220D SMALL CONTAINS AS MEMBER (dup)
+        rules.add("∎ > ' ';"); // 220E END OF PROOF
 
         // Products / sums
-        rules.add("∏ > 'prod';"); // 220F N-ARY PRODUCT
-        rules.add("∐ > 'coprod';"); // 2210 N-ARY COPRODUCT
-        rules.add("∑ > 'sum';"); // 2211 N-ARY SUMMATION
+        rules.add("∏ > ' ';"); // 220F N-ARY PRODUCT
+        rules.add("∐ > ' ';"); // 2210 N-ARY COPRODUCT
+        rules.add("∑ > ' ';"); // 2211 N-ARY SUMMATION
 
         // Basic arithmetic operators
         rules.add("− > '-';"); // 2212 MINUS SIGN
@@ -53,17 +53,17 @@ public class MathOperatorsTransform implements Transform {
         rules.add("∙ > '.';"); // 2219 BULLET OPERATOR
 
         // Roots
-        rules.add("√ > 'sqrt';"); // 221A SQUARE ROOT
-        rules.add("∛ > 'cbrt';"); // 221B CUBE ROOT
-        rules.add("∜ > '4rt';"); // 221C FOURTH ROOT
+        rules.add("√ > ' ';"); // 221A SQUARE ROOT
+        rules.add("∛ > ' ';"); // 221B CUBE ROOT
+        rules.add("∜ > ' ';"); // 221C FOURTH ROOT
 
         // Proportion / infinity / angles
-        rules.add("∝ > 'prop';"); // 221D PROPORTIONAL TO
-        rules.add("∞ > 'inf';"); // 221E INFINITY
+        rules.add("∝ > ' ';"); // 221D PROPORTIONAL TO
+        rules.add("∞ > ' ';"); // 221E INFINITY
         rules.add("∟ > '_|';"); // 221F RIGHT ANGLE
-        rules.add("∠ > 'ang';"); // 2220 ANGLE
-        rules.add("∡ > 'ang';"); // 2221 MEASURED ANGLE (dup)
-        rules.add("∢ > 'ang';"); // 2222 SPHERICAL ANGLE (dup)
+        rules.add("∠ > ' ';"); // 2220 ANGLE
+        rules.add("∡ > ' ';"); // 2221 MEASURED ANGLE (dup)
+        rules.add("∢ > ' ';"); // 2222 SPHERICAL ANGLE (dup)
 
         // Divides / parallel
         rules.add("∣ > '|';"); // 2223 DIVIDES
@@ -75,23 +75,23 @@ public class MathOperatorsTransform implements Transform {
         rules.add("∧ > '&&';"); // 2227 LOGICAL AND
         rules.add("∨ > '||';"); // 2228 LOGICAL OR (dup with parallel-to,
                                 // flagged)
-        rules.add("∩ > 'cap';"); // 2229 INTERSECTION
-        rules.add("∪ > 'cup';"); // 222A UNION
+        rules.add("∩ > ' ';"); // 2229 INTERSECTION
+        rules.add("∪ > ' ';"); // 222A UNION
 
         // Integrals
-        rules.add("∫ > 'INT';"); // 222B INTEGRAL
-        rules.add("∬ > 'INT2';"); // 222C DOUBLE INTEGRAL
-        rules.add("∭ > 'INT3';"); // 222D TRIPLE INTEGRAL
-        rules.add("∮ > 'OINT';"); // 222E CONTOUR INTEGRAL
-        rules.add("∯ > 'OINT2';"); // 222F SURFACE INTEGRAL
-        rules.add("∰ > 'OINT3';"); // 2230 VOLUME INTEGRAL
-        rules.add("∱ > 'CWINT';"); // 2231 CLOCKWISE INTEGRAL
-        rules.add("∲ > 'CWOINT';"); // 2232 CLOCKWISE CONTOUR INTEGRAL
-        rules.add("∳ > 'ACWOINT';"); // 2233 ANTICLOCKWISE CONTOUR INTEGRAL
+        rules.add("∫ > ' ';"); // 222B INTEGRAL
+        rules.add("∬ > ' ';"); // 222C DOUBLE INTEGRAL
+        rules.add("∭ > ' ';"); // 222D TRIPLE INTEGRAL
+        rules.add("∮ > ' ';"); // 222E CONTOUR INTEGRAL
+        rules.add("∯ > ' ';"); // 222F SURFACE INTEGRAL
+        rules.add("∰ > ' ';"); // 2230 VOLUME INTEGRAL
+        rules.add("∱ > ' ';"); // 2231 CLOCKWISE INTEGRAL
+        rules.add("∲ > ' ';"); // 2232 CLOCKWISE CONTOUR INTEGRAL
+        rules.add("∳ > ' ';"); // 2233 ANTICLOCKWISE CONTOUR INTEGRAL
 
         // Therefore / because / ratio
-        rules.add("∴ > 'therefore';"); // 2234 THEREFORE
-        rules.add("∵ > 'because';"); // 2235 BECAUSE
+        rules.add("∴ > ' ';"); // 2234 THEREFORE
+        rules.add("∵ > ' ';"); // 2235 BECAUSE
         rules.add("∶ > ':';"); // 2236 RATIO
         rules.add("∷ > '::';"); // 2237 PROPORTION
         rules.add("∸ > '.-';"); // 2238 DOT MINUS
@@ -104,7 +104,7 @@ public class MathOperatorsTransform implements Transform {
         rules.add("∽ > '~';"); // 223D REVERSED TILDE (dup)
         rules.add("∾ > '~';"); // 223E INVERTED LAZY S (dup)
         rules.add("∿ > '~';"); // 223F SINE WAVE (dup)
-        rules.add("≀ > 'wr';"); // 2240 WREATH PRODUCT
+        rules.add("≀ > ' ';"); // 2240 WREATH PRODUCT
         rules.add("≁ > '!~';"); // 2241 NOT TILDE
         rules.add("≂ > '~=';"); // 2242 MINUS TILDE (dup, arbitrary)
         rules.add("≃ > '~=';"); // 2243 ASYMPTOTICALLY EQUAL TO
@@ -177,37 +177,37 @@ public class MathOperatorsTransform implements Transform {
                                  // (dup, arbitrary)
 
         // Precedes / succeeds / subset family
-        rules.add("≺ > 'prec';"); // 227A PRECEDES
-        rules.add("≻ > 'succ';"); // 227B SUCCEEDS
-        rules.add("≼ > 'prec=';"); // 227C PRECEDES OR EQUAL TO
-        rules.add("≽ > 'succ=';"); // 227D SUCCEEDS OR EQUAL TO
-        rules.add("≾ > 'prec~';"); // 227E PRECEDES OR EQUIVALENT TO
-        rules.add("≿ > 'succ~';"); // 227F SUCCEEDS OR EQUIVALENT TO
-        rules.add("⊀ > '!prec';"); // 2280 DOES NOT PRECEDE
-        rules.add("⊁ > '!succ';"); // 2281 DOES NOT SUCCEED
-        rules.add("⊂ > 'sub';"); // 2282 SUBSET OF
-        rules.add("⊃ > 'sup';"); // 2283 SUPERSET OF
-        rules.add("⊄ > '!sub';"); // 2284 NOT A SUBSET OF
-        rules.add("⊅ > '!sup';"); // 2285 NOT A SUPERSET OF
-        rules.add("⊆ > 'sub=';"); // 2286 SUBSET OF OR EQUAL TO
-        rules.add("⊇ > 'sup=';"); // 2287 SUPERSET OF OR EQUAL TO
-        rules.add("⊈ > '!sub=';"); // 2288 NEITHER A SUBSET OF NOR EQUAL TO
-        rules.add("⊉ > '!sup=';"); // 2289 NEITHER A SUPERSET OF NOR EQUAL TO
-        rules.add("⊊ > 'sub!=';"); // 228A SUBSET OF WITH NOT EQUAL TO
-        rules.add("⊋ > 'sup!=';"); // 228B SUPERSET OF WITH NOT EQUAL TO
+        rules.add("≺ > ' ';"); // 227A PRECEDES
+        rules.add("≻ > ' ';"); // 227B SUCCEEDS
+        rules.add("≼ > ' ';"); // 227C PRECEDES OR EQUAL TO
+        rules.add("≽ > ' ';"); // 227D SUCCEEDS OR EQUAL TO
+        rules.add("≾ > ' ';"); // 227E PRECEDES OR EQUIVALENT TO
+        rules.add("≿ > ' ';"); // 227F SUCCEEDS OR EQUIVALENT TO
+        rules.add("⊀ > ' ';"); // 2280 DOES NOT PRECEDE
+        rules.add("⊁ > ' ';"); // 2281 DOES NOT SUCCEED
+        rules.add("⊂ > ' ';"); // 2282 SUBSET OF
+        rules.add("⊃ > ' ';"); // 2283 SUPERSET OF
+        rules.add("⊄ > ' ';"); // 2284 NOT A SUBSET OF
+        rules.add("⊅ > ' ';"); // 2285 NOT A SUPERSET OF
+        rules.add("⊆ > ' ';"); // 2286 SUBSET OF OR EQUAL TO
+        rules.add("⊇ > ' ';"); // 2287 SUPERSET OF OR EQUAL TO
+        rules.add("⊈ > ' ';"); // 2288 NEITHER A SUBSET OF NOR EQUAL TO
+        rules.add("⊉ > ' ';"); // 2289 NEITHER A SUPERSET OF NOR EQUAL TO
+        rules.add("⊊ > ' ';"); // 228A SUBSET OF WITH NOT EQUAL TO
+        rules.add("⊋ > ' ';"); // 228B SUPERSET OF WITH NOT EQUAL TO
 
         // Multiset
-        rules.add("⊌ > 'mset';"); // 228C MULTISET (arbitrary)
-        rules.add("⊍ > 'mset*';"); // 228D MULTISET MULTIPLICATION (arbitrary)
-        rules.add("⊎ > 'cup+';"); // 228E MULTISET UNION (arbitrary)
+        rules.add("⊌ > ' ';"); // 228C MULTISET (arbitrary)
+        rules.add("⊍ > ' ';"); // 228D MULTISET MULTIPLICATION (arbitrary)
+        rules.add("⊎ > ' ';"); // 228E MULTISET UNION (arbitrary)
 
         // Square relations (lattice theory)
-        rules.add("⊏ > 'sqsub';"); // 228F SQUARE IMAGE OF
-        rules.add("⊐ > 'sqsup';"); // 2290 SQUARE ORIGINAL OF
-        rules.add("⊑ > 'sqsub=';"); // 2291 SQUARE IMAGE OF OR EQUAL TO
-        rules.add("⊒ > 'sqsup=';"); // 2292 SQUARE ORIGINAL OF OR EQUAL TO
-        rules.add("⊓ > 'sqcap';"); // 2293 SQUARE CAP
-        rules.add("⊔ > 'sqcup';"); // 2294 SQUARE CUP
+        rules.add("⊏ > ' ';"); // 228F SQUARE IMAGE OF
+        rules.add("⊐ > ' ';"); // 2290 SQUARE ORIGINAL OF
+        rules.add("⊑ > ' ';"); // 2291 SQUARE IMAGE OF OR EQUAL TO
+        rules.add("⊒ > ' ';"); // 2292 SQUARE ORIGINAL OF OR EQUAL TO
+        rules.add("⊓ > ' ';"); // 2293 SQUARE CAP
+        rules.add("⊔ > ' ';"); // 2294 SQUARE CUP
 
         // Circled operators
         rules.add("⊕ > '(+)';"); // 2295 CIRCLED PLUS
@@ -246,8 +246,8 @@ public class MathOperatorsTransform implements Transform {
                                   // RIGHT TURNSTILE (dup)
 
         // Order relations / normal subgroup
-        rules.add("⊰ > 'prec.';"); // 22B0 PRECEDES UNDER RELATION (arbitrary)
-        rules.add("⊱ > 'succ.';"); // 22B1 SUCCEEDS UNDER RELATION (arbitrary)
+        rules.add("⊰ > ' ';"); // 22B0 PRECEDES UNDER RELATION (arbitrary)
+        rules.add("⊱ > ' ';"); // 22B1 SUCCEEDS UNDER RELATION (arbitrary)
         rules.add("⊲ > '<|';"); // 22B2 NORMAL SUBGROUP OF
         rules.add("⊳ > '|>';"); // 22B3 CONTAINS AS NORMAL SUBGROUP
         rules.add("⊴ > '<|=';"); // 22B4 NORMAL SUBGROUP OF OR EQUAL TO
@@ -257,23 +257,23 @@ public class MathOperatorsTransform implements Transform {
         rules.add("⊸ > '-o';"); // 22B8 MULTIMAP (dup)
         rules.add("⊹ > '^+';"); // 22B9 HERMITIAN CONJUGATE MATRIX (arbitrary)
         rules.add("⊺ > '^T';"); // 22BA INTERCALATE (arbitrary, "transpose")
-        rules.add("⊻ > 'xor';"); // 22BB XOR
-        rules.add("⊼ > 'nand';"); // 22BC NAND
-        rules.add("⊽ > 'nor';"); // 22BD NOR
-        rules.add("⊾ > 'rt.ang';"); // 22BE RIGHT ANGLE WITH ARC (arbitrary)
-        rules.add("⊿ > 'tri';"); // 22BF RIGHT TRIANGLE (arbitrary)
+        rules.add("⊻ > ' ';"); // 22BB XOR
+        rules.add("⊼ > ' ';"); // 22BC NAND
+        rules.add("⊽ > ' ';"); // 22BD NOR
+        rules.add("⊾ > ' ';"); // 22BE RIGHT ANGLE WITH ARC (arbitrary)
+        rules.add("⊿ > ' ';"); // 22BF RIGHT TRIANGLE (arbitrary)
 
         // N-ary logic / set operators
         rules.add("⋀ > '&&';"); // 22C0 N-ARY LOGICAL AND (dup with ∧)
         rules.add("⋁ > '||';"); // 22C1 N-ARY LOGICAL OR (dup with ∨/∥)
-        rules.add("⋂ > 'cap';"); // 22C2 N-ARY INTERSECTION (dup with ∩)
-        rules.add("⋃ > 'cup';"); // 22C3 N-ARY UNION (dup with ∪)
-        rules.add("⋄ > 'diam';"); // 22C4 DIAMOND OPERATOR
+        rules.add("⋂ > ' ';"); // 22C2 N-ARY INTERSECTION (dup with ∩)
+        rules.add("⋃ > ' ';"); // 22C3 N-ARY UNION (dup with ∪)
+        rules.add("⋄ > ' ';"); // 22C4 DIAMOND OPERATOR
         rules.add("⋅ > '.';"); // 22C5 DOT OPERATOR
         rules.add("⋆ > '*';"); // 22C6 STAR OPERATOR (dup with asterisk
                                // operator)
         rules.add("⋇ > './';"); // 22C7 DIVISION TIMES (arbitrary)
-        rules.add("⋈ > 'bowtie';"); // 22C8 BOWTIE
+        rules.add("⋈ > ' ';"); // 22C8 BOWTIE
         rules.add("⋉ > '|x';"); // 22C9 LEFT NORMAL FACTOR SEMIDIRECT PRODUCT
                                 // (arbitrary)
         rules.add("⋊ > 'x|';"); // 22CA RIGHT NORMAL FACTOR SEMIDIRECT PRODUCT
@@ -281,16 +281,16 @@ public class MathOperatorsTransform implements Transform {
         rules.add("⋋ > '|x';"); // 22CB LEFT SEMIDIRECT PRODUCT (dup)
         rules.add("⋌ > 'x|';"); // 22CC RIGHT SEMIDIRECT PRODUCT (dup)
         rules.add("⋍ > '~=';"); // 22CD REVERSED TILDE EQUALS (dup)
-        rules.add("⋎ > 'or.';"); // 22CE CURLY LOGICAL OR (arbitrary)
-        rules.add("⋏ > 'and.';"); // 22CF CURLY LOGICAL AND (arbitrary)
+        rules.add("⋎ > ' ';"); // 22CE CURLY LOGICAL OR (arbitrary)
+        rules.add("⋏ > ' ';"); // 22CF CURLY LOGICAL AND (arbitrary)
 
         // Double subset/superset
-        rules.add("⋐ > 'sub2';"); // 22D0 DOUBLE SUBSET
-        rules.add("⋑ > 'sup2';"); // 22D1 DOUBLE SUPERSET
-        rules.add("⋒ > 'cap2';"); // 22D2 DOUBLE INTERSECTION
-        rules.add("⋓ > 'cup2';"); // 22D3 DOUBLE UNION
+        rules.add("⋐ > ' ';"); // 22D0 DOUBLE SUBSET
+        rules.add("⋑ > ' ';"); // 22D1 DOUBLE SUPERSET
+        rules.add("⋒ > ' ';"); // 22D2 DOUBLE INTERSECTION
+        rules.add("⋓ > ' ';"); // 22D3 DOUBLE UNION
 
-        rules.add("⋔ > 'pitchfork';"); // 22D4 PITCHFORK
+        rules.add("⋔ > ' ';"); // 22D4 PITCHFORK
         rules.add("⋕ > '=||';"); // 22D5 EQUAL AND PARALLEL TO (arbitrary)
 
         // Dotted / very-much comparisons
@@ -306,22 +306,22 @@ public class MathOperatorsTransform implements Transform {
                                  // (arbitrary)
         rules.add("⋜ > '=<';"); // 22DC EQUAL TO OR LESS-THAN
         rules.add("⋝ > '=>';"); // 22DD EQUAL TO OR GREATER-THAN
-        rules.add("⋞ > '=prec';"); // 22DE EQUAL TO OR PRECEDES (arbitrary)
-        rules.add("⋟ > '=succ';"); // 22DF EQUAL TO OR SUCCEEDS (arbitrary)
+        rules.add("⋞ > ' ';"); // 22DE EQUAL TO OR PRECEDES (arbitrary)
+        rules.add("⋟ > ' ';"); // 22DF EQUAL TO OR SUCCEEDS (arbitrary)
 
         // Negated precede/succeed/square-order
-        rules.add("⋠ > '!prec=';"); // 22E0 DOES NOT PRECEDE OR EQUAL
-        rules.add("⋡ > '!succ=';"); // 22E1 DOES NOT SUCCEED OR EQUAL
-        rules.add("⋢ > '!sqsub=';"); // 22E2 NOT SQUARE IMAGE OF OR EQUAL TO
-        rules.add("⋣ > '!sqsup=';"); // 22E3 NOT SQUARE ORIGINAL OF OR EQUAL TO
-        rules.add("⋤ > 'sqsub!=';"); // 22E4 SQUARE IMAGE OF OR NOT EQUAL TO
-        rules.add("⋥ > 'sqsup!=';"); // 22E5 SQUARE ORIGINAL OF OR NOT EQUAL TO
+        rules.add("⋠ > ' ';"); // 22E0 DOES NOT PRECEDE OR EQUAL
+        rules.add("⋡ > ' ';"); // 22E1 DOES NOT SUCCEED OR EQUAL
+        rules.add("⋢ > ' ';"); // 22E2 NOT SQUARE IMAGE OF OR EQUAL TO
+        rules.add("⋣ > ' ';"); // 22E3 NOT SQUARE ORIGINAL OF OR EQUAL TO
+        rules.add("⋤ > ' ';"); // 22E4 SQUARE IMAGE OF OR NOT EQUAL TO
+        rules.add("⋥ > ' ';"); // 22E5 SQUARE ORIGINAL OF OR NOT EQUAL TO
 
         // Not-equivalent variants
         rules.add("⋦ > '<!~';"); // 22E6 LESS-THAN BUT NOT EQUIVALENT TO
         rules.add("⋧ > '>!~';"); // 22E7 GREATER-THAN BUT NOT EQUIVALENT TO
-        rules.add("⋨ > 'prec!~';"); // 22E8 PRECEDES BUT NOT EQUIVALENT TO
-        rules.add("⋩ > 'succ!~';"); // 22E9 SUCCEEDS BUT NOT EQUIVALENT TO
+        rules.add("⋨ > ' ';"); // 22E8 PRECEDES BUT NOT EQUIVALENT TO
+        rules.add("⋩ > ' ';"); // 22E9 SUCCEEDS BUT NOT EQUIVALENT TO
 
         // Not normal subgroup
         rules.add("⋪ > '!<|';"); // 22EA NOT NORMAL SUBGROUP OF
@@ -339,27 +339,27 @@ public class MathOperatorsTransform implements Transform {
                                    // (arbitrary)
 
         // Element-of / contains variants (decorated forms — collapsed heavily)
-        rules.add("⋲ > 'in-';"); // 22F2 ELEMENT OF WITH LONG HORIZONTAL STROKE
+        rules.add("⋲ > ' ';"); // 22F2 ELEMENT OF WITH LONG HORIZONTAL STROKE
                                  // (arbitrary)
-        rules.add("⋳ > 'in|';"); // 22F3 ELEMENT OF WITH VERTICAL BAR AT END OF
+        rules.add("⋳ > ' ';"); // 22F3 ELEMENT OF WITH VERTICAL BAR AT END OF
                                  // HORIZONTAL STROKE (arbitrary)
-        rules.add("⋴ > 'in|';"); // 22F4 SMALL ELEMENT OF WITH VERTICAL BAR AT
+        rules.add("⋴ > ' ';"); // 22F4 SMALL ELEMENT OF WITH VERTICAL BAR AT
                                  // END OF HORIZONTAL STROKE (dup)
-        rules.add("⋵ > 'in.';"); // 22F5 ELEMENT OF WITH DOT ABOVE (arbitrary)
-        rules.add("⋶ > 'in-';"); // 22F6 ELEMENT OF WITH OVERBAR (dup)
-        rules.add("⋷ > 'in-';"); // 22F7 SMALL ELEMENT OF WITH OVERBAR (dup)
-        rules.add("⋸ > 'in_';"); // 22F8 ELEMENT OF WITH UNDERBAR (arbitrary)
-        rules.add("⋹ > 'in=';"); // 22F9 ELEMENT OF WITH TWO HORIZONTAL STROKES
+        rules.add("⋵ > ' ';"); // 22F5 ELEMENT OF WITH DOT ABOVE (arbitrary)
+        rules.add("⋶ > ' ';"); // 22F6 ELEMENT OF WITH OVERBAR (dup)
+        rules.add("⋷ > ' ';"); // 22F7 SMALL ELEMENT OF WITH OVERBAR (dup)
+        rules.add("⋸ > ' ';"); // 22F8 ELEMENT OF WITH UNDERBAR (arbitrary)
+        rules.add("⋹ > ' ';"); // 22F9 ELEMENT OF WITH TWO HORIZONTAL STROKES
                                  // (arbitrary)
-        rules.add("⋺ > 'ni-';"); // 22FA CONTAINS WITH LONG HORIZONTAL STROKE
+        rules.add("⋺ > ' ';"); // 22FA CONTAINS WITH LONG HORIZONTAL STROKE
                                  // (arbitrary)
-        rules.add("⋻ > 'ni|';"); // 22FB CONTAINS WITH VERTICAL BAR AT END OF
+        rules.add("⋻ > ' ';"); // 22FB CONTAINS WITH VERTICAL BAR AT END OF
                                  // HORIZONTAL STROKE (arbitrary)
-        rules.add("⋼ > 'ni|';"); // 22FC SMALL CONTAINS WITH VERTICAL BAR AT END
+        rules.add("⋼ > ' ';"); // 22FC SMALL CONTAINS WITH VERTICAL BAR AT END
                                  // OF HORIZONTAL STROKE (dup)
-        rules.add("⋽ > 'ni-';"); // 22FD CONTAINS WITH OVERBAR (dup)
-        rules.add("⋾ > 'ni-';"); // 22FE SMALL CONTAINS WITH OVERBAR (dup)
-        rules.add("⋿ > 'bag';"); // 22FF Z NOTATION BAG MEMBERSHIP (arbitrary)
+        rules.add("⋽ > ' ';"); // 22FD CONTAINS WITH OVERBAR (dup)
+        rules.add("⋾ > ' ';"); // 22FE SMALL CONTAINS WITH OVERBAR (dup)
+        rules.add("⋿ > ' ';"); // 22FF Z NOTATION BAG MEMBERSHIP (arbitrary)
 
         TRANSLITERATOR = Transliterator.createFromRules("MathOperators-BasicLatin", String.join("\n", rules),
                 Transliterator.FORWARD);
