@@ -66,7 +66,7 @@ public class KakasiTransform implements Transform {
             if (result.length() > 0) {
                 char previous = result.charAt(result.length() - 1);
 
-                if (Character.isLetterOrDigit(previous)) {
+                if (Character.isLetterOrDigit(previous) || isClosingBracket(previous) || isPunctuation(previous)) {
                     result.append(' ');
                 }
             }
@@ -76,7 +76,7 @@ public class KakasiTransform implements Transform {
             if (japaneseEnd < length) {
                 char next = input.charAt(japaneseEnd);
 
-                if (Character.isLetterOrDigit(next)) {
+                if (Character.isLetterOrDigit(next) || isOpeningBracket(next)) {
                     result.append(' ');
                 }
             }
@@ -93,5 +93,20 @@ public class KakasiTransform implements Transform {
         String result = action(input.toString());
         input.setLength(0);
         input.append(result);
+    }
+
+
+    public static boolean isOpeningBracket(char c) {
+        return c == '(' || c == '[' || c == '{';
+    }
+
+
+    public static boolean isClosingBracket(char c) {
+        return c == ')' || c == ']' || c == '}';
+    }
+
+
+    public static boolean isPunctuation(char c) {
+        return c == '.' || c == ',' || c == '?' || c == '!' || c == ';' || c == ':';
     }
 }

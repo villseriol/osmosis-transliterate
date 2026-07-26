@@ -126,7 +126,7 @@ public class GeometricShapesTransform implements Transform {
         rules.add("◶ > o;");
         rules.add("◷ > o;");
 
-        TRANSLITERATOR = Transliterator.createFromRules("GeometricShapes-Normalized", String.join("\n", rules),
+        TRANSLITERATOR = Transliterator.createFromRules("GeometricShapes-BasicLatin", String.join("\n", rules),
                 Transliterator.FORWARD);
     }
 

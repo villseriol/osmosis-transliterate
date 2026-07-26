@@ -39,18 +39,25 @@ public class KakasiPipelineRunnerTest extends AbstractDataTest {
 
         // 12755242465
         // NB: guideposts to use the address dictionary
-        assertEquals("5-cho old path^<", runner.run("name:en", "5-chō old path↖"));
-        assertEquals("go chou ko michi^<", runner.run("name", "五丁古道↖"));
-        assertEquals("v<itchou", runner.run("name", "↙一丁"));
+        assertEquals("5-cho old path(NW)", runner.run("name:en", "5-chō old path↖"));
+        assertEquals("go chou ko michi (NW)", runner.run("name", "五丁古道↖"));
+        assertEquals("(SW) itchou", runner.run("name", "↙一丁"));
 
         // 5649766468
         // NB: maybe all nodes related to transportation should use the address
-        assertEquals("shikoku kisen feri^ uno<=>miya ura(choku shima)", runner.run("name", "四国汽船 フェリー　宇野⇔宮浦(直島)"));
+        assertEquals("shikoku kisen feri^ uno<=>miya ura (choku shima)", runner.run("name", "四国汽船 フェリー　宇野⇔宮浦(直島)"));
 
         // 9196762039
         // NB: once again, applying the address-based dictionary shows better
         // translation results
-        assertEquals("ehara eigyousho[han 01 · han 02<magomeeki mae basu tei=>2 ban noriba basu tei he>]",
+        assertEquals("ehara eigyousho [han 01 · han 02<magomeeki mae basu tei=>2 ban noriba basu tei he>]",
                 runner.run("name", "荏原営業所【反０１・反０２＜馬込駅前バス停⇒２番乗り場バス停へ＞】"));
+    }
+
+
+    @Test
+    public void testTable() {
+        assertEquals("furenzu (FRIENDS)|sayamashi no mouhatsu soudan dekiru biyou shitsu",
+                runner.run("name", "フレンズ（FRIENDS）│狭山市の毛髪相談できる美容室"));
     }
 }

@@ -61,6 +61,7 @@
         <run alias="half-width-full-width" />
         <run alias="latin" />
         <run alias="un-accent" />
+        <run alias="misc-symbol-arrow" />
 
         <run alias="kakasi">
             <dictionaries>
@@ -87,6 +88,9 @@
                 <condition path="classpath:/data/template/v0_6/janino/general.script.java" />
             </conditional>
         </run>
+
+        <run alias="trim" />
+        <run alias="duplicate-space" />
     </pipeline>
 
     <filter>

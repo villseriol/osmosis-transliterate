@@ -18,10 +18,10 @@ public class ArrowTransformTest {
         assertEquals("v", transform.action("↓"));
         assertEquals("<->", transform.action("↔"));
         assertEquals("^v", transform.action("↕"));
-        assertEquals("^<", transform.action("↖"));
-        assertEquals("^>", transform.action("↗"));
-        assertEquals("v>", transform.action("↘"));
-        assertEquals("v<", transform.action("↙"));
+        assertEquals("(NW)", transform.action("↖"));
+        assertEquals("(NE)", transform.action("↗"));
+        assertEquals("(SE)", transform.action("↘"));
+        assertEquals("(SW)", transform.action("↙"));
     }
 
 
@@ -78,18 +78,18 @@ public class ArrowTransformTest {
     public void testWaveStrokeAndZigzagArrows() {
         assertEquals("<~>", transform.action("↭"));
         assertEquals("<->", transform.action("↮"));
-        assertEquals("~v", transform.action("↯"));
+        assertEquals(" ", transform.action("↯"));
     }
 
 
     @Test
     public void testTipAndCornerArrows() {
-        assertEquals("^<", transform.action("↰"));
-        assertEquals("^>", transform.action("↱"));
-        assertEquals("v<", transform.action("↲"));
-        assertEquals("v>", transform.action("↳"));
-        assertEquals(">v", transform.action("↴"));
-        assertEquals("v<", transform.action("↵"));
+        assertEquals("<", transform.action("↰"));
+        assertEquals(">", transform.action("↱"));
+        assertEquals("<", transform.action("↲"));
+        assertEquals(">", transform.action("↳"));
+        assertEquals("v", transform.action("↴"));
+        assertEquals("<", transform.action("↵"));
     }
 
 
@@ -97,7 +97,7 @@ public class ArrowTransformTest {
     public void testSemicircleAndCircleArrows() {
         assertEquals("<-", transform.action("↶"));
         assertEquals("->", transform.action("↷"));
-        assertEquals("^<", transform.action("↸"));
+        assertEquals("<-", transform.action("↸"));
         assertEquals("<->", transform.action("↹"));
         assertEquals("<-", transform.action("↺"));
         assertEquals("->", transform.action("↻"));
@@ -147,10 +147,10 @@ public class ArrowTransformTest {
         assertEquals("vv", transform.action("⇓"));
         assertEquals("<=>", transform.action("⇔"));
         assertEquals("^v", transform.action("⇕"));
-        assertEquals("^<", transform.action("⇖"));
-        assertEquals("^>", transform.action("⇗"));
-        assertEquals("v>", transform.action("⇘"));
-        assertEquals("v<", transform.action("⇙"));
+        assertEquals("(NW)", transform.action("⇖"));
+        assertEquals("(NE)", transform.action("⇗"));
+        assertEquals("(SE)", transform.action("⇘"));
+        assertEquals("(SW)", transform.action("⇙"));
         assertEquals("<=", transform.action("⇚"));
         assertEquals("=>", transform.action("⇛"));
     }
@@ -189,8 +189,8 @@ public class ArrowTransformTest {
         assertEquals("^^", transform.action("⇮"));
         assertEquals("^^", transform.action("⇯"));
         assertEquals("->", transform.action("⇰"));
-        assertEquals("^<", transform.action("⇱"));
-        assertEquals("v>", transform.action("⇲"));
+        assertEquals("(NW)", transform.action("⇱"));
+        assertEquals("(SE)", transform.action("⇲"));
         assertEquals("^v", transform.action("⇳"));
     }
 

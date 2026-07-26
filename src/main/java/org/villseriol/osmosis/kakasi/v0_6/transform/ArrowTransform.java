@@ -30,10 +30,10 @@ public class ArrowTransform implements Transform {
         rules.add("[↓] > 'v';"); // 2193 DOWNWARDS ARROW
         rules.add("[↔] > '<->';"); // 2194 LEFT RIGHT ARROW
         rules.add("[↕] > '^v';"); // 2195 UP DOWN ARROW
-        rules.add("[↖] > '^<';"); // 2196 NORTH WEST ARROW
-        rules.add("[↗] > '^>';"); // 2197 NORTH EAST ARROW
-        rules.add("[↘] > 'v>';"); // 2198 SOUTH EAST ARROW
-        rules.add("[↙] > 'v<';"); // 2199 SOUTH WEST ARROW
+        rules.add("[↖] > '(NW)';"); // 2196 NORTH WEST ARROW
+        rules.add("[↗] > '(NE)';"); // 2197 NORTH EAST ARROW
+        rules.add("[↘] > '(SE)';"); // 2198 SOUTH EAST ARROW
+        rules.add("[↙] > '(SW)';"); // 2199 SOUTH WEST ARROW
 
         // Stroke-negated arrows -> style dropped, collapse to base direction
         rules.add("[↚] > '<-';"); // 219A LEFTWARDS ARROW WITH STROKE
@@ -70,15 +70,16 @@ public class ArrowTransform implements Transform {
 
         rules.add("[↭] > '<~>';"); // 21AD LEFT RIGHT WAVE ARROW
         rules.add("[↮] > '<->';"); // 21AE LEFT RIGHT ARROW WITH STROKE
-        rules.add("[↯] > '~v';"); // 21AF DOWNWARDS ZIGZAG ARROW
+        rules.add("[↯] > ' ';"); // 21AF DOWNWARDS ZIGZAG ARROW
 
-        // Tip/corner arrows
-        rules.add("[↰] > '^<';"); // 21B0 UPWARDS ARROW WITH TIP LEFTWARDS
-        rules.add("[↱] > '^>';"); // 21B1 UPWARDS ARROW WITH TIP RIGHTWARDS
-        rules.add("[↲] > 'v<';"); // 21B2 DOWNWARDS ARROW WITH TIP LEFTWARDS
-        rules.add("[↳] > 'v>';"); // 21B3 DOWNWARDS ARROW WITH TIP RIGHTWARDS
-        rules.add("[↴] > '>v';"); // 21B4 RIGHTWARDS ARROW WITH CORNER DOWNWARDS
-        rules.add("[↵] > 'v<';"); // 21B5 DOWNWARDS ARROW WITH CORNER LEFTWARDS
+        // Tip/corner arrows -> collapse to the tip/corner direction, left or
+        // right only
+        rules.add("[↰] > '<';"); // 21B0 UPWARDS ARROW WITH TIP LEFTWARDS
+        rules.add("[↱] > '>';"); // 21B1 UPWARDS ARROW WITH TIP RIGHTWARDS
+        rules.add("[↲] > '<';"); // 21B2 DOWNWARDS ARROW WITH TIP LEFTWARDS
+        rules.add("[↳] > '>';"); // 21B3 DOWNWARDS ARROW WITH TIP RIGHTWARDS
+        rules.add("[↴] > 'v';"); // 21B4 RIGHTWARDS ARROW WITH CORNER DOWNWARDS
+        rules.add("[↵] > '<';"); // 21B5 DOWNWARDS ARROW WITH CORNER LEFTWARDS
 
         // Semicircle rotate arrows -> approximated by implied rotation
         // direction
@@ -86,7 +87,7 @@ public class ArrowTransform implements Transform {
         rules.add("[↷] > '->';"); // 21B7 CLOCKWISE TOP SEMICIRCLE ARROW
 
         // Bar-compound arrows
-        rules.add("[↸] > '^<';"); // 21B8 NORTH WEST ARROW TO LONG BAR
+        rules.add("[↸] > '<-';"); // 21B8 NORTH WEST ARROW TO LONG BAR
         rules.add("[↹] > '<->';"); // 21B9 LEFTWARDS ARROW TO BAR OVER
                                    // RIGHTWARDS
                                    // ARROW TO BAR
@@ -135,10 +136,10 @@ public class ArrowTransform implements Transform {
         rules.add("[⇓] > 'vv';"); // 21D3 DOWNWARDS DOUBLE ARROW
         rules.add("[⇔] > '<=>';"); // 21D4 LEFT RIGHT DOUBLE ARROW
         rules.add("[⇕] > '^v';"); // 21D5 UP DOWN DOUBLE ARROW
-        rules.add("[⇖] > '^<';"); // 21D6 NORTH WEST DOUBLE ARROW
-        rules.add("[⇗] > '^>';"); // 21D7 NORTH EAST DOUBLE ARROW
-        rules.add("[⇘] > 'v>';"); // 21D8 SOUTH EAST DOUBLE ARROW
-        rules.add("[⇙] > 'v<';"); // 21D9 SOUTH WEST DOUBLE ARROW
+        rules.add("[⇖] > '(NW)';"); // 21D6 NORTH WEST DOUBLE ARROW
+        rules.add("[⇗] > '(NE)';"); // 21D7 NORTH EAST DOUBLE ARROW
+        rules.add("[⇘] > '(SE)';"); // 21D8 SOUTH EAST DOUBLE ARROW
+        rules.add("[⇙] > '(SW)';"); // 21D9 SOUTH WEST DOUBLE ARROW
 
         rules.add("[⇚] > '<=';"); // 21DA LEFTWARDS TRIPLE ARROW
         rules.add("[⇛] > '=>';"); // 21DB RIGHTWARDS TRIPLE ARROW
@@ -174,8 +175,8 @@ public class ArrowTransform implements Transform {
         rules.add("[⇮] > '^^';"); // 21EE UPWARDS WHITE DOUBLE ARROW
         rules.add("[⇯] > '^^';"); // 21EF ...ON PEDESTAL
         rules.add("[⇰] > '->';"); // 21F0 RIGHTWARDS WHITE ARROW FROM WALL
-        rules.add("[⇱] > '^<';"); // 21F1 NORTH WEST ARROW TO CORNER
-        rules.add("[⇲] > 'v>';"); // 21F2 SOUTH EAST ARROW TO CORNER
+        rules.add("[⇱] > '(NW)';"); // 21F1 NORTH WEST ARROW TO CORNER
+        rules.add("[⇲] > '(SE)';"); // 21F2 SOUTH EAST ARROW TO CORNER
         rules.add("[⇳] > '^v';"); // 21F3 UP DOWN WHITE ARROW
 
         rules.add("[⇴] > '->';"); // 21F4 RIGHT ARROW WITH SMALL CIRCLE

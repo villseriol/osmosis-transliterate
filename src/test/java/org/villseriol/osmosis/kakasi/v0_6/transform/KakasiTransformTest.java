@@ -67,9 +67,9 @@ public class KakasiTransformTest {
         assertEquals("EY4180 (kabu)", transform.action("EY4180 (株)"));
         assertEquals("EY4180 ( kabu )", transform.action("EY4180 【株】"));
         assertEquals("EY4180 ( kabu )", transform.action("EY4180 「株」"));
-        assertEquals("EY4180 )((kabu())", transform.action("EY4180 )((株())"));
-        assertEquals("EY>4180 )((kabu())", transform.action("EY>4180 )((株())"));
+        assertEquals("EY4180 )((kabu ())", transform.action("EY4180 )((株())"));
+        assertEquals("EY>4180 )((kabu ())", transform.action("EY>4180 )((株())"));
         assertEquals("ka a . ga^den", transform.action("珈亜・ガーデン"));
-        assertEquals("ide yu(ide machi kyoudouyokujou)", transform.action("いで湯(井出町共同浴場)"));
+        assertEquals("ide yu (ide machi kyoudouyokujou)", transform.action("いで湯(井出町共同浴場)"));
     }
 }

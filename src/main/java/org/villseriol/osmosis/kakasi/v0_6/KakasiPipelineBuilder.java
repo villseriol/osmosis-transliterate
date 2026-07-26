@@ -26,13 +26,16 @@ import org.villseriol.osmosis.kakasi.v0_6.transform.ArrowTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.BoxDrawingTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.CustomMappingTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.CyrillicTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.DuplicateSpaceTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.GeneralPunctuationTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.GeometricShapesTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.GreekTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.HalfWidthFullWidthTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.KakasiTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.LatinTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.MiscellaneousSymbolsAndArrowsTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.SmallFormVariantsTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.TrimTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.UnAccentTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.Transform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.TransformConditionalDecorator;
@@ -87,6 +90,10 @@ public class KakasiPipelineBuilder {
 
             return new CustomMappingTransform(replacements);
 
+        case DUPLICATE_SPACE:
+            LOG.info("Initializing duplicate-space transform");
+            return new DuplicateSpaceTransform();
+
         case GENERAL_PUNCTUATION:
             LOG.info("Initializing general-punctuation transform");
             return new GeneralPunctuationTransform();
@@ -120,9 +127,17 @@ public class KakasiPipelineBuilder {
             LOG.info("Initializing latin transform");
             return new LatinTransform();
 
+        case MISC_SYMBOL_ARROW:
+            LOG.info("Initializing misc-symbol-arrow transform");
+            return new MiscellaneousSymbolsAndArrowsTransform();
+
         case SMALL_FORM:
             LOG.info("Initializing small-form transform");
             return new SmallFormVariantsTransform();
+
+        case TRIM:
+            LOG.info("Initializing trim transform");
+            return new TrimTransform();
 
         case UN_ACCENT:
             LOG.info("Initializing un-accent transform");

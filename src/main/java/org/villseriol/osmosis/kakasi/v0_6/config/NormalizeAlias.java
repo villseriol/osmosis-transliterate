@@ -38,6 +38,13 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.DuplicateSpaceTransform
+     */
+    DUPLICATE_SPACE("duplicate-space"),
+
+    /**
+     * TODO.
+     *
      * @see org.villseriol.osmosis.kakasi.v0_6.transform.GeneralPunctuationTransform
      */
     GENERAL_PUNCTUATION("general-punctuation"),
@@ -80,9 +87,23 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.MiscellaneousSymbolsAndArrowsTransform
+     */
+    MISC_SYMBOL_ARROW("misc-symbol-arrow"),
+
+    /**
+     * TODO.
+     *
      * @see org.villseriol.osmosis.kakasi.v0_6.transform.SmallFormVariantsTransform
      */
     SMALL_FORM("small-form"),
+
+    /**
+     * TODO.
+     *
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.TrimTransform
+     */
+    TRIM("trim"),
 
     /**
      * TODO.
