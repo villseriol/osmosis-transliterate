@@ -19,17 +19,6 @@
                 </replace-with>
 
                 <replace-with value="¤">
-                    <when-value-is value="֏" /> <!-- 058F ARMENIAN DRAM SIGN -->
-                    <when-value-is value="؋" /> <!-- 060B AFGHANI SIGN -->
-                    <when-value-is value="߾" /> <!-- 07FE NKO DOROME SIGN -->
-                    <when-value-is value="߿" /> <!-- 07FF NKO TAMAN SIGN -->
-                    <when-value-is value="৲" /> <!-- 09F2 BENGALI RUPEE MARK -->
-                    <when-value-is value="৳" /> <!-- 09F3 BENGALI RUPEE SIGN -->
-                    <when-value-is value="৻" /> <!-- 09FB BENGALI GANDA MARK -->
-                    <when-value-is value="૱" /> <!-- 0AF1 GUJARATI RUPEE SIGN -->
-                    <when-value-is value="௹" /> <!-- 0BF9 TAMIL RUPEE SIGN -->
-                    <when-value-is value="฿" /> <!-- 0E3F THAI CURRENCY SYMBOL BAHT -->
-                    <when-value-is value="៛" /> <!-- 17DB KHMER CURRENCY SYMBOL RIEL -->
                     <when-value-is value="₠" /> <!-- 20A0 EURO-CURRENCY SIGN -->
                     <when-value-is value="₡" /> <!-- 20A1 COLON SIGN -->
                     <when-value-is value="₢" /> <!-- 20A2 CRUZEIRO SIGN -->
@@ -55,25 +44,6 @@
                     <when-value-is value="₷" /> <!-- 20B7 SPESMILO SIGN -->
                     <when-value-is value="₸" /> <!-- 20B8 TENGE SIGN -->
                     <when-value-is value="₹" /> <!-- 20B9 INDIAN RUPEE SIGN -->
-                    <when-value-is value="₺" /> <!-- 20BA TURKISH LIRA SIGN -->
-                    <when-value-is value="₻" /> <!-- 20BB NORDIC MARK SIGN -->
-                    <when-value-is value="₼" /> <!-- 20BC MANAT SIGN -->
-                    <when-value-is value="₽" /> <!-- 20BD RUBLE SIGN -->
-                    <when-value-is value="₾" /> <!-- 20BE LARI SIGN -->
-                    <when-value-is value="₿" /> <!-- 20BF BITCOIN SIGN -->
-                    <when-value-is value="꠸" /> <!-- A838 NORTH INDIC RUPEE MARK -->
-                    <when-value-is value="﷼" /> <!-- FDFC RIAL SIGN -->
-                    <when-value-is value="﹩" /> <!-- FE69 SMALL DOLLAR SIGN -->
-                    <when-value-is value="＄" /> <!-- FF04 FULLWIDTH DOLLAR SIGN -->
-                    <when-value-is value="￠" /> <!-- FFE0 FULLWIDTH CENT SIGN -->
-                    <when-value-is value="￥" /> <!-- FFE5 FULLWIDTH YEN SIGN -->
-                    <when-value-is value="￦" /> <!-- FFE6 FULLWIDTH WON SIGN -->
-                    <when-value-is value="𑿝" /> <!-- 11FDD TAMIL SIGN KAACU -->
-                    <when-value-is value="𑿞" /> <!-- 11FDE TAMIL SIGN PANAM -->
-                    <when-value-is value="𑿟" /> <!-- 11FDF TAMIL SIGN PON -->
-                    <when-value-is value="𑿠" /> <!-- 11FE0 TAMIL SIGN VARAAKAN -->
-                    <when-value-is value="𞋿" /> <!-- 1E2FF WANCHO NGUN SIGN -->
-                    <when-value-is value="𞲰" /> <!-- 1ECB0 INDIC SIYAQ RUPEE MARK -->
                 </replace-with>
 
                 <replace-with value="¢">
@@ -163,6 +133,7 @@
             </conditional>
         </run>
 
+        <!-- Run latin1-only in production only. Investigate unmapped characters in development -->
         <run alias="latin1-only" />
         <run alias="trim" />
         <run alias="duplicate-space" />
