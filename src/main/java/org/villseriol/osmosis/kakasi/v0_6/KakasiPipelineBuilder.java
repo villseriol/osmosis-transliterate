@@ -27,11 +27,13 @@ import org.villseriol.osmosis.kakasi.v0_6.transform.BoxDrawingTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.CustomMappingTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.CyrillicTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.DuplicateSpaceTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.EnclosedLettersAndSymbols;
 import org.villseriol.osmosis.kakasi.v0_6.transform.GeneralPunctuationTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.GeometricShapesTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.GreekTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.HalfWidthFullWidthTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.KakasiTransform;
+import org.villseriol.osmosis.kakasi.v0_6.transform.Latin1OnlyTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.LatinTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.MiscellaneousSymbolsAndArrowsTransform;
 import org.villseriol.osmosis.kakasi.v0_6.transform.SmallFormVariantsTransform;
@@ -94,6 +96,10 @@ public class KakasiPipelineBuilder {
             LOG.info("Initializing duplicate-space transform");
             return new DuplicateSpaceTransform();
 
+        case ENCLOSED:
+            LOG.info("Initializing enclosed transform");
+            return new EnclosedLettersAndSymbols();
+
         case GENERAL_PUNCTUATION:
             LOG.info("Initializing general-punctuation transform");
             return new GeneralPunctuationTransform();
@@ -126,6 +132,10 @@ public class KakasiPipelineBuilder {
         case LATIN:
             LOG.info("Initializing latin transform");
             return new LatinTransform();
+
+        case LATIN1_ONLY:
+            LOG.info("Initializing latin1-only transform");
+            return new Latin1OnlyTransform();
 
         case MISC_SYMBOL_ARROW:
             LOG.info("Initializing misc-symbol-arrow transform");

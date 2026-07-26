@@ -45,6 +45,13 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.EnclosedLettersAndSymbols
+     */
+    ENCLOSED("enclosed"),
+
+    /**
+     * TODO.
+     *
      * @see org.villseriol.osmosis.kakasi.v0_6.transform.GeneralPunctuationTransform
      */
     GENERAL_PUNCTUATION("general-punctuation"),
@@ -83,6 +90,13 @@ public enum NormalizeAlias {
      * @see org.villseriol.osmosis.kakasi.v0_6.transform.LatinTransform
      */
     LATIN("latin"),
+
+    /**
+     * TODO.
+     *
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.Latin1OnlyTransform
+     */
+    LATIN1_ONLY("latin1-only"),
 
     /**
      * TODO.

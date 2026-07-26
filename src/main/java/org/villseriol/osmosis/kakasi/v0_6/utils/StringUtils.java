@@ -46,14 +46,15 @@ public final class StringUtils {
     /**
      * Renders one or more {@link UnicodeRange}s as an ICU4J transliterator
      * catch-all rule that replaces any unmapped code point in those blocks with
-     * {@code (?)}, e.g. {@code [─-╿] > '(?)';}.
+     * the given fallback string, e.g. {@code [─-╿] > '(?)';}.
      *
+     * @param fallback the replacement to use for any unmapped code point
      * @param range the Unicode block to fall back on
      * @param ranges additional Unicode blocks to include in the same fallback
      * @return the ICU4J transliterator fallback rule for the given blocks
      */
-    public static String toIcuFallbackRule(UnicodeRange range, UnicodeRange... ranges) {
-        return toIcuRange(range, ranges) + " > '(?)';";
+    public static String toIcuFallbackRule(String fallback, UnicodeRange range, UnicodeRange... ranges) {
+        return toIcuRange(range, ranges) + " > '" + fallback + "';";
     }
 
 

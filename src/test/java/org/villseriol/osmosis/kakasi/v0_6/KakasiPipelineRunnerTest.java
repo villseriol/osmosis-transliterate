@@ -52,12 +52,15 @@ public class KakasiPipelineRunnerTest extends AbstractDataTest {
         // translation results
         assertEquals("ehara eigyousho [han 01 · han 02<magomeeki mae basu tei=>2 ban noriba basu tei he>]",
                 runner.run("name", "荏原営業所【反０１・反０２＜馬込駅前バス停⇒２番乗り場バス停へ＞】"));
-    }
 
-
-    @Test
-    public void testTable() {
         assertEquals("furenzu (FRIENDS)|sayamashi no mouhatsu soudan dekiru biyou shitsu",
                 runner.run("name", "フレンズ（FRIENDS）│狭山市の毛髪相談できる美容室"));
+        assertEquals("kyouto yodo izakaya meibutsu karaage", runner.run("name", "京都🏮淀🍶居酒屋🍗名物からあげ"));
+        assertEquals("oka kuchi 1,260m / kaneoka kouen 530m / shimin no ki yanagi",
+                runner.run("name", "岡口 1,260m / 金岡公園530m▶ / 市民の木 ヤナギ"));
+        assertEquals("moto otafuku->tsunku no mise->", runner.run("name", "元 おたふく→つんく♂の店→"));
+        assertEquals(
+                "sendaizaka [toukyuu] no [1 ban noriba basu tei] (2) sendaizaka [keikyuu] no [B ban noriba basu tei]",
+                runner.run("name", "仙台坂【★東急】の【１番乗り場バス停】 ②仙台坂【☆京急】の【Ｂ番乗り場バス停】"));
     }
 }

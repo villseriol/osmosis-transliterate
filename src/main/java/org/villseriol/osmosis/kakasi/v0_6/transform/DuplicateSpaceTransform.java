@@ -5,6 +5,7 @@ import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.Transform;
 
 
 public class DuplicateSpaceTransform implements Transform {
+    private final BracketTrimTransform bracketTrimTransform = new BracketTrimTransform();
 
     @Override
     public String action(String input) {
@@ -24,7 +25,7 @@ public class DuplicateSpaceTransform implements Transform {
             }
         }
 
-        return result.toString();
+        return bracketTrimTransform.action(result.toString());
     }
 
 
@@ -42,6 +43,8 @@ public class DuplicateSpaceTransform implements Transform {
 
             i++;
         }
+
+        bracketTrimTransform.action(input);
     }
 
 }
