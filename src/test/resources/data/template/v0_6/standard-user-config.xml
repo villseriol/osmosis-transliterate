@@ -62,12 +62,23 @@
                     <when-value-is value="🄬" />
                 </replace-with>
 
+                <replace-with value="°C">
+                    <when-value-is value="℃" />
+                </replace-with>
+
+                <replace-with value="°F">
+                    <when-value-is value="℉" />
+                </replace-with>
+
                 <replace-with value=" · ">
                     <when-value-is value="・" />
                     <when-value-is value="･" />
                     <when-value-is value="•" />
                 </replace-with>
 
+                <replace-with value="±">
+                    <when-value-is value="∓" />
+                </replace-with>
 
                 <replace-with value="&lt;">
                     <when-value-is value="〈" />
