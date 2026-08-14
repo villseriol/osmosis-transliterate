@@ -9,7 +9,7 @@ import com.ibm.icu.text.Transliterator;
 
 public class UnAccentTransform implements Transform {
     private static final Transliterator TRANSLITERATOR = Transliterator
-            .getInstance("[[:Latin:]]; NFD; [:Nonspacing Mark:] Remove; NFC");
+            .getInstance("[[:Latin:]-[\\u0000-\\u00FF]]; NFD; [:Nonspacing Mark:] Remove; NFC");
 
     @Override
     public String action(String input) {

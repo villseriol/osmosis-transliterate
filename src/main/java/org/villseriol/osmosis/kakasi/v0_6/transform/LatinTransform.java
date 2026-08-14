@@ -10,7 +10,7 @@ import com.ibm.icu.text.Transliterator;
 // https://www.unicodepedia.com/groups/latin-extended-a/
 public class LatinTransform implements Transform {
     private static final Transliterator LIGATURE_ASCII = Transliterator
-            .getInstance("[[:Latin:]]; Any-Latin; Latin-ASCII");
+            .getInstance("[[:Latin:]-[\\u0000-\\u00FF]]; Any-Latin; Latin-ASCII");
 
     @Override
     public String action(String input) {
