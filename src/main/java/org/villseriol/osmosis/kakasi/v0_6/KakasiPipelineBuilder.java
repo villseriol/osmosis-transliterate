@@ -24,23 +24,26 @@ import org.villseriol.osmosis.kakasi.v0_6.config.TagNode;
 import org.villseriol.osmosis.kakasi.v0_6.config.WhenValueIsNode;
 import org.villseriol.osmosis.kakasi.v0_6.unicode.decorator.TransformConditionalDecorator;
 import org.villseriol.osmosis.kakasi.v0_6.unicode.decorator.TransformSequenceDecorator;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.ArrowTransform;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.BoxDrawingTransform;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.CustomMappingTransform;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.CyrillicTransform;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.DuplicateSpaceTransform;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.EnclosedLettersAndSymbols;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.GeneralPunctuationTransform;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.GeometricShapesTransform;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.GreekTransform;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.HalfWidthFullWidthTransform;
 import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.KakasiTransform;
 import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.Latin1OnlyTransform;
 import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.LatinTransform;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.MiscellaneousSymbolsAndArrowsTransform;
-import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.SmallFormVariantsTransform;
 import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.TrimTransform;
 import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.UnAccentTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.ArrowsTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.BoxDrawingTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.CyrillicTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedAlphanumericSupplementTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedAlphanumericsTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedCjkLettersAndMonthsTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedIdeographicSupplementTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.GeneralPunctuationTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.GeometricShapesTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.GreekTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.HalfWidthFullWidthTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.MiscellaneousSymbolsAndArrowsTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.SmallFormVariantsTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.nonspecific.CustomMappingTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.nonspecific.DuplicateSpaceTransform;
 import org.villseriol.osmosis.kakasi.v0_6.unicode.types.Unimap;
 import org.villseriol.osmosis.kakasi.v0_6.utils.DictionaryLoader;
 import org.villseriol.osmosis.kakasi.v0_6.utils.ScriptBuilder;
@@ -70,7 +73,7 @@ public class KakasiPipelineBuilder {
         switch (alias) {
         case ARROW:
             LOG.info("Initializing arrow transform");
-            return new ArrowTransform();
+            return new ArrowsTransform();
 
         case BOX_DRAWING:
             LOG.info("Initializing box-drawing transform");
@@ -98,7 +101,9 @@ public class KakasiPipelineBuilder {
 
         case ENCLOSED:
             LOG.info("Initializing enclosed transform");
-            return new EnclosedLettersAndSymbols();
+            return new TransformSequenceDecorator(new EnclosedAlphanumericsTransform(),
+                    new EnclosedAlphanumericSupplementTransform(), new EnclosedIdeographicSupplementTransform(),
+                    new EnclosedCjkLettersAndMonthsTransform());
 
         case GENERAL_PUNCTUATION:
             LOG.info("Initializing general-punctuation transform");

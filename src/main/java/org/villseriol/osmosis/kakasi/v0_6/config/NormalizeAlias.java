@@ -45,7 +45,10 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.kakasi.v0_6.transform.EnclosedLettersAndSymbols
+     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedAlphanumericsTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedAlphanumericSupplementTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedIdeographicSupplementTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedCjkLettersAndMonthsTransform
      */
     ENCLOSED("enclosed"),
 

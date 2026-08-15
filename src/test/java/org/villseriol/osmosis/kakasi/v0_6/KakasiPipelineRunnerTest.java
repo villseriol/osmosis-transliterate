@@ -39,9 +39,11 @@ public class KakasiPipelineRunnerTest extends AbstractDataTest {
 
         // 12755242465
         // NB: guideposts to use the address dictionary
-        assertEquals("5-cho old path(NW)", runner.run("name:en", "5-chō old path↖"));
-        assertEquals("go chou ko michi (NW)", runner.run("name", "五丁古道↖"));
-        assertEquals("(SW) itchou", runner.run("name", "↙一丁"));
+        // NB: arrow transform now only supports left/right arrows; diagonal
+        // arrows are dropped to whitespace and trimmed away
+        assertEquals("5-cho old path", runner.run("name:en", "5-chō old path↖"));
+        assertEquals("go chou ko michi", runner.run("name", "五丁古道↖"));
+        assertEquals("itchou", runner.run("name", "↙一丁"));
 
         // 5649766468
         // NB: maybe all nodes related to transportation should use the address
