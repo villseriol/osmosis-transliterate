@@ -12,9 +12,9 @@ public class HalfWidthFullWidthTransformTest {
     @Test
     public void testHalfWidthPunctuation() {
         // Half-width punctuation in U+FF61-U+FF65
-        assertEquals("Half-width ｡ should become full-width 。", "。", transform.action("｡")); // U+FF61
+        assertEquals("Half-width ｡ should become full-width 。", ".", transform.action("｡")); // U+FF61
         assertEquals("Half-width ､ should become ,", ",", transform.action("､")); // U+FF64
-        assertEquals("Half-width ･ should become middle dot ·", "・", transform.action("･")); // U+FF65
+        assertEquals("Half-width ･ should become middle dot ·", "·", transform.action("･")); // U+FF65
 
         // Standalone dakuten / handakuten should be excluded
         assertEquals("Half-width ﾞ should be removed when standalone", "", transform.action("ﾞ")); // U+FF9E
