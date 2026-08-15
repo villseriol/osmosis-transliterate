@@ -8,14 +8,14 @@ import org.openstreetmap.osmosis.core.domain.v0_6.Entity;
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
 import org.openstreetmap.osmosis.core.lifecycle.Completable;
 import org.villseriol.osmosis.kakasi.v0_6.config.NormalizeConfiguration;
-import org.villseriol.osmosis.kakasi.v0_6.transform.NoTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.Transform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.NoTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.types.Unimap;
 
 
 public class KakasiPipelineRunner implements Completable {
     private final KakasiPipelineContext context = new KakasiPipelineContext();
 
-    private Transform pipeline = new NoTransform();
+    private Unimap pipeline = new NoTransform();
 
     public void init() {
     }

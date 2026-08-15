@@ -1,6 +1,9 @@
 // This software is released into the Public Domain.  See copying.txt for details.
 package org.villseriol.osmosis.kakasi.v0_6.utils;
 
+import org.villseriol.osmosis.kakasi.v0_6.unicode.types.UnicodeRange;
+
+
 public final class StringUtils {
 
     private StringUtils() {

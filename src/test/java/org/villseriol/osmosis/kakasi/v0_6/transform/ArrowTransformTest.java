@@ -4,6 +4,7 @@ package org.villseriol.osmosis.kakasi.v0_6.transform;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.ArrowTransform;
 
 
 public class ArrowTransformTest {

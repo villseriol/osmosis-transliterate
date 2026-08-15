@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.CustomMappingTransform;
 
 
 public class CustomMappingTransformTest {

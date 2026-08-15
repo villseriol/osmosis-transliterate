@@ -22,26 +22,26 @@ import org.villseriol.osmosis.kakasi.v0_6.config.ReplaceWithNode;
 import org.villseriol.osmosis.kakasi.v0_6.config.RunNode;
 import org.villseriol.osmosis.kakasi.v0_6.config.TagNode;
 import org.villseriol.osmosis.kakasi.v0_6.config.WhenValueIsNode;
-import org.villseriol.osmosis.kakasi.v0_6.transform.ArrowTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.BoxDrawingTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.CustomMappingTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.CyrillicTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.DuplicateSpaceTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.EnclosedLettersAndSymbols;
-import org.villseriol.osmosis.kakasi.v0_6.transform.GeneralPunctuationTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.GeometricShapesTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.GreekTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.HalfWidthFullWidthTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.KakasiTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.Latin1OnlyTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.LatinTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.MiscellaneousSymbolsAndArrowsTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.SmallFormVariantsTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.TrimTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.UnAccentTransform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.Transform;
-import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.TransformConditionalDecorator;
-import org.villseriol.osmosis.kakasi.v0_6.transform.decorators.TransformSequenceDecorator;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.decorator.TransformConditionalDecorator;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.decorator.TransformSequenceDecorator;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.ArrowTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.BoxDrawingTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.CustomMappingTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.CyrillicTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.DuplicateSpaceTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.EnclosedLettersAndSymbols;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.GeneralPunctuationTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.GeometricShapesTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.GreekTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.HalfWidthFullWidthTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.KakasiTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.Latin1OnlyTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.LatinTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.MiscellaneousSymbolsAndArrowsTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.SmallFormVariantsTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.TrimTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.UnAccentTransform;
+import org.villseriol.osmosis.kakasi.v0_6.unicode.types.Unimap;
 import org.villseriol.osmosis.kakasi.v0_6.utils.DictionaryLoader;
 import org.villseriol.osmosis.kakasi.v0_6.utils.ScriptBuilder;
 
@@ -64,7 +64,7 @@ public class KakasiPipelineBuilder {
      * @param run configuration to build from
      * @return the transform
      */
-    private Transform createTransformFromRunNode(RunNode run) {
+    private Unimap createTransformFromRunNode(RunNode run) {
         NormalizeAlias alias = run.getAlias();
 
         switch (alias) {
@@ -164,10 +164,10 @@ public class KakasiPipelineBuilder {
      *
      * @return the transform
      */
-    public Transform build() {
-        List<Transform> transforms = new ArrayList<>();
+    public Unimap build() {
+        List<Unimap> transforms = new ArrayList<>();
         for (RunNode run : configuration.getRuns()) {
-            Transform t = createTransformFromRunNode(run);
+            Unimap t = createTransformFromRunNode(run);
 
             transforms.add(t);
         }
@@ -182,8 +182,8 @@ public class KakasiPipelineBuilder {
      * @param context the context
      * @return the transform
      */
-    public Transform build(KakasiPipelineContext context) {
-        List<Transform> transforms = new ArrayList<>();
+    public Unimap build(KakasiPipelineContext context) {
+        List<Unimap> transforms = new ArrayList<>();
 
         List<TagNode> globalTagPreFilter = configuration.getTags();
         Supplier<Boolean> filterBySpecifiedTags = () -> {
@@ -196,7 +196,7 @@ public class KakasiPipelineBuilder {
         };
 
         for (RunNode run : configuration.getRuns()) {
-            Transform t = createTransformFromRunNode(run);
+            Unimap t = createTransformFromRunNode(run);
 
             List<Supplier<Boolean>> conditions = run.getConditions().stream()
                     .map(conditionNode -> buildConditionSupplier(conditionNode, context)).toList();
