@@ -16,7 +16,9 @@ public class KakasiPluginLoaderTest extends AbstractDataTest {
         File expectedFile = dataUtils.createDataFile("v0_6/hospital/385218500-expected.xml");
         File outputFile = dataUtils.newFile();
 
-        File configFile = dataUtils.createDataFile("v0_6/standard-user-config.xml");
+        File preConfigFile = dataUtils.createDataFile("v0_6/pre-processing-config.xml");
+        File nameConfigFile = dataUtils.createDataFile("v0_6/standard-name-config.xml");
+        File postConfigFile = dataUtils.createDataFile("v0_6/post-processing-config.xml");
 
         // @formatter:off
         Osmosis.run(new String[] {
@@ -26,7 +28,11 @@ public class KakasiPluginLoaderTest extends AbstractDataTest {
             "--read-xml-0.6",
             sourceFile.getPath(),
             "--kakasi-0.6",
-            "file=" + configFile,
+            "file=" + preConfigFile,
+            "--kakasi-0.6",
+            "file=" + nameConfigFile,
+            "--kakasi-0.6",
+            "file=" + postConfigFile,
             "--tag-sort-0.6",
             "--write-xml-0.6", outputFile.getPath() });
         // @formatter:on
@@ -47,7 +53,9 @@ public class KakasiPluginLoaderTest extends AbstractDataTest {
         File expectedFile = dataUtils.createDataFile("v0_6/cafe/226504231-expected.xml");
         File outputFile = dataUtils.newFile();
 
-        File configFile = dataUtils.createDataFile("v0_6/standard-user-config.xml");
+        File preConfigFile = dataUtils.createDataFile("v0_6/pre-processing-config.xml");
+        File nameConfigFile = dataUtils.createDataFile("v0_6/standard-name-config.xml");
+        File postConfigFile = dataUtils.createDataFile("v0_6/post-processing-config.xml");
 
         // @formatter:off
         Osmosis.run(new String[] {
@@ -57,7 +65,11 @@ public class KakasiPluginLoaderTest extends AbstractDataTest {
             "--read-xml-0.6",
             sourceFile.getPath(),
             "--kakasi-0.6",
-            "file=" + configFile,
+            "file=" + preConfigFile,
+            "--kakasi-0.6",
+            "file=" + nameConfigFile,
+            "--kakasi-0.6",
+            "file=" + postConfigFile,
             "--tag-sort-0.6",
             "--write-xml-0.6", outputFile.getPath() });
         // @formatter:on
@@ -78,7 +90,10 @@ public class KakasiPluginLoaderTest extends AbstractDataTest {
         File expectedFile = dataUtils.createDataFile("v0_6/hotel/310173328-expected.xml");
         File outputFile = dataUtils.newFile();
 
-        File configFile = dataUtils.createDataFile("v0_6/standard-user-config.xml");
+        File preConfigFile = dataUtils.createDataFile("v0_6/pre-processing-config.xml");
+        File nameConfigFile = dataUtils.createDataFile("v0_6/standard-name-config.xml");
+        File addressConfigFile = dataUtils.createDataFile("v0_6/standard-address-config.xml");
+        File postConfigFile = dataUtils.createDataFile("v0_6/post-processing-config.xml");
 
         // @formatter:off
         Osmosis.run(new String[] {
@@ -88,7 +103,13 @@ public class KakasiPluginLoaderTest extends AbstractDataTest {
             "--read-xml-0.6",
             sourceFile.getPath(),
             "--kakasi-0.6",
-            "file=" + configFile,
+            "file=" + preConfigFile,
+            "--kakasi-0.6",
+            "file=" + nameConfigFile,
+            "--kakasi-0.6",
+            "file=" + addressConfigFile,
+            "--kakasi-0.6",
+            "file=" + postConfigFile,
             "--tag-sort-0.6",
             "--write-xml-0.6", outputFile.getPath() });
         // @formatter:on
@@ -110,7 +131,10 @@ public class KakasiPluginLoaderTest extends AbstractDataTest {
         File expectedFile = dataUtils.createDataFile("v0_6/post-office/1423657675-expected.xml");
         File outputFile = dataUtils.newFile();
 
-        File configFile = dataUtils.createDataFile("v0_6/standard-user-config.xml");
+        File preConfigFile = dataUtils.createDataFile("v0_6/pre-processing-config.xml");
+        File nameConfigFile = dataUtils.createDataFile("v0_6/standard-name-config.xml");
+        File addressConfigFile = dataUtils.createDataFile("v0_6/standard-address-config.xml");
+        File postConfigFile = dataUtils.createDataFile("v0_6/post-processing-config.xml");
 
         // @formatter:off
         Osmosis.run(new String[] {
@@ -120,7 +144,13 @@ public class KakasiPluginLoaderTest extends AbstractDataTest {
             "--read-xml-0.6",
             sourceFile.getPath(),
             "--kakasi-0.6",
-            "file=" + configFile,
+            "file=" + preConfigFile,
+            "--kakasi-0.6",
+            "file=" + nameConfigFile,
+            "--kakasi-0.6",
+            "file=" + addressConfigFile,
+            "--kakasi-0.6",
+            "file=" + postConfigFile,
             "--tag-sort-0.6",
             "--write-xml-0.6", outputFile.getPath() });
         // @formatter:on

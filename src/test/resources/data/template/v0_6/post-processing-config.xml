@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <pipeline>
+        <!-- Run latin1-only in production only. Investigate unmapped characters in development -->
+        <run alias="latin1-only" />
+        <run alias="trim" />
+        <run alias="duplicate-space" />
+    </pipeline>
+
+    <tag-vector>
+        <!-- Names -->
+        <tag key="operator" />
+        <tag key="tunnel:name" />
+        <tag key="bridge:name" />
+        <tag key="name" />
+        <tag key="name:en" />
+        <tag key="name:ja" />
+        <tag key="name:ja-Hira" />
+        <tag key="alt_name" />
+        <tag key="brand:ja" />
+        <tag key="brand" />
+
+        <!-- Addresses -->
+        <tag key="ref" />
+        <tag key="addr:city" />
+        <tag key="addr:province" />
+        <tag key="addr:block_number" />
+        <tag key="addr:neighbourhood" />
+        <tag key="addr:postcode" />
+        <tag key="addr:housenumber" />
+        <tag key="addr:quarter" />
+        <tag key="addr:full" />
+        <tag key="addr:suburb" />
+        <tag key="addr:country" />
+        <tag key="addr:street" />
+        <tag key="addr:county" />
+        <tag key="addr:housename" />
+        <tag key="addr:floor" />
+        <tag key="addr:place" />
+        <tag key="addr:flats" />
+        <tag key="addr:room" />
+        <tag key="addr:prefecture" />
+        <tag key="addr:unit" />
+        <tag key="addr:block" />
+        <tag key="addr:district" />
+        <tag key="addr:all" />
+        <tag key="addr:state" />
+        <tag key="addr:pref" />
+        <tag key="addr:hamlet" />
+        <tag key="addr:region" />
+        <tag key="addr:neighborhood" />
+        <tag key="addr:subdistrict" />
+        <tag key="addr:town" />
+    </tag-vector>
+</configuration>

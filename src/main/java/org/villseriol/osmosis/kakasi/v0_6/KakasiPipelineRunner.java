@@ -1,9 +1,6 @@
 // This software is released into the Public Domain.  See copying.txt for details.
 package org.villseriol.osmosis.kakasi.v0_6;
 
-import java.util.Map;
-import java.util.stream.Collectors;
-
 import org.openstreetmap.osmosis.core.domain.v0_6.Entity;
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
 import org.openstreetmap.osmosis.core.lifecycle.Completable;
@@ -29,8 +26,6 @@ public class KakasiPipelineRunner implements Completable {
 
 
     public void initContext(Entity entity) {
-        Map<String, String> tags = entity.getTags().stream().collect(Collectors.toMap(Tag::getKey, Tag::getValue));
-        context.setTags(tags);
         context.setEntityType(entity.getType());
     }
 

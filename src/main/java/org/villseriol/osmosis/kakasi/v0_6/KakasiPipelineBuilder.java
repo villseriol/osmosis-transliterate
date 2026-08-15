@@ -8,13 +8,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Supplier;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import org.openstreetmap.osmosis.core.OsmosisRuntimeException;
 import org.villseriol.kakasi.api.KakasiConfig;
 import org.villseriol.kakasi.api.KakasiConstants;
-import org.villseriol.osmosis.kakasi.v0_6.config.ConditionNode;
 import org.villseriol.osmosis.kakasi.v0_6.config.DictionaryNode;
 import org.villseriol.osmosis.kakasi.v0_6.config.NormalizeAlias;
 import org.villseriol.osmosis.kakasi.v0_6.config.NormalizeConfiguration;
@@ -46,7 +47,6 @@ import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.nonspecific.CustomMa
 import org.villseriol.osmosis.kakasi.v0_6.unicode.transform.nonspecific.DuplicateSpaceTransform;
 import org.villseriol.osmosis.kakasi.v0_6.unicode.types.Unimap;
 import org.villseriol.osmosis.kakasi.v0_6.utils.DictionaryLoader;
-import org.villseriol.osmosis.kakasi.v0_6.utils.ScriptBuilder;
 
 
 public class KakasiPipelineBuilder {
@@ -190,47 +190,18 @@ public class KakasiPipelineBuilder {
     public Unimap build(KakasiPipelineContext context) {
         List<Unimap> transforms = new ArrayList<>();
 
-        List<TagNode> globalTagPreFilter = configuration.getTags();
+        Set<String> tagVector = configuration.getTags().stream().map(TagNode::getKey).collect(Collectors.toSet());
         Supplier<Boolean> filterBySpecifiedTags = () -> {
-            if (!globalTagPreFilter.isEmpty()) {
-                return globalTagPreFilter.stream().map((t) -> t.getKey())
-                        .anyMatch(tag -> tag.equals(context.getCurrentTag()));
-            }
-
-            return true;
+            return !tagVector.isEmpty() && tagVector.contains(context.getCurrentTag());
         };
 
         for (RunNode run : configuration.getRuns()) {
             Unimap t = createTransformFromRunNode(run);
 
-            List<Supplier<Boolean>> conditions = run.getConditions().stream()
-                    .map(conditionNode -> buildConditionSupplier(conditionNode, context)).toList();
-
-            transforms.add(new TransformConditionalDecorator(t,
-                    () -> filterBySpecifiedTags.get() && conditions.stream().allMatch(Supplier::get)));
+            transforms.add(new TransformConditionalDecorator(t, filterBySpecifiedTags));
         }
 
         return new TransformSequenceDecorator(transforms);
-    }
-
-
-    private static Supplier<Boolean> buildConditionSupplier(ConditionNode conditionNode, KakasiPipelineContext ctx) {
-        String path = conditionNode.getPath();
-        String expr = conditionNode.getExpr();
-        boolean isPathEmpty = path == null || "".equals(path);
-        boolean isExprEmpty = expr == null || "".equals(expr);
-
-        ScriptBuilder scriptBuilder = new ScriptBuilder();
-
-        if (!isPathEmpty) {
-            scriptBuilder.useFile(path);
-        } else if (!isExprEmpty) {
-            scriptBuilder.useExpression(expr);
-        } else {
-            throw new OsmosisRuntimeException("Either 'path' or 'expr' must be specified for condition");
-        }
-
-        return scriptBuilder.build(ctx);
     }
 
 

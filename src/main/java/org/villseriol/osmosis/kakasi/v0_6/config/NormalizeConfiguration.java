@@ -13,7 +13,7 @@ public class NormalizeConfiguration {
     @JacksonXmlElementWrapper(localName = "pipeline")
     private List<RunNode> runs = new ArrayList<>();
 
-    @JacksonXmlElementWrapper(localName = "filter")
+    @JacksonXmlElementWrapper(localName = "tag-vector")
     private List<TagNode> tags = new ArrayList<>();
 
     public List<RunNode> getRuns() {

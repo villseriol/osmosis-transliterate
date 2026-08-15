@@ -21,9 +21,6 @@ public class RunNode {
     @JacksonXmlElementWrapper(localName = "dictionaries")
     private List<DictionaryNode> dictionaries = new ArrayList<>();
 
-    @JacksonXmlElementWrapper(localName = "conditional")
-    private List<ConditionNode> conditions = new ArrayList<>();
-
     public NormalizeAlias getAlias() {
         return alias;
     }
@@ -51,15 +48,5 @@ public class RunNode {
 
     public void setDictionaries(List<DictionaryNode> dictionaries) {
         this.dictionaries = dictionaries;
-    }
-
-
-    public List<ConditionNode> getConditions() {
-        return conditions;
-    }
-
-
-    public void setConditions(List<ConditionNode> conditions) {
-        this.conditions = conditions;
     }
 }
