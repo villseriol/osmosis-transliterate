@@ -133,12 +133,12 @@ public class HalfWidthFullWidthTransform implements Unimap {
         rules.add("｠ > '))';"); // FF60 FULLWIDTH RIGHT WHITE PARENTHESIS
 
         // Halfwidth CJK punctuation
-        rules.add("｡ > '。';"); // FF61 HALFWIDTH IDEOGRAPHIC FULL STOP
+        rules.add("｡ > '.';"); // FF61 HALFWIDTH IDEOGRAPHIC FULL STOP
         rules.add("｢ > '[';"); // FF62 HALFWIDTH LEFT CORNER BRACKET
         rules.add("｣ > ']';"); // FF63 HALFWIDTH RIGHT CORNER BRACKET
         rules.add("､ > ',';"); // FF64 HALFWIDTH IDEOGRAPHIC COMMA
 
-        rules.add("･ > '・';"); // FF65 HALFWIDTH KATAKANA MIDDLE DOT -> ・
+        rules.add("･ > '·';"); // FF65 HALFWIDTH KATAKANA MIDDLE DOT -> ・
 
         // FF66–FF9D + FF9E/FF9F combined: halfwidth katakana +
         // dakuten/handakuten
