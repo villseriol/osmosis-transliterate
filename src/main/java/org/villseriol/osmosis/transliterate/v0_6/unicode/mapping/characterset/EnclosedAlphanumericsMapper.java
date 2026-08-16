@@ -13,7 +13,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/enclosed-alphanumerics/
-public class EnclosedAlphanumericsTransform implements Unimap {
+public class EnclosedAlphanumericsMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {

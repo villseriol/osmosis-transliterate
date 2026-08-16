@@ -6,9 +6,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 
-public class GeometricShapesTransformTest {
+public class GeometricShapesMapperTest {
 
-    private final GeometricShapesTransform transform = new GeometricShapesTransform();
+    private final GeometricShapesMapper transform = new GeometricShapesMapper();
 
     @Test
     public void testSquaresAndFills() {

@@ -8,7 +8,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/cyrillic/
-public class CyrillicTransform implements Unimap {
+public class CyrillicMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR = Transliterator
             .getInstance("[[:Cyrillic:]] Cyrillic-Latin; Latin-ASCII");
 

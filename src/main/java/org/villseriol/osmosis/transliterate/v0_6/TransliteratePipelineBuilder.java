@@ -31,19 +31,19 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.Latin1OnlyTrans
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.LatinTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.TrimTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.UnAccentTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ArrowsTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.BoxDrawingTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.CyrillicTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedAlphanumericSupplementTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedAlphanumericsTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedCjkLettersAndMonthsTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedIdeographicSupplementTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeneralPunctuationTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeometricShapesTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GreekTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HalfWidthFullWidthTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.MiscellaneousSymbolsAndArrowsTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SmallFormVariantsTransform;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ArrowsMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.BoxDrawingMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.CyrillicMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedAlphanumericSupplementMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedAlphanumericsMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedCjkLettersAndMonthsMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedIdeographicSupplementMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeneralPunctuationMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeometricShapesMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GreekMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HalfWidthFullWidthMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.MiscellaneousSymbolsAndArrowsMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SmallFormVariantsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.CustomMappingTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.DuplicateSpaceTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
@@ -73,15 +73,15 @@ public class TransliteratePipelineBuilder {
         switch (alias) {
         case ARROW:
             LOG.info("Initializing arrow transform");
-            return new ArrowsTransform();
+            return new ArrowsMapper();
 
         case BOX_DRAWING:
             LOG.info("Initializing box-drawing transform");
-            return new BoxDrawingTransform();
+            return new BoxDrawingMapper();
 
         case CYRILLIC:
             LOG.info("Initializing cyrillic transform");
-            return new CyrillicTransform();
+            return new CyrillicMapper();
 
         case CUSTOM:
             LOG.info("Initializing custom transform");
@@ -101,25 +101,25 @@ public class TransliteratePipelineBuilder {
 
         case ENCLOSED:
             LOG.info("Initializing enclosed transform");
-            return new TransformSequenceDecorator(new EnclosedAlphanumericsTransform(),
-                    new EnclosedAlphanumericSupplementTransform(), new EnclosedIdeographicSupplementTransform(),
-                    new EnclosedCjkLettersAndMonthsTransform());
+            return new TransformSequenceDecorator(new EnclosedAlphanumericsMapper(),
+                    new EnclosedAlphanumericSupplementMapper(), new EnclosedIdeographicSupplementMapper(),
+                    new EnclosedCjkLettersAndMonthsMapper());
 
         case GENERAL_PUNCTUATION:
             LOG.info("Initializing general-punctuation transform");
-            return new GeneralPunctuationTransform();
+            return new GeneralPunctuationMapper();
 
         case GEOMETRIC_SHAPES:
             LOG.info("Initializing geometric-shapes transform");
-            return new GeometricShapesTransform();
+            return new GeometricShapesMapper();
 
         case GREEK:
             LOG.info("Initializing greek transform");
-            return new GreekTransform();
+            return new GreekMapper();
 
         case HALF_WIDTH_FULL_WIDTH:
             LOG.info("Initializing half-width-full-width transform");
-            return new HalfWidthFullWidthTransform();
+            return new HalfWidthFullWidthMapper();
 
         case KAKASI:
             LOG.info("Initializing kakasi transform");
@@ -144,11 +144,11 @@ public class TransliteratePipelineBuilder {
 
         case MISC_SYMBOL_ARROW:
             LOG.info("Initializing misc-symbol-arrow transform");
-            return new MiscellaneousSymbolsAndArrowsTransform();
+            return new MiscellaneousSymbolsAndArrowsMapper();
 
         case SMALL_FORM:
             LOG.info("Initializing small-form transform");
-            return new SmallFormVariantsTransform();
+            return new SmallFormVariantsMapper();
 
         case TRIM:
             LOG.info("Initializing trim transform");

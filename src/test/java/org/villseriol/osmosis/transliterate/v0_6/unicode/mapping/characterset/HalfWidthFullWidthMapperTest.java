@@ -6,8 +6,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 
-public class HalfWidthFullWidthTransformTest {
-    private final HalfWidthFullWidthTransform transform = new HalfWidthFullWidthTransform();
+public class HalfWidthFullWidthMapperTest {
+    private final HalfWidthFullWidthMapper transform = new HalfWidthFullWidthMapper();
 
     @Test
     public void testHalfWidthPunctuation() {

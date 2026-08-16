@@ -13,7 +13,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/enclosed-cjk-letters-and-months/
-public class EnclosedCjkLettersAndMonthsTransform implements Unimap {
+public class EnclosedCjkLettersAndMonthsMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {

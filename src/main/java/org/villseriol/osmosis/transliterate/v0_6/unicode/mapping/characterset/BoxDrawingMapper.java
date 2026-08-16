@@ -11,7 +11,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/box-drawing/
-public class BoxDrawingTransform implements Unimap {
+public class BoxDrawingMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {

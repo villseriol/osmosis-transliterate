@@ -11,7 +11,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/small-form-variants/
-public class SmallFormVariantsTransform implements Unimap {
+public class SmallFormVariantsMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {

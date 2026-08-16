@@ -11,7 +11,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/general-punctuation/
-public class GeneralPunctuationTransform implements Unimap {
+public class GeneralPunctuationMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {

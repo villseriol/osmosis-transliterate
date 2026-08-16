@@ -6,9 +6,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 
-public class CyrillicTransformTest {
+public class CyrillicMapperTest {
 
-    private final CyrillicTransform transform = new CyrillicTransform();
+    private final CyrillicMapper transform = new CyrillicMapper();
 
     @Test
     public void testCyrillicSupplementUppercase() {

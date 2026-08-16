@@ -11,7 +11,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/arrows/
-public class ArrowsTransform implements Unimap {
+public class ArrowsMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {

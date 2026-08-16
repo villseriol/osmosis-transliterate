@@ -19,14 +19,14 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.kakasi.v0_6.transform.BoxDrawingTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.BoxDrawingMapper
      */
     BOX_DRAWING("box-drawing"),
 
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.kakasi.v0_6.transform.CyrillicTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.CyrillicMapper
      */
     CYRILLIC("cyrillic"),
 
@@ -45,38 +45,38 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedAlphanumericsTransform
-     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedAlphanumericSupplementTransform
-     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedIdeographicSupplementTransform
-     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedCjkLettersAndMonthsTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedAlphanumericsMapper
+     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedAlphanumericSupplementMapper
+     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedIdeographicSupplementMapper
+     * @see org.villseriol.osmosis.kakasi.v0_6.unicode.transform.characterset.EnclosedCjkLettersAndMonthsMapper
      */
     ENCLOSED("enclosed"),
 
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.kakasi.v0_6.transform.GeneralPunctuationTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.GeneralPunctuationMapper
      */
     GENERAL_PUNCTUATION("general-punctuation"),
 
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.kakasi.v0_6.transform.GeometricShapesTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.GeometricShapesMapper
      */
     GEOMETRIC_SHAPES("geometric-shapes"),
 
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.kakasi.v0_6.transform.GreekTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.GreekMapper
      */
     GREEK("greek"),
 
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.kakasi.v0_6.transform.HalfWidthFullWidthTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.HalfWidthFullWidthMapper
      */
     HALF_WIDTH_FULL_WIDTH("half-width-full-width"),
 
@@ -104,14 +104,14 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.kakasi.v0_6.transform.MiscellaneousSymbolsAndArrowsTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.MiscellaneousSymbolsAndArrowsMapper
      */
     MISC_SYMBOL_ARROW("misc-symbol-arrow"),
 
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.kakasi.v0_6.transform.SmallFormVariantsTransform
+     * @see org.villseriol.osmosis.kakasi.v0_6.transform.SmallFormVariantsMapper
      */
     SMALL_FORM("small-form"),
 

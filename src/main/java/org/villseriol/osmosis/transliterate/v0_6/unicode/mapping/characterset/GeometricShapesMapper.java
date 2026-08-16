@@ -11,7 +11,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/geometric-shapes/
-public class GeometricShapesTransform implements Unimap {
+public class GeometricShapesMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {

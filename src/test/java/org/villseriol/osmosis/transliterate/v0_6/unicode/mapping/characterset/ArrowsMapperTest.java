@@ -6,9 +6,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 
-public class ArrowsTransformTest {
+public class ArrowsMapperTest {
 
-    private final ArrowsTransform transform = new ArrowsTransform();
+    private final ArrowsMapper transform = new ArrowsMapper();
 
     @Test
     public void testBasicArrows() {

@@ -11,7 +11,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/superscripts-and-subscripts/
-public class SuperscriptSubscriptTransform implements Unimap {
+public class SuperscriptSubscriptMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {

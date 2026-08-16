@@ -13,7 +13,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/letterlike-symbols/
-public class LetterlikeTransform implements Unimap {
+public class LetterlikeMapper implements Unimap {
     private static final Unimap FALLBACK = new RangeToWhitespaceTransform(UnicodeRange.LETTERLIKE_SYMBOLS);
     private static final Transliterator TRANSLITERATOR;
 

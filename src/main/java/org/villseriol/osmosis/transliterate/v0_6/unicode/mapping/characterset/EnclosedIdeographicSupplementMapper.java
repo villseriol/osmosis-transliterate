@@ -13,7 +13,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/enclosed-ideographic-supplement/
-public class EnclosedIdeographicSupplementTransform implements Unimap {
+public class EnclosedIdeographicSupplementMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {

@@ -13,7 +13,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/miscellaneous-symbols-and-arrows/
-public class MiscellaneousSymbolsAndArrowsTransform implements Unimap {
+public class MiscellaneousSymbolsAndArrowsMapper implements Unimap {
     private static final Unimap FALLBACK = new RangeToWhitespaceTransform(
             UnicodeRange.MISCELLANEOUS_SYMBOLS_AND_ARROWS);
     private static final Transliterator TRANSLITERATOR;

@@ -11,7 +11,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/halfwidth-and-fullwidth-forms/
-public class HalfWidthFullWidthTransform implements Unimap {
+public class HalfWidthFullWidthMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {

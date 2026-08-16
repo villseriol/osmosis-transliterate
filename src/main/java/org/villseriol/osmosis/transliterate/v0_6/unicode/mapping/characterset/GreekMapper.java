@@ -8,7 +8,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/greek-and-coptic/
-public class GreekTransform implements Unimap {
+public class GreekMapper implements Unimap {
     private static final Transliterator LIGATURE_ASCII = Transliterator
             .getInstance("[[:Greek:]]; Greek-Latin; Latin-ASCII");
 
