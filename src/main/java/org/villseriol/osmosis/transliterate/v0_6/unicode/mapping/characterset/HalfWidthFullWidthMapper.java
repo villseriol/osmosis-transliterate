@@ -260,11 +260,11 @@ public class HalfWidthFullWidthMapper implements Unimap {
 
         rules.add("￨ > '|';"); // FFE8 HALFWIDTH FORMS LIGHT VERTICAL
         rules.add("￩ > '<-';"); // FFE9 HALFWIDTH LEFTWARDS ARROW
-        rules.add("￪ > '^';"); // FFEA HALFWIDTH UPWARDS ARROW
+        rules.add("￪ > ' ';"); // FFEA HALFWIDTH UPWARDS ARROW
         rules.add("￫ > '->';"); // FFEB HALFWIDTH RIGHTWARDS ARROW
-        rules.add("￬ > 'v';"); // FFEC HALFWIDTH DOWNWARDS ARROW
-        rules.add("￭ > '#';"); // FFED HALFWIDTH BLACK SQUARE
-        rules.add("￮ > 'o';"); // FFEE HALFWIDTH WHITE CIRCLE
+        rules.add("￬ > ' ';"); // FFEC HALFWIDTH DOWNWARDS ARROW
+        rules.add("￭ > ' ';"); // FFED HALFWIDTH BLACK SQUARE
+        rules.add("￮ > ' ';"); // FFEE HALFWIDTH WHITE CIRCLE
 
         TRANSLITERATOR = Transliterator.createFromRules("HalfWidthFullWidth-Normalized", String.join("\n", rules),
                 Transliterator.FORWARD);
