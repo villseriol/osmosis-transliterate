@@ -1,7 +1,7 @@
 // This software is released into the Public Domain.  See copying.txt for details.
 package org.villseriol.osmosis.transliterate.v0_6.unicode.decorator;
 
-import org.villseriol.osmosis.transliterate.v0_6.unicode.transform.NoTransform;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.NoTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
 
 
