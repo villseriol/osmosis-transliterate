@@ -10,7 +10,7 @@ import org.villseriol.osmosis.transliterate.v0_6.config.loader.XmlLoader;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
 
 
-public class KakasiPipelineRunnerTest extends AbstractDataTest {
+public class TransliteratePipelineRunnerTest extends AbstractDataTest {
     private final TransliteratePipelineRunner preRunner = new TransliteratePipelineRunner();
     private final TransliteratePipelineRunner nameRunner = new TransliteratePipelineRunner();
     private final TransliteratePipelineRunner postRunner = new TransliteratePipelineRunner();
