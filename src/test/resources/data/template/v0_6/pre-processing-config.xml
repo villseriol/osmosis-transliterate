@@ -118,7 +118,18 @@
         <run alias="cyrillic" />
         <run alias="greek" />
         <run alias="half-width-full-width" />
+
+        <!-- Map latin characters, fallback to whitespace for any of the remaining characters -->
         <run alias="latin" />
+        <run alias="all-to-whitespace" unicode-group="ipa-extensions" />
+        <run alias="all-to-whitespace" unicode-group="number-forms" />
+        <run alias="all-to-whitespace" unicode-group="phonetic-extensions" />
+        <run alias="all-to-whitespace" unicode-group="phonetic-extensions-supplement" />
+        <run alias="all-to-whitespace" unicode-group="latin-extended-additional" />
+        <run alias="all-to-whitespace" unicode-group="latin-extended-c" />
+        <run alias="all-to-whitespace" unicode-group="latin-extended-d" />
+        <run alias="all-to-whitespace" unicode-group="alphabetic-presentation-forms" />
+
         <run alias="misc-symbol-arrow" />
         <run alias="enclosed" />
     </pipeline>
