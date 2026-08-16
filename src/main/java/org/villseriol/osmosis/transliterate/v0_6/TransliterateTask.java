@@ -14,8 +14,8 @@ import org.openstreetmap.osmosis.core.domain.v0_6.EntityType;
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
 import org.openstreetmap.osmosis.core.task.v0_6.Sink;
 import org.openstreetmap.osmosis.core.task.v0_6.SinkSource;
-import org.villseriol.osmosis.transliterate.v0_6.config.NormalizeConfiguration;
-import org.villseriol.osmosis.transliterate.v0_6.utils.XmlLoader;
+import org.villseriol.osmosis.transliterate.v0_6.config.loader.XmlLoader;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
 
 
 public class TransliterateTask implements SinkSource {

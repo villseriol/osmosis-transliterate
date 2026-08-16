@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.transliterate.v0_6.config;
+package org.villseriol.osmosis.transliterate.v0_6.config.model;
 
 import java.util.ArrayList;
 import java.util.List;

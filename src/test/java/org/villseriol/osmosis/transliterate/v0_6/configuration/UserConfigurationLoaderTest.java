@@ -13,13 +13,13 @@ import java.util.List;
 import org.junit.Test;
 import org.openstreetmap.osmosis.core.OsmosisRuntimeException;
 import org.openstreetmap.osmosis.testutil.AbstractDataTest;
-import org.villseriol.osmosis.transliterate.v0_6.config.NormalizeAlias;
-import org.villseriol.osmosis.transliterate.v0_6.config.NormalizeConfiguration;
-import org.villseriol.osmosis.transliterate.v0_6.config.ReplaceWithNode;
-import org.villseriol.osmosis.transliterate.v0_6.config.RunNode;
-import org.villseriol.osmosis.transliterate.v0_6.config.TagNode;
-import org.villseriol.osmosis.transliterate.v0_6.config.WhenValueIsNode;
-import org.villseriol.osmosis.transliterate.v0_6.utils.XmlLoader;
+import org.villseriol.osmosis.transliterate.v0_6.config.loader.XmlLoader;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeAlias;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.ReplaceWithNode;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.RunNode;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.TagNode;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.WhenValueIsNode;
 
 
 public class UserConfigurationLoaderTest extends AbstractDataTest {

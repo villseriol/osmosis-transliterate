@@ -16,13 +16,14 @@ import java.util.stream.Collectors;
 import org.openstreetmap.osmosis.core.OsmosisRuntimeException;
 import org.villseriol.kakasi.api.KakasiConfig;
 import org.villseriol.kakasi.api.KakasiConstants;
-import org.villseriol.osmosis.transliterate.v0_6.config.DictionaryNode;
-import org.villseriol.osmosis.transliterate.v0_6.config.NormalizeAlias;
-import org.villseriol.osmosis.transliterate.v0_6.config.NormalizeConfiguration;
-import org.villseriol.osmosis.transliterate.v0_6.config.ReplaceWithNode;
-import org.villseriol.osmosis.transliterate.v0_6.config.RunNode;
-import org.villseriol.osmosis.transliterate.v0_6.config.TagNode;
-import org.villseriol.osmosis.transliterate.v0_6.config.WhenValueIsNode;
+import org.villseriol.osmosis.transliterate.v0_6.config.loader.DictionaryLoader;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.DictionaryNode;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeAlias;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.ReplaceWithNode;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.RunNode;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.TagNode;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.WhenValueIsNode;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.TransformConditionalDecorator;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.TransformSequenceDecorator;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.transform.KakasiTransform;
@@ -46,7 +47,6 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.transform.characterset.
 import org.villseriol.osmosis.transliterate.v0_6.unicode.transform.nonspecific.CustomMappingTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.transform.nonspecific.DuplicateSpaceTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.utils.DictionaryLoader;
 
 
 public class TransliteratePipelineBuilder {

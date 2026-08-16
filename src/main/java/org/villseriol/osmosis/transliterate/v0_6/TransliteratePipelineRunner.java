@@ -4,7 +4,7 @@ package org.villseriol.osmosis.transliterate.v0_6;
 import org.openstreetmap.osmosis.core.domain.v0_6.Entity;
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
 import org.openstreetmap.osmosis.core.lifecycle.Completable;
-import org.villseriol.osmosis.transliterate.v0_6.config.NormalizeConfiguration;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.transform.NoTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
 

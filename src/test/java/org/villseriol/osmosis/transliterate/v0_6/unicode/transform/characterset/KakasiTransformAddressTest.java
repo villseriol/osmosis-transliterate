@@ -11,8 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.villseriol.kakasi.api.KakasiConfig;
 import org.villseriol.kakasi.api.KakasiConstants;
+import org.villseriol.osmosis.transliterate.v0_6.config.loader.DictionaryLoader;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.transform.KakasiTransform;
-import org.villseriol.osmosis.transliterate.v0_6.utils.DictionaryLoader;
 
 
 public class KakasiTransformAddressTest {

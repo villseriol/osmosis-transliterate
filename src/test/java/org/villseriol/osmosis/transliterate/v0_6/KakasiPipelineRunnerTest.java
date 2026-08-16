@@ -6,8 +6,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.openstreetmap.osmosis.testutil.AbstractDataTest;
-import org.villseriol.osmosis.transliterate.v0_6.config.NormalizeConfiguration;
-import org.villseriol.osmosis.transliterate.v0_6.utils.XmlLoader;
+import org.villseriol.osmosis.transliterate.v0_6.config.loader.XmlLoader;
+import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
 
 
 public class KakasiPipelineRunnerTest extends AbstractDataTest {
