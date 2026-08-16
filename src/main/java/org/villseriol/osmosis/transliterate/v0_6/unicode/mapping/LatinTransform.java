@@ -8,6 +8,7 @@ import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/latin-extended-a/
+// https://www.unicodepedia.com/groups/latin-extended-b/
 public class LatinTransform implements Unimap {
     private static final Transliterator LIGATURE_ASCII = Transliterator
             .getInstance("[[:Latin:]-[\\u0000-\\u00FF]]; Any-Latin; Latin-ASCII");

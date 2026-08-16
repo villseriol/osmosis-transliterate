@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
+package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
