@@ -46,6 +46,7 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.Mi
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SmallFormVariantsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.CustomMappingTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.DuplicateSpaceTransform;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToBlankTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToWhitespaceTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.types.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
@@ -73,6 +74,14 @@ public class TransliteratePipelineBuilder {
         NormalizeAlias alias = run.getAlias();
 
         switch (alias) {
+        case ALL_TO_BLANK:
+            LOG.info("Initializing all-to-blank transform");
+            return new RangeToBlankTransform(run.getUnicodeGroup());
+
+        case ALL_TO_WHITESPACE:
+            LOG.info("Initializing all-to-whitespace transform");
+            return new RangeToWhitespaceTransform(run.getUnicodeGroup());
+
         case ARROW:
             LOG.info("Initializing arrow transform");
             return new ArrowsMapper();

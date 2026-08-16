@@ -11,6 +11,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public enum NormalizeAlias {
     /**
      * TODO.
+     */
+    ALL_TO_BLANK("all-to-blank"),
+
+    /**
+     * TODO.
+     */
+    ALL_TO_WHITESPACE("all-to-whitespace"),
+
+    /**
+     * TODO.
      *
      * @see org.villseriol.osmosis.kakasi.v0_6.transform.ArrowTransform
      */

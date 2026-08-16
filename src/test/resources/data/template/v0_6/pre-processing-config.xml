@@ -114,6 +114,7 @@
         <run alias="general-punctuation" />
         <run alias="arrow" />
         <run alias="box-drawing" />
+        <run alias="all-to-whitespace" unicode-group="geometric-shapes" />
         <run alias="cyrillic" />
         <run alias="greek" />
         <run alias="half-width-full-width" />

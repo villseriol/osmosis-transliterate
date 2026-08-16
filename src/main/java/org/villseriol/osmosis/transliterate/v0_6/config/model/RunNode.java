@@ -4,6 +4,8 @@ package org.villseriol.osmosis.transliterate.v0_6.config.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.villseriol.osmosis.transliterate.v0_6.unicode.types.UnicodeRange;
+
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
@@ -14,6 +16,9 @@ import tools.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 public class RunNode {
     @JacksonXmlProperty(isAttribute = true, localName = "alias")
     private NormalizeAlias alias;
+
+    @JacksonXmlProperty(isAttribute = true, localName = "unicode-group")
+    private UnicodeRange unicodeGroup;
 
     @JacksonXmlElementWrapper(localName = "mapping")
     private List<ReplaceWithNode> replaceWiths = new ArrayList<>();
@@ -28,6 +33,16 @@ public class RunNode {
 
     public void setAlias(NormalizeAlias alias) {
         this.alias = alias;
+    }
+
+
+    public UnicodeRange getUnicodeGroup() {
+        return unicodeGroup;
+    }
+
+
+    public void setUnicodeGroup(UnicodeRange unicodeGroup) {
+        this.unicodeGroup = unicodeGroup;
     }
 
 
