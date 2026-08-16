@@ -4,83 +4,51 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.LatinTransform;
 
 
-public class LatinExtendedBMapperTest {
-
-    private final LatinTransform transform = new LatinTransform();
+public class LatinExtendedBMapperTest extends LatinMapperTest {
 
     @Test
-    public void testLatinExtendedB() {
+    public void testMappedCharacters() {
         assertEquals("b", transform.action("ƀ"));
         assertEquals("B", transform.action("Ɓ"));
         assertEquals("B", transform.action("Ƃ"));
         assertEquals("b", transform.action("ƃ"));
-        assertEquals("Ƅ", transform.action("Ƅ"));
-        assertEquals("ƅ", transform.action("ƅ"));
-        assertEquals("Ɔ", transform.action("Ɔ"));
         assertEquals("C", transform.action("Ƈ"));
         assertEquals("c", transform.action("ƈ"));
         assertEquals("D", transform.action("Ɖ"));
         assertEquals("D", transform.action("Ɗ"));
         assertEquals("D", transform.action("Ƌ"));
         assertEquals("d", transform.action("ƌ"));
-        assertEquals("ƍ", transform.action("ƍ"));
-        assertEquals("Ǝ", transform.action("Ǝ"));
-        assertEquals("Ə", transform.action("Ə"));
         assertEquals("E", transform.action("Ɛ"));
         assertEquals("F", transform.action("Ƒ"));
         assertEquals("f", transform.action("ƒ"));
         assertEquals("G", transform.action("Ɠ"));
-        assertEquals("Ɣ", transform.action("Ɣ"));
         assertEquals("hv", transform.action("ƕ"));
         assertEquals("I", transform.action("Ɩ"));
         assertEquals("I", transform.action("Ɨ"));
         assertEquals("K", transform.action("Ƙ"));
         assertEquals("k", transform.action("ƙ"));
         assertEquals("l", transform.action("ƚ"));
-        assertEquals("ƛ", transform.action("ƛ"));
-        assertEquals("Ɯ", transform.action("Ɯ"));
         assertEquals("N", transform.action("Ɲ"));
         assertEquals("n", transform.action("ƞ"));
-        assertEquals("Ɵ", transform.action("Ɵ"));
         assertEquals("O", transform.action("Ơ"));
         assertEquals("o", transform.action("ơ"));
         assertEquals("OI", transform.action("Ƣ"));
         assertEquals("oi", transform.action("ƣ"));
         assertEquals("P", transform.action("Ƥ"));
         assertEquals("p", transform.action("ƥ"));
-        assertEquals("Ʀ", transform.action("Ʀ"));
-        assertEquals("Ƨ", transform.action("Ƨ"));
-        assertEquals("ƨ", transform.action("ƨ"));
-        assertEquals("Ʃ", transform.action("Ʃ"));
-        assertEquals("ƪ", transform.action("ƪ"));
         assertEquals("t", transform.action("ƫ"));
         assertEquals("T", transform.action("Ƭ"));
         assertEquals("t", transform.action("ƭ"));
         assertEquals("T", transform.action("Ʈ"));
         assertEquals("U", transform.action("Ư"));
         assertEquals("u", transform.action("ư"));
-        assertEquals("Ʊ", transform.action("Ʊ"));
         assertEquals("V", transform.action("Ʋ"));
         assertEquals("Y", transform.action("Ƴ"));
         assertEquals("y", transform.action("ƴ"));
         assertEquals("Z", transform.action("Ƶ"));
         assertEquals("z", transform.action("ƶ"));
-        assertEquals("Ʒ", transform.action("Ʒ"));
-        assertEquals("Ƹ", transform.action("Ƹ"));
-        assertEquals("ƹ", transform.action("ƹ"));
-        assertEquals("ƺ", transform.action("ƺ"));
-        assertEquals("ƻ", transform.action("ƻ"));
-        assertEquals("Ƽ", transform.action("Ƽ"));
-        assertEquals("ƽ", transform.action("ƽ"));
-        assertEquals("ƾ", transform.action("ƾ"));
-        assertEquals("ƿ", transform.action("ƿ"));
-        assertEquals("ǀ", transform.action("ǀ"));
-        assertEquals("ǁ", transform.action("ǁ"));
-        assertEquals("ǂ", transform.action("ǂ"));
-        assertEquals("ǃ", transform.action("ǃ"));
         assertEquals("DZ", transform.action("Ǆ"));
         assertEquals("Dz", transform.action("ǅ"));
         assertEquals("dz", transform.action("ǆ"));
@@ -106,7 +74,6 @@ public class LatinExtendedBMapperTest {
         assertEquals("u", transform.action("ǚ"));
         assertEquals("U", transform.action("Ǜ"));
         assertEquals("u", transform.action("ǜ"));
-        assertEquals("ǝ", transform.action("ǝ"));
         assertEquals("A", transform.action("Ǟ"));
         assertEquals("a", transform.action("ǟ"));
         assertEquals("A", transform.action("Ǡ"));
@@ -131,8 +98,6 @@ public class LatinExtendedBMapperTest {
         assertEquals("dz", transform.action("ǳ"));
         assertEquals("G", transform.action("Ǵ"));
         assertEquals("g", transform.action("ǵ"));
-        assertEquals("Ƕ", transform.action("Ƕ"));
-        assertEquals("Ƿ", transform.action("Ƿ"));
         assertEquals("N", transform.action("Ǹ"));
         assertEquals("n", transform.action("ǹ"));
         assertEquals("A", transform.action("Ǻ"));
@@ -169,14 +134,9 @@ public class LatinExtendedBMapperTest {
         assertEquals("s", transform.action("ș"));
         assertEquals("T", transform.action("Ț"));
         assertEquals("t", transform.action("ț"));
-        assertEquals("Ȝ", transform.action("Ȝ"));
-        assertEquals("ȝ", transform.action("ȝ"));
         assertEquals("H", transform.action("Ȟ"));
         assertEquals("h", transform.action("ȟ"));
-        assertEquals("Ƞ", transform.action("Ƞ"));
         assertEquals("d", transform.action("ȡ"));
-        assertEquals("Ȣ", transform.action("Ȣ"));
-        assertEquals("ȣ", transform.action("ȣ"));
         assertEquals("Z", transform.action("Ȥ"));
         assertEquals("z", transform.action("ȥ"));
         assertEquals("A", transform.action("Ȧ"));
@@ -206,20 +166,62 @@ public class LatinExtendedBMapperTest {
         assertEquals("T", transform.action("Ⱦ"));
         assertEquals("s", transform.action("ȿ"));
         assertEquals("z", transform.action("ɀ"));
-        assertEquals("Ɂ", transform.action("Ɂ"));
-        assertEquals("ɂ", transform.action("ɂ"));
         assertEquals("B", transform.action("Ƀ"));
         assertEquals("U", transform.action("Ʉ"));
-        assertEquals("Ʌ", transform.action("Ʌ"));
         assertEquals("E", transform.action("Ɇ"));
         assertEquals("e", transform.action("ɇ"));
         assertEquals("J", transform.action("Ɉ"));
         assertEquals("j", transform.action("ɉ"));
-        assertEquals("Ɋ", transform.action("Ɋ"));
-        assertEquals("ɋ", transform.action("ɋ"));
         assertEquals("R", transform.action("Ɍ"));
         assertEquals("r", transform.action("ɍ"));
         assertEquals("Y", transform.action("Ɏ"));
         assertEquals("y", transform.action("ɏ"));
+    }
+
+
+    @Test
+    public void testUnmappedCharacters() {
+        assertEquals("Ƅ", transform.action("Ƅ"));
+        assertEquals("ƅ", transform.action("ƅ"));
+        assertEquals("Ɔ", transform.action("Ɔ"));
+        assertEquals("ƍ", transform.action("ƍ"));
+        assertEquals("Ǝ", transform.action("Ǝ"));
+        assertEquals("Ə", transform.action("Ə"));
+        assertEquals("Ɣ", transform.action("Ɣ"));
+        assertEquals("ƛ", transform.action("ƛ"));
+        assertEquals("Ɯ", transform.action("Ɯ"));
+        assertEquals("Ɵ", transform.action("Ɵ"));
+        assertEquals("Ʀ", transform.action("Ʀ"));
+        assertEquals("Ƨ", transform.action("Ƨ"));
+        assertEquals("ƨ", transform.action("ƨ"));
+        assertEquals("Ʃ", transform.action("Ʃ"));
+        assertEquals("ƪ", transform.action("ƪ"));
+        assertEquals("Ʊ", transform.action("Ʊ"));
+        assertEquals("Ʒ", transform.action("Ʒ"));
+        assertEquals("Ƹ", transform.action("Ƹ"));
+        assertEquals("ƹ", transform.action("ƹ"));
+        assertEquals("ƺ", transform.action("ƺ"));
+        assertEquals("ƻ", transform.action("ƻ"));
+        assertEquals("Ƽ", transform.action("Ƽ"));
+        assertEquals("ƽ", transform.action("ƽ"));
+        assertEquals("ƾ", transform.action("ƾ"));
+        assertEquals("ƿ", transform.action("ƿ"));
+        assertEquals("ǀ", transform.action("ǀ"));
+        assertEquals("ǁ", transform.action("ǁ"));
+        assertEquals("ǂ", transform.action("ǂ"));
+        assertEquals("ǃ", transform.action("ǃ"));
+        assertEquals("ǝ", transform.action("ǝ"));
+        assertEquals("Ƕ", transform.action("Ƕ"));
+        assertEquals("Ƿ", transform.action("Ƿ"));
+        assertEquals("Ȝ", transform.action("Ȝ"));
+        assertEquals("ȝ", transform.action("ȝ"));
+        assertEquals("Ƞ", transform.action("Ƞ"));
+        assertEquals("Ȣ", transform.action("Ȣ"));
+        assertEquals("ȣ", transform.action("ȣ"));
+        assertEquals("Ɂ", transform.action("Ɂ"));
+        assertEquals("ɂ", transform.action("ɂ"));
+        assertEquals("Ʌ", transform.action("Ʌ"));
+        assertEquals("Ɋ", transform.action("Ɋ"));
+        assertEquals("ɋ", transform.action("ɋ"));
     }
 }

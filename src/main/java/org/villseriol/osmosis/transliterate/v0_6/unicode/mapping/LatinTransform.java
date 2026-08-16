@@ -11,7 +11,7 @@ import com.ibm.icu.text.Transliterator;
 // https://www.unicodepedia.com/groups/latin-extended-b/
 public class LatinTransform implements Unimap {
     private static final Transliterator LIGATURE_ASCII = Transliterator
-            .getInstance("[[:Latin:]-[\\u0000-\\u00FF]]; Any-Latin; Latin-ASCII");
+            .getInstance("[[:Latin:]-[\\u0000-\\u00FF]-[\\uFF01-\\uFFEE]-[\\u2100-\\u214F]]; Any-Latin; Latin-ASCII");
 
     @Override
     public String action(String input) {

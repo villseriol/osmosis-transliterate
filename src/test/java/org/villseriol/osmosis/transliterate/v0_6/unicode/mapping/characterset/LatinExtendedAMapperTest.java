@@ -5,13 +5,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.LatinTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.types.UnicodeRange;
 
 
-public class LatinExtendedAMapperTest {
-
-    private final LatinTransform transform = new LatinTransform();
+public class LatinExtendedAMapperTest extends LatinMapperTest {
 
     @Test
     public void testMappedCharacters() {
