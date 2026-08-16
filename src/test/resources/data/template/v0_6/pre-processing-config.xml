@@ -118,7 +118,6 @@
         <run alias="greek" />
         <run alias="half-width-full-width" />
         <run alias="latin" />
-        <run alias="un-accent" />
         <run alias="misc-symbol-arrow" />
         <run alias="enclosed" />
     </pipeline>
