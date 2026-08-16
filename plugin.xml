@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 1.0" "http://jpf.sourceforge.net/plugin_1_0.dtd">
-<plugin id="KakasiPlugin" version="${project.version}">
+<plugin id="TransliteratePlugin" version="${project.version}">
     <requires>
         <import plugin-id="org.openstreetmap.osmosis.core.plugin.Core" reverse-lookup="false"
             plugin-version="${osmosis.version}" />
@@ -13,8 +13,8 @@
     </runtime>
 
     <extension plugin-id="org.openstreetmap.osmosis.core.plugin.Core"
-        point-id="Task" id="kakasi">
-        <parameter id="name" value="kakasi" />
-        <parameter id="class" value="org.villseriol.osmosis.kakasi.KakasiPluginLoader" />
+        point-id="Task" id="transliterate">
+        <parameter id="name" value="transliterate" />
+        <parameter id="class" value="org.villseriol.osmosis.transliterate.TransliteratePluginLoader" />
     </extension>
 </plugin>
