@@ -36,7 +36,7 @@ public class LetterlikeMapperTest {
         assertEquals("CL", transform.action("℄")); // CENTRE LINE SYMBOL
         assertEquals("c/o", transform.action("℅")); // CARE OF
         assertEquals("c/u", transform.action("℆")); // CADA UNA
-        assertEquals("¿", transform.action("ℇ")); // EULER CONSTANT
+        assertEquals(" ", transform.action("ℇ")); // EULER CONSTANT
         assertEquals("s", transform.action("℈")); // SCRUPLE
         assertEquals("°F", transform.action("℉")); // DEGREE FAHRENHEIT
         assertEquals("g", transform.action("ℊ")); // SCRIPT SMALL G
@@ -66,11 +66,11 @@ public class LetterlikeMapperTest {
         assertEquals("(TM)", transform.action("™")); // TRADE MARK SIGN
         assertEquals("V", transform.action("℣")); // VERSICLE
         assertEquals("Z", transform.action("ℤ")); // DOUBLE-STRUCK CAPITAL Z
-        assertEquals("¿", transform.action("℥")); // OUNCE SIGN
-        assertEquals("¿", transform.action("Ω")); // OHM SIGN
-        assertEquals("¿", transform.action("℧")); // INVERTED OHM SIGN
+        assertEquals(" ", transform.action("℥")); // OUNCE SIGN
+        assertEquals(" ", transform.action("Ω")); // OHM SIGN
+        assertEquals(" ", transform.action("℧")); // INVERTED OHM SIGN
         assertEquals("Z", transform.action("ℨ")); // BLACK-LETTER CAPITAL Z
-        assertEquals("¿", transform.action("℩")); // TURNED GREEK SMALL LETTER IOTA
+        assertEquals(" ", transform.action("℩")); // TURNED GREEK SMALL LETTER IOTA
         assertEquals("K", transform.action("K")); // KELVIN SIGN
         assertEquals("A", transform.action("Å")); // ANGSTROM SIGN
         assertEquals("B", transform.action("ℬ")); // SCRIPT CAPITAL B
@@ -79,35 +79,35 @@ public class LetterlikeMapperTest {
         assertEquals("e", transform.action("ℯ")); // SCRIPT SMALL E
         assertEquals("E", transform.action("ℰ")); // SCRIPT CAPITAL E
         assertEquals("F", transform.action("ℱ")); // SCRIPT CAPITAL F
-        assertEquals("¿", transform.action("Ⅎ")); // TURNED CAPITAL F
+        assertEquals(" ", transform.action("Ⅎ")); // TURNED CAPITAL F
         assertEquals("M", transform.action("ℳ")); // SCRIPT CAPITAL M
         assertEquals("o", transform.action("ℴ")); // SCRIPT SMALL O
         assertEquals("N", transform.action("ℵ")); // ALEF SYMBOL
-        assertEquals("¿", transform.action("ℶ")); // BET SYMBOL
-        assertEquals("¿", transform.action("ℷ")); // GIMEL SYMBOL
-        assertEquals("¿", transform.action("ℸ")); // DALET SYMBOL
+        assertEquals(" ", transform.action("ℶ")); // BET SYMBOL
+        assertEquals(" ", transform.action("ℷ")); // GIMEL SYMBOL
+        assertEquals(" ", transform.action("ℸ")); // DALET SYMBOL
         assertEquals("i", transform.action("ℹ")); // INFORMATION SOURCE
-        assertEquals("¿", transform.action("℺")); // ROTATED CAPITAL Q
+        assertEquals(" ", transform.action("℺")); // ROTATED CAPITAL Q
         assertEquals("FAX", transform.action("℻")); // FACSIMILE SIGN
-        assertEquals("¿", transform.action("ℼ")); // DOUBLE-STRUCK SMALL PI
+        assertEquals(" ", transform.action("ℼ")); // DOUBLE-STRUCK SMALL PI
         assertEquals("y", transform.action("ℽ")); // DOUBLE-STRUCK SMALL GAMMA
-        assertEquals("¿", transform.action("ℾ")); // DOUBLE-STRUCK CAPITAL GAMMA
-        assertEquals("¿", transform.action("ℿ")); // DOUBLE-STRUCK CAPITAL PI
-        assertEquals("¿", transform.action("⅀")); // DOUBLE-STRUCK N-ARY SUMMATION
-        assertEquals("¿", transform.action("⅁")); // TURNED SANS-SERIF CAPITAL G
-        assertEquals("¿", transform.action("⅂")); // TURNED SANS-SERIF CAPITAL L
-        assertEquals("¿", transform.action("⅃")); // REVERSED SANS-SERIF CAPITAL L
-        assertEquals("¿", transform.action("⅄")); // TURNED SANS-SERIF CAPITAL Y
+        assertEquals(" ", transform.action("ℾ")); // DOUBLE-STRUCK CAPITAL GAMMA
+        assertEquals(" ", transform.action("ℿ")); // DOUBLE-STRUCK CAPITAL PI
+        assertEquals(" ", transform.action("⅀")); // DOUBLE-STRUCK N-ARY SUMMATION
+        assertEquals(" ", transform.action("⅁")); // TURNED SANS-SERIF CAPITAL G
+        assertEquals(" ", transform.action("⅂")); // TURNED SANS-SERIF CAPITAL L
+        assertEquals(" ", transform.action("⅃")); // REVERSED SANS-SERIF CAPITAL L
+        assertEquals(" ", transform.action("⅄")); // TURNED SANS-SERIF CAPITAL Y
         assertEquals("D", transform.action("ⅅ")); // DOUBLE-STRUCK ITALIC CAPITAL D
         assertEquals("d", transform.action("ⅆ")); // DOUBLE-STRUCK ITALIC SMALL D
         assertEquals("e", transform.action("ⅇ")); // DOUBLE-STRUCK ITALIC SMALL E
         assertEquals("i", transform.action("ⅈ")); // DOUBLE-STRUCK ITALIC SMALL I
         assertEquals("j", transform.action("ⅉ")); // DOUBLE-STRUCK ITALIC SMALL J
-        assertEquals("¿", transform.action("⅊")); // PROPERTY LINE
+        assertEquals(" ", transform.action("⅊")); // PROPERTY LINE
         assertEquals("&", transform.action("⅋")); // TURNED AMPERSAND
         assertEquals("/", transform.action("⅌")); // PER SIGN
         assertEquals("A/S", transform.action("⅍")); // AKTIESELSKAB
-        assertEquals("¿", transform.action("ⅎ")); // TURNED SMALL F
-        assertEquals("¿", transform.action("⅏")); // SYMBOL FOR SAMARITAN SOURCE
+        assertEquals(" ", transform.action("ⅎ")); // TURNED SMALL F
+        assertEquals(" ", transform.action("⅏")); // SYMBOL FOR SAMARITAN SOURCE
     }
 }
