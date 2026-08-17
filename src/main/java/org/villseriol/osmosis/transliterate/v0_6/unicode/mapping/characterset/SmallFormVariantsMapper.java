@@ -18,8 +18,7 @@ public class SmallFormVariantsMapper implements Unimap {
         List<String> rules = new ArrayList<>();
 
         // Restrict the transliterator to the full Small Form Variants block,
-        // as one continuous range (includes the unassigned U+FE53 and U+FE67
-        // slots, which fall through to the '(?)' catch-all below).
+        // as one continuous range.
         rules.add("::[\\uFE50-\\uFE6B];");
 
         rules.add("﹐ > ',';"); // FE50 SMALL COMMA
