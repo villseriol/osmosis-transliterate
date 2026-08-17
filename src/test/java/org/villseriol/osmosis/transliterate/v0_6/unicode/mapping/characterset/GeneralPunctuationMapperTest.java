@@ -141,12 +141,13 @@ public class GeneralPunctuationMapperTest {
         assertEquals(" ", transform.action("\u2009")); // THIN SPACE
         assertEquals(" ", transform.action("\u200A")); // HAIR SPACE
         assertEquals(" ", transform.action("\u205F")); // MEDIUM MATHEMATICAL SPACE
+        assertEquals(" ", transform.action("\u202F")); // NARROW NO-BREAK SPACE
 
         // Zero-width space -- invisible, drop
         assertEquals("", transform.action("\u200B")); // ZERO WIDTH SPACE
 
-        // Line/paragraph separators, bidi embedding controls, and the
-        // narrow no-break space -- invisible or non-printing, drop
+        // Line/paragraph separators and bidi embedding controls --
+        // invisible or non-printing, drop
         assertEquals("", transform.action("\u2028")); // LINE SEPARATOR
         assertEquals("", transform.action("\u2029")); // PARAGRAPH SEPARATOR
         assertEquals("", transform.action("\u202A")); // LEFT-TO-RIGHT EMBEDDING
@@ -154,7 +155,6 @@ public class GeneralPunctuationMapperTest {
         assertEquals("", transform.action("\u202C")); // POP DIRECTIONAL FORMATTING
         assertEquals("", transform.action("\u202D")); // LEFT-TO-RIGHT OVERRIDE
         assertEquals("", transform.action("\u202E")); // RIGHT-TO-LEFT OVERRIDE
-        assertEquals("", transform.action("\u202F")); // NARROW NO-BREAK SPACE
 
         // Bidi isolate controls -- invisible, drop
         assertEquals("", transform.action("\u2066")); // LEFT-TO-RIGHT ISOLATE

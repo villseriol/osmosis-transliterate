@@ -161,10 +161,10 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("⁮ > '';"); // 206E NATIONAL DIGIT SHAPES
         rules.add("⁯ > '';"); // 206F NOMINAL DIGIT SHAPES
 
-        // Line/paragraph separators, bidi embedding controls, and the
-        // narrow no-break space -- invisible or non-printing, drop. Written
-        // without quotes since a quoted empty literal ('') is ICU's escape
-        // for a literal quote character, not an empty string.
+        // Line/paragraph separators and bidi embedding controls --
+        // invisible or non-printing, drop. Written without quotes since a
+        // quoted empty literal ('') is ICU's escape for a literal quote
+        // character, not an empty string.
         rules.add("\\u2028 > ;"); // LINE SEPARATOR
         rules.add("\\u2029 > ;"); // PARAGRAPH SEPARATOR
         rules.add("\\u202A > ;"); // LEFT-TO-RIGHT EMBEDDING
@@ -172,7 +172,9 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("\\u202C > ;"); // POP DIRECTIONAL FORMATTING
         rules.add("\\u202D > ;"); // LEFT-TO-RIGHT OVERRIDE
         rules.add("\\u202E > ;"); // RIGHT-TO-LEFT OVERRIDE
-        rules.add("\\u202F > ;"); // NARROW NO-BREAK SPACE
+
+        // Narrow no-break space -- normalize to a standard ASCII space
+        rules.add("\\u202F > ' ';"); // NARROW NO-BREAK SPACE
 
         // Bidi isolate controls -- invisible, drop
         rules.add("\\u2066 > ;"); // LEFT-TO-RIGHT ISOLATE
