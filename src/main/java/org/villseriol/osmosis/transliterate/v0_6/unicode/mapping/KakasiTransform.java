@@ -18,14 +18,16 @@ public class KakasiTransform implements Unimap {
     private static final Logger LOG = Logger.getLogger(KakasiTransform.class.getName());
 
     // CJK Symbols and Punctuation, Hiragana, Katakana, Katakana Phonetic
-    // Extensions, CJK Unified Ideographs (+ Extension A), CJK Compatibility
-    // Ideographs, and Halfwidth and Fullwidth Forms (halfwidth katakana +
-    // voicing marks live here)
+    // Extensions, CJK Unified Ideographs (+ Extensions A, B, C, D), CJK
+    // Compatibility Ideographs, and Halfwidth and Fullwidth Forms (halfwidth
+    // katakana + voicing marks live here)
     private static final UnicodeSet JAPANESE_SET = new UnicodeSet(
             StringUtils.toIcuRange(UnicodeRange.CJK_SYMBOLS_AND_PUNCTUATION, UnicodeRange.HIRAGANA,
                     UnicodeRange.KATAKANA, UnicodeRange.KATAKANA_PHONETIC_EXTENSIONS,
                     UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS,
-                    UnicodeRange.CJK_COMPATIBILITY_IDEOGRAPHS, UnicodeRange.HALFWIDTH_AND_FULLWIDTH_FORMS)).freeze();
+                    UnicodeRange.CJK_COMPATIBILITY_IDEOGRAPHS, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B,
+                    UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D))
+                            .freeze();
 
     private final Kakasi kakasi;
 
