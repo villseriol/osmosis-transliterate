@@ -4,13 +4,30 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.types.UnicodeRange;
 
 
 public class HalfWidthFullWidthMapperTest {
     private final HalfWidthFullWidthMapper transform = new HalfWidthFullWidthMapper();
 
     @Test
-    public void testHalfWidthPunctuation() {
+    public void testUntouched() {
+        for (UnicodeRange range : UnicodeRange.values()) {
+            if (range == UnicodeRange.HALFWIDTH_AND_FULLWIDTH_FORMS) {
+                continue;
+            }
+
+            for (int codePoint = range.getLower(); codePoint <= range.getUpper(); codePoint++) {
+                String input = new String(Character.toChars(codePoint));
+
+                assertEquals(input, transform.action(input));
+            }
+        }
+    }
+
+
+    @Test
+    public void testMappedCharacters() {
         // Half-width punctuation in U+FF61-U+FF65
         assertEquals("Half-width ｡ should become full-width 。", ".", transform.action("｡")); // U+FF61
         assertEquals("Half-width ､ should become ,", ",", transform.action("､")); // U+FF64
@@ -22,11 +39,7 @@ public class HalfWidthFullWidthMapperTest {
         assertEquals("Half-width ﾟ should be removed when standalone", "", transform.action("ﾟ")); // U+FF9F
         assertEquals("Half-width ﾞﾟﾞﾞ should be removed when standalone", "", transform.action("ﾞﾟﾞﾞ"));
         assertEquals("Half-width ﾞ should be removed when standalone", "ガカ", transform.action("ﾞｶﾞｶ"));
-    }
 
-
-    @Test
-    public void testHalfWidthKatakana() {
         // Vowels
         assertEquals("Half-width ｱ should become full-width ア", "ア", transform.action("ｱ"));
         assertEquals("Half-width ｲ should become full-width イ", "イ", transform.action("ｲ"));
@@ -110,58 +123,9 @@ public class HalfWidthFullWidthMapperTest {
 
 
     @Test
-    public void testAlphabet() {
-        assertEquals("A", transform.action("A"));
-        assertEquals("B", transform.action("B"));
-        assertEquals("C", transform.action("C"));
-        assertEquals("D", transform.action("D"));
-        assertEquals("E", transform.action("E"));
-        assertEquals("F", transform.action("F"));
-        assertEquals("G", transform.action("G"));
-        assertEquals("H", transform.action("H"));
-        assertEquals("I", transform.action("I"));
-        assertEquals("J", transform.action("J"));
-        assertEquals("K", transform.action("K"));
-        assertEquals("L", transform.action("L"));
-        assertEquals("M", transform.action("M"));
-        assertEquals("N", transform.action("N"));
-        assertEquals("O", transform.action("O"));
-        assertEquals("P", transform.action("P"));
-        assertEquals("Q", transform.action("Q"));
-        assertEquals("R", transform.action("R"));
-        assertEquals("S", transform.action("S"));
-        assertEquals("T", transform.action("T"));
-        assertEquals("U", transform.action("U"));
-        assertEquals("V", transform.action("V"));
-        assertEquals("W", transform.action("W"));
-        assertEquals("X", transform.action("X"));
-        assertEquals("Y", transform.action("Y"));
-        assertEquals("Z", transform.action("Z"));
-        assertEquals("a", transform.action("a"));
-        assertEquals("b", transform.action("b"));
-        assertEquals("c", transform.action("c"));
-        assertEquals("d", transform.action("d"));
-        assertEquals("e", transform.action("e"));
-        assertEquals("f", transform.action("f"));
-        assertEquals("g", transform.action("g"));
-        assertEquals("h", transform.action("h"));
-        assertEquals("i", transform.action("i"));
-        assertEquals("j", transform.action("j"));
-        assertEquals("k", transform.action("k"));
-        assertEquals("l", transform.action("l"));
-        assertEquals("m", transform.action("m"));
-        assertEquals("n", transform.action("n"));
-        assertEquals("o", transform.action("o"));
-        assertEquals("p", transform.action("p"));
-        assertEquals("q", transform.action("q"));
-        assertEquals("r", transform.action("r"));
-        assertEquals("s", transform.action("s"));
-        assertEquals("t", transform.action("t"));
-        assertEquals("u", transform.action("u"));
-        assertEquals("v", transform.action("v"));
-        assertEquals("w", transform.action("w"));
-        assertEquals("x", transform.action("x"));
-        assertEquals("y", transform.action("y"));
-        assertEquals("z", transform.action("z"));
+    public void testUnmappedCharacters() {
+        // FFE7 is reserved, unassigned in Unicode -- no mapping is
+        // provided, so it is left untouched.
+        assertEquals("￧", transform.action("￧"));
     }
 }
