@@ -4,11 +4,28 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.types.UnicodeRange;
 
 
 public class ArrowsMapperTest {
 
     private final ArrowsMapper transform = new ArrowsMapper();
+
+    @Test
+    public void testUntouched() {
+        for (UnicodeRange range : UnicodeRange.values()) {
+            if (range == UnicodeRange.ARROWS) {
+                continue;
+            }
+
+            for (int codePoint = range.getLower(); codePoint <= range.getUpper(); codePoint++) {
+                String input = new String(Character.toChars(codePoint));
+
+                assertEquals(input, transform.action(input));
+            }
+        }
+    }
+
 
     @Test
     public void testBasicArrows() {
