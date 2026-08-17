@@ -57,6 +57,13 @@ public final class StringUtils {
      * @return the ICU4J transliterator fallback rule for the given blocks
      */
     public static String toIcuFallbackRule(String fallback, UnicodeRange range, UnicodeRange... ranges) {
+        if (fallback.isEmpty()) {
+            // A pair of ICU quotes ('') is not an empty literal -- it is the
+            // escape sequence for a single quote character. An empty
+            // replacement must therefore be written with no quotes at all.
+            return toIcuRange(range, ranges) + " > ;";
+        }
+
         return toIcuRange(range, ranges) + " > '" + fallback + "';";
     }
 

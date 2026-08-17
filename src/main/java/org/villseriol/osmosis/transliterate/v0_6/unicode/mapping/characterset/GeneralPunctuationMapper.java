@@ -17,16 +17,41 @@ public class GeneralPunctuationMapper implements Unimap {
     static {
         List<String> rules = new ArrayList<>();
 
-        // Restrict the transliterator to the General Punctuation ranges in use.
-        // Non-contiguous: excludes 2028-202F (line/paragraph separators, bidi
-        // embedding controls, narrow no-break space) and 2066-2069 (bidi
-        // isolate
-        // controls), which are not part of this visible-punctuation mapping.
+        // Restrict the transliterator to the full General Punctuation block,
+        // as one continuous range.
         rules.add("::[\\u2000-\\u206F];");
+
+        // Space variants -- normalize to a standard ASCII space. Written as
+        // escaped code points since these are visually indistinguishable
+        // from a plain ASCII space in source.
+        rules.add("\u2000 > ' ';"); // EN QUAD
+        rules.add("\u2001 > ' ';"); // EM QUAD
+        rules.add("\u2002 > ' ';"); // EN SPACE
+        rules.add("\u2003 > ' ';"); // EM SPACE
+        rules.add("\u2004 > ' ';"); // THREE-PER-EM SPACE
+        rules.add("\u2005 > ' ';"); // FOUR-PER-EM SPACE
+        rules.add("\u2006 > ' ';"); // SIX-PER-EM SPACE
+        rules.add("\u2007 > ' ';"); // FIGURE SPACE
+        rules.add("\u2008 > ' ';"); // PUNCTUATION SPACE
+        rules.add("\u2009 > ' ';"); // THIN SPACE
+        rules.add("\u200A > ' ';"); // HAIR SPACE
 
         // Zero-width joining controls -- invisible, drop
         rules.add("‌ > '';"); // 200C ZERO WIDTH NON-JOINER
         rules.add("‍ > '';"); // 200D ZERO WIDTH JOINER
+
+        // Zero-width space -- invisible, drop. Written without quotes since
+        // a quoted empty literal ('') is ICU's escape for a literal quote
+        // character, not an empty string.
+        rules.add("​ > ;"); // 200B ZERO WIDTH SPACE
+
+        // Bidi marks -- invisible, drop. Written using ICU's own \\uXXXX
+        // rule-text escape (rather than the raw character) because ICU's
+        // rule parser treats bidi format controls as insignificant
+        // whitespace and silently strips a literal occurrence, which would
+        // collapse this into a masked, no-op rule.
+        rules.add("\\u200E > ;"); // LEFT-TO-RIGHT MARK
+        rules.add("\\u200F > ;"); // RIGHT-TO-LEFT MARK
 
         // Hyphens and dashes
         rules.add("‐ > '-';"); // 2010 HYPHEN
@@ -38,7 +63,7 @@ public class GeneralPunctuationMapper implements Unimap {
 
         // Lines
         rules.add("‖ > '||';"); // 2016 DOUBLE VERTICAL LINE
-        rules.add("‗ > '__';"); // 2017 DOUBLE LOW LINE
+        rules.add("‗ > '_';"); // 2017 DOUBLE LOW LINE
 
         // Quotation marks
         rules.add("‘ > '';"); // 2018 LEFT SINGLE QUOTATION MARK -> literal '
@@ -80,10 +105,10 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("※ > '*';"); // 203B REFERENCE MARK
         rules.add("‼ > '!!';"); // 203C DOUBLE EXCLAMATION MARK
         rules.add("‽ > '?!';"); // 203D INTERROBANG
-        rules.add("‾ > '-';"); // 203E OVERLINE
+        rules.add("‾ > '¿';"); // 203E OVERLINE
         rules.add("‿ > '_';"); // 203F UNDERTIE
-        rules.add("⁀ > '_';"); // 2040 CHARACTER TIE (dup)
-        rules.add("⁁ > '^';"); // 2041 CARET INSERTION POINT (dup of 2038)
+        rules.add("⁀ > '¿';"); // 2040 CHARACTER TIE (dup)
+        rules.add("⁁ > '¿';"); // 2041 CARET INSERTION POINT (dup of 2038)
         rules.add("⁂ > '***';"); // 2042 ASTERISM
         rules.add("⁃ > '-';"); // 2043 HYPHEN BULLET
         rules.add("⁄ > '/';"); // 2044 FRACTION SLASH
@@ -97,29 +122,28 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("⁉ > '!?';"); // 2049 EXCLAMATION QUESTION MARK
 
         // Editorial / archaic marks -- approximate, several arbitrary
-        rules.add("⁊ > '&';"); // 204A TIRONIAN SIGN ET ("and")
-        rules.add("⁋ > 'P.';"); // 204B REVERSED PILCROW SIGN (arbitrary)
-        rules.add("⁌ > '<*';"); // 204C BLACK LEFTWARDS BULLET
-        rules.add("⁍ > '*>';"); // 204D BLACK RIGHTWARDS BULLET
+        rules.add("⁊ > '¿';"); // 204A TIRONIAN SIGN ET ("and")
+        rules.add("⁋ > '¶';"); // 204B REVERSED PILCROW SIGN (arbitrary)
+        rules.add("⁌ > '¿';"); // 204C BLACK LEFTWARDS BULLET
+        rules.add("⁍ > '¿';"); // 204D BLACK RIGHTWARDS BULLET
         rules.add("⁎ > '*';"); // 204E LOW ASTERISK (dup of bullet)
         rules.add("⁏ > ';';"); // 204F REVERSED SEMICOLON
-        rules.add("⁐ > '';"); // 2050 CLOSE UP (editorial instruction, not a
-                              // glyph)
+        rules.add("⁐ > '¿';"); // 2050 CLOSE UP (editorial instruction, not a
+                               // glyph)
         rules.add("⁑ > '**';"); // 2051 TWO ASTERISKS ALIGNED VERTICALLY
         rules.add("⁒ > '-';"); // 2052 COMMERCIAL MINUS SIGN (dup)
         rules.add("⁓ > '~';"); // 2053 SWUNG DASH
         rules.add("⁔ > '_';"); // 2054 INVERTED UNDERTIE (dup)
         rules.add("⁕ > '*';"); // 2055 FLOWER PUNCTUATION MARK (dup)
-        rules.add("⁖ > '...';"); // 2056 THREE DOT PUNCTUATION (dup of ellipsis)
+        rules.add("⁖ > '¿';"); // 2056 THREE DOT PUNCTUATION
         rules.add("⁗ > '''''''';"); // 2057 QUADRUPLE PRIME -> ''''
-        rules.add("⁘ > '....';"); // 2058 FOUR DOT PUNCTUATION
-        rules.add("⁙ > '.....';"); // 2059 FIVE DOT PUNCTUATION
-        rules.add("⁚ > '..';"); // 205A TWO DOT PUNCTUATION (dup of two-dot
-                                // leader)
-        rules.add("⁛ > '....';"); // 205B FOUR DOT MARK (dup of 2058)
+        rules.add("⁘ > '¿';"); // 2058 FOUR DOT PUNCTUATION
+        rules.add("⁙ > '¿';"); // 2059 FIVE DOT PUNCTUATION
+        rules.add("⁚ > ':';"); // 205A TWO DOT PUNCTUATION
+        rules.add("⁛ > '¿';"); // 205B FOUR DOT MARK (dup of 2058)
         rules.add("⁜ > '+';"); // 205C DOTTED CROSS (dup of dagger)
-        rules.add("⁝ > ':::';"); // 205D TRICOLON
-        rules.add("⁞ > '::::';"); // 205E VERTICAL FOUR DOTS
+        rules.add("⁝ > ':';"); // 205D TRICOLON
+        rules.add("⁞ > ':';"); // 205E VERTICAL FOUR DOTS
 
         // Invisible math/format controls -- no glyph, drop
         rules.add("⁠ > '';"); // 2060 WORD JOINER
@@ -127,10 +151,6 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("⁢ > '';"); // 2062 INVISIBLE TIMES
         rules.add("⁣ > '';"); // 2063 INVISIBLE SEPARATOR
         rules.add("⁤ > '';"); // 2064 INVISIBLE PLUS
-        rules.add("⁥ > '';"); // 2065 <reserved> -- unassigned in Unicode;
-                              // included only
-                              // because it appeared in the source character
-                              // list
 
         // Bidi format controls (deprecated) -- no glyph, drop
         rules.add("⁪ > '';"); // 206A INHIBIT SYMMETRIC SWAPPING
@@ -139,6 +159,25 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("⁭ > '';"); // 206D ACTIVATE ARABIC FORM SHAPING
         rules.add("⁮ > '';"); // 206E NATIONAL DIGIT SHAPES
         rules.add("⁯ > '';"); // 206F NOMINAL DIGIT SHAPES
+
+        // Line/paragraph separators, bidi embedding controls, and the
+        // narrow no-break space -- invisible or non-printing, drop. Written
+        // without quotes since a quoted empty literal ('') is ICU's escape
+        // for a literal quote character, not an empty string.
+        rules.add("\\u2028 > ;"); // LINE SEPARATOR
+        rules.add("\\u2029 > ;"); // PARAGRAPH SEPARATOR
+        rules.add("\\u202A > ;"); // LEFT-TO-RIGHT EMBEDDING
+        rules.add("\\u202B > ;"); // RIGHT-TO-LEFT EMBEDDING
+        rules.add("\\u202C > ;"); // POP DIRECTIONAL FORMATTING
+        rules.add("\\u202D > ;"); // LEFT-TO-RIGHT OVERRIDE
+        rules.add("\\u202E > ;"); // RIGHT-TO-LEFT OVERRIDE
+        rules.add("\\u202F > ;"); // NARROW NO-BREAK SPACE
+
+        // Bidi isolate controls -- invisible, drop
+        rules.add("\\u2066 > ;"); // LEFT-TO-RIGHT ISOLATE
+        rules.add("\\u2067 > ;"); // RIGHT-TO-LEFT ISOLATE
+        rules.add("\\u2068 > ;"); // FIRST STRONG ISOLATE
+        rules.add("\\u2069 > ;"); // POP DIRECTIONAL ISOLATE
 
         TRANSLITERATOR = Transliterator.createFromRules("GeneralPunctuation-Normalized", String.join("\n", rules),
                 Transliterator.FORWARD);
