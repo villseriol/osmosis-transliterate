@@ -4,16 +4,12 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.TransformSequenceDecorator;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToWhitespaceTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.types.UnicodeRange;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
 
 
 public class SmallFormVariantsMapperTest {
 
-    private final Unimap transform = new TransformSequenceDecorator(new SmallFormVariantsMapper(),
-            new RangeToWhitespaceTransform(UnicodeRange.SMALL_FORM_VARIANTS));
+    private final SmallFormVariantsMapper transform = new SmallFormVariantsMapper();
 
     @Test
     public void testUntouched() {
@@ -64,7 +60,7 @@ public class SmallFormVariantsMapperTest {
 
     @Test
     public void testUnmappedCharacters() {
-        assertEquals(" ", transform.action("﹓"));
-        assertEquals(" ", transform.action("﹧"));
+        assertEquals("﹓", transform.action("﹓")); // FE53 unassigned
+        assertEquals("﹧", transform.action("﹧")); // FE67 unassigned
     }
 }

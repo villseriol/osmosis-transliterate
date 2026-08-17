@@ -160,8 +160,7 @@ public class TransliteratePipelineBuilder {
 
         case SMALL_FORM:
             LOG.info("Initializing small-form transform");
-            return new TransformSequenceDecorator(new SmallFormVariantsMapper(),
-                    new RangeToWhitespaceTransform(UnicodeRange.SMALL_FORM_VARIANTS));
+            return new SmallFormVariantsMapper();
 
         case TRIM:
             LOG.info("Initializing trim transform");

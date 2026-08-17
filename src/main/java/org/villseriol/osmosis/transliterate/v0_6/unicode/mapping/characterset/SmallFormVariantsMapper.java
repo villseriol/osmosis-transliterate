@@ -24,7 +24,6 @@ public class SmallFormVariantsMapper implements Unimap {
         rules.add("﹐ > ',';"); // FE50 SMALL COMMA
         rules.add("﹑ > ',';"); // FE51 SMALL IDEOGRAPHIC COMMA (dup)
         rules.add("﹒ > '.';"); // FE52 SMALL FULL STOP
-        // FE53 unassigned -- falls through to catch-all
         rules.add("﹔ > ';';"); // FE54 SMALL SEMICOLON
         rules.add("﹕ > ':';"); // FE55 SMALL COLON
         rules.add("﹖ > '?';"); // FE56 SMALL QUESTION MARK
@@ -44,7 +43,6 @@ public class SmallFormVariantsMapper implements Unimap {
         rules.add("﹤ > '<';"); // FE64 SMALL LESS-THAN SIGN
         rules.add("﹥ > '>';"); // FE65 SMALL GREATER-THAN SIGN
         rules.add("﹦ > '=';"); // FE66 SMALL EQUALS SIGN
-        // FE67 unassigned -- falls through to catch-all
         rules.add("﹨ > '\\';"); // FE68 SMALL REVERSE SOLIDUS -> literal
                                 // backslash
         rules.add("﹩ > '$';"); // FE69 SMALL DOLLAR SIGN
