@@ -84,7 +84,6 @@ public class GeneralPunctuationMapperTest {
         assertEquals("*", transform.action("※"));
         assertEquals("!!", transform.action("‼"));
         assertEquals("?!", transform.action("‽"));
-        assertEquals("_", transform.action("‿"));
         assertEquals("***", transform.action("⁂"));
         assertEquals("-", transform.action("⁃"));
         assertEquals("/", transform.action("⁄"));
@@ -103,7 +102,6 @@ public class GeneralPunctuationMapperTest {
         assertEquals("**", transform.action("⁑"));
         assertEquals("-", transform.action("⁒"));
         assertEquals("~", transform.action("⁓"));
-        assertEquals("_", transform.action("⁔"));
         assertEquals("*", transform.action("⁕"));
         assertEquals("''''", transform.action("⁗"));
         assertEquals(":", transform.action("⁚"));
@@ -142,6 +140,7 @@ public class GeneralPunctuationMapperTest {
         assertEquals(" ", transform.action("\u2008")); // PUNCTUATION SPACE
         assertEquals(" ", transform.action("\u2009")); // THIN SPACE
         assertEquals(" ", transform.action("\u200A")); // HAIR SPACE
+        assertEquals(" ", transform.action("\u205F")); // MEDIUM MATHEMATICAL SPACE
 
         // Zero-width space -- invisible, drop
         assertEquals("", transform.action("\u200B")); // ZERO WIDTH SPACE
@@ -181,6 +180,8 @@ public class GeneralPunctuationMapperTest {
     public void testUnsupportedCharacter() {
         // Characters with no reasonable ASCII equivalent -- mapped to the
         // inverted question mark as a generic "unsupported" marker.
+        assertEquals("¿", transform.action("‿")); // UNDERTIE
+        assertEquals("¿", transform.action("⁔")); // INVERTED UNDERTIE
         assertEquals("¿", transform.action("‾")); // OVERLINE
         assertEquals("¿", transform.action("⁀")); // CHARACTER TIE
         assertEquals("¿", transform.action("⁁")); // CARET INSERTION POINT

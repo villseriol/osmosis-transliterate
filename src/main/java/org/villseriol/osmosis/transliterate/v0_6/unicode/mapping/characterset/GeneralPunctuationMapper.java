@@ -106,7 +106,7 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("‼ > '!!';"); // 203C DOUBLE EXCLAMATION MARK
         rules.add("‽ > '?!';"); // 203D INTERROBANG
         rules.add("‾ > '¿';"); // 203E OVERLINE
-        rules.add("‿ > '_';"); // 203F UNDERTIE
+        rules.add("‿ > '¿';"); // 203F UNDERTIE
         rules.add("⁀ > '¿';"); // 2040 CHARACTER TIE (dup)
         rules.add("⁁ > '¿';"); // 2041 CARET INSERTION POINT (dup of 2038)
         rules.add("⁂ > '***';"); // 2042 ASTERISM
@@ -133,7 +133,7 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("⁑ > '**';"); // 2051 TWO ASTERISKS ALIGNED VERTICALLY
         rules.add("⁒ > '-';"); // 2052 COMMERCIAL MINUS SIGN (dup)
         rules.add("⁓ > '~';"); // 2053 SWUNG DASH
-        rules.add("⁔ > '_';"); // 2054 INVERTED UNDERTIE (dup)
+        rules.add("⁔ > '¿';"); // 2054 INVERTED UNDERTIE (dup)
         rules.add("⁕ > '*';"); // 2055 FLOWER PUNCTUATION MARK (dup)
         rules.add("⁖ > '¿';"); // 2056 THREE DOT PUNCTUATION
         rules.add("⁗ > '''''''';"); // 2057 QUADRUPLE PRIME -> ''''
@@ -144,6 +144,7 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("⁜ > '+';"); // 205C DOTTED CROSS (dup of dagger)
         rules.add("⁝ > ':';"); // 205D TRICOLON
         rules.add("⁞ > ':';"); // 205E VERTICAL FOUR DOTS
+        rules.add("\u205F > ' ';"); // MEDIUM MATHEMATICAL SPACE
 
         // Invisible math/format controls -- no glyph, drop
         rules.add("⁠ > '';"); // 2060 WORD JOINER
