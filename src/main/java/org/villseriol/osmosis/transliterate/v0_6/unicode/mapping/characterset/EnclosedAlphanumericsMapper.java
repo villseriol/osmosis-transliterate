@@ -184,9 +184,6 @@ public class EnclosedAlphanumericsMapper implements Unimap {
         rules.add("⓾ > '(10)';"); // 24FE DOUBLE CIRCLED NUMBER TEN
         rules.add("⓿ > '(0)';"); // 24FF NEGATIVE CIRCLED DIGIT ZERO
 
-        // Fallback: anything not yet explicitly mapped becomes ' '
-        rules.add(StringUtils.toIcuFallbackRule(" ", UnicodeRange.ENCLOSED_ALPHANUMERICS));
-
         TRANSLITERATOR = Transliterator.createFromRules("EnclosedAlphanumerics-Normalized", String.join("\n", rules),
                 Transliterator.FORWARD);
     }

@@ -42,6 +42,7 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.Ge
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeometricShapesMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GreekMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HalfWidthFullWidthMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LetterlikeMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.MiscellaneousSymbolsAndArrowsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SmallFormVariantsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.CustomMappingTransform;
@@ -143,6 +144,10 @@ public class TransliteratePipelineBuilder {
             }
 
             return new KakasiTransform(config);
+
+        case LETTERLIKE:
+            LOG.info("Initializing letterlike transform");
+            return new LetterlikeMapper();
 
         case LATIN:
             LOG.info("Initializing latin transform");
