@@ -135,6 +135,13 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
+     * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ThaiMapper
+     */
+    THAI("thai"),
+
+    /**
+     * TODO.
+     *
      * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.TrimTransform
      */
     TRIM("trim"),
