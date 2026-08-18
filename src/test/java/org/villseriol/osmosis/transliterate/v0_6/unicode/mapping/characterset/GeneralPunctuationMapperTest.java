@@ -180,18 +180,18 @@ public class GeneralPunctuationMapperTest {
     public void testUnsupportedCharacter() {
         // Characters with no reasonable ASCII equivalent -- mapped to the
         // inverted question mark as a generic "unsupported" marker.
-        assertEquals("¿", transform.action("‿")); // UNDERTIE
-        assertEquals("¿", transform.action("⁔")); // INVERTED UNDERTIE
-        assertEquals("¿", transform.action("‾")); // OVERLINE
-        assertEquals("¿", transform.action("⁀")); // CHARACTER TIE
-        assertEquals("¿", transform.action("⁁")); // CARET INSERTION POINT
-        assertEquals("¿", transform.action("⁊")); // TIRONIAN SIGN ET ("and")
-        assertEquals("¿", transform.action("⁌")); // BLACK LEFTWARDS BULLET
-        assertEquals("¿", transform.action("⁍")); // BLACK RIGHTWARDS BULLET
-        assertEquals("¿", transform.action("⁐")); // CLOSE UP
-        assertEquals("¿", transform.action("⁖")); // THREE DOT PUNCTUATION
-        assertEquals("¿", transform.action("⁘")); // FOUR DOT PUNCTUATION
-        assertEquals("¿", transform.action("⁙")); // FIVE DOT PUNCTUATION
-        assertEquals("¿", transform.action("⁛")); // FOUR DOT MARK
+        assertEquals(" ", transform.action("‿")); // UNDERTIE
+        assertEquals(" ", transform.action("⁔")); // INVERTED UNDERTIE
+        assertEquals(" ", transform.action("‾")); // OVERLINE
+        assertEquals(" ", transform.action("⁀")); // CHARACTER TIE
+        assertEquals(" ", transform.action("⁁")); // CARET INSERTION POINT
+        assertEquals(" ", transform.action("⁊")); // TIRONIAN SIGN ET ("and")
+        assertEquals(" ", transform.action("⁌")); // BLACK LEFTWARDS BULLET
+        assertEquals(" ", transform.action("⁍")); // BLACK RIGHTWARDS BULLET
+        assertEquals(" ", transform.action("⁐")); // CLOSE UP
+        assertEquals(" ", transform.action("⁖")); // THREE DOT PUNCTUATION
+        assertEquals(" ", transform.action("⁘")); // FOUR DOT PUNCTUATION
+        assertEquals(" ", transform.action("⁙")); // FIVE DOT PUNCTUATION
+        assertEquals(" ", transform.action("⁛")); // FOUR DOT MARK
     }
 }

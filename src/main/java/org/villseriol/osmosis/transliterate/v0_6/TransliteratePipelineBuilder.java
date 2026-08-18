@@ -48,7 +48,6 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.Cus
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.DuplicateSpaceTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToBlankTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToWhitespaceTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
 
 
@@ -130,8 +129,7 @@ public class TransliteratePipelineBuilder {
 
         case HALF_WIDTH_FULL_WIDTH:
             LOG.info("Initializing half-width-full-width transform");
-            return new TransformSequenceDecorator(new HalfWidthFullWidthMapper(),
-                    new RangeToWhitespaceTransform(UnicodeRange.HALFWIDTH_AND_FULLWIDTH_FORMS));
+            return new HalfWidthFullWidthMapper();
 
         case KAKASI:
             LOG.info("Initializing kakasi transform");

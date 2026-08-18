@@ -105,10 +105,10 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("※ > '*';"); // 203B REFERENCE MARK
         rules.add("‼ > '!!';"); // 203C DOUBLE EXCLAMATION MARK
         rules.add("‽ > '?!';"); // 203D INTERROBANG
-        rules.add("‾ > '¿';"); // 203E OVERLINE
-        rules.add("‿ > '¿';"); // 203F UNDERTIE
-        rules.add("⁀ > '¿';"); // 2040 CHARACTER TIE (dup)
-        rules.add("⁁ > '¿';"); // 2041 CARET INSERTION POINT (dup of 2038)
+        rules.add("‾ > ' ';"); // 203E OVERLINE
+        rules.add("‿ > ' ';"); // 203F UNDERTIE
+        rules.add("⁀ > ' ';"); // 2040 CHARACTER TIE (dup)
+        rules.add("⁁ > ' ';"); // 2041 CARET INSERTION POINT (dup of 2038)
         rules.add("⁂ > '***';"); // 2042 ASTERISM
         rules.add("⁃ > '-';"); // 2043 HYPHEN BULLET
         rules.add("⁄ > '/';"); // 2044 FRACTION SLASH
@@ -122,25 +122,25 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("⁉ > '!?';"); // 2049 EXCLAMATION QUESTION MARK
 
         // Editorial / archaic marks -- approximate, several arbitrary
-        rules.add("⁊ > '¿';"); // 204A TIRONIAN SIGN ET ("and")
+        rules.add("⁊ > ' ';"); // 204A TIRONIAN SIGN ET ("and")
         rules.add("⁋ > '¶';"); // 204B REVERSED PILCROW SIGN (arbitrary)
-        rules.add("⁌ > '¿';"); // 204C BLACK LEFTWARDS BULLET
-        rules.add("⁍ > '¿';"); // 204D BLACK RIGHTWARDS BULLET
+        rules.add("⁌ > ' ';"); // 204C BLACK LEFTWARDS BULLET
+        rules.add("⁍ > ' ';"); // 204D BLACK RIGHTWARDS BULLET
         rules.add("⁎ > '*';"); // 204E LOW ASTERISK (dup of bullet)
         rules.add("⁏ > ';';"); // 204F REVERSED SEMICOLON
-        rules.add("⁐ > '¿';"); // 2050 CLOSE UP (editorial instruction, not a
+        rules.add("⁐ > ' ';"); // 2050 CLOSE UP (editorial instruction, not a
                                // glyph)
         rules.add("⁑ > '**';"); // 2051 TWO ASTERISKS ALIGNED VERTICALLY
         rules.add("⁒ > '-';"); // 2052 COMMERCIAL MINUS SIGN (dup)
         rules.add("⁓ > '~';"); // 2053 SWUNG DASH
-        rules.add("⁔ > '¿';"); // 2054 INVERTED UNDERTIE (dup)
+        rules.add("⁔ > ' ';"); // 2054 INVERTED UNDERTIE (dup)
         rules.add("⁕ > '*';"); // 2055 FLOWER PUNCTUATION MARK (dup)
-        rules.add("⁖ > '¿';"); // 2056 THREE DOT PUNCTUATION
+        rules.add("⁖ > ' ';"); // 2056 THREE DOT PUNCTUATION
         rules.add("⁗ > '''''''';"); // 2057 QUADRUPLE PRIME -> ''''
-        rules.add("⁘ > '¿';"); // 2058 FOUR DOT PUNCTUATION
-        rules.add("⁙ > '¿';"); // 2059 FIVE DOT PUNCTUATION
+        rules.add("⁘ > ' ';"); // 2058 FOUR DOT PUNCTUATION
+        rules.add("⁙ > ' ';"); // 2059 FIVE DOT PUNCTUATION
         rules.add("⁚ > ':';"); // 205A TWO DOT PUNCTUATION
-        rules.add("⁛ > '¿';"); // 205B FOUR DOT MARK (dup of 2058)
+        rules.add("⁛ > ' ';"); // 205B FOUR DOT MARK (dup of 2058)
         rules.add("⁜ > '+';"); // 205C DOTTED CROSS (dup of dagger)
         rules.add("⁝ > ':';"); // 205D TRICOLON
         rules.add("⁞ > ':';"); // 205E VERTICAL FOUR DOTS
