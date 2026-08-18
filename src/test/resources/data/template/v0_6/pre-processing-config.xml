@@ -66,14 +66,6 @@
                     <when-value-is value="🄬" />
                 </replace-with>
 
-                <replace-with value="°C">
-                    <when-value-is value="℃" />
-                </replace-with>
-
-                <replace-with value="°F">
-                    <when-value-is value="℉" />
-                </replace-with>
-
                 <replace-with value=" · ">
                     <when-value-is value="・" />
                     <when-value-is value="･" />
@@ -111,7 +103,10 @@
         </run>
 
         <run alias="small-form" />
+
         <run alias="general-punctuation" />
+        <run alias="all-to-whitespace" unicode-group="general-punctuation" />
+
         <run alias="arrow" />
         <run alias="box-drawing" />
         <run alias="all-to-whitespace" unicode-group="geometric-shapes" />
