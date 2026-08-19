@@ -2,12 +2,15 @@
 package org.villseriol.osmosis.detective.v0_6.builder;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.openstreetmap.osmosis.core.container.v0_6.EntityContainer;
 import org.openstreetmap.osmosis.core.domain.v0_6.Entity;
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
 import org.villseriol.osmosis.detective.v0_6.model.NodeCountByCharacterRecord;
+import org.villseriol.osmosis.detective.v0_6.report.NodeCountByCharacterReport;
 
 
 public class NodeCountByCharacterReportBuilder {
@@ -16,17 +19,34 @@ public class NodeCountByCharacterReportBuilder {
     public void process(EntityContainer entityContainer) {
         Entity entity = entityContainer.getEntity();
 
+        Set<Character> seen = new HashSet<>();
+
         for (Tag tag : entity.getTags()) {
-            String value = tag.getValue();
+            process(tag.getValue(), seen);
+        }
+    }
 
-            for (int i = 0; i < value.length(); i++) {
-                char character = value.charAt(i);
 
-                NodeCountByCharacterRecord record = records.computeIfAbsent(character, NodeCountByCharacterRecord::new);
+    public void process(String value) {
+        process(value, new HashSet<>());
+    }
+
+
+    private void process(String value, final Set<Character> seen) {
+        for (int i = 0; i < value.length(); i++) {
+            char character = value.charAt(i);
+
+            NodeCountByCharacterRecord record = records.computeIfAbsent(character, NodeCountByCharacterRecord::new);
+            record.addExample(value);
+
+            if (seen.add(character)) {
                 record.incrementOccurences();
-                record.addExample(value);
             }
         }
     }
 
+
+    public NodeCountByCharacterReport build() {
+        return new NodeCountByCharacterReport(records);
+    }
 }
