@@ -1,24 +1,13 @@
 name: Integration Tests
-on:
-  workflow_run:
-    workflows: ['Continuous Integration']
-    types: [completed]
-  workflow_dispatch:
+on: [push, pull_request, workflow_dispatch]
 jobs:
   integration-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Require Continuous Integration Success
-        if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion != 'success'
-        run: |
-          echo "Continuous Integration did not succeed (conclusion: ${{ github.event.workflow_run.conclusion }})."
-          exit 1
-
       - name: Checkout
         uses: actions/checkout@v6
         with:
           submodules: recursive
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Set up Java
         uses: actions/setup-java@v5
