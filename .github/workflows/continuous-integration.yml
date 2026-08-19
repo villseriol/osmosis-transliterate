@@ -16,3 +16,17 @@ jobs:
           cache: maven
       - name: Package
         run: mvn clean package
+      - name: Get Final Artifact Name
+        id: get-final-name
+        run: |
+          FINAL_NAME=$(mvn help:evaluate -Dexpression=project.build.finalName -q -DforceStdout)
+
+          echo "final_name=$FINAL_NAME" >> $GITHUB_OUTPUT
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: osmosis-kakasi-artifacts
+          retention-days: 1
+          path: |
+            target/${{ steps.get-final-name.outputs.final_name }}.jar
+            target/${{ steps.get-final-name.outputs.final_name }}-plugin.zip

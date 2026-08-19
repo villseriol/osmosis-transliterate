@@ -4,6 +4,8 @@ on:
     workflows: ['Continuous Integration']
     types: [completed]
   workflow_dispatch:
+permissions:
+  actions: read
 jobs:
   integration-tests:
     runs-on: ubuntu-latest
@@ -14,28 +16,13 @@ jobs:
           echo "Continuous Integration did not succeed (conclusion: ${{ github.event.workflow_run.conclusion }})."
           exit 1
 
-      - name: Checkout
-        uses: actions/checkout@v6
+      - name: Download Artifacts
+        uses: actions/download-artifact@v8
         with:
-          submodules: recursive
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
-
-      - name: Set up Java
-        uses: actions/setup-java@v5
-        with:
-          distribution: temurin
-          java-version: '17'
-          cache: maven
-
-      - name: Package
-        run: mvn clean package
-
-      - name: Get Final Artifact Name
-        id: get-final-name
-        run: |
-          FINAL_NAME=$(mvn help:evaluate -Dexpression=project.build.finalName -q -DforceStdout)
-
-          echo "final_name=$FINAL_NAME" >> $GITHUB_OUTPUT
+          name: osmosis-kakasi-artifacts
+          path: target
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id || github.run_id }}
 
       - name: Install Osmosis
         run: |
@@ -45,8 +32,7 @@ jobs:
       - name: Install Plugin
         run: |
           mkdir -p ~/.openstreetmaps/osmosis/plugins
-          unzip -o target/${{ steps.get-final-name.outputs.final_name }}-plugin.zip \
-            -d ~/.openstreetmaps/osmosis/plugins
+          unzip -o target/*-plugin.zip -d ~/.openstreetmaps/osmosis/plugins
 
       - name: Verify Plugin Loads
-        run: osmosis --read-empty --oss-version-0.6
+        run: osmosis -p org.villseriol.osmosis.version.VersionPluginLoader --read-empty --oss-version-0.6
