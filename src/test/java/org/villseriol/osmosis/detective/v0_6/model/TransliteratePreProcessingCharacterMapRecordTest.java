@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 
-public class TransliteratePreProcessingCharacterMapTest {
+public class TransliteratePreProcessingCharacterMapRecordTest {
     @Test
     public void testGetFromAndGetTo() {
         TransliteratePreProcessingCharacterMapRecord record = new TransliteratePreProcessingCharacterMapRecord("a",
