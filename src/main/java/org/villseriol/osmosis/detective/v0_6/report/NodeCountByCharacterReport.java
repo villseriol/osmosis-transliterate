@@ -1,6 +1,7 @@
 // This software is released into the Public Domain.  See copying.txt for details.
 package org.villseriol.osmosis.detective.v0_6.report;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -15,14 +16,19 @@ import org.villseriol.osmosis.detective.v0_6.model.NodeCountByCharacterRecord;
 
 
 public class NodeCountByCharacterReport extends DetReport {
-    private final Map<UnicodeRange, List<NodeCountByCharacterRecord>> data;
+    private Map<UnicodeRange, List<NodeCountByCharacterRecord>> data;
 
     private Font headerFont;
     private CellStyle headerStyle;
 
     private DetReportCursor cursor = new DetReportCursor();
 
-    public NodeCountByCharacterReport(Map<Character, NodeCountByCharacterRecord> data) {
+    public NodeCountByCharacterReport() {
+        this.data = Collections.emptyMap();
+    }
+
+
+    public NodeCountByCharacterReport(final Map<Character, NodeCountByCharacterRecord> data) {
         this.data = data.values().stream()
                 .collect(Collectors.groupingBy(record -> UnicodeRange.fromCharacter(record.getCharacter())));
     }
@@ -91,6 +97,16 @@ public class NodeCountByCharacterReport extends DetReport {
 
         cursor.resetCol();
         cursor.nextRow();
+    }
+
+
+    public Map<UnicodeRange, List<NodeCountByCharacterRecord>> getData() {
+        return data;
+    }
+
+
+    public void setData(Map<UnicodeRange, List<NodeCountByCharacterRecord>> data) {
+        this.data = data;
     }
 
 
