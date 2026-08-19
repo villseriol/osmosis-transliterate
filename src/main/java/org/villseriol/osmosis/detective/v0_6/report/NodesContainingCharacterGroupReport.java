@@ -12,7 +12,7 @@ public class NodesContainingCharacterGroupReport extends DetReport {
 
 
     @Override
-    protected void generate() {
+    protected void generate(Workbook workbook) {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 }

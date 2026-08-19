@@ -1,44 +1,45 @@
 // This software is released into the Public Domain.  See copying.txt for details.
 package org.villseriol.osmosis.detective.v0_6.report;
 
-import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.villseriol.osmosis.common.UnicodeRange;
 import org.villseriol.osmosis.detective.v0_6.model.NodeCountByCharacterRecord;
 
 
 public class NodeCountByCharacterReport extends DetReport {
-    private final Collection<NodeCountByCharacterRecord> data;
+    private final Map<UnicodeRange, List<NodeCountByCharacterRecord>> data;
 
     private Font headerFont;
     private CellStyle headerStyle;
-    private Sheet sheet;
 
     private DetReportCursor cursor = new DetReportCursor();
 
-    public NodeCountByCharacterReport(Collection<NodeCountByCharacterRecord> data) {
-        this.data = data;
+    public NodeCountByCharacterReport(Map<Character, NodeCountByCharacterRecord> data) {
+        this.data = data.values().stream()
+                .collect(Collectors.groupingBy(record -> UnicodeRange.fromCharacter(record.getCharacter())));
     }
 
 
     @Override
-    protected void setup(Workbook workbook) {
-        headerFont = workbook.createFont();
+    protected void setup(Workbook wb) {
+        headerFont = wb.createFont();
         headerFont.setBold(true);
         headerFont.setFontHeightInPoints((short) 12);
 
-        headerStyle = workbook.createCellStyle();
+        headerStyle = wb.createCellStyle();
         headerStyle.setFont(headerFont);
-
-        sheet = workbook.createSheet();
     }
 
 
-    private void addHeaderRow() {
+    private void addHeaderRow(Sheet sheet) {
         Row row = sheet.createRow(cursor.getRow());
 
         int characterHeaderCol = cursor.getCol();
@@ -64,7 +65,7 @@ public class NodeCountByCharacterReport extends DetReport {
     }
 
 
-    private void addDataRow(NodeCountByCharacterRecord record) {
+    private void addDataRow(Sheet sheet, NodeCountByCharacterRecord record) {
         Row row = sheet.createRow(cursor.getRow());
 
         int characterCol = cursor.getCol();
@@ -94,13 +95,17 @@ public class NodeCountByCharacterReport extends DetReport {
 
 
     @Override
-    protected void generate() {
-        addHeaderRow();
+    protected void generate(Workbook wb) {
+        for (Map.Entry<UnicodeRange, List<NodeCountByCharacterRecord>> entry : data.entrySet()) {
+            Sheet sheet = wb.createSheet(entry.getKey().getAlias());
 
-        for (NodeCountByCharacterRecord record : data) {
-            addDataRow(record);
+            addHeaderRow(sheet);
+
+            for (NodeCountByCharacterRecord record : entry.getValue()) {
+                addDataRow(sheet, record);
+            }
+
+            cursor.reset();
         }
-
-        cursor.reset();
     }
 }

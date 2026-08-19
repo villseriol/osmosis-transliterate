@@ -1295,6 +1295,11 @@ public enum UnicodeRange {
     }
 
 
+    public boolean contains(int codePoint) {
+        return codePoint >= lower && codePoint <= upper;
+    }
+
+
     @JsonCreator
     public static UnicodeRange fromAlias(String alias) {
         for (UnicodeRange value : values()) {
@@ -1304,5 +1309,18 @@ public enum UnicodeRange {
         }
 
         throw new IllegalArgumentException("Unknown unicode range: " + alias);
+    }
+
+
+    public static UnicodeRange fromCharacter(Character character) {
+        int codePoint = character;
+
+        for (UnicodeRange value : values()) {
+            if (value.contains(codePoint)) {
+                return value;
+            }
+        }
+
+        throw new IllegalArgumentException("No unicode range for character: " + character);
     }
 }

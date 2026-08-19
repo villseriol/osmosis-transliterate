@@ -11,7 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 public abstract class DetReport {
-    protected abstract void generate();
+    protected abstract void generate(Workbook workbook);
 
 
     protected abstract void setup(Workbook workbook);
@@ -20,7 +20,7 @@ public abstract class DetReport {
     public final void generate(OutputStream out) throws IOException {
         try (Workbook workbook = new XSSFWorkbook()) {
             setup(workbook);
-            generate();
+            generate(workbook);
             workbook.write(out);
         }
     }
