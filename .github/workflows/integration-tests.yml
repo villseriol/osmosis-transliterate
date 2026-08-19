@@ -38,4 +38,4 @@ jobs:
             -d ~/.openstreetmaps/osmosis/plugins
 
       - name: Verify Plugin Loads
-        run: osmosis --read-empty --oss-version-0.6
+        run: osmosis -p org.villseriol.osmosis.version.VersionPluginLoader --read-empty --oss-version-0.6
