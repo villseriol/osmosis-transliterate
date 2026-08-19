@@ -14,8 +14,6 @@ public class TransliteratePluginLoader implements PluginLoader {
         TaskManagerFactory transformFactory = new org.villseriol.osmosis.transliterate.v0_6.TransliterateTaskFactory();
 
         Map<String, TaskManagerFactory> tasks = new HashMap<String, TaskManagerFactory>();
-        tasks.put("transliterate", transformFactory);
-        tasks.put("transliterate-0.6", transformFactory);
 
         tasks.put("oss-tl", transformFactory);
         tasks.put("oss-tl-0.6", transformFactory);

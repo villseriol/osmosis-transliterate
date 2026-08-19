@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.detective;
+package org.villseriol.osmosis.version;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,18 +8,16 @@ import org.openstreetmap.osmosis.core.pipeline.common.TaskManagerFactory;
 import org.openstreetmap.osmosis.core.plugin.PluginLoader;
 
 
-public class DetectivePluginLoader implements PluginLoader {
-
+public class VersionPluginLoader implements PluginLoader {
     @Override
     public Map<String, TaskManagerFactory> loadTaskFactories() {
-        TaskManagerFactory transformFactory = new org.villseriol.osmosis.detective.v0_6.DetectiveTaskFactory();
+        TaskManagerFactory transformFactory = new org.villseriol.osmosis.version.v0_6.VersionTaskFactory();
 
         Map<String, TaskManagerFactory> tasks = new HashMap<String, TaskManagerFactory>();
 
-        tasks.put("oss-det", transformFactory);
-        tasks.put("oss-det-0.6", transformFactory);
+        tasks.put("oss-version", transformFactory);
+        tasks.put("oss-version-0.6", transformFactory);
 
         return tasks;
     }
-
 }

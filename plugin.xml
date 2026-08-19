@@ -17,4 +17,10 @@
         <parameter id="name" value="transliterate" />
         <parameter id="class" value="org.villseriol.osmosis.transliterate.TransliteratePluginLoader" />
     </extension>
+
+    <extension plugin-id="org.openstreetmap.osmosis.core.plugin.Core"
+        point-id="Task" id="version">
+        <parameter id="name" value="version" />
+        <parameter id="class" value="org.villseriol.osmosis.version.VersionPluginLoader" />
+    </extension>
 </plugin>
