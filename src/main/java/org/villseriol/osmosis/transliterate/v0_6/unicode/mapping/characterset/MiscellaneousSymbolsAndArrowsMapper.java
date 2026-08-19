@@ -4,9 +4,9 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.villseriol.osmosis.common.UnicodeRange;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToWhitespaceTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.UnicodeRange;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;

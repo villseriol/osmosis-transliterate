@@ -1,8 +1,9 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.transliterate.v0_6.unicode.types;
+package org.villseriol.osmosis.common;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 
 /**
  * Represents a Unicode block (character range), as defined by the Unicode

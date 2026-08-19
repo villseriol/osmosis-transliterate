@@ -3,7 +3,7 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.decorator;
 
 import java.util.logging.Logger;
 
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
 public class TransformLogDecorator extends TransformDecorator {

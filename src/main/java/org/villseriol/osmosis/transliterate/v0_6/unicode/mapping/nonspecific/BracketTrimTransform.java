@@ -4,7 +4,7 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
 public class BracketTrimTransform implements Unimap {

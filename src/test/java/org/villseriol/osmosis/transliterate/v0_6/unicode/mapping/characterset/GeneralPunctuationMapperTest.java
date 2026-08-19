@@ -4,7 +4,7 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.UnicodeRange;
+import org.villseriol.osmosis.common.UnicodeRange;
 
 
 public class GeneralPunctuationMapperTest {
@@ -140,7 +140,8 @@ public class GeneralPunctuationMapperTest {
         assertEquals(" ", transform.action("\u2008")); // PUNCTUATION SPACE
         assertEquals(" ", transform.action("\u2009")); // THIN SPACE
         assertEquals(" ", transform.action("\u200A")); // HAIR SPACE
-        assertEquals(" ", transform.action("\u205F")); // MEDIUM MATHEMATICAL SPACE
+        assertEquals(" ", transform.action("\u205F")); // MEDIUM MATHEMATICAL
+                                                       // SPACE
         assertEquals(" ", transform.action("\u202F")); // NARROW NO-BREAK SPACE
 
         // Zero-width space -- invisible, drop
@@ -152,7 +153,8 @@ public class GeneralPunctuationMapperTest {
         assertEquals("", transform.action("\u2029")); // PARAGRAPH SEPARATOR
         assertEquals("", transform.action("\u202A")); // LEFT-TO-RIGHT EMBEDDING
         assertEquals("", transform.action("\u202B")); // RIGHT-TO-LEFT EMBEDDING
-        assertEquals("", transform.action("\u202C")); // POP DIRECTIONAL FORMATTING
+        assertEquals("", transform.action("\u202C")); // POP DIRECTIONAL
+                                                      // FORMATTING
         assertEquals("", transform.action("\u202D")); // LEFT-TO-RIGHT OVERRIDE
         assertEquals("", transform.action("\u202E")); // RIGHT-TO-LEFT OVERRIDE
 

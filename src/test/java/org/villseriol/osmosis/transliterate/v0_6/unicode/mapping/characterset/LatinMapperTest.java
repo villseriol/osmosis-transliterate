@@ -4,8 +4,8 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.villseriol.osmosis.common.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.LatinTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.UnicodeRange;
 
 
 public abstract class LatinMapperTest {

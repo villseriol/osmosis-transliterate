@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.detective.v0_6.reports;
+package org.villseriol.osmosis.detective.v0_6.report;
 
 import java.util.Collection;
 
@@ -8,10 +8,10 @@ import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.villseriol.osmosis.detective.v0_6.reports.models.NodeCountByCharacterRecord;
+import org.villseriol.osmosis.detective.v0_6.model.NodeCountByCharacterRecord;
 
 
-public class NodeCountByCharacter extends DetReport {
+public class NodeCountByCharacterReport extends DetReport {
     private final Collection<NodeCountByCharacterRecord> data;
 
     private Font headerFont;
@@ -20,7 +20,7 @@ public class NodeCountByCharacter extends DetReport {
 
     private DetReportCursor cursor = new DetReportCursor();
 
-    public NodeCountByCharacter(Collection<NodeCountByCharacterRecord> data) {
+    public NodeCountByCharacterReport(Collection<NodeCountByCharacterRecord> data) {
         this.data = data;
     }
 

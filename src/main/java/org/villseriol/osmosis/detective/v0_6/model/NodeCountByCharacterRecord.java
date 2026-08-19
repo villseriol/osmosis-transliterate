@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.detective.v0_6.reports.models;
+package org.villseriol.osmosis.detective.v0_6.model;
 
 import java.util.concurrent.ArrayBlockingQueue;
 

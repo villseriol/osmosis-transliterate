@@ -4,7 +4,7 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.decorator;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
 public class TransformSequenceDecorator extends TransformDecorator {

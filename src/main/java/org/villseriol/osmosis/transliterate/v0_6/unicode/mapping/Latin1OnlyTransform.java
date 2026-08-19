@@ -4,7 +4,7 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;

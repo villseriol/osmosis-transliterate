@@ -5,8 +5,8 @@ import org.openstreetmap.osmosis.core.domain.v0_6.Entity;
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
 import org.openstreetmap.osmosis.core.lifecycle.Completable;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.NoTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
 
 
 public class TransliteratePipelineRunner implements Completable {

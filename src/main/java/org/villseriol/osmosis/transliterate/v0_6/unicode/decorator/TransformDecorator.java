@@ -3,7 +3,7 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.decorator;
 
 import java.util.Objects;
 
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
 public abstract class TransformDecorator implements Unimap {

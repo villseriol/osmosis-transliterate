@@ -1,10 +1,10 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.detective.v0_6.reports;
+package org.villseriol.osmosis.detective.v0_6.report;
 
 import org.apache.poi.ss.usermodel.Workbook;
 
 
-public class NodesContainingCharacterGroup extends DetReport {
+public class NodesContainingCharacterGroupReport extends DetReport {
     @Override
     protected void setup(Workbook workbook) {
         throw new UnsupportedOperationException("Not yet implemented");

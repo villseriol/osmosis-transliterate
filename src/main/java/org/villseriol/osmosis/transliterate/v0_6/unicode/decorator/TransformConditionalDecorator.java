@@ -4,7 +4,7 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.decorator;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
 public class TransformConditionalDecorator extends TransformDecorator {

@@ -24,6 +24,7 @@ import org.villseriol.osmosis.transliterate.v0_6.config.model.ReplaceWithNode;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.RunNode;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.TagNode;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.WhenValueIsNode;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.TransformConditionalDecorator;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.TransformSequenceDecorator;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.KakasiTransform;
@@ -50,7 +51,6 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.Cus
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.DuplicateSpaceTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToBlankTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToWhitespaceTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.Unimap;
 
 
 public class TransliteratePipelineBuilder {

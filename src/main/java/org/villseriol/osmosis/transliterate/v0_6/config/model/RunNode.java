@@ -4,7 +4,7 @@ package org.villseriol.osmosis.transliterate.v0_6.config.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.villseriol.osmosis.transliterate.v0_6.unicode.types.UnicodeRange;
+import org.villseriol.osmosis.common.UnicodeRange;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
