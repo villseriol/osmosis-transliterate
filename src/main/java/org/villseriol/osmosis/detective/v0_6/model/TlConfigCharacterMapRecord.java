@@ -2,7 +2,10 @@
 package org.villseriol.osmosis.detective.v0_6.model;
 
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.stream.Collectors;
+
+import org.villseriol.osmosis.common.UnicodeRange;
 
 
 public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterMapRecord> {
@@ -21,7 +24,8 @@ public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterM
 
 
     public String getToName() {
-        return to.toString().codePoints().mapToObj(Character::getName).collect(Collectors.joining(" + "));
+        return Objects.requireNonNullElse(to.toString().codePoints().mapToObj(Character::getName)
+                .filter(Objects::nonNull).collect(Collectors.joining(" + ")), "");
     }
 
 
@@ -43,6 +47,12 @@ public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterM
 
     public boolean isToReserved() {
         return !to.toString().codePoints().allMatch(Character::isDefined);
+    }
+
+
+    public boolean isToLatin1Compliant() {
+        return to.toString().codePoints().allMatch(codePoint -> UnicodeRange.BASIC_LATIN.contains(codePoint)
+                || UnicodeRange.LATIN_1_SUPPLEMENT.contains(codePoint));
     }
 
 

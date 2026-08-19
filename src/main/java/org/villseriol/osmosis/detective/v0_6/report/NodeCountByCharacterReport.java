@@ -80,8 +80,8 @@ public class NodeCountByCharacterReport extends DetReport {
         int nameCol = cursor.nextCol();
         row.createCell(nameCol).setCellValue(Character.getName(record.getCharacter()));
 
-        int occurencesCol = cursor.nextCol();
-        row.createCell(occurencesCol).setCellValue(record.getOccurences());
+        int occurrencesCol = cursor.nextCol();
+        row.createCell(occurrencesCol).setCellValue(record.getOccurences());
 
         int examplesCol = cursor.nextCol();
         boolean firstExample = true;
