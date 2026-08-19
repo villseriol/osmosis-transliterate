@@ -4,11 +4,11 @@ package org.villseriol.osmosis.detective.v0_6.model;
 import java.util.Comparator;
 
 
-public class PreProcessingCharacterMapRecord implements Comparator<PreProcessingCharacterMapRecord> {
+public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterMapRecord> {
     private Character from;
     private Character to;
 
-    public PreProcessingCharacterMapRecord(Character from, Character to) {
+    public TlConfigCharacterMapRecord(Character from, Character to) {
         this.from = from;
         this.to = to;
     }
@@ -65,7 +65,7 @@ public class PreProcessingCharacterMapRecord implements Comparator<PreProcessing
 
 
     @Override
-    public int compare(PreProcessingCharacterMapRecord a, PreProcessingCharacterMapRecord b) {
+    public int compare(TlConfigCharacterMapRecord a, TlConfigCharacterMapRecord b) {
         return a.getFrom().compareTo(b.getFrom());
     }
 }

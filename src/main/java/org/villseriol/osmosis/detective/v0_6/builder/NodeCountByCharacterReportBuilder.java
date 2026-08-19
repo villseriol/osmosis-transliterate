@@ -14,7 +14,7 @@ import org.villseriol.osmosis.detective.v0_6.report.NodeCountByCharacterReport;
 
 
 public class NodeCountByCharacterReportBuilder {
-    private final Map<Character, NodeCountByCharacterRecord> records = new HashMap<>();
+    private final Map<Character, NodeCountByCharacterRecord> data = new HashMap<>();
 
     public void process(EntityContainer entityContainer) {
         Entity entity = entityContainer.getEntity();
@@ -27,6 +27,11 @@ public class NodeCountByCharacterReportBuilder {
     }
 
 
+    public Map<Character, NodeCountByCharacterRecord> getData() {
+        return data;
+    }
+
+
     public void process(String value) {
         process(value, new HashSet<>());
     }
@@ -36,7 +41,7 @@ public class NodeCountByCharacterReportBuilder {
         for (int i = 0; i < value.length(); i++) {
             char character = value.charAt(i);
 
-            NodeCountByCharacterRecord record = records.computeIfAbsent(character, NodeCountByCharacterRecord::new);
+            NodeCountByCharacterRecord record = data.computeIfAbsent(character, NodeCountByCharacterRecord::new);
             record.addExample(value);
 
             if (seen.add(character)) {
@@ -47,6 +52,6 @@ public class NodeCountByCharacterReportBuilder {
 
 
     public NodeCountByCharacterReport build() {
-        return new NodeCountByCharacterReport(records);
+        return new NodeCountByCharacterReport(data);
     }
 }

@@ -11,18 +11,18 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.villseriol.osmosis.common.UnicodeRange;
-import org.villseriol.osmosis.detective.v0_6.model.PreProcessingCharacterMapRecord;
+import org.villseriol.osmosis.detective.v0_6.model.TlConfigCharacterMapRecord;
 
 
-public class PreProcessingCharacterMapReport extends DetReport {
-    private Map<UnicodeRange, Collection<PreProcessingCharacterMapRecord>> data;
+public class TlConfigCharacterMapReport extends DetReport {
+    private Map<UnicodeRange, Collection<TlConfigCharacterMapRecord>> data;
 
     private DetReportCursor cursor = new DetReportCursor();
 
     private Font headerFont;
     private CellStyle headerStyle;
 
-    public PreProcessingCharacterMapReport(Map<UnicodeRange, Collection<PreProcessingCharacterMapRecord>> data) {
+    public TlConfigCharacterMapReport(Map<UnicodeRange, Collection<TlConfigCharacterMapRecord>> data) {
         this.data = data;
     }
 
@@ -95,7 +95,7 @@ public class PreProcessingCharacterMapReport extends DetReport {
     }
 
 
-    private void addDataRow(Sheet sheet, PreProcessingCharacterMapRecord record) {
+    private void addDataRow(Sheet sheet, TlConfigCharacterMapRecord record) {
         Row row = sheet.createRow(cursor.getRow());
 
         int fromCol = cursor.getCol();
@@ -127,24 +127,24 @@ public class PreProcessingCharacterMapReport extends DetReport {
     }
 
 
-    public Map<UnicodeRange, Collection<PreProcessingCharacterMapRecord>> getData() {
+    public Map<UnicodeRange, Collection<TlConfigCharacterMapRecord>> getData() {
         return data;
     }
 
 
-    public void setData(Map<UnicodeRange, Collection<PreProcessingCharacterMapRecord>> data) {
+    public void setData(Map<UnicodeRange, Collection<TlConfigCharacterMapRecord>> data) {
         this.data = data;
     }
 
 
     @Override
     protected void generate(Workbook workbook) {
-        for (Map.Entry<UnicodeRange, Collection<PreProcessingCharacterMapRecord>> entry : data.entrySet()) {
+        for (Map.Entry<UnicodeRange, Collection<TlConfigCharacterMapRecord>> entry : data.entrySet()) {
             Sheet sheet = workbook.createSheet(entry.getKey().getAlias());
 
             addHeaderRow(sheet);
 
-            for (PreProcessingCharacterMapRecord record : entry.getValue()) {
+            for (TlConfigCharacterMapRecord record : entry.getValue()) {
                 addDataRow(sheet, record);
             }
 

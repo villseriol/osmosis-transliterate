@@ -1,37 +1,76 @@
 // This software is released into the Public Domain.  See copying.txt for details.
 package org.villseriol.osmosis.detective.v0_6.builder;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.io.File;
-import java.io.IOException;
+import java.util.Collection;
+import java.util.Map;
 
 import org.junit.Test;
-import org.openstreetmap.osmosis.testutil.AbstractDataTest;
-import org.villseriol.osmosis.detective.v0_6.report.PreProcessingCharacterMapReport;
-import org.villseriol.osmosis.transliterate.v0_6.TransliteratePipelineBuilder;
-import org.villseriol.osmosis.transliterate.v0_6.config.loader.XmlLoader;
-import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
+import org.villseriol.osmosis.common.UnicodeRange;
+import org.villseriol.osmosis.detective.v0_6.model.TlConfigCharacterMapRecord;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
-public class PreProcessingCharacterMapReportBuilderTest extends AbstractDataTest {
-    private final XmlLoader<NormalizeConfiguration> loader = XmlLoader.getInstance(NormalizeConfiguration.class);
+public class PreProcessingCharacterMapReportBuilderTest {
+    private static final Unimap SINGLE_CHARACTER_REMAP = new Unimap() {
+        @Override
+        public String action(String input) {
+            if ("a".equals(input)) {
+                return "b";
+            }
+
+            return input;
+        }
+
+
+        @Override
+        public void action(StringBuffer input) {
+        }
+    };
 
     @Test
-    public void testBuildGeneratesReport() throws IOException {
-        NormalizeConfiguration configuration = loader.load(dataUtils.createDataFile("v0_6/pre-processing-config.xml"));
-        Unimap unimap = new TransliteratePipelineBuilder(configuration).build();
+    public void testProcessGroupsRemappedCharacterByUnicodeRange() {
+        TlConfigCharacterMapReportBuilder builder = new TlConfigCharacterMapReportBuilder();
+        builder.process(SINGLE_CHARACTER_REMAP);
 
-        PreProcessingCharacterMapReportBuilder builder = new PreProcessingCharacterMapReportBuilder();
-        builder.process(unimap);
+        Map<UnicodeRange, Collection<TlConfigCharacterMapRecord>> data = builder.getData();
 
-        PreProcessingCharacterMapReport report = builder.build();
+        assertTrue(data.containsKey(UnicodeRange.BASIC_LATIN));
+        assertEquals(1, data.get(UnicodeRange.BASIC_LATIN).size());
+    }
 
-        File outputFile = dataUtils.newFile();
-        report.generate(outputFile.toPath());
 
-        assertTrue(outputFile.exists());
-        assertTrue(outputFile.length() > 0);
+    @Test
+    public void testProcessRecordsFromAndToForRemappedCharacter() {
+        TlConfigCharacterMapReportBuilder builder = new TlConfigCharacterMapReportBuilder();
+        builder.process(SINGLE_CHARACTER_REMAP);
+
+        TlConfigCharacterMapRecord record = builder.getData().get(UnicodeRange.BASIC_LATIN).iterator().next();
+
+        assertEquals(Character.valueOf('a'), record.getFrom());
+        assertEquals(Character.valueOf('b'), record.getTo());
+    }
+
+
+    @Test
+    public void testProcessSkipsCharactersUnimapLeavesUnchanged() {
+        Unimap identity = new Unimap() {
+            @Override
+            public String action(String input) {
+                return input;
+            }
+
+
+            @Override
+            public void action(StringBuffer input) {
+            }
+        };
+
+        TlConfigCharacterMapReportBuilder builder = new TlConfigCharacterMapReportBuilder();
+        builder.process(identity);
+
+        assertTrue(builder.getData().isEmpty());
     }
 }

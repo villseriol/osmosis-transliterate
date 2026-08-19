@@ -11,7 +11,7 @@ import org.junit.Test;
 public class TransliteratePreProcessingCharacterMapRecordTest {
     @Test
     public void testGetFromAndGetTo() {
-        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord('a', 'b');
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord('a', 'b');
 
         assertEquals(Character.valueOf('a'), record.getFrom());
         assertEquals(Character.valueOf('b'), record.getTo());
@@ -20,7 +20,7 @@ public class TransliteratePreProcessingCharacterMapRecordTest {
 
     @Test
     public void testSetFromAndSetTo() {
-        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord('a', 'b');
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord('a', 'b');
 
         record.setFrom('c');
         record.setTo('d');
@@ -32,7 +32,7 @@ public class TransliteratePreProcessingCharacterMapRecordTest {
 
     @Test
     public void testGetFromNameAndGetToName() {
-        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord('a', 'b');
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord('a', 'b');
 
         assertEquals("LATIN SMALL LETTER A", record.getFromName());
         assertEquals("LATIN SMALL LETTER B", record.getToName());
@@ -41,7 +41,7 @@ public class TransliteratePreProcessingCharacterMapRecordTest {
 
     @Test
     public void testGetFromCodePointsAndGetToCodePoints() {
-        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord('a', 'b');
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord('a', 'b');
 
         assertEquals("U+0061", record.getFromCodePoints());
         assertEquals("U+0062", record.getToCodePoints());
@@ -50,7 +50,7 @@ public class TransliteratePreProcessingCharacterMapRecordTest {
 
     @Test
     public void testIsFromReservedAndIsToReservedFalseForDefinedCharacters() {
-        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord('a', 'b');
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord('a', 'b');
 
         assertFalse(record.isFromReserved());
         assertFalse(record.isToReserved());
@@ -60,7 +60,7 @@ public class TransliteratePreProcessingCharacterMapRecordTest {
     @Test
     public void testIsFromReservedAndIsToReservedTrueForUnassignedCharacters() {
         char unassigned = '￿';
-        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord(unassigned, unassigned);
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord(unassigned, unassigned);
 
         assertTrue(record.isFromReserved());
         assertTrue(record.isToReserved());
