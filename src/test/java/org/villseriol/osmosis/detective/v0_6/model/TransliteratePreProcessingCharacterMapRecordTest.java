@@ -2,6 +2,8 @@
 package org.villseriol.osmosis.detective.v0_6.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -9,31 +11,28 @@ import org.junit.Test;
 public class TransliteratePreProcessingCharacterMapRecordTest {
     @Test
     public void testGetFromAndGetTo() {
-        TransliteratePreProcessingCharacterMapRecord record = new TransliteratePreProcessingCharacterMapRecord("a",
-                "b");
+        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord('a', 'b');
 
-        assertEquals("a", record.getFrom());
-        assertEquals("b", record.getTo());
+        assertEquals(Character.valueOf('a'), record.getFrom());
+        assertEquals(Character.valueOf('b'), record.getTo());
     }
 
 
     @Test
     public void testSetFromAndSetTo() {
-        TransliteratePreProcessingCharacterMapRecord record = new TransliteratePreProcessingCharacterMapRecord("a",
-                "b");
+        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord('a', 'b');
 
-        record.setFrom("c");
-        record.setTo("d");
+        record.setFrom('c');
+        record.setTo('d');
 
-        assertEquals("c", record.getFrom());
-        assertEquals("d", record.getTo());
+        assertEquals(Character.valueOf('c'), record.getFrom());
+        assertEquals(Character.valueOf('d'), record.getTo());
     }
 
 
     @Test
-    public void testGetFromNameAndGetToNameSingleCharacter() {
-        TransliteratePreProcessingCharacterMapRecord record = new TransliteratePreProcessingCharacterMapRecord("a",
-                "b");
+    public void testGetFromNameAndGetToName() {
+        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord('a', 'b');
 
         assertEquals("LATIN SMALL LETTER A", record.getFromName());
         assertEquals("LATIN SMALL LETTER B", record.getToName());
@@ -41,31 +40,29 @@ public class TransliteratePreProcessingCharacterMapRecordTest {
 
 
     @Test
-    public void testGetFromNameAndGetToNameJoinsMultipleCharacters() {
-        TransliteratePreProcessingCharacterMapRecord record = new TransliteratePreProcessingCharacterMapRecord("ab",
-                "cd");
+    public void testGetFromCodePointsAndGetToCodePoints() {
+        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord('a', 'b');
 
-        assertEquals("LATIN SMALL LETTER A + LATIN SMALL LETTER B", record.getFromName());
-        assertEquals("LATIN SMALL LETTER C + LATIN SMALL LETTER D", record.getToName());
+        assertEquals("U+0061", record.getFromCodePoints());
+        assertEquals("U+0062", record.getToCodePoints());
     }
 
 
     @Test
-    public void testGetFromCodePointsAndGetToCodePointsSingleCharacter() {
-        TransliteratePreProcessingCharacterMapRecord record = new TransliteratePreProcessingCharacterMapRecord("a",
-                "b");
+    public void testIsFromReservedAndIsToReservedFalseForDefinedCharacters() {
+        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord('a', 'b');
 
-        assertEquals(Integer.toString('a'), record.getFromCodePoints());
-        assertEquals(Integer.toString('b'), record.getToCodePoints());
+        assertFalse(record.isFromReserved());
+        assertFalse(record.isToReserved());
     }
 
 
     @Test
-    public void testGetFromCodePointsAndGetToCodePointsJoinsMultipleCharacters() {
-        TransliteratePreProcessingCharacterMapRecord record = new TransliteratePreProcessingCharacterMapRecord("ab",
-                "cd");
+    public void testIsFromReservedAndIsToReservedTrueForUnassignedCharacters() {
+        char unassigned = '￿';
+        PreProcessingCharacterMapRecord record = new PreProcessingCharacterMapRecord(unassigned, unassigned);
 
-        assertEquals("a".codePointAt(0) + " + " + "b".codePointAt(0), record.getFromCodePoints());
-        assertEquals("c".codePointAt(0) + " + " + "d".codePointAt(0), record.getToCodePoints());
+        assertTrue(record.isFromReserved());
+        assertTrue(record.isToReserved());
     }
 }
