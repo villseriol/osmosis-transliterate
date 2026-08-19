@@ -43,16 +43,21 @@ public class NodeCountByCharacter extends DetReport {
 
         int characterHeaderCol = cursor.getCol();
         row.createCell(characterHeaderCol).setCellValue("Character");
+        sheet.setColumnWidth(characterHeaderCol, 3);
         int nameHeaderCol = cursor.nextCol();
         row.createCell(nameHeaderCol).setCellValue("Name");
+        sheet.setColumnWidth(nameHeaderCol, 256);
         int occurencesHeaderCol = cursor.nextCol();
         row.createCell(occurencesHeaderCol).setCellValue("Occurences");
+        sheet.setColumnWidth(occurencesHeaderCol, 64);
         int examplesHeaderCol = cursor.nextCol();
         row.createCell(examplesHeaderCol).setCellValue("Examples");
+        sheet.setColumnWidth(examplesHeaderCol, 512);
 
-        for (int i = 0; i < 3; i++) {
-            row.getCell(i).setCellStyle(headerStyle);
-        }
+        row.getCell(characterHeaderCol).setCellStyle(headerStyle);
+        row.getCell(nameHeaderCol).setCellStyle(headerStyle);
+        row.getCell(occurencesHeaderCol).setCellStyle(headerStyle);
+        row.getCell(examplesHeaderCol).setCellStyle(headerStyle);
 
         cursor.resetCol();
         cursor.nextRow();
