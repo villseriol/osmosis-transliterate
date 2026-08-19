@@ -6,7 +6,13 @@ import org.apache.poi.ss.usermodel.Workbook;
 
 public class NodesContainingCharacterGroup extends DetReport {
     @Override
-    protected void generate(Workbook workbook) {
+    protected void setup(Workbook workbook) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+
+    @Override
+    protected void generate() {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 }

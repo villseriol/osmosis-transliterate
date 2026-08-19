@@ -20,8 +20,16 @@ public class NodeCountByCharacterRecord {
 
     public void addExample(String example) {
         examples.offer(example);
+    }
 
+
+    public void incrementOccurences() {
         ++occurences;
+    }
+
+
+    public void decrementOccurences() {
+        --occurences;
     }
 
 

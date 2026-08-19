@@ -11,12 +11,16 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 public abstract class DetReport {
-    protected abstract void generate(Workbook workbook);
+    protected abstract void generate();
+
+
+    protected abstract void setup(Workbook workbook);
 
 
     public final void generate(OutputStream out) throws IOException {
         try (Workbook workbook = new XSSFWorkbook()) {
-            generate(workbook);
+            setup(workbook);
+            generate();
             workbook.write(out);
         }
     }
