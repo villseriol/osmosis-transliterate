@@ -15,11 +15,11 @@ public class DetectivePluginLoader implements PluginLoader {
         TaskManagerFactory transformFactory = new org.villseriol.osmosis.transliterate.v0_6.TransliterateTaskFactory();
 
         Map<String, TaskManagerFactory> tasks = new HashMap<String, TaskManagerFactory>();
-        tasks.put("datasearch", transformFactory);
-        tasks.put("datasearch-0.6", transformFactory);
+        tasks.put("detective", transformFactory);
+        tasks.put("detective-0.6", transformFactory);
 
-        tasks.put("oss-ds", transformFactory);
-        tasks.put("oss-ds-0.6", transformFactory);
+        tasks.put("oss-det", transformFactory);
+        tasks.put("oss-det-0.6", transformFactory);
 
         return tasks;
     }
