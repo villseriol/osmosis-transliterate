@@ -239,8 +239,8 @@ public class EnclosedCjkLettersAndMonthsMapper implements Unimap {
         rules.add("㋽ > '(ヱ)';"); // 32FD CIRCLED KATAKANA WE
         rules.add("㋾ > '(ヲ)';"); // 32FE CIRCLED KATAKANA WO
 
-        // Fallback: anything not yet explicitly mapped becomes ' '
-        rules.add(StringUtils.toIcuFallbackRule(" ", UnicodeRange.ENCLOSED_CJK_LETTERS_AND_MONTHS));
+        // U+32FF decomposed into its kanji equivalent
+        rules.add("㋿ > '令和';"); // 32FF SQUARE ERA NAME REIWA
 
         TRANSLITERATOR = Transliterator.createFromRules("EnclosedCjkLettersAndMonths-Normalized",
                 String.join("\n", rules), Transliterator.FORWARD);

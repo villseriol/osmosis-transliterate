@@ -133,6 +133,8 @@
         <run alias="all-to-whitespace" unicode-group="latin-extended-d" />
         <run alias="all-to-whitespace" unicode-group="alphabetic-presentation-forms" />
 
+        <run alias="all-to-whitespace" unicode-group="dingbats" />
+
         <run alias="misc-symbol-arrow" />
         <run alias="enclosed" />
     </pipeline>
