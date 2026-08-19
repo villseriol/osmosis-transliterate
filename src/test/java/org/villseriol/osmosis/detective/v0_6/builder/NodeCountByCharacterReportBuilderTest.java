@@ -11,7 +11,7 @@ import org.openstreetmap.osmosis.testutil.AbstractDataTest;
 import org.villseriol.osmosis.detective.v0_6.report.NodeCountByCharacterReport;
 
 
-public class NodeCountByCharacteReportBuilderTest extends AbstractDataTest {
+public class NodeCountByCharacterReportBuilderTest extends AbstractDataTest {
     @Test
     public void testBuildGeneratesReport() throws IOException {
         NodeCountByCharacterReportBuilder builder = new NodeCountByCharacterReportBuilder();
