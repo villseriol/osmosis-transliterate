@@ -246,7 +246,7 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/unified-canadian-aboriginal-syllabics/
      */
-    UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS("unified-canadian-aboriginal-syllabics", 0x1400, 0x167F),
+    UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS("canadian-aborig-syllabics", 0x1400, 0x167F),
     /**
      * Ogham.
      *
@@ -300,7 +300,7 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/unified-canadian-aboriginal-syllabics-extended/
      */
-    UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED("unified-canadian-aboriginal-syllabics-extended", 0x18B0, 0x18F5),
+    UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED("canadian-aborig-syllabics-ext", 0x18B0, 0x18F5),
     /**
      * Limbu.
      *
@@ -390,7 +390,7 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/combining-diacritical-marks-supplement/
      */
-    COMBINING_DIACRITICAL_MARKS_SUPPLEMENT("combining-diacritical-marks-supplement", 0x1DC0, 0x1DFF),
+    COMBINING_DIACRITICAL_MARKS_SUPPLEMENT("combining-diacritical-marks-sup", 0x1DC0, 0x1DFF),
     /**
      * Latin Extended Additional.
      *
@@ -426,7 +426,7 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/combining-diacritical-marks-for-symbols/
      */
-    COMBINING_DIACRITICAL_MARKS_FOR_SYMBOLS("combining-diacritical-marks-for-symbols", 0x20D0, 0x20F0),
+    COMBINING_DIACRITICAL_MARKS_FOR_SYMBOLS("combining-diacritical-marks-sym", 0x20D0, 0x20F0),
     /**
      * Letterlike Symbols.
      *
@@ -510,7 +510,7 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/miscellaneous-mathematical-symbols-a/
      */
-    MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A("miscellaneous-mathematical-symbols-a", 0x27C0, 0x27EF),
+    MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A("miscellaneous-math-symbols-a", 0x27C0, 0x27EF),
     /**
      * Supplemental Arrows-A.
      *
@@ -534,19 +534,19 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/miscellaneous-mathematical-symbols-b/
      */
-    MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B("miscellaneous-mathematical-symbols-b", 0x2980, 0x29FF),
+    MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B("miscellaneous-math-symbols-b", 0x2980, 0x29FF),
     /**
      * Supplemental Mathematical Operators.
      *
      * https://www.unicodepedia.com/groups/supplemental-mathematical-operators/
      */
-    SUPPLEMENTAL_MATHEMATICAL_OPERATORS("supplemental-mathematical-operators", 0x2A00, 0x2AFF),
+    SUPPLEMENTAL_MATHEMATICAL_OPERATORS("supplemental-math-operators", 0x2A00, 0x2AFF),
     /**
      * Miscellaneous Symbols and Arrows.
      *
      * https://www.unicodepedia.com/groups/miscellaneous-symbols-and-arrows/
      */
-    MISCELLANEOUS_SYMBOLS_AND_ARROWS("miscellaneous-symbols-and-arrows", 0x2B00, 0x2B59),
+    MISCELLANEOUS_SYMBOLS_AND_ARROWS("misc-symbols-and-arrows", 0x2B00, 0x2B59),
     /**
      * Glagolitic.
      *
@@ -612,7 +612,7 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/ideographic-description-characters/
      */
-    IDEOGRAPHIC_DESCRIPTION_CHARACTERS("ideographic-description-characters", 0x2FF0, 0x2FFB),
+    IDEOGRAPHIC_DESCRIPTION_CHARACTERS("ideographic-description-chars", 0x2FF0, 0x2FFB),
     /**
      * CJK Symbols and Punctuation.
      *
@@ -684,7 +684,7 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/cjk-unified-ideographs-extension-a/
      */
-    CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A("cjk-unified-ideographs-extension-a", 0x3400, 0x4DB5),
+    CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A("cjk-unified-ideographs-ext-a", 0x3400, 0x4DB5),
     /**
      * Yijing Hexagram Symbols.
      *
@@ -1110,7 +1110,7 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/cuneiform-numbers-and-punctuation/
      */
-    CUNEIFORM_NUMBERS_AND_PUNCTUATION("cuneiform-numbers-and-punctuation", 0x12400, 0x12473),
+    CUNEIFORM_NUMBERS_AND_PUNCTUATION("cuneiform-numbers-punctuation", 0x12400, 0x12473),
     /**
      * Egyptian Hieroglyphs.
      *
@@ -1164,7 +1164,7 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/mathematical-alphanumeric-symbols/
      */
-    MATHEMATICAL_ALPHANUMERIC_SYMBOLS("mathematical-alphanumeric-symbols", 0x1D400, 0x1D7FF),
+    MATHEMATICAL_ALPHANUMERIC_SYMBOLS("math-alphanumeric-symbols", 0x1D400, 0x1D7FF),
     /**
      * Mahjong Tiles.
      *
@@ -1188,7 +1188,7 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/enclosed-alphanumeric-supplement/
      */
-    ENCLOSED_ALPHANUMERIC_SUPPLEMENT("enclosed-alphanumeric-supplement", 0x1F100, 0x1F1FF),
+    ENCLOSED_ALPHANUMERIC_SUPPLEMENT("enclosed-alphanumeric-supp", 0x1F100, 0x1F1FF),
     /**
      * Enclosed Ideographic Supplement.
      *
@@ -1200,7 +1200,7 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/miscellaneous-symbols-and-pictographs/
      */
-    MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS("miscellaneous-symbols-and-pictographs", 0x1F300, 0x1F5FF),
+    MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS("misc-symbols-and-pictographs", 0x1F300, 0x1F5FF),
     /**
      * Emoticons.
      *
@@ -1224,25 +1224,25 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/cjk-unified-ideographs-extension-b/
      */
-    CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B("cjk-unified-ideographs-extension-b", 0x20000, 0x2A6D6),
+    CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B("cjk-unified-ideographs-ext-b", 0x20000, 0x2A6D6),
     /**
      * CJK Unified Ideographs Extension C.
      *
      * https://www.unicodepedia.com/groups/cjk-unified-ideographs-extension-c/
      */
-    CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C("cjk-unified-ideographs-extension-c", 0x2A700, 0x2B734),
+    CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C("cjk-unified-ideographs-ext-c", 0x2A700, 0x2B734),
     /**
      * CJK Unified Ideographs Extension D.
      *
      * https://www.unicodepedia.com/groups/cjk-unified-ideographs-extension-d/
      */
-    CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D("cjk-unified-ideographs-extension-d", 0x2B740, 0x2B81D),
+    CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D("cjk-unified-ideographs-ext-d", 0x2B740, 0x2B81D),
     /**
      * CJK Compatibility Ideographs Supplement.
      *
      * https://www.unicodepedia.com/groups/cjk-compatibility-ideographs-supplement/
      */
-    CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT("cjk-compatibility-ideographs-supplement", 0x2F800, 0x2FA1D),
+    CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT("cjk-compat-ideographs-sup", 0x2F800, 0x2FA1D),
     /**
      * Tags.
      *
@@ -1260,13 +1260,13 @@ public enum UnicodeRange {
      *
      * https://www.unicodepedia.com/groups/supplementary-private-use-area-a/
      */
-    SUPPLEMENTARY_PRIVATE_USE_AREA_A("supplementary-private-use-area-a", 0xF0000, 0xFFFFD),
+    SUPPLEMENTARY_PRIVATE_USE_AREA_A("supplementary-private-use-a", 0xF0000, 0xFFFFD),
     /**
      * Supplementary Private Use Area-B.
      *
      * https://www.unicodepedia.com/groups/supplementary-private-use-area-b/
      */
-    SUPPLEMENTARY_PRIVATE_USE_AREA_B("supplementary-private-use-area-b", 0x100000, 0x10FFFD);
+    SUPPLEMENTARY_PRIVATE_USE_AREA_B("supplementary-private-use-b", 0x100000, 0x10FFFD);
 
     private final String alias;
     private final int lower;

@@ -32,4 +32,18 @@ public class UnicodeRangeTest {
 
         assertTrue("Found overlapping ranges: " + overlaps, overlaps.isEmpty());
     }
+
+
+    @Test
+    public void testAliasesAreAtMost31Characters() {
+        List<String> tooLong = new ArrayList<>();
+
+        for (UnicodeRange range : UnicodeRange.values()) {
+            if (range.getAlias().length() > 31) {
+                tooLong.add(range.name() + " (" + range.getAlias() + ", " + range.getAlias().length() + " chars)");
+            }
+        }
+
+        assertTrue("Found aliases longer than 31 characters: " + tooLong, tooLong.isEmpty());
+    }
 }

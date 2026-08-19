@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -21,6 +22,7 @@ public class TlConfigCharacterMapReport extends DetReport {
 
     private Font headerFont;
     private CellStyle headerStyle;
+    private CellStyle groupHeaderStyle;
 
     public TlConfigCharacterMapReport(Map<UnicodeRange, Collection<TlConfigCharacterMapRecord>> data) {
         this.data = data;
@@ -35,6 +37,10 @@ public class TlConfigCharacterMapReport extends DetReport {
 
         headerStyle = workbook.createCellStyle();
         headerStyle.setFont(headerFont);
+
+        groupHeaderStyle = workbook.createCellStyle();
+        groupHeaderStyle.setFont(headerFont);
+        groupHeaderStyle.setAlignment(HorizontalAlignment.CENTER);
     }
 
 
@@ -43,14 +49,14 @@ public class TlConfigCharacterMapReport extends DetReport {
 
         int fromGroupCol = cursor.getCol();
         groupRow.createCell(fromGroupCol).setCellValue("From");
-        groupRow.getCell(fromGroupCol).setCellStyle(headerStyle);
+        groupRow.getCell(fromGroupCol).setCellStyle(groupHeaderStyle);
 
         int toGroupCol = fromGroupCol + 4;
         groupRow.createCell(toGroupCol).setCellValue("To");
-        groupRow.getCell(toGroupCol).setCellStyle(headerStyle);
+        groupRow.getCell(toGroupCol).setCellStyle(groupHeaderStyle);
 
         sheet.addMergedRegion(new CellRangeAddress(cursor.getRow(), cursor.getRow(), fromGroupCol, fromGroupCol + 3));
-        sheet.addMergedRegion(new CellRangeAddress(cursor.getRow(), cursor.getRow(), toGroupCol, toGroupCol + 3));
+        sheet.addMergedRegion(new CellRangeAddress(cursor.getRow(), cursor.getRow(), toGroupCol, toGroupCol + 2));
 
         cursor.nextRow();
 
@@ -58,28 +64,25 @@ public class TlConfigCharacterMapReport extends DetReport {
 
         int fromCol = cursor.getCol();
         row.createCell(fromCol).setCellValue("From");
-        sheet.setColumnWidth(fromCol, 32);
+        sheet.setColumnWidth(fromCol, 8 * 256);
         int fromNameCol = cursor.nextCol();
         row.createCell(fromNameCol).setCellValue("From Name");
-        sheet.setColumnWidth(fromNameCol, 128);
+        sheet.setColumnWidth(fromNameCol, 32 * 256);
         int fromCodeCol = cursor.nextCol();
         row.createCell(fromCodeCol).setCellValue("From Code");
-        sheet.setColumnWidth(fromCodeCol, 32);
+        sheet.setColumnWidth(fromCodeCol, 10 * 256);
         int fromReservedCol = cursor.nextCol();
         row.createCell(fromReservedCol).setCellValue("Reserved");
-        sheet.setColumnWidth(fromReservedCol, 32);
+        sheet.setColumnWidth(fromReservedCol, 10 * 256);
         int toCol = cursor.nextCol();
         row.createCell(toCol).setCellValue("To");
-        sheet.setColumnWidth(toCol, 32);
+        sheet.setColumnWidth(toCol, 8 * 256);
         int toNameCol = cursor.nextCol();
         row.createCell(toNameCol).setCellValue("To Name");
-        sheet.setColumnWidth(toNameCol, 128);
+        sheet.setColumnWidth(toNameCol, 32 * 256);
         int toCodeCol = cursor.nextCol();
         row.createCell(toCodeCol).setCellValue("To Code");
-        sheet.setColumnWidth(toCodeCol, 32);
-        int toReservedCol = cursor.nextCol();
-        row.createCell(toReservedCol).setCellValue("Reserved");
-        sheet.setColumnWidth(toReservedCol, 32);
+        sheet.setColumnWidth(toCodeCol, 10 * 256);
 
         row.getCell(fromCol).setCellStyle(headerStyle);
         row.getCell(fromNameCol).setCellStyle(headerStyle);
@@ -88,7 +91,6 @@ public class TlConfigCharacterMapReport extends DetReport {
         row.getCell(toCol).setCellStyle(headerStyle);
         row.getCell(toNameCol).setCellStyle(headerStyle);
         row.getCell(toCodeCol).setCellStyle(headerStyle);
-        row.getCell(toReservedCol).setCellStyle(headerStyle);
 
         cursor.resetCol();
         cursor.nextRow();
@@ -118,9 +120,6 @@ public class TlConfigCharacterMapReport extends DetReport {
 
         int toCodeCol = cursor.nextCol();
         row.createCell(toCodeCol).setCellValue(record.getToCodePoints());
-
-        int toReservedCol = cursor.nextCol();
-        row.createCell(toReservedCol).setCellValue(record.isToReserved());
 
         cursor.resetCol();
         cursor.nextRow();
