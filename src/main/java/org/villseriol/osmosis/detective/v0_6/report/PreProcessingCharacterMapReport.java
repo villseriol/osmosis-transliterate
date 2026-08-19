@@ -9,6 +9,7 @@ import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.villseriol.osmosis.common.UnicodeRange;
 import org.villseriol.osmosis.detective.v0_6.model.PreProcessingCharacterMapRecord;
 
@@ -38,33 +39,56 @@ public class PreProcessingCharacterMapReport extends DetReport {
 
 
     private void addHeaderRow(Sheet sheet) {
+        Row groupRow = sheet.createRow(cursor.getRow());
+
+        int fromGroupCol = cursor.getCol();
+        groupRow.createCell(fromGroupCol).setCellValue("From");
+        groupRow.getCell(fromGroupCol).setCellStyle(headerStyle);
+
+        int toGroupCol = fromGroupCol + 4;
+        groupRow.createCell(toGroupCol).setCellValue("To");
+        groupRow.getCell(toGroupCol).setCellStyle(headerStyle);
+
+        sheet.addMergedRegion(new CellRangeAddress(cursor.getRow(), cursor.getRow(), fromGroupCol, fromGroupCol + 3));
+        sheet.addMergedRegion(new CellRangeAddress(cursor.getRow(), cursor.getRow(), toGroupCol, toGroupCol + 3));
+
+        cursor.nextRow();
+
         Row row = sheet.createRow(cursor.getRow());
 
-        int fromHeaderCol = cursor.getCol();
-        row.createCell(fromHeaderCol).setCellValue("From");
-        sheet.setColumnWidth(fromHeaderCol, 32);
-        int fromNameHeaderCol = cursor.nextCol();
-        row.createCell(fromNameHeaderCol).setCellValue("From Name");
-        sheet.setColumnWidth(fromNameHeaderCol, 128);
-        int toHeaderCol = cursor.nextCol();
-        row.createCell(toHeaderCol).setCellValue("To");
-        sheet.setColumnWidth(toHeaderCol, 32);
-        int toNameHeaderCol = cursor.nextCol();
-        row.createCell(toNameHeaderCol).setCellValue("To Name");
-        sheet.setColumnWidth(toNameHeaderCol, 128);
-        int occurrencesHeaderCol = cursor.nextCol();
-        row.createCell(occurrencesHeaderCol).setCellValue("Occurrences");
-        sheet.setColumnWidth(occurrencesHeaderCol, 32);
-        int reservedHeaderCol = cursor.nextCol();
-        row.createCell(reservedHeaderCol).setCellValue("Reserved");
-        sheet.setColumnWidth(reservedHeaderCol, 32);
+        int fromCol = cursor.getCol();
+        row.createCell(fromCol).setCellValue("From");
+        sheet.setColumnWidth(fromCol, 32);
+        int fromNameCol = cursor.nextCol();
+        row.createCell(fromNameCol).setCellValue("From Name");
+        sheet.setColumnWidth(fromNameCol, 128);
+        int fromCodeCol = cursor.nextCol();
+        row.createCell(fromCodeCol).setCellValue("From Code");
+        sheet.setColumnWidth(fromCodeCol, 32);
+        int fromReservedCol = cursor.nextCol();
+        row.createCell(fromReservedCol).setCellValue("Reserved");
+        sheet.setColumnWidth(fromReservedCol, 32);
+        int toCol = cursor.nextCol();
+        row.createCell(toCol).setCellValue("To");
+        sheet.setColumnWidth(toCol, 32);
+        int toNameCol = cursor.nextCol();
+        row.createCell(toNameCol).setCellValue("To Name");
+        sheet.setColumnWidth(toNameCol, 128);
+        int toCodeCol = cursor.nextCol();
+        row.createCell(toCodeCol).setCellValue("To Code");
+        sheet.setColumnWidth(toCodeCol, 32);
+        int toReservedCol = cursor.nextCol();
+        row.createCell(toReservedCol).setCellValue("Reserved");
+        sheet.setColumnWidth(toReservedCol, 32);
 
-        row.getCell(fromHeaderCol).setCellStyle(headerStyle);
-        row.getCell(fromNameHeaderCol).setCellStyle(headerStyle);
-        row.getCell(toHeaderCol).setCellStyle(headerStyle);
-        row.getCell(toNameHeaderCol).setCellStyle(headerStyle);
-        row.getCell(occurrencesHeaderCol).setCellStyle(headerStyle);
-        row.getCell(reservedHeaderCol).setCellStyle(headerStyle);
+        row.getCell(fromCol).setCellStyle(headerStyle);
+        row.getCell(fromNameCol).setCellStyle(headerStyle);
+        row.getCell(fromCodeCol).setCellStyle(headerStyle);
+        row.getCell(fromReservedCol).setCellStyle(headerStyle);
+        row.getCell(toCol).setCellStyle(headerStyle);
+        row.getCell(toNameCol).setCellStyle(headerStyle);
+        row.getCell(toCodeCol).setCellStyle(headerStyle);
+        row.getCell(toReservedCol).setCellStyle(headerStyle);
 
         cursor.resetCol();
         cursor.nextRow();
@@ -80,16 +104,23 @@ public class PreProcessingCharacterMapReport extends DetReport {
         int fromNameCol = cursor.nextCol();
         row.createCell(fromNameCol).setCellValue(record.getFromName());
 
+        int fromCodeCol = cursor.nextCol();
+        row.createCell(fromCodeCol).setCellValue(record.getFromCodePoints());
+
+        int fromReservedCol = cursor.nextCol();
+        row.createCell(fromReservedCol).setCellValue(record.isFromReserved());
+
         int toCol = cursor.nextCol();
         row.createCell(toCol).setCellValue(record.getTo().toString());
 
         int toNameCol = cursor.nextCol();
         row.createCell(toNameCol).setCellValue(record.getToName());
 
-        cursor.nextCol();
+        int toCodeCol = cursor.nextCol();
+        row.createCell(toCodeCol).setCellValue(record.getToCodePoints());
 
-        int reservedCol = cursor.nextCol();
-        row.createCell(reservedCol).setCellValue(record.isFromReserved());
+        int toReservedCol = cursor.nextCol();
+        row.createCell(toReservedCol).setCellValue(record.isToReserved());
 
         cursor.resetCol();
         cursor.nextRow();
