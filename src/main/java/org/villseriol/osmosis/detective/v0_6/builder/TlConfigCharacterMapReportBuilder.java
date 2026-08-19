@@ -24,10 +24,7 @@ public class TlConfigCharacterMapReportBuilder {
                 char from = (char) codePoint;
                 String output = unimap.action(String.valueOf(from));
 
-                if (output.length() == 1 && output.charAt(0) != from) {
-                    data.computeIfAbsent(range, key -> new ArrayList<>())
-                            .add(new TlConfigCharacterMapRecord(from, output.charAt(0)));
-                }
+                data.computeIfAbsent(range, key -> new ArrayList<>()).add(new TlConfigCharacterMapRecord(from, output));
             }
         }
     }

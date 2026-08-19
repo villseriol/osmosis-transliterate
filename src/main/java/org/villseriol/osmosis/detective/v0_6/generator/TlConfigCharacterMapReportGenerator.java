@@ -2,6 +2,7 @@
 package org.villseriol.osmosis.detective.v0_6.generator;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 import org.villseriol.osmosis.detective.v0_6.builder.TlConfigCharacterMapReportBuilder;
@@ -21,8 +22,7 @@ public final class TlConfigCharacterMapReportGenerator {
 
     public static void main(String[] args) throws IOException {
         if (args.length != 2) {
-            throw new IllegalArgumentException(
-                    "Usage: PreProcessingCharacterMapReportGenerator <configFile> <outputFile>");
+            throw new IllegalArgumentException("Usage: TlConfigCharacterMapReportGenerator <configFile> <outputFile>");
         }
 
         Path configFile = Path.of(args[0]);
@@ -36,6 +36,14 @@ public final class TlConfigCharacterMapReportGenerator {
         builder.process(unimap);
 
         TlConfigCharacterMapReport report = builder.build();
+
+        Path outputDir = outputFile.toAbsolutePath().getParent();
+        if (outputDir != null) {
+            Files.createDirectories(outputDir);
+        }
+
+        Files.deleteIfExists(outputFile);
+
         report.generate(outputFile);
     }
 }

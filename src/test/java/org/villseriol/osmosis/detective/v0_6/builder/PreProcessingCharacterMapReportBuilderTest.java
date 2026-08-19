@@ -31,14 +31,15 @@ public class PreProcessingCharacterMapReportBuilderTest {
     };
 
     @Test
-    public void testProcessGroupsRemappedCharacterByUnicodeRange() {
+    public void testProcessGroupsEveryRangeCharacterByUnicodeRange() {
         TlConfigCharacterMapReportBuilder builder = new TlConfigCharacterMapReportBuilder();
         builder.process(SINGLE_CHARACTER_REMAP);
 
         Map<UnicodeRange, Collection<TlConfigCharacterMapRecord>> data = builder.getData();
 
         assertTrue(data.containsKey(UnicodeRange.BASIC_LATIN));
-        assertEquals(1, data.get(UnicodeRange.BASIC_LATIN).size());
+        int basicLatinSize = UnicodeRange.BASIC_LATIN.getUpper() - UnicodeRange.BASIC_LATIN.getLower() + 1;
+        assertEquals(basicLatinSize, data.get(UnicodeRange.BASIC_LATIN).size());
     }
 
 
@@ -47,30 +48,29 @@ public class PreProcessingCharacterMapReportBuilderTest {
         TlConfigCharacterMapReportBuilder builder = new TlConfigCharacterMapReportBuilder();
         builder.process(SINGLE_CHARACTER_REMAP);
 
-        TlConfigCharacterMapRecord record = builder.getData().get(UnicodeRange.BASIC_LATIN).iterator().next();
+        TlConfigCharacterMapRecord record = findRecordFor(builder, 'a');
 
         assertEquals(Character.valueOf('a'), record.getFrom());
-        assertEquals(Character.valueOf('b'), record.getTo());
+        assertEquals("b", record.getTo());
     }
 
 
     @Test
-    public void testProcessSkipsCharactersUnimapLeavesUnchanged() {
-        Unimap identity = new Unimap() {
-            @Override
-            public String action(String input) {
-                return input;
-            }
-
-
-            @Override
-            public void action(StringBuffer input) {
-            }
-        };
-
+    public void testProcessRecordsFromAndToForUnchangedCharacter() {
         TlConfigCharacterMapReportBuilder builder = new TlConfigCharacterMapReportBuilder();
-        builder.process(identity);
+        builder.process(SINGLE_CHARACTER_REMAP);
 
-        assertTrue(builder.getData().isEmpty());
+        TlConfigCharacterMapRecord record = findRecordFor(builder, 'c');
+
+        assertEquals(Character.valueOf('c'), record.getFrom());
+        assertEquals("c", record.getTo());
+    }
+
+
+    private TlConfigCharacterMapRecord findRecordFor(TlConfigCharacterMapReportBuilder builder, char from) {
+        return builder.getData().get(UnicodeRange.BASIC_LATIN).stream()
+                .filter(record -> record.getFrom().equals(from))
+                .findFirst()
+                .orElseThrow();
     }
 }

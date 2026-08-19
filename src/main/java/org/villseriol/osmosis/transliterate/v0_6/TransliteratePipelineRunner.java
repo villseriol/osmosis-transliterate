@@ -1,7 +1,6 @@
 // This software is released into the Public Domain.  See copying.txt for details.
 package org.villseriol.osmosis.transliterate.v0_6;
 
-import org.openstreetmap.osmosis.core.domain.v0_6.Entity;
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
 import org.openstreetmap.osmosis.core.lifecycle.Completable;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
@@ -22,11 +21,6 @@ public class TransliteratePipelineRunner implements Completable {
         TransliteratePipelineBuilder builder = new TransliteratePipelineBuilder(configuration);
 
         pipeline = builder.build(context);
-    }
-
-
-    public void initContext(Entity entity) {
-        context.setEntityType(entity.getType());
     }
 
 

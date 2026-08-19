@@ -2,13 +2,14 @@
 package org.villseriol.osmosis.detective.v0_6.model;
 
 import java.util.Comparator;
+import java.util.stream.Collectors;
 
 
 public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterMapRecord> {
     private Character from;
-    private Character to;
+    private CharSequence to;
 
-    public TlConfigCharacterMapRecord(Character from, Character to) {
+    public TlConfigCharacterMapRecord(Character from, CharSequence to) {
         this.from = from;
         this.to = to;
     }
@@ -20,7 +21,7 @@ public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterM
 
 
     public String getToName() {
-        return Character.getName(to);
+        return to.toString().codePoints().mapToObj(Character::getName).collect(Collectors.joining(" + "));
     }
 
 
@@ -30,7 +31,8 @@ public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterM
 
 
     public String getToCodePoints() {
-        return String.format("U+%04X", (int) to);
+        return to.toString().codePoints().mapToObj(codePoint -> String.format("U+%04X", codePoint))
+                .collect(Collectors.joining(" + "));
     }
 
 
@@ -40,7 +42,7 @@ public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterM
 
 
     public boolean isToReserved() {
-        return !Character.isDefined(to);
+        return !to.toString().codePoints().allMatch(Character::isDefined);
     }
 
 
@@ -54,12 +56,12 @@ public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterM
     }
 
 
-    public void setTo(Character to) {
+    public void setTo(CharSequence to) {
         this.to = to;
     }
 
 
-    public Character getTo() {
+    public CharSequence getTo() {
         return to;
     }
 

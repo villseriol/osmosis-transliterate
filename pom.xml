@@ -96,7 +96,8 @@
     </dependency>
 
     <!-- Source: https://mvnrepository.com/artifact/org.apache.poi/poi -->
-    <!-- Pinned to 4.1.0: matches the commons-compress 1.18 already pulled in transitively by osmosis-core. -->
+    <!-- Pinned to 4.1.0: matches the commons-compress 1.18 already pulled in transitively by
+    osmosis-core. -->
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi</artifactId>
@@ -218,6 +219,40 @@
             <goals>
               <goal>check</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.6.3</version>
+        <!-- osmosis-core is "provided" scope at the project level (supplied by the Osmosis -->
+        <!-- runtime when this project is loaded as a plugin), so it is not on exec:java's -->
+        <!-- default runtime classpath. Re-declaring it here with includePluginDependencies -->
+        <!-- puts it back on the classpath for this standalone execution. -->
+        <dependencies>
+          <dependency>
+            <groupId>org.openstreetmap.osmosis</groupId>
+            <artifactId>osmosis-core</artifactId>
+            <version>${osmosis.version}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>generate-tl-config-character-map-report</id>
+            <goals>
+              <goal>java</goal>
+            </goals>
+            <configuration>
+              <includePluginDependencies>true</includePluginDependencies>
+              <mainClass>
+                org.villseriol.osmosis.detective.v0_6.generator.TlConfigCharacterMapReportGenerator</mainClass>
+              <arguments>
+                <argument>src/test/resources/data/template/v0_6/pre-processing-config.xml</argument>
+                <argument>${project.build.directory}/reports/tl-config-character-map-report.xlsx</argument>
+              </arguments>
+            </configuration>
           </execution>
         </executions>
       </plugin>

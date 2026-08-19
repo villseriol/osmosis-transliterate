@@ -2,49 +2,44 @@
 package org.villseriol.osmosis.detective.v0_6.report;
 
 public class DetReportCursor {
-    private int row;
     private int col;
+    private int row;
 
-    public DetReportCursor(int x, int y) {
-        this.row = x;
-        this.col = y;
+    public DetReportCursor(int col, int row) {
+        this.col = col;
+        this.row = row;
     }
 
 
     public DetReportCursor() {
-        this.row = 0;
         this.col = 0;
+        this.row = 0;
     }
 
 
     public DetReportCursor(DetReportCursor cursor) {
-        this.row = cursor.row;
         this.col = cursor.col;
+        this.row = cursor.row;
     }
 
 
     public int nextCol() {
-        return ++row;
-    }
-
-
-    public int nextRow() {
         return ++col;
     }
 
 
-    public int previousCol() {
-        return --row;
+    public int nextRow() {
+        return ++row;
     }
 
 
-    public int previousRow() {
+    public int previousCol() {
         return --col;
     }
 
 
-    public int getRow() {
-        return row;
+    public int previousRow() {
+        return --row;
     }
 
 
@@ -53,9 +48,14 @@ public class DetReportCursor {
     }
 
 
+    public int getRow() {
+        return row;
+    }
+
+
     public void reset() {
-        row = 0;
         col = 0;
+        row = 0;
     }
 
 

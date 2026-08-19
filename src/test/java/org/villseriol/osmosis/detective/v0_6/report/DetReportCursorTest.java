@@ -14,8 +14,8 @@ public class DetReportCursorTest {
         int result = cursor.nextCol();
 
         assertEquals(1, result);
-        assertEquals(1, cursor.getRow());
-        assertEquals(0, cursor.getCol());
+        assertEquals(1, cursor.getCol());
+        assertEquals(0, cursor.getRow());
     }
 
 
@@ -28,7 +28,7 @@ public class DetReportCursorTest {
         int result = cursor.nextCol();
 
         assertEquals(3, result);
-        assertEquals(3, cursor.getRow());
+        assertEquals(3, cursor.getCol());
     }
 
 
@@ -39,8 +39,8 @@ public class DetReportCursorTest {
         int result = cursor.nextRow();
 
         assertEquals(1, result);
-        assertEquals(1, cursor.getCol());
-        assertEquals(0, cursor.getRow());
+        assertEquals(1, cursor.getRow());
+        assertEquals(0, cursor.getCol());
     }
 
 
@@ -53,7 +53,7 @@ public class DetReportCursorTest {
         int result = cursor.nextRow();
 
         assertEquals(3, result);
-        assertEquals(3, cursor.getCol());
+        assertEquals(3, cursor.getRow());
     }
 
 
@@ -65,8 +65,8 @@ public class DetReportCursorTest {
         cursor.nextCol();
         cursor.nextRow();
 
-        assertEquals(2, cursor.getRow());
-        assertEquals(1, cursor.getCol());
+        assertEquals(2, cursor.getCol());
+        assertEquals(1, cursor.getRow());
     }
 
 
@@ -79,8 +79,8 @@ public class DetReportCursorTest {
 
         assertEquals(6, rowResult);
         assertEquals(11, colResult);
-        assertEquals(6, cursor.getRow());
-        assertEquals(11, cursor.getCol());
+        assertEquals(6, cursor.getCol());
+        assertEquals(11, cursor.getRow());
     }
 
 
@@ -90,8 +90,8 @@ public class DetReportCursorTest {
 
         DetReportCursor copy = new DetReportCursor(original);
 
-        assertEquals(original.getRow(), copy.getRow());
         assertEquals(original.getCol(), copy.getCol());
+        assertEquals(original.getRow(), copy.getRow());
     }
 
 
@@ -103,9 +103,9 @@ public class DetReportCursorTest {
         copy.nextCol();
         copy.nextRow();
 
-        assertEquals(5, original.getRow());
-        assertEquals(10, original.getCol());
-        assertEquals(6, copy.getRow());
-        assertEquals(11, copy.getCol());
+        assertEquals(5, original.getCol());
+        assertEquals(10, original.getRow());
+        assertEquals(6, copy.getCol());
+        assertEquals(11, copy.getRow());
     }
 }
