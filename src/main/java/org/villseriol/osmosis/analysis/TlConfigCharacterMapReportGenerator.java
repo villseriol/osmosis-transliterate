@@ -1,12 +1,10 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.analysis.generator;
+package org.villseriol.osmosis.analysis;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import org.villseriol.osmosis.analysis.builder.TlConfigCharacterMapReportBuilder;
-import org.villseriol.osmosis.analysis.report.TlConfigCharacterMapReport;
 import org.villseriol.osmosis.transliterate.v0_6.TransliteratePipelineBuilder;
 import org.villseriol.osmosis.transliterate.v0_6.config.loader.XmlLoader;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;

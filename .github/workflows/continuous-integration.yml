@@ -16,3 +16,6 @@ jobs:
           cache: maven
       - name: Package
         run: mvn clean package
+
+      - name: Generate TL Config Character Map Report
+        run: mvn exec:java@generate-tl-config-character-map-report

@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.analysis.report;
+package org.villseriol.osmosis.analysis;
 
 import java.io.IOException;
 import java.io.OutputStream;

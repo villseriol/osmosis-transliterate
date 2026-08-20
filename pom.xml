@@ -247,7 +247,7 @@
             <configuration>
               <includePluginDependencies>true</includePluginDependencies>
               <mainClass>
-                org.villseriol.osmosis.detective.v0_6.generator.TlConfigCharacterMapReportGenerator</mainClass>
+                org.villseriol.osmosis.analysis.TlConfigCharacterMapReportGenerator</mainClass>
               <arguments>
                 <argument>src/test/resources/data/template/v0_6/pre-processing-config.xml</argument>
                 <argument>${project.build.directory}/reports/tl-config-character-map-report.xlsx</argument>

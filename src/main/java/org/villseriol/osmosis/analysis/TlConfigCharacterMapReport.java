@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.analysis.report;
+package org.villseriol.osmosis.analysis;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,7 +15,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
-import org.villseriol.osmosis.analysis.model.TlConfigCharacterMapRecord;
 import org.villseriol.osmosis.common.UnicodeRange;
 
 

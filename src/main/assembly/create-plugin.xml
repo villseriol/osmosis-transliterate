@@ -12,6 +12,10 @@
             <outputDirectory>/classes</outputDirectory>
             <useProjectArtifact>true</useProjectArtifact>
             <unpack>true</unpack>
+            <excludes>
+                <exclude>org.apache.poi:poi</exclude>
+                <exclude>org.apache.poi:poi-ooxml</exclude>
+            </excludes>
             <unpackOptions>
                 <excludes>
                     <exclude>META-INF/**</exclude>
@@ -19,6 +23,7 @@
                     <exclude>**/*.SF</exclude>
                     <exclude>**/*.DSA</exclude>
                     <exclude>**/*.RSA</exclude>
+                    <exclude>org/villseriol/osmosis/analysis/**</exclude>
                 </excludes>
             </unpackOptions>
         </dependencySet>

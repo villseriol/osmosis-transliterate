@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.analysis.model;
+package org.villseriol.osmosis.analysis;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 
-public class TransliteratePreProcessingCharacterMapRecordTest {
+public class TlConfigCharacterMapRecordTest {
     @Test
     public void testGetFromAndGetTo() {
         TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord('a', "b");

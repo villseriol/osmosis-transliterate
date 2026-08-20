@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.analysis.builder;
+package org.villseriol.osmosis.analysis;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -8,12 +8,11 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.junit.Test;
-import org.villseriol.osmosis.analysis.model.TlConfigCharacterMapRecord;
 import org.villseriol.osmosis.common.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
-public class PreProcessingCharacterMapReportBuilderTest {
+public class TlConfigCharacterMapReportBuilderTest {
     private static final Unimap SINGLE_CHARACTER_REMAP = new Unimap() {
         @Override
         public String action(String input) {
