@@ -19,3 +19,9 @@ jobs:
 
       - name: Generate TL Config Character Map Report
         run: mvn exec:java@generate-tl-config-character-map-report
+
+      - name: Upload TL Config Character Map Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: tl-config-character-map-report
+          path: target/reports/tl-config-character-map-report.xlsx
