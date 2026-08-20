@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.detective.v0_6.model;
+package org.villseriol.osmosis.analysis.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
