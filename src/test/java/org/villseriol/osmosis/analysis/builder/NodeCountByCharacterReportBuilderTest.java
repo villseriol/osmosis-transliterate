@@ -7,7 +7,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.Map;
 
 import org.junit.Test;
-import org.villseriol.osmosis.detective.v0_6.model.NodeCountByCharacterRecord;
+import org.villseriol.osmosis.analysis.builder.NodeCountByCharacterReportBuilder;
+import org.villseriol.osmosis.analysis.model.NodeCountByCharacterRecord;
 
 
 public class NodeCountByCharacterReportBuilderTest {

@@ -8,8 +8,9 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.junit.Test;
+import org.villseriol.osmosis.analysis.builder.TlConfigCharacterMapReportBuilder;
+import org.villseriol.osmosis.analysis.model.TlConfigCharacterMapRecord;
 import org.villseriol.osmosis.common.UnicodeRange;
-import org.villseriol.osmosis.detective.v0_6.model.TlConfigCharacterMapRecord;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
@@ -68,9 +69,7 @@ public class PreProcessingCharacterMapReportBuilderTest {
 
 
     private TlConfigCharacterMapRecord findRecordFor(TlConfigCharacterMapReportBuilder builder, char from) {
-        return builder.getData().get(UnicodeRange.BASIC_LATIN).stream()
-                .filter(record -> record.getFrom().equals(from))
-                .findFirst()
-                .orElseThrow();
+        return builder.getData().get(UnicodeRange.BASIC_LATIN).stream().filter(record -> record.getFrom().equals(from))
+                .findFirst().orElseThrow();
     }
 }

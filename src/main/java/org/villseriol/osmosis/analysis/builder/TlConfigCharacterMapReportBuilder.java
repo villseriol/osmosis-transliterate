@@ -1,14 +1,14 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.detective.v0_6.builder;
+package org.villseriol.osmosis.analysis.builder;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.villseriol.osmosis.analysis.model.TlConfigCharacterMapRecord;
+import org.villseriol.osmosis.analysis.report.TlConfigCharacterMapReport;
 import org.villseriol.osmosis.common.UnicodeRange;
-import org.villseriol.osmosis.detective.v0_6.model.TlConfigCharacterMapRecord;
-import org.villseriol.osmosis.detective.v0_6.report.TlConfigCharacterMapReport;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 

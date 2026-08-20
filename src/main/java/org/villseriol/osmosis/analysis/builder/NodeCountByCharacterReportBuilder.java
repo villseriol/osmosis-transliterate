@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.detective.v0_6.builder;
+package org.villseriol.osmosis.analysis.builder;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,8 +9,8 @@ import java.util.Set;
 import org.openstreetmap.osmosis.core.container.v0_6.EntityContainer;
 import org.openstreetmap.osmosis.core.domain.v0_6.Entity;
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
-import org.villseriol.osmosis.detective.v0_6.model.NodeCountByCharacterRecord;
-import org.villseriol.osmosis.detective.v0_6.report.NodeCountByCharacterReport;
+import org.villseriol.osmosis.analysis.model.NodeCountByCharacterRecord;
+import org.villseriol.osmosis.analysis.report.NodeCountByCharacterReport;
 
 
 public class NodeCountByCharacterReportBuilder {
