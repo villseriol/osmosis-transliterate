@@ -17,13 +17,11 @@ import com.ibm.icu.text.UnicodeSet.SpanCondition;
 public class KakasiTransform implements Unimap {
     private static final Logger LOG = Logger.getLogger(KakasiTransform.class.getName());
 
-    private static final UnicodeSet JAPANESE_SET = new UnicodeSet(
-            StringUtils.toIcuRange(UnicodeRange.CJK_SYMBOLS_AND_PUNCTUATION, UnicodeRange.HIRAGANA,
-                    UnicodeRange.KATAKANA, UnicodeRange.KATAKANA_PHONETIC_EXTENSIONS,
-                    UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS,
-                    UnicodeRange.CJK_COMPATIBILITY_IDEOGRAPHS, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B,
-                    UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D))
-                            .freeze();
+    private static final UnicodeSet JAPANESE_SET = new UnicodeSet(StringUtils.toIcuRange(
+            UnicodeRange.CJK_SYMBOLS_AND_PUNCTUATION, UnicodeRange.HIRAGANA, UnicodeRange.KATAKANA,
+            UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS,
+            UnicodeRange.CJK_COMPATIBILITY_IDEOGRAPHS, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B,
+            UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D)).freeze();
 
     private final Kakasi kakasi;
 
