@@ -33,9 +33,9 @@ jobs:
 
       - name: Install Plugin
         run: |
-          mkdir -p ~/.openstreetmaps/osmosis/plugins
+          mkdir -p ~/.openstreetmap/osmosis/plugins
           cp target/${{ steps.get-final-name.outputs.final_name }}-plugin.zip \
-            ~/.openstreetmaps/osmosis/plugins
+            ~/.openstreetmap/osmosis/plugins
 
       - name: Verify Plugin Loads
         run: osmosis --read-empty --oss-version-0.6
