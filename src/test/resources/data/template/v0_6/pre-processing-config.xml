@@ -135,6 +135,10 @@
 
         <run alias="all-to-whitespace" unicode-group="dingbats" />
 
+        <run alias="all-to-whitespace" unicode-group="private-use-area" />
+        <run alias="all-to-whitespace" unicode-group="specials" />
+        <run alias="all-to-blank" unicode-group="variation-selectors" />
+
         <run alias="misc-symbol-arrow" />
         <run alias="enclosed" />
     </pipeline>
