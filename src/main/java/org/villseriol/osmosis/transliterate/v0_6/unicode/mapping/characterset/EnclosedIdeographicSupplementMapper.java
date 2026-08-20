@@ -28,9 +28,6 @@ public class EnclosedIdeographicSupplementMapper implements Unimap {
         rules.add("🈁 > '[ココ]';"); // 1F201 SQUARED KATAKANA KOKO
         rules.add("🈂 > '[サ]';"); // 1F202 SQUARED KATAKANA SA
 
-        // U+1F203-U+1F20F mapped to whitespace (currently unassigned)
-        rules.add("[\\U0001F203-\\U0001F20F] > ' ';");
-
         rules.add("🈐 > '[手]';"); // 1F210 SQUARED CJK UNIFIED IDEOGRAPH-624B
         rules.add("🈑 > '[字]';"); // 1F211 SQUARED CJK UNIFIED IDEOGRAPH-5B57
         rules.add("🈒 > '[双]';"); // 1F212 SQUARED CJK UNIFIED IDEOGRAPH-53CC
@@ -76,9 +73,6 @@ public class EnclosedIdeographicSupplementMapper implements Unimap {
         rules.add("🈺 > '[営]';"); // 1F23A SQUARED CJK UNIFIED IDEOGRAPH-55B6
         rules.add("🈻 > '[配]';"); // 1F23B SQUARED CJK UNIFIED IDEOGRAPH-914D
 
-        // U+1F23C-U+1F23F mapped to whitespace (currently unassigned)
-        rules.add("[\\U0001F23C-\\U0001F23F] > ' ';");
-
         rules.add("🉀 > '[本]';"); // 1F240 TORTOISE SHELL BRACKETED CJK UNIFIED
                                   // IDEOGRAPH-672C
         rules.add("🉁 > '[三]';"); // 1F241 TORTOISE SHELL BRACKETED CJK UNIFIED
@@ -98,14 +92,8 @@ public class EnclosedIdeographicSupplementMapper implements Unimap {
         rules.add("🉈 > '[敗]';"); // 1F248 TORTOISE SHELL BRACKETED CJK UNIFIED
                                   // IDEOGRAPH-6557
 
-        // U+1F249-U+1F24F mapped to whitespace (currently unassigned)
-        rules.add("[\\U0001F249-\\U0001F24F] > ' ';");
-
         rules.add("🉐 > '(得)';"); // 1F250 CIRCLED IDEOGRAPH ADVANTAGE
         rules.add("🉑 > '(可)';"); // 1F251 CIRCLED IDEOGRAPH ACCEPT
-
-        // Fallback: anything not yet explicitly mapped becomes ' '
-        rules.add(StringUtils.toIcuFallbackRule(" ", UnicodeRange.ENCLOSED_IDEOGRAPHIC_SUPPLEMENT));
 
         TRANSLITERATOR = Transliterator.createFromRules("EnclosedIdeographicSupplement-Normalized",
                 String.join("\n", rules), Transliterator.FORWARD);

@@ -281,9 +281,6 @@ public class EnclosedAlphanumericSupplementMapper implements Unimap {
         rules.add("🇾 > 'Y';"); // 1F1FE REGIONAL INDICATOR SYMBOL LETTER Y
         rules.add("🇿 > 'Z';"); // 1F1FF REGIONAL INDICATOR SYMBOL LETTER Z
 
-        // Fallback: anything not yet explicitly mapped becomes ' '
-        rules.add(StringUtils.toIcuFallbackRule(" ", UnicodeRange.ENCLOSED_ALPHANUMERIC_SUPPLEMENT));
-
         TRANSLITERATOR = Transliterator.createFromRules("EnclosedAlphanumericSupplement-Normalized",
                 String.join("\n", rules), Transliterator.FORWARD);
     }
