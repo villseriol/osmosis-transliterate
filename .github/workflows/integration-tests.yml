@@ -34,8 +34,8 @@ jobs:
       - name: Install Plugin
         run: |
           mkdir -p ~/.openstreetmaps/osmosis/plugins
-          unzip -o target/${{ steps.get-final-name.outputs.final_name }}-plugin.zip \
-            -d ~/.openstreetmaps/osmosis/plugins
+          cp target/${{ steps.get-final-name.outputs.final_name }}-plugin.zip \
+            ~/.openstreetmaps/osmosis/plugins
 
       - name: Verify Plugin Loads
         run: osmosis -p org.villseriol.osmosis.version.VersionPluginLoader --read-empty --oss-version-0.6
