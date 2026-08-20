@@ -43,6 +43,7 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.Ge
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeometricShapesMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GreekMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HalfWidthFullWidthMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KatakanaPhoneticExtensionsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LetterlikeMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.MiscellaneousSymbolsAndArrowsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SmallFormVariantsMapper;
@@ -145,6 +146,10 @@ public class TransliteratePipelineBuilder {
             }
 
             return new KakasiTransform(config);
+
+        case KATAKANA_PHONETIC_EXTENSIONS:
+            LOG.info("Initializing katakana-phonetic-extensions transform");
+            return new KatakanaPhoneticExtensionsMapper();
 
         case LETTERLIKE:
             LOG.info("Initializing letterlike transform");

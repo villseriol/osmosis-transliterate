@@ -100,6 +100,13 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
+     * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KatakanaPhoneticExtensionsMapper
+     */
+    KATAKANA_PHONETIC_EXTENSIONS("katakana-phonetic-extensions"),
+
+    /**
+     * TODO.
+     *
      * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LetterlikeMapper
      */
     LETTERLIKE("letterlike"),

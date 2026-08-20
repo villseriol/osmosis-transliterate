@@ -134,6 +134,7 @@
         <run alias="all-to-whitespace" unicode-group="alphabetic-presentation-forms" />
 
         <run alias="all-to-whitespace" unicode-group="dingbats" />
+        <run alias="all-to-whitespace" unicode-group="cjk-compatibility-forms" />
 
         <run alias="all-to-whitespace" unicode-group="private-use-area" />
         <run alias="all-to-whitespace" unicode-group="specials" />

@@ -31,6 +31,7 @@ public class KakasiTransform implements Unimap {
         return JAPANESE_SET.contains(codePoint);
     }
 
+
     public KakasiTransform(KakasiConfig config) {
         this.kakasi = new Kakasi(Objects.requireNonNull(config));
 
