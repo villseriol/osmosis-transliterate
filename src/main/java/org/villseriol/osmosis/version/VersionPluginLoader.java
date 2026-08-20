@@ -15,8 +15,8 @@ public class VersionPluginLoader implements PluginLoader {
 
         Map<String, TaskManagerFactory> tasks = new HashMap<String, TaskManagerFactory>();
 
-        tasks.put("oss-version", transformFactory);
-        tasks.put("oss-version-0.6", transformFactory);
+        tasks.put("oss-tl-version", transformFactory);
+        tasks.put("oss-tl-version-0.6", transformFactory);
 
         return tasks;
     }
