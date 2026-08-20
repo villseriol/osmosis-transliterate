@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.villseriol.osmosis.common.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.KakasiTransform;
 
 
 public class TlConfigCharacterMapReportBuilder {
@@ -16,13 +17,22 @@ public class TlConfigCharacterMapReportBuilder {
     public void process(Unimap unimap) {
         for (UnicodeRange range : UnicodeRange.values()) {
             int lower = Math.max(range.getLower(), 0);
-            int upper = Math.min(range.getUpper(), Character.MAX_VALUE);
+            int upper = Math.min(range.getUpper(), Character.MAX_CODE_POINT);
 
             for (int codePoint = lower; codePoint <= upper; codePoint++) {
-                char from = (char) codePoint;
-                String output = unimap.action(String.valueOf(from));
+                if (codePoint >= Character.MIN_SURROGATE && codePoint <= Character.MAX_SURROGATE) {
+                    continue;
+                }
 
-                data.computeIfAbsent(range, key -> new ArrayList<>()).add(new TlConfigCharacterMapRecord(from, output));
+                if (KakasiTransform.isHandled(codePoint)) {
+                    continue;
+                }
+
+                String from = new String(Character.toChars(codePoint));
+                String output = unimap.action(from);
+
+                data.computeIfAbsent(range, key -> new ArrayList<>())
+                        .add(new TlConfigCharacterMapRecord(codePoint, output));
             }
         }
     }

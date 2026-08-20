@@ -17,10 +17,6 @@ import com.ibm.icu.text.UnicodeSet.SpanCondition;
 public class KakasiTransform implements Unimap {
     private static final Logger LOG = Logger.getLogger(KakasiTransform.class.getName());
 
-    // CJK Symbols and Punctuation, Hiragana, Katakana, Katakana Phonetic
-    // Extensions, CJK Unified Ideographs (+ Extensions A, B, C, D), CJK
-    // Compatibility Ideographs, and Halfwidth and Fullwidth Forms (halfwidth
-    // katakana + voicing marks live here)
     private static final UnicodeSet JAPANESE_SET = new UnicodeSet(
             StringUtils.toIcuRange(UnicodeRange.CJK_SYMBOLS_AND_PUNCTUATION, UnicodeRange.HIRAGANA,
                     UnicodeRange.KATAKANA, UnicodeRange.KATAKANA_PHONETIC_EXTENSIONS,
@@ -30,6 +26,10 @@ public class KakasiTransform implements Unimap {
                             .freeze();
 
     private final Kakasi kakasi;
+
+    public static boolean isHandled(int codePoint) {
+        return JAPANESE_SET.contains(codePoint);
+    }
 
     public KakasiTransform(KakasiConfig config) {
         this.kakasi = new Kakasi(Objects.requireNonNull(config));

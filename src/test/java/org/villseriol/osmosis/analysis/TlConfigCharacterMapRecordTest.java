@@ -11,28 +11,28 @@ import org.junit.Test;
 public class TlConfigCharacterMapRecordTest {
     @Test
     public void testGetFromAndGetTo() {
-        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord('a', "b");
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord((int) 'a', "b");
 
-        assertEquals(Character.valueOf('a'), record.getFrom());
+        assertEquals(Integer.valueOf('a'), record.getFrom());
         assertEquals("b", record.getTo());
     }
 
 
     @Test
     public void testSetFromAndSetTo() {
-        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord('a', "b");
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord((int) 'a', "b");
 
-        record.setFrom('c');
+        record.setFrom((int) 'c');
         record.setTo("d");
 
-        assertEquals(Character.valueOf('c'), record.getFrom());
+        assertEquals(Integer.valueOf('c'), record.getFrom());
         assertEquals("d", record.getTo());
     }
 
 
     @Test
     public void testGetFromNameAndGetToName() {
-        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord('a', "b");
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord((int) 'a', "b");
 
         assertEquals("LATIN SMALL LETTER A", record.getFromName());
         assertEquals("LATIN SMALL LETTER B", record.getToName());
@@ -41,7 +41,7 @@ public class TlConfigCharacterMapRecordTest {
 
     @Test
     public void testGetFromCodePointsAndGetToCodePoints() {
-        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord('a', "b");
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord((int) 'a', "b");
 
         assertEquals("U+0061", record.getFromCodePoints());
         assertEquals("U+0062", record.getToCodePoints());
@@ -50,7 +50,7 @@ public class TlConfigCharacterMapRecordTest {
 
     @Test
     public void testIsFromReservedAndIsToReservedFalseForDefinedCharacters() {
-        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord('a', "b");
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord((int) 'a', "b");
 
         assertFalse(record.isFromReserved());
         assertFalse(record.isToReserved());
@@ -60,7 +60,7 @@ public class TlConfigCharacterMapRecordTest {
     @Test
     public void testIsFromReservedAndIsToReservedTrueForUnassignedCharacters() {
         char unassigned = '￿';
-        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord(unassigned, String.valueOf(unassigned));
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord((int) unassigned, String.valueOf(unassigned));
 
         assertTrue(record.isFromReserved());
         assertTrue(record.isToReserved());

@@ -9,10 +9,10 @@ import org.villseriol.osmosis.common.UnicodeRange;
 
 
 public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterMapRecord> {
-    private Character from;
+    private Integer from;
     private CharSequence to;
 
-    public TlConfigCharacterMapRecord(Character from, CharSequence to) {
+    public TlConfigCharacterMapRecord(Integer from, CharSequence to) {
         this.from = from;
         this.to = to;
     }
@@ -30,7 +30,7 @@ public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterM
 
 
     public String getFromCodePoints() {
-        return String.format("U+%04X", (int) from);
+        return String.format("U+%04X", from);
     }
 
 
@@ -56,12 +56,12 @@ public class TlConfigCharacterMapRecord implements Comparator<TlConfigCharacterM
     }
 
 
-    public void setFrom(Character from) {
+    public void setFrom(Integer from) {
         this.from = from;
     }
 
 
-    public Character getFrom() {
+    public Integer getFrom() {
         return from;
     }
 

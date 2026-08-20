@@ -49,7 +49,7 @@ public class TlConfigCharacterMapReportBuilderTest {
 
         TlConfigCharacterMapRecord record = findRecordFor(builder, 'a');
 
-        assertEquals(Character.valueOf('a'), record.getFrom());
+        assertEquals(Integer.valueOf('a'), record.getFrom());
         assertEquals("b", record.getTo());
     }
 
@@ -61,13 +61,13 @@ public class TlConfigCharacterMapReportBuilderTest {
 
         TlConfigCharacterMapRecord record = findRecordFor(builder, 'c');
 
-        assertEquals(Character.valueOf('c'), record.getFrom());
+        assertEquals(Integer.valueOf('c'), record.getFrom());
         assertEquals("c", record.getTo());
     }
 
 
     private TlConfigCharacterMapRecord findRecordFor(TlConfigCharacterMapReportBuilder builder, char from) {
-        return builder.getData().get(UnicodeRange.BASIC_LATIN).stream().filter(record -> record.getFrom().equals(from))
+        return builder.getData().get(UnicodeRange.BASIC_LATIN).stream().filter(record -> record.getFrom() == from)
                 .findFirst().orElseThrow();
     }
 }

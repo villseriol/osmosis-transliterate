@@ -113,7 +113,7 @@ public class TlConfigCharacterMapReport extends DetReport {
         Row row = sheet.createRow(cursor.getRow());
 
         int fromCol = cursor.getCol();
-        row.createCell(fromCol).setCellValue(record.getFrom().toString());
+        row.createCell(fromCol).setCellValue(new String(Character.toChars(record.getFrom())));
 
         int fromNameCol = cursor.nextCol();
         row.createCell(fromNameCol).setCellValue(record.getFromName());
