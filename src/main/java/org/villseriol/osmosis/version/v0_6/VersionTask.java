@@ -16,9 +16,7 @@ public class VersionTask implements Sink {
      */
     @Override
     public void initialize(Map<String, Object> metaData) {
-        LOG.info("osmosis-tl");
-        LOG.info("Author: EY4180");
-        LOG.info("Copyright Villseriol 2026");
+        LOG.info("Villseriol (c) 2026");
         LOG.info("Licensed under GPL-3.0");
     }
 
