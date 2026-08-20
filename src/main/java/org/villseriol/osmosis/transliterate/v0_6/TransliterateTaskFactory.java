@@ -8,6 +8,9 @@ import org.openstreetmap.osmosis.core.pipeline.v0_6.SinkSourceManager;
 
 
 public class TransliterateTaskFactory extends TaskManagerFactory {
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected TaskManager createTaskManagerImpl(TaskConfiguration taskConfig) {
         String configFile = getStringArgument(taskConfig, "file", getDefaultStringArgument(taskConfig, "kakasi.xml"));

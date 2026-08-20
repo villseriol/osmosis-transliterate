@@ -36,6 +36,9 @@ public class TransliterateTask implements SinkSource {
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void process(EntityContainer entityContainer) {
         EntityContainer writeableEntityContainer = entityContainer.getWriteableInstance();
@@ -66,6 +69,9 @@ public class TransliterateTask implements SinkSource {
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void initialize(Map<String, Object> metaData) {
         sink.initialize(metaData);
@@ -74,20 +80,27 @@ public class TransliterateTask implements SinkSource {
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void complete() {
         sink.complete();
-        pipeline.complete();
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void close() {
         sink.close();
-        pipeline.close();
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setSink(Sink sink) {
         this.sink = sink;

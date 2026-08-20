@@ -9,6 +9,9 @@ import org.openstreetmap.osmosis.core.plugin.PluginLoader;
 
 
 public class TransliteratePluginLoader implements PluginLoader {
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Map<String, TaskManagerFactory> loadTaskFactories() {
         TaskManagerFactory transformFactory = new org.villseriol.osmosis.transliterate.v0_6.TransliterateTaskFactory();

@@ -2,20 +2,15 @@
 package org.villseriol.osmosis.transliterate.v0_6;
 
 import org.openstreetmap.osmosis.core.domain.v0_6.Tag;
-import org.openstreetmap.osmosis.core.lifecycle.Completable;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.NoTransform;
 
 
-public class TransliteratePipelineRunner implements Completable {
+public class TransliteratePipelineRunner {
     private final TransliteratePipelineContext context = new TransliteratePipelineContext();
 
     private Unimap pipeline = new NoTransform();
-
-    public void init() {
-    }
-
 
     public void init(NormalizeConfiguration configuration) {
         TransliteratePipelineBuilder builder = new TransliteratePipelineBuilder(configuration);
@@ -34,16 +29,5 @@ public class TransliteratePipelineRunner implements Completable {
         context.setCurrentValue(value);
 
         return pipeline.action(value);
-    }
-
-
-    @Override
-    public void close() {
-    }
-
-
-    @Override
-    public void complete() {
-        context.clear();
     }
 }
