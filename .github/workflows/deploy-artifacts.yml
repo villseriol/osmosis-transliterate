@@ -21,6 +21,8 @@ jobs:
           cache: maven
       - name: Package
         run: mvn clean package
+      - name: Generate TL Config Character Map Report
+        run: mvn exec:java@generate-tl-config-character-map-report
       - name: Get Final Artifact Names
         id: get-final-name
         run: |
@@ -34,6 +36,7 @@ jobs:
           path: |
             target/${{ steps.get-final-name.outputs.final_name }}.jar
             target/${{ steps.get-final-name.outputs.final_name }}-plugin.zip
+            target/reports/tl-config-character-map-report.xlsx
 
   create-release:
     runs-on: ubuntu-latest
@@ -51,5 +54,6 @@ jobs:
           files: |
             artifacts/*.jar
             artifacts/*.zip
+            artifacts/tl-config-character-map-report.xlsx
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
