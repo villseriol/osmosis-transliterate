@@ -142,6 +142,13 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
+     * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SpacingModifierLettersMapper
+     */
+    SPACING_MODIFIER_LETTERS("spacing-modifier-letters"),
+
+    /**
+     * TODO.
+     *
      * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ThaiMapper
      */
     THAI("thai"),

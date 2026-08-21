@@ -47,6 +47,7 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.Ka
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LetterlikeMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.MiscellaneousSymbolsAndArrowsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SmallFormVariantsMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SpacingModifierLettersMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ThaiMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.CustomMappingTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.DuplicateSpaceTransform;
@@ -170,6 +171,10 @@ public class TransliteratePipelineBuilder {
         case SMALL_FORM:
             LOG.info("Initializing small-form transform");
             return new SmallFormVariantsMapper();
+
+        case SPACING_MODIFIER_LETTERS:
+            LOG.info("Initializing spacing-modifier-letters transform");
+            return new SpacingModifierLettersMapper();
 
         case THAI:
             LOG.info("Initializing thai transform");
