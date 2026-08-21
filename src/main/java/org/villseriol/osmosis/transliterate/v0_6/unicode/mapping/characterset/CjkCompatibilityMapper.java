@@ -66,7 +66,7 @@ public class CjkCompatibilityMapper implements Unimap {
         rules.add("㌩ > 'ノット';"); // 3329 SQUARE NOTTO
         rules.add("㌪ > 'ハイツ';"); // 332A SQUARE HAITU
         rules.add("㌫ > 'パーセント';"); // 332B SQUARE PAASENTO
-        rules.add("㌬ > 'パーツ';"); // 332C SQUARE PAATU
+        rules.add("㌬ > ' ';"); // 332C SQUARE PAATU
         rules.add("㌭ > 'バーレル';"); // 332D SQUARE BAARERU
         rules.add("㌮ > 'ピアストル';"); // 332E SQUARE PIASUTORU
         rules.add("㌯ > 'ピクル';"); // 332F SQUARE PIKURU
