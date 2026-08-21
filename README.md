@@ -4,7 +4,7 @@ This plugin is used for pre-processing OSM data before ingestion into `mkgmap`. 
 to ensure tag-value pairs are latin1 compliant.
 
 To do this, the plugin provides custom transliteration methods that you may use in addition to
-user-defined maps. Read on for example installation & usage.
+user-defined mappings. Read on for example installation & usage.
 
 ## Installation
 
