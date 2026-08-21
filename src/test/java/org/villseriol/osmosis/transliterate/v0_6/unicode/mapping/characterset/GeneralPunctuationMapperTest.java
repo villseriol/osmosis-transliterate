@@ -60,7 +60,7 @@ public class GeneralPunctuationMapperTest {
         // Dagger / bullets / leaders
         assertEquals("+", transform.action("†"));
         assertEquals("++", transform.action("‡"));
-        assertEquals("*", transform.action("•"));
+        assertEquals("·", transform.action("•"));
         assertEquals(">", transform.action("‣"));
         assertEquals(".", transform.action("․"));
         assertEquals("..", transform.action("‥"));

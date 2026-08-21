@@ -23,6 +23,7 @@
                 </replace-with>
 
                 <replace-with value="¤">
+                    <when-value-is value="฿" /> <!-- 20A0 THAI CURRENCY SYMBOL BAHT -->
                     <when-value-is value="₠" /> <!-- 20A0 EURO-CURRENCY SIGN -->
                     <when-value-is value="₡" /> <!-- 20A1 COLON SIGN -->
                     <when-value-is value="₢" /> <!-- 20A2 CRUZEIRO SIGN -->
@@ -54,22 +55,8 @@
                     <when-value-is value="€" /> <!-- 20AC EURO SIGN -->
                 </replace-with>
 
-                <replace-with value="£">
-                    <when-value-is value="￡" /> <!-- FFE1 FULLWIDTH POUND SIGN -->
-                </replace-with>
-
-                <replace-with value="©">
-                    <when-value-is value="🄫" />
-                </replace-with>
-
-                <replace-with value="®">
-                    <when-value-is value="🄬" />
-                </replace-with>
-
-                <replace-with value=" · ">
+                <replace-with value="·">
                     <when-value-is value="・" />
-                    <when-value-is value="･" />
-                    <when-value-is value="•" />
                 </replace-with>
 
                 <replace-with value="±">
@@ -94,10 +81,6 @@
 
                 <replace-with value="'">
                     <when-value-is value="ʻ" />
-                </replace-with>
-
-                <replace-with value="-">
-                    <when-value-is value="–" />
                 </replace-with>
             </mapping>
         </run>
@@ -135,12 +118,16 @@
 
         <run alias="all-to-whitespace" unicode-group="dingbats" />
         <run alias="all-to-whitespace" unicode-group="cjk-compatibility-forms" />
+        <run alias="all-to-whitespace" unicode-group="misc-symbols-and-pictographs" />
+        <run alias="all-to-blank" unicode-group="transport-and-map-symbols" />
 
         <run alias="all-to-whitespace" unicode-group="private-use-area" />
         <run alias="all-to-whitespace" unicode-group="specials" />
         <run alias="all-to-blank" unicode-group="variation-selectors" />
 
         <run alias="misc-symbol-arrow" />
+        <run alias="all-to-blank" unicode-group="misc-symbols-and-arrows" />
+
         <run alias="enclosed" />
     </pipeline>
 

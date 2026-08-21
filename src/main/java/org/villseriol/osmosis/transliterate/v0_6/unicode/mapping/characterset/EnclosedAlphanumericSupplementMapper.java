@@ -70,8 +70,8 @@ public class EnclosedAlphanumericSupplementMapper implements Unimap {
         rules.add("🄩 > '(Z)';"); // 1F129 PARENTHESIZED LATIN CAPITAL LETTER Z
         rules.add("🄪 > '[S]';"); // 1F12A TORTOISE SHELL BRACKETED LATIN
                                   // CAPITAL LETTER S
-        rules.add("🄫 > '(C)';"); // 1F12B CIRCLED ITALIC LATIN CAPITAL LETTER C
-        rules.add("🄬 > '(R)';"); // 1F12C CIRCLED ITALIC LATIN CAPITAL LETTER R
+        rules.add("🄫 > '©';"); // 1F12B CIRCLED ITALIC LATIN CAPITAL LETTER C
+        rules.add("🄬 > '®';"); // 1F12C CIRCLED ITALIC LATIN CAPITAL LETTER R
         rules.add("🄭 > '(CD)';"); // 1F12D CIRCLED CD
         rules.add("🄮 > '(WZ)';"); // 1F12E CIRCLED WZ
         rules.add("🄯 > '(C)';"); // 1F12F COPYLEFT SYMBOL

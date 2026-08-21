@@ -80,7 +80,7 @@ public class GeneralPunctuationMapper implements Unimap {
         // Dagger / bullets / leaders
         rules.add("† > '+';"); // 2020 DAGGER
         rules.add("‡ > '++';"); // 2021 DOUBLE DAGGER
-        rules.add("• > '*';"); // 2022 BULLET
+        rules.add("• > '·';"); // 2022 BULLET
         rules.add("‣ > '>';"); // 2023 TRIANGULAR BULLET
         rules.add("․ > '.';"); // 2024 ONE DOT LEADER
         rules.add("‥ > '..';"); // 2025 TWO DOT LEADER
@@ -126,7 +126,7 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("⁋ > '¶';"); // 204B REVERSED PILCROW SIGN (arbitrary)
         rules.add("⁌ > ' ';"); // 204C BLACK LEFTWARDS BULLET
         rules.add("⁍ > ' ';"); // 204D BLACK RIGHTWARDS BULLET
-        rules.add("⁎ > '*';"); // 204E LOW ASTERISK (dup of bullet)
+        rules.add("⁎ > '*';"); // 204E LOW ASTERISK
         rules.add("⁏ > ';';"); // 204F REVERSED SEMICOLON
         rules.add("⁐ > ' ';"); // 2050 CLOSE UP (editorial instruction, not a
                                // glyph)
