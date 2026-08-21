@@ -105,7 +105,7 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("※ > '*';"); // 203B REFERENCE MARK
         rules.add("‼ > '!!';"); // 203C DOUBLE EXCLAMATION MARK
         rules.add("‽ > '?!';"); // 203D INTERROBANG
-        rules.add("‾ > ' ';"); // 203E OVERLINE
+        rules.add("‾ > '¯';"); // 203E OVERLINE
         rules.add("‿ > ' ';"); // 203F UNDERTIE
         rules.add("⁀ > ' ';"); // 2040 CHARACTER TIE (dup)
         rules.add("⁁ > ' ';"); // 2041 CARET INSERTION POINT (dup of 2038)
@@ -146,20 +146,23 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("⁞ > ':';"); // 205E VERTICAL FOUR DOTS
         rules.add("\u205F > ' ';"); // MEDIUM MATHEMATICAL SPACE
 
-        // Invisible math/format controls -- no glyph, drop
-        rules.add("⁠ > '';"); // 2060 WORD JOINER
-        rules.add("⁡ > '';"); // 2061 FUNCTION APPLICATION
-        rules.add("⁢ > '';"); // 2062 INVISIBLE TIMES
-        rules.add("⁣ > '';"); // 2063 INVISIBLE SEPARATOR
-        rules.add("⁤ > '';"); // 2064 INVISIBLE PLUS
+        // Invisible math/format controls -- no glyph, drop. Written using
+        // ICU's own \\uXXXX rule-text escape (rather than the raw
+        // character or a quoted '' empty literal, which ICU parses as an
+        // escaped literal quote character, not an empty string).
+        rules.add("\\u2060 > ;"); // WORD JOINER
+        rules.add("\\u2061 > ;"); // FUNCTION APPLICATION
+        rules.add("\\u2062 > ;"); // INVISIBLE TIMES
+        rules.add("\\u2063 > ;"); // INVISIBLE SEPARATOR
+        rules.add("\\u2064 > ;"); // INVISIBLE PLUS
 
         // Bidi format controls (deprecated) -- no glyph, drop
-        rules.add("⁪ > '';"); // 206A INHIBIT SYMMETRIC SWAPPING
-        rules.add("⁫ > '';"); // 206B ACTIVATE SYMMETRIC SWAPPING
-        rules.add("⁬ > '';"); // 206C INHIBIT ARABIC FORM SHAPING
-        rules.add("⁭ > '';"); // 206D ACTIVATE ARABIC FORM SHAPING
-        rules.add("⁮ > '';"); // 206E NATIONAL DIGIT SHAPES
-        rules.add("⁯ > '';"); // 206F NOMINAL DIGIT SHAPES
+        rules.add("\\u206A > ;"); // INHIBIT SYMMETRIC SWAPPING
+        rules.add("\\u206B > ;"); // ACTIVATE SYMMETRIC SWAPPING
+        rules.add("\\u206C > ;"); // INHIBIT ARABIC FORM SHAPING
+        rules.add("\\u206D > ;"); // ACTIVATE ARABIC FORM SHAPING
+        rules.add("\\u206E > ;"); // NATIONAL DIGIT SHAPES
+        rules.add("\\u206F > ;"); // NOMINAL DIGIT SHAPES
 
         // Line/paragraph separators and bidi embedding controls --
         // invisible or non-printing, drop. Written without quotes since a

@@ -108,23 +108,23 @@ public class GeneralPunctuationMapperTest {
         assertEquals("+", transform.action("⁜"));
         assertEquals(":", transform.action("⁝"));
         assertEquals(":", transform.action("⁞"));
+        assertEquals("¯", transform.action("‾")); // OVERLINE
 
-        // Invisible math/format controls -- mapped to a literal apostrophe
-        // by the underlying ICU rule escaping (see zero-width joiners above)
-        assertEquals("'", transform.action("⁠")); // WORD JOINER
-        assertEquals("'", transform.action("⁡")); // FUNCTION APPLICATION
-        assertEquals("'", transform.action("⁢")); // INVISIBLE TIMES
-        assertEquals("'", transform.action("⁣")); // INVISIBLE SEPARATOR
-        assertEquals("'", transform.action("⁤")); // INVISIBLE PLUS
+        // Invisible math/format controls -- no glyph, drop
+        assertEquals("", transform.action("⁠")); // WORD JOINER
+        assertEquals("", transform.action("⁡")); // FUNCTION APPLICATION
+        assertEquals("", transform.action("⁢")); // INVISIBLE TIMES
+        assertEquals("", transform.action("⁣")); // INVISIBLE SEPARATOR
+        assertEquals("", transform.action("⁤")); // INVISIBLE PLUS
 
-        // Bidi format controls (deprecated) -- same apostrophe escaping quirk
-        assertEquals("'", transform.action("⁪")); // INHIBIT SYMMETRIC SWAPPING
-        assertEquals("'", transform.action("⁫")); // ACTIVATE SYMMETRIC SWAPPING
-        assertEquals("'", transform.action("⁬")); // INHIBIT ARABIC FORM SHAPING
-        assertEquals("'", transform.action("⁭")); // ACTIVATE ARABIC FORM
+        // Bidi format controls (deprecated) -- no glyph, drop
+        assertEquals("", transform.action("⁪")); // INHIBIT SYMMETRIC SWAPPING
+        assertEquals("", transform.action("⁫")); // ACTIVATE SYMMETRIC SWAPPING
+        assertEquals("", transform.action("⁬")); // INHIBIT ARABIC FORM SHAPING
+        assertEquals("", transform.action("⁭")); // ACTIVATE ARABIC FORM
                                                   // SHAPING
-        assertEquals("'", transform.action("⁮")); // NATIONAL DIGIT SHAPES
-        assertEquals("'", transform.action("⁯")); // NOMINAL DIGIT SHAPES
+        assertEquals("", transform.action("⁮")); // NATIONAL DIGIT SHAPES
+        assertEquals("", transform.action("⁯")); // NOMINAL DIGIT SHAPES
 
         // Space variants -- normalized to a standard ASCII space. Written
         // as escaped code points since these are visually indistinguishable
@@ -184,7 +184,6 @@ public class GeneralPunctuationMapperTest {
         // inverted question mark as a generic "unsupported" marker.
         assertEquals(" ", transform.action("‿")); // UNDERTIE
         assertEquals(" ", transform.action("⁔")); // INVERTED UNDERTIE
-        assertEquals(" ", transform.action("‾")); // OVERLINE
         assertEquals(" ", transform.action("⁀")); // CHARACTER TIE
         assertEquals(" ", transform.action("⁁")); // CARET INSERTION POINT
         assertEquals(" ", transform.action("⁊")); // TIRONIAN SIGN ET ("and")
