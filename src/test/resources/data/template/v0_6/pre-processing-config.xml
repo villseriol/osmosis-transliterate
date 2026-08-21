@@ -127,6 +127,7 @@
 
         <run alias="misc-symbol-arrow" />
         <run alias="all-to-blank" unicode-group="misc-symbols-and-arrows" />
+        <run alias="all-to-blank" unicode-group="combining-diacritical-marks" />
 
         <run alias="enclosed" />
     </pipeline>
