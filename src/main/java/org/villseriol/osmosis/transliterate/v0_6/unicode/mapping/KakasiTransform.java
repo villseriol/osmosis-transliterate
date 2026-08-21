@@ -13,21 +13,24 @@ import org.villseriol.osmosis.transliterate.v0_6.utils.StringUtils;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSet.SpanCondition;
 
+
 public class KakasiTransform implements Unimap {
     private static final Logger LOG = Logger.getLogger(KakasiTransform.class.getName());
 
-    private static final UnicodeSet JAPANESE_SET = new UnicodeSet(StringUtils.toIcuRange(
-            UnicodeRange.CJK_SYMBOLS_AND_PUNCTUATION, UnicodeRange.HIRAGANA, UnicodeRange.KATAKANA,
-            UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS,
-            UnicodeRange.CJK_RADICALS_SUPPLEMENT, UnicodeRange.CJK_COMPATIBILITY_IDEOGRAPHS,
-            UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C,
-            UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D)).freeze();
+    private static final UnicodeSet JAPANESE_SET = new UnicodeSet(
+            StringUtils.toIcuRange(UnicodeRange.CJK_SYMBOLS_AND_PUNCTUATION, UnicodeRange.HIRAGANA,
+                    UnicodeRange.KATAKANA, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A,
+                    UnicodeRange.CJK_UNIFIED_IDEOGRAPHS, UnicodeRange.CJK_RADICALS_SUPPLEMENT,
+                    UnicodeRange.CJK_COMPATIBILITY_IDEOGRAPHS, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B,
+                    UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D))
+                            .freeze();
 
     private final Kakasi kakasi;
 
     public static boolean isHandled(int codePoint) {
         return JAPANESE_SET.contains(codePoint);
     }
+
 
     public KakasiTransform(KakasiConfig config) {
         this.kakasi = new Kakasi(Objects.requireNonNull(config));
@@ -41,6 +44,7 @@ public class KakasiTransform implements Unimap {
             throw new RuntimeException("Kakasi initialization error");
         }
     }
+
 
     @Override
     public String action(String input) {
@@ -86,6 +90,7 @@ public class KakasiTransform implements Unimap {
         return result.toString();
     }
 
+
     @Override
     public void action(StringBuffer input) {
         String result = action(input.toString());
@@ -93,13 +98,16 @@ public class KakasiTransform implements Unimap {
         input.append(result);
     }
 
+
     public static boolean isOpeningBracket(char c) {
         return c == '(' || c == '[' || c == '{';
     }
 
+
     public static boolean isClosingBracket(char c) {
         return c == ')' || c == ']' || c == '}';
     }
+
 
     public static boolean isPunctuation(char c) {
         return c == '.' || c == ',' || c == '?' || c == '!' || c == ';' || c == ':';

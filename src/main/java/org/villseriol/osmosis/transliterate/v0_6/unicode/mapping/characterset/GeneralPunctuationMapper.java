@@ -37,8 +37,8 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("\u200A > ' ';"); // HAIR SPACE
 
         // Zero-width joining controls -- invisible, drop
-        rules.add("‌ > '';"); // 200C ZERO WIDTH NON-JOINER
-        rules.add("‍ > '';"); // 200D ZERO WIDTH JOINER
+        rules.add("‌ > ;"); // 200C ZERO WIDTH NON-JOINER
+        rules.add("‍ > ;"); // 200D ZERO WIDTH JOINER
 
         // Zero-width space -- invisible, drop. Written without quotes since
         // a quoted empty literal ('') is ICU's escape for a literal quote

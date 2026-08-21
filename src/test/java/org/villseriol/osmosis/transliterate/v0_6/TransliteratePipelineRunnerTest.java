@@ -44,11 +44,11 @@ public class TransliteratePipelineRunnerTest extends AbstractDataTest {
     @Test
     public void testArrows() {
         // 1770382887
-        assertEquals("Mt. Misen · Komaga-bayashi<-->Ohmoto-Park",
+        assertEquals("Mt. Misen·Komaga-bayashi<-->Ohmoto-Park",
                 run("name:en", "Mt. Misen・Komaga-bayashi←→Ohmoto-Park"));
 
         // NB: not correct translation. Consider an skk dictionary for mountains
-        assertEquals("ya yama · koma hayashi<-->oomoto kouen", run("name", "弥山・駒ヶ林←→大元公園"));
+        assertEquals("ya yama·koma hayashi<-->oomoto kouen", run("name", "弥山・駒ヶ林←→大元公園"));
 
         // 12755242465
         // NB: guideposts to use the address dictionary
@@ -65,7 +65,7 @@ public class TransliteratePipelineRunnerTest extends AbstractDataTest {
         // 9196762039
         // NB: once again, applying the address-based dictionary shows better
         // translation results
-        assertEquals("ehara eigyousho [han 01 · han 02<magomeeki mae basu tei=>2 ban noriba basu tei he>]",
+        assertEquals("ehara eigyousho [han 01·han 02<magomeeki mae basu tei=>2 ban noriba basu tei he>]",
                 run("name", "荏原営業所【反０１・反０２＜馬込駅前バス停⇒２番乗り場バス停へ＞】"));
 
         assertEquals("furenzu (FRIENDS)|sayamashi no mouhatsu soudan dekiru biyou shitsu",

@@ -32,8 +32,8 @@ public class GeneralPunctuationMapperTest {
         // Zero-width joining controls -- mapped to a literal apostrophe by
         // the underlying ICU rule escaping (`''` denotes a quoted `'`, not
         // an empty string)
-        assertEquals("'", transform.action("‌")); // ZERO WIDTH NON-JOINER
-        assertEquals("'", transform.action("‍")); // ZERO WIDTH JOINER
+        assertEquals("", transform.action("‌")); // ZERO WIDTH NON-JOINER
+        assertEquals("", transform.action("‍")); // ZERO WIDTH JOINER
 
         // Hyphens and dashes
         assertEquals("-", transform.action("‐"));
