@@ -18,15 +18,15 @@ public class SpacingModifierLettersMapper implements Unimap {
 
         rules.add("::[\\u02B0-\\u02FF];");
 
-        rules.add("ʰ > ' ';");
-        rules.add("ʱ > ' ';");
-        rules.add("ʲ > ' ';");
-        rules.add("ʳ > ' ';");
-        rules.add("ʴ > ' ';");
-        rules.add("ʵ > ' ';");
-        rules.add("ʶ > ' ';");
-        rules.add("ʷ > ' ';");
-        rules.add("ʸ > ' ';");
+        rules.add("ʰ > 'h';");
+        rules.add("ʱ > 'h';");
+        rules.add("ʲ > 'j';");
+        rules.add("ʳ > 'r';");
+        rules.add("ʴ > 'r';");
+        rules.add("ʵ > 'r';");
+        rules.add("ʶ > 'r';");
+        rules.add("ʷ > 'w';");
+        rules.add("ʸ > 'y';");
         rules.add("ʹ > '';");
         rules.add("ʺ > '\"';");
         rules.add("ʻ > '';");
@@ -67,9 +67,9 @@ public class SpacingModifierLettersMapper implements Unimap {
         rules.add("˞ > ' ';");
         rules.add("˟ > ' ';");
         rules.add("ˠ > ' ';");
-        rules.add("ˡ > ' ';");
-        rules.add("ˢ > ' ';");
-        rules.add("ˣ > ' ';");
+        rules.add("ˡ > 'l';");
+        rules.add("ˢ > 's';");
+        rules.add("ˣ > 'x';");
         rules.add("ˤ > ' ';");
         rules.add("˥ > ' ';");
         rules.add("˦ > ' ';");

@@ -33,15 +33,6 @@ public class SpacingModifierLettersMapperTest {
      * to a single ASCII space.
      *
      * <ul>
-     * <li>02B0 MODIFIER LETTER SMALL H</li>
-     * <li>02B1 MODIFIER LETTER SMALL H WITH HOOK</li>
-     * <li>02B2 MODIFIER LETTER SMALL J</li>
-     * <li>02B3 MODIFIER LETTER SMALL R</li>
-     * <li>02B4 MODIFIER LETTER SMALL TURNED R</li>
-     * <li>02B5 MODIFIER LETTER SMALL TURNED R WITH HOOK</li>
-     * <li>02B6 MODIFIER LETTER SMALL CAPITAL INVERTED R</li>
-     * <li>02B7 MODIFIER LETTER SMALL W</li>
-     * <li>02B8 MODIFIER LETTER SMALL Y</li>
      * <li>02BE MODIFIER LETTER RIGHT HALF RING</li>
      * <li>02BF MODIFIER LETTER LEFT HALF RING</li>
      * <li>02C0 MODIFIER LETTER GLOTTAL STOP</li>
@@ -63,9 +54,6 @@ public class SpacingModifierLettersMapperTest {
      * <li>02DE MODIFIER LETTER RHOTIC HOOK</li>
      * <li>02DF MODIFIER LETTER CROSS ACCENT</li>
      * <li>02E0 MODIFIER LETTER SMALL GAMMA</li>
-     * <li>02E1 MODIFIER LETTER SMALL L</li>
-     * <li>02E2 MODIFIER LETTER SMALL S</li>
-     * <li>02E3 MODIFIER LETTER SMALL X</li>
      * <li>02E4 MODIFIER LETTER SMALL REVERSED GLOTTAL STOP</li>
      * <li>02E5 MODIFIER LETTER EXTRA-HIGH TONE BAR</li>
      * <li>02E6 MODIFIER LETTER HIGH TONE BAR</li>
@@ -95,15 +83,6 @@ public class SpacingModifierLettersMapperTest {
      */
     @Test
     public void testMappedWhitespace() {
-        assertEquals(" ", transform.action("ʰ"));
-        assertEquals(" ", transform.action("ʱ"));
-        assertEquals(" ", transform.action("ʲ"));
-        assertEquals(" ", transform.action("ʳ"));
-        assertEquals(" ", transform.action("ʴ"));
-        assertEquals(" ", transform.action("ʵ"));
-        assertEquals(" ", transform.action("ʶ"));
-        assertEquals(" ", transform.action("ʷ"));
-        assertEquals(" ", transform.action("ʸ"));
         assertEquals(" ", transform.action("ʾ"));
         assertEquals(" ", transform.action("ʿ"));
         assertEquals(" ", transform.action("ˀ"));
@@ -125,9 +104,6 @@ public class SpacingModifierLettersMapperTest {
         assertEquals(" ", transform.action("˞"));
         assertEquals(" ", transform.action("˟"));
         assertEquals(" ", transform.action("ˠ"));
-        assertEquals(" ", transform.action("ˡ"));
-        assertEquals(" ", transform.action("ˢ"));
-        assertEquals(" ", transform.action("ˣ"));
         assertEquals(" ", transform.action("ˤ"));
         assertEquals(" ", transform.action("˥"));
         assertEquals(" ", transform.action("˦"));
@@ -162,6 +138,15 @@ public class SpacingModifierLettersMapperTest {
      * single space.
      *
      * <ul>
+     * <li>02B0 MODIFIER LETTER SMALL H</li>
+     * <li>02B1 MODIFIER LETTER SMALL H WITH HOOK</li>
+     * <li>02B2 MODIFIER LETTER SMALL J</li>
+     * <li>02B3 MODIFIER LETTER SMALL R</li>
+     * <li>02B4 MODIFIER LETTER SMALL TURNED R</li>
+     * <li>02B5 MODIFIER LETTER SMALL TURNED R WITH HOOK</li>
+     * <li>02B6 MODIFIER LETTER SMALL CAPITAL INVERTED R</li>
+     * <li>02B7 MODIFIER LETTER SMALL W</li>
+     * <li>02B8 MODIFIER LETTER SMALL Y</li>
      * <li>02B9 MODIFIER LETTER PRIME</li>
      * <li>02BA MODIFIER LETTER DOUBLE PRIME</li>
      * <li>02BB MODIFIER LETTER TURNED COMMA</li>
@@ -181,6 +166,9 @@ public class SpacingModifierLettersMapperTest {
      * <li>02D7 MODIFIER LETTER MINUS SIGN</li>
      * <li>02DA RING ABOVE</li>
      * <li>02DD DOUBLE ACUTE ACCENT</li>
+     * <li>02E1 MODIFIER LETTER SMALL L</li>
+     * <li>02E2 MODIFIER LETTER SMALL S</li>
+     * <li>02E3 MODIFIER LETTER SMALL X</li>
      * <li>02EE MODIFIER LETTER DOUBLE APOSTROPHE</li>
      * <li>02F8 MODIFIER LETTER RAISED COLON</li>
      * <li>02FF MODIFIER LETTER LOW LEFT ARROW</li>
@@ -188,6 +176,15 @@ public class SpacingModifierLettersMapperTest {
      */
     @Test
     public void testTransliterated() {
+        assertEquals("h", transform.action("ʰ"));
+        assertEquals("h", transform.action("ʱ"));
+        assertEquals("j", transform.action("ʲ"));
+        assertEquals("r", transform.action("ʳ"));
+        assertEquals("r", transform.action("ʴ"));
+        assertEquals("r", transform.action("ʵ"));
+        assertEquals("r", transform.action("ʶ"));
+        assertEquals("w", transform.action("ʷ"));
+        assertEquals("y", transform.action("ʸ"));
         assertEquals("'", transform.action("ʹ"));
         assertEquals("\"", transform.action("ʺ"));
         assertEquals("'", transform.action("ʻ"));
@@ -207,6 +204,9 @@ public class SpacingModifierLettersMapperTest {
         assertEquals("-", transform.action("˗"));
         assertEquals("°", transform.action("˚"));
         assertEquals("\"", transform.action("˝"));
+        assertEquals("l", transform.action("ˡ"));
+        assertEquals("s", transform.action("ˢ"));
+        assertEquals("x", transform.action("ˣ"));
         assertEquals("\"", transform.action("ˮ"));
         assertEquals(":", transform.action("˸"));
         assertEquals("<-", transform.action("˿"));
