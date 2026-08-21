@@ -10,11 +10,9 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.DataFormat;
 import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.util.CellRangeAddress;
 import org.villseriol.osmosis.common.UnicodeRange;
 
 
@@ -25,7 +23,6 @@ public class TlConfigCharacterMapReport extends DetReport {
 
     private Font headerFont;
     private CellStyle headerStyle;
-    private CellStyle groupHeaderStyle;
     private CellStyle yesNoStyle;
 
     public TlConfigCharacterMapReport(Map<UnicodeRange, Collection<TlConfigCharacterMapRecord>> data) {
@@ -42,10 +39,6 @@ public class TlConfigCharacterMapReport extends DetReport {
         headerStyle = workbook.createCellStyle();
         headerStyle.setFont(headerFont);
 
-        groupHeaderStyle = workbook.createCellStyle();
-        groupHeaderStyle.setFont(headerFont);
-        groupHeaderStyle.setAlignment(HorizontalAlignment.CENTER);
-
         DataFormat dataFormat = workbook.createDataFormat();
         yesNoStyle = workbook.createCellStyle();
         yesNoStyle.setDataFormat(dataFormat.getFormat("\"Yes\";\"No\";\"No\""));
@@ -53,21 +46,6 @@ public class TlConfigCharacterMapReport extends DetReport {
 
 
     private void addHeaderRow(Sheet sheet) {
-        Row groupRow = sheet.createRow(cursor.getRow());
-
-        int fromGroupCol = cursor.getCol();
-        groupRow.createCell(fromGroupCol).setCellValue("From");
-        groupRow.getCell(fromGroupCol).setCellStyle(groupHeaderStyle);
-
-        int toGroupCol = fromGroupCol + 4;
-        groupRow.createCell(toGroupCol).setCellValue("To");
-        groupRow.getCell(toGroupCol).setCellStyle(groupHeaderStyle);
-
-        sheet.addMergedRegion(new CellRangeAddress(cursor.getRow(), cursor.getRow(), fromGroupCol, fromGroupCol + 3));
-        sheet.addMergedRegion(new CellRangeAddress(cursor.getRow(), cursor.getRow(), toGroupCol, toGroupCol + 3));
-
-        cursor.nextRow();
-
         Row row = sheet.createRow(cursor.getRow());
 
         int fromCol = cursor.getCol();
@@ -92,7 +70,7 @@ public class TlConfigCharacterMapReport extends DetReport {
         row.createCell(toCodeCol).setCellValue("To Code");
         sheet.setColumnWidth(toCodeCol, 10 * 256);
         int toLatin1CompliantCol = cursor.nextCol();
-        row.createCell(toLatin1CompliantCol).setCellValue("Latin1 Compliant");
+        row.createCell(toLatin1CompliantCol).setCellValue("Latin1");
         sheet.setColumnWidth(toLatin1CompliantCol, 10 * 256);
 
         row.getCell(fromCol).setCellStyle(headerStyle);
