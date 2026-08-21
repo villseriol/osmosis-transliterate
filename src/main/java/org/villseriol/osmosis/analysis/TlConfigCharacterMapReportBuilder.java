@@ -8,7 +8,6 @@ import java.util.Map;
 
 import org.villseriol.osmosis.common.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.KakasiTransform;
 
 
 public class TlConfigCharacterMapReportBuilder {
@@ -21,10 +20,6 @@ public class TlConfigCharacterMapReportBuilder {
 
             for (int codePoint = lower; codePoint <= upper; codePoint++) {
                 if (codePoint >= Character.MIN_SURROGATE && codePoint <= Character.MAX_SURROGATE) {
-                    continue;
-                }
-
-                if (KakasiTransform.isHandled(codePoint)) {
                     continue;
                 }
 
