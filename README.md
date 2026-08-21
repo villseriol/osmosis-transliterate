@@ -24,7 +24,7 @@ RUN mkdir -p /plugins
 RUN wget -O /plugins/osmosis-kakasi-2.0.0-plugin.zip https://github.com/villseriol/osmosis-kakasi/releases/download/2.0.0/osmosis-kakasi-2.0.0-plugin.zip
 
 # dry-run of osmosis to confirm JPF loading works
-RUN osmosis --read-empty --write-null
+RUN osmosis --read-empty --oss-tl-version-0.6
 ```
 
 ### Ubuntu
