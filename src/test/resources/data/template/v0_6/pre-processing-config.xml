@@ -95,9 +95,6 @@
         <run alias="all-to-whitespace" unicode-group="geometric-shapes" />
         <run alias="cyrillic" />
 
-        <run alias="letterlike" />
-        <run alias="all-to-whitespace" unicode-group="letterlike-symbols" />
-
         <run alias="greek" />
         <run alias="all-to-whitespace" unicode-group="greek-and-coptic" />
 
@@ -115,6 +112,7 @@
         <run alias="all-to-whitespace" unicode-group="latin-extended-c" />
         <run alias="all-to-whitespace" unicode-group="latin-extended-d" />
         <run alias="all-to-whitespace" unicode-group="alphabetic-presentation-forms" />
+        <run alias="all-to-whitespace" unicode-group="letterlike-symbols" />
 
         <run alias="all-to-whitespace" unicode-group="dingbats" />
         <run alias="all-to-whitespace" unicode-group="cjk-compatibility-forms" />

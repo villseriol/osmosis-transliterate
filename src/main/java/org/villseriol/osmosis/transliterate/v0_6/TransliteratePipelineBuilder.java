@@ -40,7 +40,6 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.Gr
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HalfWidthFullWidthMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KatakanaPhoneticExtensionsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LatinMapper;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LetterlikeMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.MiscellaneousSymbolsAndArrowsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SmallFormVariantsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SpacingModifierLettersMapper;
@@ -150,10 +149,6 @@ public class TransliteratePipelineBuilder {
         case KATAKANA_PHONETIC_EXTENSIONS:
             LOG.info("Initializing katakana-phonetic-extensions transform");
             return new KatakanaPhoneticExtensionsMapper();
-
-        case LETTERLIKE:
-            LOG.info("Initializing letterlike transform");
-            return new LetterlikeMapper();
 
         case LATIN:
             LOG.info("Initializing latin transform");

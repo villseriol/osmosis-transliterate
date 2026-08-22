@@ -21,6 +21,7 @@ import com.ibm.icu.text.Transliterator;
 @UnicodeRanges(UnicodeRange.LATIN_EXTENDED_C)
 @UnicodeRanges(UnicodeRange.LATIN_EXTENDED_D)
 @UnicodeRanges(UnicodeRange.ALPHABETIC_PRESENTATION_FORMS)
+@UnicodeRanges(UnicodeRange.LETTERLIKE_SYMBOLS)
 public class LatinMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 

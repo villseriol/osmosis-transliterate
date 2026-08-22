@@ -107,13 +107,6 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LetterlikeMapper
-     */
-    LETTERLIKE("letterlike"),
-
-    /**
-     * TODO.
-     *
      * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.LatinTransform
      */
     LATIN("latin"),
