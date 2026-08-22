@@ -72,13 +72,6 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeometricShapesMapper
-     */
-    GEOMETRIC_SHAPES("geometric-shapes"),
-
-    /**
-     * TODO.
-     *
      * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GreekMapper
      */
     GREEK("greek"),

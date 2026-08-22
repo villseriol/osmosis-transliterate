@@ -35,7 +35,6 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.En
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedCjkLettersAndMonthsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedIdeographicSupplementMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeneralPunctuationMapper;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeometricShapesMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GreekMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HalfWidthFullWidthMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KatakanaPhoneticExtensionsMapper;
@@ -119,10 +118,6 @@ public class TransliteratePipelineBuilder {
         case GENERAL_PUNCTUATION:
             LOG.info("Initializing general-punctuation transform");
             return new GeneralPunctuationMapper();
-
-        case GEOMETRIC_SHAPES:
-            LOG.info("Initializing geometric-shapes transform");
-            return new GeometricShapesMapper();
 
         case GREEK:
             LOG.info("Initializing greek transform");
