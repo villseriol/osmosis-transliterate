@@ -22,6 +22,7 @@ import com.ibm.icu.text.UnicodeSet.SpanCondition;
 @UnicodeRanges(UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A)
 @UnicodeRanges(UnicodeRange.CJK_UNIFIED_IDEOGRAPHS)
 @UnicodeRanges(UnicodeRange.CJK_RADICALS_SUPPLEMENT)
+@UnicodeRanges(UnicodeRange.KANGXI_RADICALS)
 @UnicodeRanges(UnicodeRange.CJK_COMPATIBILITY_IDEOGRAPHS)
 @UnicodeRanges(UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B)
 @UnicodeRanges(UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C)
