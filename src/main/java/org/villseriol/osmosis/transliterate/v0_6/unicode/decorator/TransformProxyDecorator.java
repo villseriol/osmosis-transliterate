@@ -2,7 +2,7 @@
 package org.villseriol.osmosis.transliterate.v0_6.unicode.decorator;
 
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.NoTransform;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.NoTransform;
 
 
 public class TransformProxyDecorator implements Unimap {

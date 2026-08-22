@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping;
+package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
@@ -9,7 +9,7 @@ import com.ibm.icu.text.Transliterator;
 
 // https://www.unicodepedia.com/groups/latin-extended-a/
 // https://www.unicodepedia.com/groups/latin-extended-b/
-public class LatinTransform implements Unimap {
+public class LatinMapper implements Unimap {
     private static final Transliterator LIGATURE_ASCII = Transliterator
             .getInstance("[[:Latin:]-[\\u0000-\\u00FF]-[\\uFF01-\\uFFEE]-[\\u2100-\\u214F]"
                     + "-[\\u1D00-\\u1D7F]]; Any-Latin; Latin-ASCII");

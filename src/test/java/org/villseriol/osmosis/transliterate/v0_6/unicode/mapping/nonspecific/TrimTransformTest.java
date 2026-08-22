@@ -4,7 +4,6 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.TrimTransform;
 
 
 public class TrimTransformTest {

@@ -27,11 +27,6 @@ import org.villseriol.osmosis.transliterate.v0_6.config.model.WhenValueIsNode;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.TransformConditionalDecorator;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.TransformSequenceDecorator;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.KakasiTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.Latin1OnlyTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.LatinTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.TrimTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.UnAccentTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ArrowsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.BoxDrawingMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.CyrillicMapper;
@@ -44,6 +39,7 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.Ge
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GreekMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HalfWidthFullWidthMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KatakanaPhoneticExtensionsMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LatinMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LetterlikeMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.MiscellaneousSymbolsAndArrowsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SmallFormVariantsMapper;
@@ -51,8 +47,12 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.Sp
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ThaiMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.CustomMappingTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.DuplicateSpaceTransform;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.KakasiTransform;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.Latin1OnlyTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToBlankTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToWhitespaceTransform;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.TrimTransform;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.UnAccentTransform;
 
 
 public class TransliteratePipelineBuilder {
@@ -158,7 +158,7 @@ public class TransliteratePipelineBuilder {
 
         case LATIN:
             LOG.info("Initializing latin transform");
-            return new LatinTransform();
+            return new LatinMapper();
 
         case LATIN1_ONLY:
             LOG.info("Initializing latin1-only transform");
