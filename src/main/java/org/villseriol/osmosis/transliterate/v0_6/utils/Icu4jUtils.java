@@ -4,9 +4,9 @@ package org.villseriol.osmosis.transliterate.v0_6.utils;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 
 
-public final class StringUtils {
+public final class Icu4jUtils {
 
-    private StringUtils() {
+    private Icu4jUtils() {
     }
 
 

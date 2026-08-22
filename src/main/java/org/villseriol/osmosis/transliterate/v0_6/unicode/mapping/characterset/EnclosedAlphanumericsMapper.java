@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.utils.StringUtils;
+import org.villseriol.osmosis.transliterate.v0_6.utils.Icu4jUtils;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
@@ -20,7 +20,7 @@ public class EnclosedAlphanumericsMapper implements Unimap {
         List<String> rules = new ArrayList<>();
 
         // Restrict the transliterator to the Enclosed Alphanumerics block
-        rules.add(StringUtils.toIcuFilterRule(UnicodeRange.ENCLOSED_ALPHANUMERICS));
+        rules.add(Icu4jUtils.toIcuFilterRule(UnicodeRange.ENCLOSED_ALPHANUMERICS));
 
         // Enclosed Alphanumerics block mappings
         rules.add("① > '(1)';"); // 2460 CIRCLED DIGIT ONE

@@ -3,7 +3,7 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific;
 
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.utils.StringUtils;
+import org.villseriol.osmosis.transliterate.v0_6.utils.Icu4jUtils;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
@@ -14,7 +14,7 @@ public class RangeToStringTransform implements Unimap {
 
     public RangeToStringTransform(UnicodeRange range, String replacement) {
         this.transliterator = Transliterator.createFromRules("RangeToString-" + range.name(),
-                StringUtils.toIcuFallbackRule(replacement, range), Transliterator.FORWARD);
+                Icu4jUtils.toIcuFallbackRule(replacement, range), Transliterator.FORWARD);
     }
 
 

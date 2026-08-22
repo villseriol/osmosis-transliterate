@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.utils.StringUtils;
+import org.villseriol.osmosis.transliterate.v0_6.utils.Icu4jUtils;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
@@ -20,7 +20,7 @@ public class CjkCompatibilityMapper implements Unimap {
         List<String> rules = new ArrayList<>();
 
         // Restrict the transliterator to the CJK Compatibility block
-        rules.add(StringUtils.toIcuFilterRule(UnicodeRange.CJK_COMPATIBILITY));
+        rules.add(Icu4jUtils.toIcuFilterRule(UnicodeRange.CJK_COMPATIBILITY));
 
         rules.add("㌀ > 'アパート';"); // 3300 SQUARE APAATO
         rules.add("㌁ > 'アルファ';"); // 3301 SQUARE ARUHUA

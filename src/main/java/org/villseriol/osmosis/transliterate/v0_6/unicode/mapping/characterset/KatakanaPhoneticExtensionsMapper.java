@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.utils.StringUtils;
+import org.villseriol.osmosis.transliterate.v0_6.utils.Icu4jUtils;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
@@ -20,7 +20,7 @@ public class KatakanaPhoneticExtensionsMapper implements Unimap {
         List<String> rules = new ArrayList<>();
 
         // Restrict the transliterator to the Katakana Phonetic Extensions block
-        rules.add(StringUtils.toIcuFilterRule(UnicodeRange.KATAKANA_PHONETIC_EXTENSIONS));
+        rules.add(Icu4jUtils.toIcuFilterRule(UnicodeRange.KATAKANA_PHONETIC_EXTENSIONS));
 
         // Small Ainu-extension katakana -> their full-size equivalent
         rules.add("ㇰ > ク;"); // 31F0 KATAKANA LETTER SMALL KU

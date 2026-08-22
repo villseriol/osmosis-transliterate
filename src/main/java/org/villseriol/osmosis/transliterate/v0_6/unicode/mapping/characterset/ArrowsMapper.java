@@ -4,13 +4,16 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.reflection.UnicodeRanges;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
 
 
 // https://www.unicodepedia.com/groups/arrows/
+@UnicodeRanges(UnicodeRange.ARROWS)
 public class ArrowsMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 

@@ -8,7 +8,7 @@ import org.villseriol.kakasi.api.Kakasi;
 import org.villseriol.kakasi.api.KakasiConfig;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.utils.StringUtils;
+import org.villseriol.osmosis.transliterate.v0_6.utils.Icu4jUtils;
 
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSet.SpanCondition;
@@ -18,7 +18,7 @@ public class KakasiTransform implements Unimap {
     private static final Logger LOG = Logger.getLogger(KakasiTransform.class.getName());
 
     private static final UnicodeSet JAPANESE_SET = new UnicodeSet(
-            StringUtils.toIcuRange(UnicodeRange.CJK_SYMBOLS_AND_PUNCTUATION, UnicodeRange.HIRAGANA,
+            Icu4jUtils.toIcuRange(UnicodeRange.CJK_SYMBOLS_AND_PUNCTUATION, UnicodeRange.HIRAGANA,
                     UnicodeRange.KATAKANA, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A,
                     UnicodeRange.CJK_UNIFIED_IDEOGRAPHS, UnicodeRange.CJK_RADICALS_SUPPLEMENT,
                     UnicodeRange.CJK_COMPATIBILITY_IDEOGRAPHS, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B,

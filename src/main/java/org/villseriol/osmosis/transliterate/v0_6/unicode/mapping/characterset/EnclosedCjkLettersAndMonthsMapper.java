@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.utils.StringUtils;
+import org.villseriol.osmosis.transliterate.v0_6.utils.Icu4jUtils;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
@@ -21,7 +21,7 @@ public class EnclosedCjkLettersAndMonthsMapper implements Unimap {
 
         // Restrict the transliterator to the Enclosed CJK Letters and Months
         // block
-        rules.add(StringUtils.toIcuFilterRule(UnicodeRange.ENCLOSED_CJK_LETTERS_AND_MONTHS));
+        rules.add(Icu4jUtils.toIcuFilterRule(UnicodeRange.ENCLOSED_CJK_LETTERS_AND_MONTHS));
 
         // Enclosed CJK Letters and Months block mappings
         // U+3200-U+321F mapped to whitespace until mappings are provided

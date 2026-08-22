@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.utils.StringUtils;
+import org.villseriol.osmosis.transliterate.v0_6.utils.Icu4jUtils;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
@@ -21,7 +21,7 @@ public class EnclosedAlphanumericSupplementMapper implements Unimap {
 
         // Restrict the transliterator to the Enclosed Alphanumeric Supplement
         // block
-        rules.add(StringUtils.toIcuFilterRule(UnicodeRange.ENCLOSED_ALPHANUMERIC_SUPPLEMENT));
+        rules.add(Icu4jUtils.toIcuFilterRule(UnicodeRange.ENCLOSED_ALPHANUMERIC_SUPPLEMENT));
 
         // Enclosed Alphanumeric Supplement block mappings
         rules.add("🄀 > '0.';"); // 1F100 DIGIT ZERO FULL STOP

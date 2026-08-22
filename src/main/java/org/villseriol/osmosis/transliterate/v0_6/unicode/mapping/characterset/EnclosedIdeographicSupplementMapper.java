@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.utils.StringUtils;
+import org.villseriol.osmosis.transliterate.v0_6.utils.Icu4jUtils;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
@@ -21,7 +21,7 @@ public class EnclosedIdeographicSupplementMapper implements Unimap {
 
         // Restrict the transliterator to the Enclosed Ideographic Supplement
         // block
-        rules.add(StringUtils.toIcuFilterRule(UnicodeRange.ENCLOSED_IDEOGRAPHIC_SUPPLEMENT));
+        rules.add(Icu4jUtils.toIcuFilterRule(UnicodeRange.ENCLOSED_IDEOGRAPHIC_SUPPLEMENT));
 
         // Enclosed Ideographic Supplement block mappings
         rules.add("🈀 > '[ほか]';"); // 1F200 SQUARE HIRAGANA HOKA
