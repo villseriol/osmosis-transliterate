@@ -6,6 +6,8 @@ import java.util.Collection;
 
 import org.villseriol.osmosis.transliterate.v0_6.unicode.reflection.UnicodeRanges;
 
+import com.ibm.icu.text.UnicodeSet;
+
 
 public final class Icu4jUtils {
 
@@ -32,6 +34,19 @@ public final class Icu4jUtils {
                     .append(toIcuEscapedCodePoint(additional.getUpper()));
         }
         return result.append(']').toString();
+    }
+
+
+    /**
+     * Builds one or more {@link UnicodeRange}s into an ICU4J {@link
+     * UnicodeSet} covering those blocks.
+     *
+     * @param range the Unicode block to include
+     * @param ranges additional Unicode blocks to include in the same set
+     * @return the ICU4J UnicodeSet covering the given blocks
+     */
+    public static UnicodeSet createIcu4jUnicodeSet(UnicodeRange range, UnicodeRange... ranges) {
+        return new UnicodeSet(toIcuRange(range, ranges));
     }
 
 
