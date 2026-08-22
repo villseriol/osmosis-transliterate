@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.junit.Test;
-import org.villseriol.osmosis.common.UnicodeRange;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 

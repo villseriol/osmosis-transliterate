@@ -4,7 +4,7 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.villseriol.osmosis.common.UnicodeRange;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 
 
 public class GeneralPunctuationMapperTest {
@@ -122,7 +122,7 @@ public class GeneralPunctuationMapperTest {
         assertEquals("", transform.action("⁫")); // ACTIVATE SYMMETRIC SWAPPING
         assertEquals("", transform.action("⁬")); // INHIBIT ARABIC FORM SHAPING
         assertEquals("", transform.action("⁭")); // ACTIVATE ARABIC FORM
-                                                  // SHAPING
+                                                 // SHAPING
         assertEquals("", transform.action("⁮")); // NATIONAL DIGIT SHAPES
         assertEquals("", transform.action("⁯")); // NOMINAL DIGIT SHAPES
 

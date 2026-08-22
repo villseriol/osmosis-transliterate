@@ -4,7 +4,7 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.villseriol.osmosis.common.UnicodeRange;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 import org.villseriol.osmosis.transliterate.v0_6.utils.StringUtils;
 
@@ -110,31 +110,56 @@ public class CjkCompatibilityMapper implements Unimap {
         rules.add("㍕ > 'レム';"); // 3355 SQUARE REMU
         rules.add("㍖ > 'レントゲン';"); // 3356 SQUARE RENTOGEN
         rules.add("㍗ > 'ワット';"); // 3357 SQUARE WATTO
-        rules.add("㍘ > '0点';"); // 3358 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR ZERO
-        rules.add("㍙ > '1点';"); // 3359 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR ONE
-        rules.add("㍚ > '2点';"); // 335A IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR TWO
-        rules.add("㍛ > '3点';"); // 335B IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR THREE
-        rules.add("㍜ > '4点';"); // 335C IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR FOUR
-        rules.add("㍝ > '5点';"); // 335D IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR FIVE
-        rules.add("㍞ > '6点';"); // 335E IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR SIX
-        rules.add("㍟ > '7点';"); // 335F IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR SEVEN
-        rules.add("㍠ > '8点';"); // 3360 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR EIGHT
-        rules.add("㍡ > '9点';"); // 3361 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR NINE
-        rules.add("㍢ > '10点';"); // 3362 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR TEN
-        rules.add("㍣ > '11点';"); // 3363 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR ELEVEN
-        rules.add("㍤ > '12点';"); // 3364 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR TWELVE
-        rules.add("㍥ > '13点';"); // 3365 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR THIRTEEN
-        rules.add("㍦ > '14点';"); // 3366 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR FOURTEEN
-        rules.add("㍧ > '15点';"); // 3367 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR FIFTEEN
-        rules.add("㍨ > '16点';"); // 3368 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR SIXTEEN
-        rules.add("㍩ > '17点';"); // 3369 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR SEVENTEEN
-        rules.add("㍪ > '18点';"); // 336A IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR EIGHTEEN
-        rules.add("㍫ > '19点';"); // 336B IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR NINETEEN
-        rules.add("㍬ > '20点';"); // 336C IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR TWENTY
-        rules.add("㍭ > '21点';"); // 336D IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR TWENTY-ONE
-        rules.add("㍮ > '22点';"); // 336E IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR TWENTY-TWO
-        rules.add("㍯ > '23点';"); // 336F IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR TWENTY-THREE
-        rules.add("㍰ > '24点';"); // 3370 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR TWENTY-FOUR
+        rules.add("㍘ > '0点';"); // 3358 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                // ZERO
+        rules.add("㍙ > '1点';"); // 3359 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                // ONE
+        rules.add("㍚ > '2点';"); // 335A IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                // TWO
+        rules.add("㍛ > '3点';"); // 335B IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                // THREE
+        rules.add("㍜ > '4点';"); // 335C IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                // FOUR
+        rules.add("㍝ > '5点';"); // 335D IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                // FIVE
+        rules.add("㍞ > '6点';"); // 335E IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                // SIX
+        rules.add("㍟ > '7点';"); // 335F IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                // SEVEN
+        rules.add("㍠ > '8点';"); // 3360 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                // EIGHT
+        rules.add("㍡ > '9点';"); // 3361 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                // NINE
+        rules.add("㍢ > '10点';"); // 3362 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // TEN
+        rules.add("㍣ > '11点';"); // 3363 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // ELEVEN
+        rules.add("㍤ > '12点';"); // 3364 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // TWELVE
+        rules.add("㍥ > '13点';"); // 3365 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // THIRTEEN
+        rules.add("㍦ > '14点';"); // 3366 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // FOURTEEN
+        rules.add("㍧ > '15点';"); // 3367 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // FIFTEEN
+        rules.add("㍨ > '16点';"); // 3368 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // SIXTEEN
+        rules.add("㍩ > '17点';"); // 3369 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // SEVENTEEN
+        rules.add("㍪ > '18点';"); // 336A IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // EIGHTEEN
+        rules.add("㍫ > '19点';"); // 336B IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // NINETEEN
+        rules.add("㍬ > '20点';"); // 336C IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // TWENTY
+        rules.add("㍭ > '21点';"); // 336D IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // TWENTY-ONE
+        rules.add("㍮ > '22点';"); // 336E IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // TWENTY-TWO
+        rules.add("㍯ > '23点';"); // 336F IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // TWENTY-THREE
+        rules.add("㍰ > '24点';"); // 3370 IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR
+                                 // TWENTY-FOUR
         rules.add("㍱ > 'hPa';"); // 3371 SQUARE HPA
         rules.add("㍲ > 'da';"); // 3372 SQUARE DA
         rules.add("㍳ > 'AU';"); // 3373 SQUARE AU
@@ -248,35 +273,63 @@ public class CjkCompatibilityMapper implements Unimap {
         rules.add("㏟ > 'A/m';"); // 33DF SQUARE A OVER M
         rules.add("㏠ > '1日';"); // 33E0 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY ONE
         rules.add("㏡ > '2日';"); // 33E1 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWO
-        rules.add("㏢ > '3日';"); // 33E2 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY THREE
-        rules.add("㏣ > '4日';"); // 33E3 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY FOUR
-        rules.add("㏤ > '5日';"); // 33E4 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY FIVE
+        rules.add("㏢ > '3日';"); // 33E2 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                // THREE
+        rules.add("㏣ > '4日';"); // 33E3 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                // FOUR
+        rules.add("㏤ > '5日';"); // 33E4 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                // FIVE
         rules.add("㏥ > '6日';"); // 33E5 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY SIX
-        rules.add("㏦ > '7日';"); // 33E6 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY SEVEN
-        rules.add("㏧ > '8日';"); // 33E7 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY EIGHT
-        rules.add("㏨ > '9日';"); // 33E8 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY NINE
-        rules.add("㏩ > '10日';"); // 33E9 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TEN
-        rules.add("㏪ > '11日';"); // 33EA IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY ELEVEN
-        rules.add("㏫ > '12日';"); // 33EB IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWELVE
-        rules.add("㏬ > '13日';"); // 33EC IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY THIRTEEN
-        rules.add("㏭ > '14日';"); // 33ED IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY FOURTEEN
-        rules.add("㏮ > '15日';"); // 33EE IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY FIFTEEN
-        rules.add("㏯ > '16日';"); // 33EF IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY SIXTEEN
-        rules.add("㏰ > '17日';"); // 33F0 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY SEVENTEEN
-        rules.add("㏱ > '18日';"); // 33F1 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY EIGHTEEN
-        rules.add("㏲ > '19日';"); // 33F2 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY NINETEEN
-        rules.add("㏳ > '20日';"); // 33F3 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY
-        rules.add("㏴ > '21日';"); // 33F4 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-ONE
-        rules.add("㏵ > '22日';"); // 33F5 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-TWO
-        rules.add("㏶ > '23日';"); // 33F6 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-THREE
-        rules.add("㏷ > '24日';"); // 33F7 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-FOUR
-        rules.add("㏸ > '25日';"); // 33F8 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-FIVE
-        rules.add("㏹ > '26日';"); // 33F9 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-SIX
-        rules.add("㏺ > '27日';"); // 33FA IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-SEVEN
-        rules.add("㏻ > '28日';"); // 33FB IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-EIGHT
-        rules.add("㏼ > '29日';"); // 33FC IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-NINE
-        rules.add("㏽ > '30日';"); // 33FD IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY THIRTY
-        rules.add("㏾ > '31日';"); // 33FE IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY THIRTY-ONE
+        rules.add("㏦ > '7日';"); // 33E6 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                // SEVEN
+        rules.add("㏧ > '8日';"); // 33E7 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                // EIGHT
+        rules.add("㏨ > '9日';"); // 33E8 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                // NINE
+        rules.add("㏩ > '10日';"); // 33E9 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TEN
+        rules.add("㏪ > '11日';"); // 33EA IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // ELEVEN
+        rules.add("㏫ > '12日';"); // 33EB IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TWELVE
+        rules.add("㏬ > '13日';"); // 33EC IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // THIRTEEN
+        rules.add("㏭ > '14日';"); // 33ED IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // FOURTEEN
+        rules.add("㏮ > '15日';"); // 33EE IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // FIFTEEN
+        rules.add("㏯ > '16日';"); // 33EF IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // SIXTEEN
+        rules.add("㏰ > '17日';"); // 33F0 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // SEVENTEEN
+        rules.add("㏱ > '18日';"); // 33F1 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // EIGHTEEN
+        rules.add("㏲ > '19日';"); // 33F2 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // NINETEEN
+        rules.add("㏳ > '20日';"); // 33F3 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TWENTY
+        rules.add("㏴ > '21日';"); // 33F4 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TWENTY-ONE
+        rules.add("㏵ > '22日';"); // 33F5 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TWENTY-TWO
+        rules.add("㏶ > '23日';"); // 33F6 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TWENTY-THREE
+        rules.add("㏷ > '24日';"); // 33F7 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TWENTY-FOUR
+        rules.add("㏸ > '25日';"); // 33F8 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TWENTY-FIVE
+        rules.add("㏹ > '26日';"); // 33F9 IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TWENTY-SIX
+        rules.add("㏺ > '27日';"); // 33FA IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TWENTY-SEVEN
+        rules.add("㏻ > '28日';"); // 33FB IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TWENTY-EIGHT
+        rules.add("㏼ > '29日';"); // 33FC IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // TWENTY-NINE
+        rules.add("㏽ > '30日';"); // 33FD IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // THIRTY
+        rules.add("㏾ > '31日';"); // 33FE IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY
+                                 // THIRTY-ONE
         rules.add("㏿ > 'gal';"); // 33FF SQUARE GAL
 
         TRANSLITERATOR = Transliterator.createFromRules("CjkCompatibility-Normalized", String.join("\n", rules),

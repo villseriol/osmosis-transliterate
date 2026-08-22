@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 
 
 public class UnicodeRangeTest {
