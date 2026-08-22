@@ -25,4 +25,4 @@ jobs:
         with:
           name: tl-config-character-map-report
           path: target/reports/tl-config-character-map-report.xlsx
-          retention-days: 30
+          retention-days: 7
