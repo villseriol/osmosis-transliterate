@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRanges;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.reflection.UnicodeRanges;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
@@ -131,7 +131,6 @@ public class HalfWidthFullWidthMapper implements Unimap {
 
         rules.add("･ > '·';");
 
-
         rules.add("ｶﾞ > 'ガ';");
         rules.add("ｷﾞ > 'ギ';");
         rules.add("ｸﾞ > 'グ';");
@@ -238,8 +237,7 @@ public class HalfWidthFullWidthMapper implements Unimap {
 
         String rule = Icu4jUtils.createIcu4jRule(HalfWidthFullWidthMapper.class, rules);
 
-        TRANSLITERATOR = Transliterator.createFromRules("HalfWidthFullWidth-Normalized", rule,
-                Transliterator.FORWARD);
+        TRANSLITERATOR = Transliterator.createFromRules("HalfWidthFullWidth-Normalized", rule, Transliterator.FORWARD);
     }
 
     @Override

@@ -1,13 +1,11 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.transliterate.v0_6.unicode.reflection;
+package org.villseriol.osmosis.transliterate.v0_6.unicode;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Repeatable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 
 
 /**

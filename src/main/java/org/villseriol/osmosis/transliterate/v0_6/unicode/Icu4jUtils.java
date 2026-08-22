@@ -4,8 +4,6 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.villseriol.osmosis.transliterate.v0_6.unicode.reflection.UnicodeRanges;
-
 import com.ibm.icu.text.UnicodeSet;
 
 
@@ -38,8 +36,8 @@ public final class Icu4jUtils {
 
 
     /**
-     * Builds one or more {@link UnicodeRange}s into an ICU4J {@link
-     * UnicodeSet} covering those blocks.
+     * Builds one or more {@link UnicodeRange}s into an ICU4J {@link UnicodeSet}
+     * covering those blocks.
      *
      * @param range the Unicode block to include
      * @param ranges additional Unicode blocks to include in the same set
