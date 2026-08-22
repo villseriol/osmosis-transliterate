@@ -23,6 +23,7 @@ public enum NormalizeAlias {
      * TODO.
      *
      * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ArrowsMapper
+     * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.MiscellaneousSymbolsAndArrowsMapper
      */
     ARROW("arrow"),
 
@@ -114,9 +115,10 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.MiscellaneousSymbolsAndArrowsMapper
+     * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KangxiRadicalsMapper
+     * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.CjkRadicalsSupplementMapper
      */
-    MISC_SYMBOL_ARROW("misc-symbol-arrow"),
+    RADICALS("radicals"),
 
     /**
      * TODO.
@@ -137,14 +139,7 @@ public enum NormalizeAlias {
      *
      * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.TrimTransform
      */
-    TRIM("trim"),
-
-    /**
-     * TODO.
-     *
-     * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.UnAccentTransform
-     */
-    UN_ACCENT("un-accent");
+    TRIM("trim");
 
     private final String alias;
 

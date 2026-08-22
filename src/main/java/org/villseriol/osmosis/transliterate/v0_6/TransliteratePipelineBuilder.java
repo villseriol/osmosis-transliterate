@@ -29,6 +29,7 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.ConditionalDe
 import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.SequenceDecorator;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ArrowsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.BoxDrawingMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.CjkRadicalsSupplementMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.CyrillicMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedAlphanumericSupplementMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.EnclosedAlphanumericsMapper;
@@ -37,6 +38,7 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.En
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeneralPunctuationMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GreekMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HalfWidthFullWidthMapper;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KangxiRadicalsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KatakanaPhoneticExtensionsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LatinMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.MiscellaneousSymbolsAndArrowsMapper;
@@ -49,7 +51,6 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.Lat
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToBlankTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToWhitespaceTransform;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.TrimTransform;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.UnAccentTransform;
 
 
 public class TransliteratePipelineBuilder {
@@ -84,7 +85,7 @@ public class TransliteratePipelineBuilder {
 
         case ARROW:
             LOG.info("Initializing arrow transform");
-            return new ArrowsMapper();
+            return new SequenceDecorator(new ArrowsMapper(), new MiscellaneousSymbolsAndArrowsMapper());
 
         case BOX_DRAWING:
             LOG.info("Initializing box-drawing transform");
@@ -152,9 +153,9 @@ public class TransliteratePipelineBuilder {
             LOG.info("Initializing latin1-only transform");
             return new Latin1OnlyTransform();
 
-        case MISC_SYMBOL_ARROW:
-            LOG.info("Initializing misc-symbol-arrow transform");
-            return new MiscellaneousSymbolsAndArrowsMapper();
+        case RADICALS:
+            LOG.info("Initializing radicals transform");
+            return new SequenceDecorator(new KangxiRadicalsMapper(), new CjkRadicalsSupplementMapper());
 
         case SPACING_MODIFIER_LETTERS:
             LOG.info("Initializing spacing-modifier-letters transform");
@@ -167,10 +168,6 @@ public class TransliteratePipelineBuilder {
         case TRIM:
             LOG.info("Initializing trim transform");
             return new TrimTransform();
-
-        case UN_ACCENT:
-            LOG.info("Initializing un-accent transform");
-            return new UnAccentTransform();
 
         default:
             throw new OsmosisRuntimeException("Unknown normalize alias: " + alias);

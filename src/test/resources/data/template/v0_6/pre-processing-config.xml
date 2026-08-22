@@ -93,6 +93,7 @@
         <run alias="all-to-whitespace" unicode-group="general-punctuation" />
 
         <run alias="arrow" />
+        <run alias="all-to-blank" unicode-group="misc-symbols-and-arrows" />
         <run alias="box-drawing" />
         <run alias="all-to-whitespace" unicode-group="geometric-shapes" />
         <run alias="cyrillic" />
@@ -126,8 +127,6 @@
         <run alias="all-to-whitespace" unicode-group="specials" />
         <run alias="all-to-blank" unicode-group="variation-selectors" />
 
-        <run alias="misc-symbol-arrow" />
-        <run alias="all-to-blank" unicode-group="misc-symbols-and-arrows" />
         <run alias="all-to-blank" unicode-group="combining-diacritical-marks" />
 
         <run alias="enclosed" />
