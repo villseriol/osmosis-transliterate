@@ -25,8 +25,8 @@ import org.villseriol.osmosis.transliterate.v0_6.config.model.RunNode;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.TagNode;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.WhenValueIsNode;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.TransformConditionalDecorator;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.TransformSequenceDecorator;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.ConditionalDecorator;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.decorator.SequenceDecorator;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ArrowsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.BoxDrawingMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.CyrillicMapper;
@@ -115,9 +115,8 @@ public class TransliteratePipelineBuilder {
 
         case ENCLOSED:
             LOG.info("Initializing enclosed transform");
-            return new TransformSequenceDecorator(new EnclosedAlphanumericsMapper(),
-                    new EnclosedAlphanumericSupplementMapper(), new EnclosedIdeographicSupplementMapper(),
-                    new EnclosedCjkLettersAndMonthsMapper());
+            return new SequenceDecorator(new EnclosedAlphanumericsMapper(), new EnclosedAlphanumericSupplementMapper(),
+                    new EnclosedIdeographicSupplementMapper(), new EnclosedCjkLettersAndMonthsMapper());
 
         case GENERAL_PUNCTUATION:
             LOG.info("Initializing general-punctuation transform");
@@ -207,7 +206,7 @@ public class TransliteratePipelineBuilder {
             transforms.add(t);
         }
 
-        return new TransformSequenceDecorator(transforms);
+        return new SequenceDecorator(transforms);
     }
 
 
@@ -228,10 +227,10 @@ public class TransliteratePipelineBuilder {
         for (RunNode run : configuration.getRuns()) {
             Unimap t = createTransformFromRunNode(run);
 
-            transforms.add(new TransformConditionalDecorator(t, filterBySpecifiedTags));
+            transforms.add(new ConditionalDecorator(t, filterBySpecifiedTags));
         }
 
-        return new TransformSequenceDecorator(transforms);
+        return new SequenceDecorator(transforms);
     }
 
 

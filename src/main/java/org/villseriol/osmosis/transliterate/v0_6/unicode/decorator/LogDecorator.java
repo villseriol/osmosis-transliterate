@@ -6,10 +6,10 @@ import java.util.logging.Logger;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
-public class TransformLogDecorator extends TransformDecorator {
-    private static final Logger LOG = Logger.getLogger(TransformLogDecorator.class.getName());
+public class LogDecorator extends UniDecorator {
+    private static final Logger LOG = Logger.getLogger(LogDecorator.class.getName());
 
-    public TransformLogDecorator(Unimap target) {
+    public LogDecorator(Unimap target) {
         super(target);
     }
 

@@ -7,10 +7,10 @@ import java.util.Collection;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
-public class TransformSequenceDecorator extends TransformDecorator {
+public class SequenceDecorator extends UniDecorator {
     private final Collection<Unimap> targets = new ArrayList<>();
 
-    public TransformSequenceDecorator(Unimap target, Unimap... rest) {
+    public SequenceDecorator(Unimap target, Unimap... rest) {
         super(target);
 
         this.targets.add(target);
@@ -20,7 +20,7 @@ public class TransformSequenceDecorator extends TransformDecorator {
     }
 
 
-    public TransformSequenceDecorator(Collection<Unimap> targets) {
+    public SequenceDecorator(Collection<Unimap> targets) {
         super(firstOf(targets));
 
         this.targets.addAll(targets);

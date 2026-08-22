@@ -7,10 +7,10 @@ import java.util.function.Supplier;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
-public class TransformConditionalDecorator extends TransformDecorator {
+public class ConditionalDecorator extends UniDecorator {
     private final Supplier<Boolean> condition;
 
-    public TransformConditionalDecorator(Unimap target, Supplier<Boolean> condition) {
+    public ConditionalDecorator(Unimap target, Supplier<Boolean> condition) {
         super(target);
 
         this.condition = Objects.requireNonNull(condition);

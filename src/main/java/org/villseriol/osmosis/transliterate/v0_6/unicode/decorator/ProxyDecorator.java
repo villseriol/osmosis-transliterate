@@ -5,7 +5,7 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.NoTransform;
 
 
-public class TransformProxyDecorator implements Unimap {
+public class ProxyDecorator implements Unimap {
     private Unimap proxy = new NoTransform();
 
     @Override

@@ -6,10 +6,10 @@ import java.util.Objects;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 
 
-public abstract class TransformDecorator implements Unimap {
+public abstract class UniDecorator implements Unimap {
     private final Unimap target;
 
-    public TransformDecorator(Unimap target) {
+    public UniDecorator(Unimap target) {
         this.target = Objects.requireNonNull(target);
     }
 
