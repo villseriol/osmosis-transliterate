@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.common;
+package org.villseriol.osmosis.transliterate.v0_6.unicode;
 
 import static org.junit.Assert.assertTrue;
 
@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 
 
 public class UnicodeRangeTest {
