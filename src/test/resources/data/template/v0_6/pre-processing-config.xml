@@ -89,8 +89,6 @@
             </mapping>
         </run>
 
-        <run alias="small-form" />
-
         <run alias="general-punctuation" />
         <run alias="all-to-whitespace" unicode-group="general-punctuation" />
 
@@ -117,6 +115,7 @@
         <run alias="all-to-whitespace" unicode-group="latin-extended-d" />
         <run alias="all-to-whitespace" unicode-group="alphabetic-presentation-forms" />
         <run alias="all-to-whitespace" unicode-group="letterlike-symbols" />
+        <run alias="all-to-whitespace" unicode-group="small-form-variants" />
 
         <run alias="all-to-whitespace" unicode-group="dingbats" />
         <run alias="all-to-whitespace" unicode-group="cjk-compatibility-forms" />

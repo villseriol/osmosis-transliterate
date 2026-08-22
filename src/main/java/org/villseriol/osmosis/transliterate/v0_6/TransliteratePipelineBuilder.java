@@ -41,7 +41,6 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.Ha
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KatakanaPhoneticExtensionsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LatinMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.MiscellaneousSymbolsAndArrowsMapper;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SmallFormVariantsMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SpacingModifierLettersMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ThaiMapper;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.CustomMappingTransform;
@@ -161,10 +160,6 @@ public class TransliteratePipelineBuilder {
         case MISC_SYMBOL_ARROW:
             LOG.info("Initializing misc-symbol-arrow transform");
             return new MiscellaneousSymbolsAndArrowsMapper();
-
-        case SMALL_FORM:
-            LOG.info("Initializing small-form transform");
-            return new SmallFormVariantsMapper();
 
         case SPACING_MODIFIER_LETTERS:
             LOG.info("Initializing spacing-modifier-letters transform");

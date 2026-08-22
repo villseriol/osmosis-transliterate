@@ -4,63 +4,44 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 
 
-public class SmallFormVariantsMapperTest {
-
-    private final SmallFormVariantsMapper transform = new SmallFormVariantsMapper();
-
-    @Test
-    public void testUntouched() {
-        for (UnicodeRange range : UnicodeRange.values()) {
-            if (range == UnicodeRange.SMALL_FORM_VARIANTS) {
-                continue;
-            }
-
-            for (int codePoint = range.getLower(); codePoint <= range.getUpper(); codePoint++) {
-                String input = new String(Character.toChars(codePoint));
-
-                assertEquals(input, transform.action(input));
-            }
-        }
-    }
-
+public class SmallFormVariantsMapperTest extends LatinMapperTest {
 
     @Test
     public void testMappedCharacters() {
-        assertEquals(",", transform.action("﹐"));
-        assertEquals(",", transform.action("﹑"));
-        assertEquals(".", transform.action("﹒"));
-        assertEquals(";", transform.action("﹔"));
-        assertEquals(":", transform.action("﹕"));
-        assertEquals("?", transform.action("﹖"));
-        assertEquals("!", transform.action("﹗"));
-        assertEquals("-", transform.action("﹘"));
-        assertEquals("(", transform.action("﹙"));
-        assertEquals(")", transform.action("﹚"));
-        assertEquals("{", transform.action("﹛"));
-        assertEquals("}", transform.action("﹜"));
-        assertEquals("[", transform.action("﹝"));
-        assertEquals("]", transform.action("﹞"));
-        assertEquals("#", transform.action("﹟"));
-        assertEquals("&", transform.action("﹠"));
-        assertEquals("*", transform.action("﹡"));
-        assertEquals("+", transform.action("﹢"));
-        assertEquals("-", transform.action("﹣"));
-        assertEquals("<", transform.action("﹤"));
-        assertEquals(">", transform.action("﹥"));
-        assertEquals("=", transform.action("﹦"));
-        assertEquals("\\", transform.action("﹨"));
-        assertEquals("$", transform.action("﹩"));
-        assertEquals("%", transform.action("﹪"));
-        assertEquals("@", transform.action("﹫"));
+        assertEquals(",", transform.action("﹐")); // SMALL COMMA
+        assertEquals(",", transform.action("﹑")); // SMALL IDEOGRAPHIC COMMA
+        assertEquals(".", transform.action("﹒")); // SMALL FULL STOP
+        assertEquals(";", transform.action("﹔")); // SMALL SEMICOLON
+        assertEquals(":", transform.action("﹕")); // SMALL COLON
+        assertEquals("?", transform.action("﹖")); // SMALL QUESTION MARK
+        assertEquals("!", transform.action("﹗")); // SMALL EXCLAMATION MARK
+        assertEquals("-", transform.action("﹘")); // SMALL EM DASH
+        assertEquals("(", transform.action("﹙")); // SMALL LEFT PARENTHESIS
+        assertEquals(")", transform.action("﹚")); // SMALL RIGHT PARENTHESIS
+        assertEquals("{", transform.action("﹛")); // SMALL LEFT CURLY BRACKET
+        assertEquals("}", transform.action("﹜")); // SMALL RIGHT CURLY BRACKET
+        assertEquals("[", transform.action("﹝")); // SMALL LEFT TORTOISE SHELL BRACKET
+        assertEquals("]", transform.action("﹞")); // SMALL RIGHT TORTOISE SHELL BRACKET
+        assertEquals("#", transform.action("﹟")); // SMALL NUMBER SIGN
+        assertEquals("&", transform.action("﹠")); // SMALL AMPERSAND
+        assertEquals("*", transform.action("﹡")); // SMALL ASTERISK
+        assertEquals("+", transform.action("﹢")); // SMALL PLUS SIGN
+        assertEquals("-", transform.action("﹣")); // SMALL HYPHEN-MINUS
+        assertEquals("<", transform.action("﹤")); // SMALL LESS-THAN SIGN
+        assertEquals(">", transform.action("﹥")); // SMALL GREATER-THAN SIGN
+        assertEquals("=", transform.action("﹦")); // SMALL EQUALS SIGN
+        assertEquals("\\", transform.action("﹨")); // SMALL REVERSE SOLIDUS
+        assertEquals("$", transform.action("﹩")); // SMALL DOLLAR SIGN
+        assertEquals("%", transform.action("﹪")); // SMALL PERCENT SIGN
+        assertEquals("@", transform.action("﹫")); // SMALL COMMERCIAL AT
     }
 
 
     @Test
     public void testUnmappedCharacters() {
-        assertEquals("﹓", transform.action("﹓")); // FE53 unassigned
-        assertEquals("﹧", transform.action("﹧")); // FE67 unassigned
+        assertEquals("﹓", transform.action("﹓")); // reserved
+        assertEquals("﹧", transform.action("﹧")); // reserved
     }
 }

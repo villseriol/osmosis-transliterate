@@ -128,13 +128,6 @@ public enum NormalizeAlias {
     /**
      * TODO.
      *
-     * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SmallFormVariantsMapper
-     */
-    SMALL_FORM("small-form"),
-
-    /**
-     * TODO.
-     *
      * @see org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.SpacingModifierLettersMapper
      */
     SPACING_MODIFIER_LETTERS("spacing-modifier-letters"),
