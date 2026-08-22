@@ -3,10 +3,14 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.villseriol.kakasi.api.KakasiConfig;
 import org.villseriol.kakasi.api.KakasiConstants;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.KakasiTransform;
 
@@ -26,12 +30,14 @@ public abstract class KakasiMapperTest {
 
     @Test
     public void testUntouched() {
-        for (UnicodeRange range : UnicodeRange.values()) {
-            for (int codePoint = range.getLower(); codePoint <= range.getUpper(); codePoint++) {
-                if (KakasiTransform.isHandled(codePoint)) {
-                    continue;
-                }
+        List<UnicodeRange> annotatedRanges = Arrays.asList(Icu4jUtils.getAnnotatedUnicodeRanges(KakasiTransform.class));
 
+        for (UnicodeRange range : UnicodeRange.values()) {
+            if (annotatedRanges.contains(range)) {
+                continue;
+            }
+
+            for (int codePoint = range.getLower(); codePoint <= range.getUpper(); codePoint++) {
                 String input = new String(Character.toChars(codePoint));
 
                 assertEquals(input, transform.action(input));

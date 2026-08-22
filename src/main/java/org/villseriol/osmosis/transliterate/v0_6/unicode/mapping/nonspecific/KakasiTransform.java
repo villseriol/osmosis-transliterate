@@ -1,6 +1,7 @@
 // This software is released into the Public Domain.  See copying.txt for details.
 package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.logging.Logger;
 
@@ -9,28 +10,35 @@ import org.villseriol.kakasi.api.KakasiConfig;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.reflection.UnicodeRanges;
 
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSet.SpanCondition;
 
 
+@UnicodeRanges(UnicodeRange.CJK_SYMBOLS_AND_PUNCTUATION)
+@UnicodeRanges(UnicodeRange.HIRAGANA)
+@UnicodeRanges(UnicodeRange.KATAKANA)
+@UnicodeRanges(UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A)
+@UnicodeRanges(UnicodeRange.CJK_UNIFIED_IDEOGRAPHS)
+@UnicodeRanges(UnicodeRange.CJK_RADICALS_SUPPLEMENT)
+@UnicodeRanges(UnicodeRange.CJK_COMPATIBILITY_IDEOGRAPHS)
+@UnicodeRanges(UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B)
+@UnicodeRanges(UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C)
+@UnicodeRanges(UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D)
 public class KakasiTransform implements Unimap {
     private static final Logger LOG = Logger.getLogger(KakasiTransform.class.getName());
 
-    private static final UnicodeSet JAPANESE_SET = new UnicodeSet(
-            Icu4jUtils.toIcuRange(UnicodeRange.CJK_SYMBOLS_AND_PUNCTUATION, UnicodeRange.HIRAGANA,
-                    UnicodeRange.KATAKANA, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A,
-                    UnicodeRange.CJK_UNIFIED_IDEOGRAPHS, UnicodeRange.CJK_RADICALS_SUPPLEMENT,
-                    UnicodeRange.CJK_COMPATIBILITY_IDEOGRAPHS, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B,
-                    UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C, UnicodeRange.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D))
-                            .freeze();
+    private static final UnicodeSet JAPANESE_SET;
 
-    private final Kakasi kakasi;
+    static {
+        UnicodeRange[] ranges = Icu4jUtils.getAnnotatedUnicodeRanges(KakasiTransform.class);
+        UnicodeRange[] additional = Arrays.copyOfRange(ranges, 1, ranges.length);
 
-    public static boolean isHandled(int codePoint) {
-        return JAPANESE_SET.contains(codePoint);
+        JAPANESE_SET = Icu4jUtils.createIcu4jUnicodeSet(ranges[0], additional).freeze();
     }
 
+    private final Kakasi kakasi;
 
     public KakasiTransform(KakasiConfig config) {
         this.kakasi = new Kakasi(Objects.requireNonNull(config));
