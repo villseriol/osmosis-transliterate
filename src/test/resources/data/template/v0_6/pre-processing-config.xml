@@ -117,6 +117,7 @@
         <run alias="all-to-whitespace" unicode-group="alphabetic-presentation-forms" />
         <run alias="all-to-whitespace" unicode-group="letterlike-symbols" />
         <run alias="all-to-whitespace" unicode-group="small-form-variants" />
+        <run alias="all-to-whitespace" unicode-group="mathematical-operators" />
 
         <run alias="all-to-whitespace" unicode-group="dingbats" />
         <run alias="all-to-whitespace" unicode-group="cjk-compatibility-forms" />
@@ -125,6 +126,7 @@
 
         <run alias="all-to-whitespace" unicode-group="private-use-area" />
         <run alias="all-to-whitespace" unicode-group="specials" />
+        <run alias="all-to-whitespace" unicode-group="hangul-syllables" />
         <run alias="all-to-blank" unicode-group="variation-selectors" />
 
         <run alias="all-to-blank" unicode-group="combining-diacritical-marks" />

@@ -23,6 +23,7 @@ import com.ibm.icu.text.Transliterator;
 @UnicodeRanges(UnicodeRange.ALPHABETIC_PRESENTATION_FORMS)
 @UnicodeRanges(UnicodeRange.LETTERLIKE_SYMBOLS)
 @UnicodeRanges(UnicodeRange.SMALL_FORM_VARIANTS)
+@UnicodeRanges(UnicodeRange.MATHEMATICAL_OPERATORS)
 public class LatinMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
