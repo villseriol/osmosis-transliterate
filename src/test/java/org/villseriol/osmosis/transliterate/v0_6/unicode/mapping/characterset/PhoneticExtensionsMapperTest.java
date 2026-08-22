@@ -4,9 +4,28 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.villseriol.osmosis.common.UnicodeRange;
 
 
-public class PhoneticExtensionsMapperTest extends LatinMapperTest {
+public class PhoneticExtensionsMapperTest {
+
+    private final PhoneticExtensionsMapper transform = new PhoneticExtensionsMapper();
+
+    @Test
+    public void testUntouched() {
+        for (UnicodeRange range : UnicodeRange.values()) {
+            if (range == UnicodeRange.PHONETIC_EXTENSIONS) {
+                continue;
+            }
+
+            for (int codePoint = range.getLower(); codePoint <= range.getUpper(); codePoint++) {
+                String input = new String(Character.toChars(codePoint));
+
+                assertEquals(input, transform.action(input));
+            }
+        }
+    }
+
 
     @Test
     public void testMappedCharacters() {
