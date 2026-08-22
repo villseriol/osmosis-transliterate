@@ -56,7 +56,7 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("‛ > '';");
         rules.add("“ > '\"';");
         rules.add("” > '\"';");
-        rules.add("„ > '\"';");
+        rules.add("„ > ',,';");
         rules.add("‟ > '\"';");
 
         rules.add("† > '+';");
@@ -71,7 +71,7 @@ public class GeneralPunctuationMapper implements Unimap {
         rules.add("‰ > '%';");
         rules.add("‱ > '%';");
         rules.add("′ > '';");
-        rules.add("″ > '''';");
+        rules.add("″ > '\"';");
         rules.add("‴ > '''''';");
         rules.add("‵ > '`';");
         rules.add("‶ > '``';");

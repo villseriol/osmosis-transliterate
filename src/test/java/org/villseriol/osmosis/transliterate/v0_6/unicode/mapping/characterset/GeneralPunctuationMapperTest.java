@@ -54,7 +54,7 @@ public class GeneralPunctuationMapperTest {
         assertEquals("'", transform.action("‛"));
         assertEquals("\"", transform.action("“"));
         assertEquals("\"", transform.action("”"));
-        assertEquals("\"", transform.action("„"));
+        assertEquals(",,", transform.action("„"));
         assertEquals("\"", transform.action("‟"));
 
         // Dagger / bullets / leaders
@@ -71,7 +71,7 @@ public class GeneralPunctuationMapperTest {
         assertEquals("%", transform.action("‰"));
         assertEquals("%", transform.action("‱"));
         assertEquals("'", transform.action("′"));
-        assertEquals("''", transform.action("″"));
+        assertEquals("\"", transform.action("″"));
         assertEquals("'''", transform.action("‴"));
         assertEquals("`", transform.action("‵"));
         assertEquals("``", transform.action("‶"));
