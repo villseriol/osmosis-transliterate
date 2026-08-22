@@ -55,7 +55,42 @@ public class PhoneticExtensionsMapper implements Unimap {
         rules.add("ᵽ > 'p';");
         rules.add("ᵾ > 'U';");
 
-        String rule = Icu4jUtils.createIcu4jRule(PhoneticExtensionsMapper.class, rules);
+        rules.add("ᴬ > 'A';");
+        rules.add("ᴭ > 'AE';");
+        rules.add("ᴮ > 'B';");
+        rules.add("ᴯ > 'B';");
+        rules.add("ᴰ > 'D';");
+        rules.add("ᴱ > 'E';");
+        rules.add("ᴳ > 'G';");
+        rules.add("ᴴ > 'H';");
+        rules.add("ᴵ > 'I';");
+        rules.add("ᴶ > 'J';");
+        rules.add("ᴷ > 'K';");
+        rules.add("ᴸ > 'L';");
+        rules.add("ᴹ > 'M';");
+        rules.add("ᴺ > 'N';");
+        rules.add("ᴼ > 'O';");
+        rules.add("ᴽ > 'OU';");
+        rules.add("ᴾ > 'P';");
+        rules.add("ᴿ > 'R';");
+        rules.add("ᵀ > 'T';");
+        rules.add("ᵁ > 'U';");
+        rules.add("ᵂ > 'W';");
+        rules.add("ᵃ > 'a';");
+        rules.add("ᵅ > 'a';");
+        rules.add("ᵇ > 'b';");
+        rules.add("ᵈ > 'd';");
+        rules.add("ᵉ > 'e';");
+        rules.add("ᵍ > 'g';");
+        rules.add("ᵏ > 'k';");
+        rules.add("ᵐ > 'm';");
+        rules.add("ᵒ > 'o';");
+        rules.add("ᵖ > 'p';");
+        rules.add("ᵗ > 't';");
+        rules.add("ᵘ > 'u';");
+        rules.add("ᵛ > 'v';");
+
+        String rule = Icu4jUtils.createIcu4jRuleWithFallback(PhoneticExtensionsMapper.class, rules, " ");
 
         TRANSLITERATOR = Transliterator.createFromRules("PhoneticExtensions-Normalized", rule, Transliterator.FORWARD);
     }

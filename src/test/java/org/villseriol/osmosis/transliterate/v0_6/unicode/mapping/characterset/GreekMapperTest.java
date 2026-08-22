@@ -3,7 +3,11 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 
 
@@ -13,16 +17,10 @@ public abstract class GreekMapperTest {
 
     @Test
     public void testUntouched() {
+        List<UnicodeRange> annotatedRanges = Arrays.asList(Icu4jUtils.getAnnotatedUnicodeRanges(GreekMapper.class));
+
         for (UnicodeRange range : UnicodeRange.values()) {
-            // Skip every block that contains at least one Script=Greek code
-            // point, since GreekMapper's underlying [[:Greek:]] filter picks
-            // those up wherever they live -- not just the two dedicated
-            // Greek blocks, but also scattered Greek-derived phonetic and
-            // symbolic characters in these other blocks.
-            if (range == UnicodeRange.GREEK_AND_COPTIC || range == UnicodeRange.GREEK_EXTENDED
-                    || range == UnicodeRange.PHONETIC_EXTENSIONS || range == UnicodeRange.PHONETIC_EXTENSIONS_SUPPLEMENT
-                    || range == UnicodeRange.LETTERLIKE_SYMBOLS || range == UnicodeRange.ANCIENT_GREEK_NUMBERS
-                    || range == UnicodeRange.ANCIENT_GREEK_MUSICAL_NOTATION) {
+            if (annotatedRanges.contains(range)) {
                 continue;
             }
 

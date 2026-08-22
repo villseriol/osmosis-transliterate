@@ -231,6 +231,9 @@ public class GreekExtendedMapperTest extends GreekMapperTest {
         assertEquals("O", transform.action("Ὼ"));
         assertEquals("O", transform.action("Ώ"));
         assertEquals("OI", transform.action("ῼ"));
+        assertEquals("\u0385", transform.action("\u1FEE")); // GREEK DIALYTIKA AND OXIA -> GREEK DIALYTIKA TONOS
+        assertEquals("`", transform.action("\u1FEF")); // GREEK VARIA -> GRAVE ACCENT
+        assertEquals("\u00B4", transform.action("\u1FFD")); // GREEK OXIA -> ACUTE ACCENT
     }
 
 
@@ -244,9 +247,6 @@ public class GreekExtendedMapperTest extends GreekMapperTest {
         assertEquals("῝", transform.action("῝"));
         assertEquals("῞", transform.action("῞"));
         assertEquals("῭", transform.action("῭"));
-        assertEquals("΅", transform.action("΅"));
-        assertEquals("`", transform.action("`"));
-        assertEquals("´", transform.action("´"));
         assertEquals("῾", transform.action("῾"));
     }
 }
