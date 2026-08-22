@@ -2,6 +2,7 @@
 package org.villseriol.osmosis.transliterate.v0_6.unicode.reflection;
 
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Repeatable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
@@ -10,15 +11,32 @@ import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 
 
 /**
- * Marks a class as operating on one or more {@link UnicodeRange} blocks.
+ * Marks a class as operating on a {@link UnicodeRange} block. May be applied
+ * multiple times to a single class to mark it as operating on more than one
+ * block.
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Repeatable(UnicodeRanges.Container.class)
 public @interface UnicodeRanges {
     /**
-     * The Unicode blocks the annotated class operates on.
+     * The Unicode block the annotated class operates on.
      *
-     * @return the Unicode blocks
+     * @return the Unicode block
      */
-    UnicodeRange[] value();
+    UnicodeRange value();
+
+    /**
+     * Container for repeated {@link UnicodeRanges} annotations.
+     */
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.TYPE)
+    @interface Container {
+        /**
+         * The repeated {@link UnicodeRanges} annotations.
+         *
+         * @return the repeated annotations
+         */
+        UnicodeRanges[] value();
+    }
 }

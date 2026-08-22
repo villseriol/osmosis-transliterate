@@ -1,6 +1,12 @@
 // This software is released into the Public Domain.  See copying.txt for details.
 package org.villseriol.osmosis.transliterate.v0_6.unicode;
 
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.villseriol.osmosis.transliterate.v0_6.unicode.reflection.UnicodeRanges;
+
+
 public final class Icu4jUtils {
 
     private Icu4jUtils() {
@@ -62,6 +68,83 @@ public final class Icu4jUtils {
         }
 
         return toIcuRange(range, ranges) + " > '" + fallback + "';";
+    }
+
+
+    /**
+     * Returns the {@link UnicodeRange}s that the given {@link Unimap} class is
+     * annotated with via {@link UnicodeRanges}.
+     *
+     * @param mapperClass the mapper class to inspect
+     * @return the Unicode blocks the mapper class is annotated with
+     * @throws IllegalArgumentException if the mapper class is not annotated
+     *         with {@link UnicodeRanges}
+     */
+    public static UnicodeRange[] getAnnotatedUnicodeRanges(Class<? extends Unimap> mapperClass) {
+        UnicodeRanges[] annotations = mapperClass.getAnnotationsByType(UnicodeRanges.class);
+        if (annotations.length == 0) {
+            throw new IllegalArgumentException(
+                    mapperClass.getName() + " is not annotated with @" + UnicodeRanges.class.getSimpleName());
+        }
+
+        UnicodeRange[] ranges = new UnicodeRange[annotations.length];
+        for (int i = 0; i < annotations.length; i++) {
+            ranges[i] = annotations[i].value();
+        }
+
+        return ranges;
+    }
+
+
+    /**
+     * Builds a complete ICU4J rule string for the given {@link Unimap} class,
+     * consisting of a global filter rule restricting the transliterator to the
+     * mapper class's {@link UnicodeRanges}-annotated blocks, followed by the
+     * given body rules.
+     *
+     * @param mapperClass the mapper class to derive the filter rule from
+     * @param rules the body rules to append after the filter rule
+     * @return the complete ICU4J rule string, ready for
+     *         {@link com.ibm.icu.text.Transliterator#createFromRules}
+     * @throws IllegalArgumentException if the mapper class is not annotated
+     *         with {@link UnicodeRanges}
+     */
+    public static String createIcu4jRule(Class<? extends Unimap> mapperClass, Collection<String> rules) {
+        UnicodeRange[] ranges = getAnnotatedUnicodeRanges(mapperClass);
+        UnicodeRange[] additional = Arrays.copyOfRange(ranges, 1, ranges.length);
+        String filter = toIcuFilterRule(ranges[0], additional);
+
+        StringBuilder result = new StringBuilder(filter);
+        for (String rule : rules) {
+            result.append('\n').append(rule);
+        }
+
+        return result.toString();
+    }
+
+
+    /**
+     * Builds a complete ICU4J rule string for the given {@link Unimap} class,
+     * the same as {@link #createIcu4jRule}, with an additional catch-all rule
+     * appended that replaces any code point left unmapped by the given body
+     * rules with the given fallback.
+     *
+     * @param mapperClass the mapper class to derive the filter and fallback
+     *        rules from
+     * @param rules the body rules to append after the filter rule
+     * @param fallback the replacement to use for any unmapped code point
+     * @return the complete ICU4J rule string, ready for
+     *         {@link com.ibm.icu.text.Transliterator#createFromRules}
+     * @throws IllegalArgumentException if the mapper class is not annotated
+     *         with {@link UnicodeRanges}
+     */
+    public static String createIcu4jRuleWithFallback(Class<? extends Unimap> mapperClass, Collection<String> rules,
+            CharSequence fallback) {
+        UnicodeRange[] ranges = getAnnotatedUnicodeRanges(mapperClass);
+        UnicodeRange[] additional = Arrays.copyOfRange(ranges, 1, ranges.length);
+        String fallbackRule = toIcuFallbackRule(fallback.toString(), ranges[0], additional);
+
+        return createIcu4jRule(mapperClass, rules) + "\n" + fallbackRule;
     }
 
 
