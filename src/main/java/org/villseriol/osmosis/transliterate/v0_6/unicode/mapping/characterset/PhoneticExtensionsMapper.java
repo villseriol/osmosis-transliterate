@@ -4,19 +4,21 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.reflection.UnicodeRanges;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
 
 
+@UnicodeRanges(UnicodeRange.PHONETIC_EXTENSIONS)
 public class PhoneticExtensionsMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {
         List<String> rules = new ArrayList<>();
-
-        rules.add("::[\\u1D00-\\u1D7F];");
 
         rules.add("ᴀ > 'A';");
         rules.add("ᴁ > 'AE';");
@@ -53,8 +55,9 @@ public class PhoneticExtensionsMapper implements Unimap {
         rules.add("ᵽ > 'p';");
         rules.add("ᵾ > 'U';");
 
-        TRANSLITERATOR = Transliterator.createFromRules("PhoneticExtensions-Normalized", String.join("\n", rules),
-                Transliterator.FORWARD);
+        String rule = Icu4jUtils.createIcu4jRule(PhoneticExtensionsMapper.class, rules);
+
+        TRANSLITERATOR = Transliterator.createFromRules("PhoneticExtensions-Normalized", rule, Transliterator.FORWARD);
     }
 
     @Override

@@ -7,41 +7,40 @@ import java.util.List;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.reflection.UnicodeRanges;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
 
 
-// https://www.unicodepedia.com/groups/katakana-phonetic-extensions/
+@UnicodeRanges(UnicodeRange.KATAKANA_PHONETIC_EXTENSIONS)
 public class KatakanaPhoneticExtensionsMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {
         List<String> rules = new ArrayList<>();
 
-        // Restrict the transliterator to the Katakana Phonetic Extensions block
-        rules.add(Icu4jUtils.toIcuFilterRule(UnicodeRange.KATAKANA_PHONETIC_EXTENSIONS));
+        rules.add("ㇰ > ク;");
+        rules.add("ㇱ > シ;");
+        rules.add("ㇲ > ス;");
+        rules.add("ㇳ > ト;");
+        rules.add("ㇴ > ヌ;");
+        rules.add("ㇵ > ハ;");
+        rules.add("ㇶ > ヒ;");
+        rules.add("ㇷ > フ;");
+        rules.add("ㇸ > ヘ;");
+        rules.add("ㇹ > ホ;");
+        rules.add("ㇺ > ム;");
+        rules.add("ㇻ > ラ;");
+        rules.add("ㇼ > リ;");
+        rules.add("ㇽ > ル;");
+        rules.add("ㇾ > レ;");
+        rules.add("ㇿ > ロ;");
 
-        // Small Ainu-extension katakana -> their full-size equivalent
-        rules.add("ㇰ > ク;"); // 31F0 KATAKANA LETTER SMALL KU
-        rules.add("ㇱ > シ;"); // 31F1 KATAKANA LETTER SMALL SI
-        rules.add("ㇲ > ス;"); // 31F2 KATAKANA LETTER SMALL SU
-        rules.add("ㇳ > ト;"); // 31F3 KATAKANA LETTER SMALL TO
-        rules.add("ㇴ > ヌ;"); // 31F4 KATAKANA LETTER SMALL NU
-        rules.add("ㇵ > ハ;"); // 31F5 KATAKANA LETTER SMALL HA
-        rules.add("ㇶ > ヒ;"); // 31F6 KATAKANA LETTER SMALL HI
-        rules.add("ㇷ > フ;"); // 31F7 KATAKANA LETTER SMALL HU
-        rules.add("ㇸ > ヘ;"); // 31F8 KATAKANA LETTER SMALL HE
-        rules.add("ㇹ > ホ;"); // 31F9 KATAKANA LETTER SMALL HO
-        rules.add("ㇺ > ム;"); // 31FA KATAKANA LETTER SMALL MU
-        rules.add("ㇻ > ラ;"); // 31FB KATAKANA LETTER SMALL RA
-        rules.add("ㇼ > リ;"); // 31FC KATAKANA LETTER SMALL RI
-        rules.add("ㇽ > ル;"); // 31FD KATAKANA LETTER SMALL RU
-        rules.add("ㇾ > レ;"); // 31FE KATAKANA LETTER SMALL RE
-        rules.add("ㇿ > ロ;"); // 31FF KATAKANA LETTER SMALL RO
+        String rule = Icu4jUtils.createIcu4jRule(KatakanaPhoneticExtensionsMapper.class, rules);
 
-        TRANSLITERATOR = Transliterator.createFromRules("KatakanaPhoneticExtensions-FullWidth",
-                String.join("\n", rules), Transliterator.FORWARD);
+        TRANSLITERATOR = Transliterator.createFromRules("KatakanaPhoneticExtensions-FullWidth", rule,
+                Transliterator.FORWARD);
     }
 
     @Override

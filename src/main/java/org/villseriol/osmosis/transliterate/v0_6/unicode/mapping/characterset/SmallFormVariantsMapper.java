@@ -4,53 +4,52 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.reflection.UnicodeRanges;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
 
 
-// https://www.unicodepedia.com/groups/small-form-variants/
+@UnicodeRanges(UnicodeRange.SMALL_FORM_VARIANTS)
 public class SmallFormVariantsMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {
         List<String> rules = new ArrayList<>();
 
-        // Restrict the transliterator to the full Small Form Variants block,
-        // as one continuous range.
-        rules.add("::[\\uFE50-\\uFE6B];");
+        rules.add("﹐ > ',';");
+        rules.add("﹑ > ',';");
+        rules.add("﹒ > '.';");
+        rules.add("﹔ > ';';");
+        rules.add("﹕ > ':';");
+        rules.add("﹖ > '?';");
+        rules.add("﹗ > '!';");
+        rules.add("﹘ > '-';");
+        rules.add("﹙ > '(';");
+        rules.add("﹚ > ')';");
+        rules.add("﹛ > '{';");
+        rules.add("﹜ > '}';");
+        rules.add("﹝ > '[';");
+        rules.add("﹞ > ']';");
+        rules.add("﹟ > '#';");
+        rules.add("﹠ > '&';");
+        rules.add("﹡ > '*';");
+        rules.add("﹢ > '+';");
+        rules.add("﹣ > '-';");
+        rules.add("﹤ > '<';");
+        rules.add("﹥ > '>';");
+        rules.add("﹦ > '=';");
+        rules.add("﹨ > '\\';");
+        rules.add("﹩ > '$';");
+        rules.add("﹪ > '%';");
+        rules.add("﹫ > '@';");
 
-        rules.add("﹐ > ',';"); // FE50 SMALL COMMA
-        rules.add("﹑ > ',';"); // FE51 SMALL IDEOGRAPHIC COMMA (dup)
-        rules.add("﹒ > '.';"); // FE52 SMALL FULL STOP
-        rules.add("﹔ > ';';"); // FE54 SMALL SEMICOLON
-        rules.add("﹕ > ':';"); // FE55 SMALL COLON
-        rules.add("﹖ > '?';"); // FE56 SMALL QUESTION MARK
-        rules.add("﹗ > '!';"); // FE57 SMALL EXCLAMATION MARK
-        rules.add("﹘ > '-';"); // FE58 SMALL EM DASH
-        rules.add("﹙ > '(';"); // FE59 SMALL LEFT PARENTHESIS
-        rules.add("﹚ > ')';"); // FE5A SMALL RIGHT PARENTHESIS
-        rules.add("﹛ > '{';"); // FE5B SMALL LEFT CURLY BRACKET
-        rules.add("﹜ > '}';"); // FE5C SMALL RIGHT CURLY BRACKET
-        rules.add("﹝ > '[';"); // FE5D SMALL LEFT TORTOISE SHELL BRACKET
-        rules.add("﹞ > ']';"); // FE5E SMALL RIGHT TORTOISE SHELL BRACKET
-        rules.add("﹟ > '#';"); // FE5F SMALL NUMBER SIGN
-        rules.add("﹠ > '&';"); // FE60 SMALL AMPERSAND
-        rules.add("﹡ > '*';"); // FE61 SMALL ASTERISK
-        rules.add("﹢ > '+';"); // FE62 SMALL PLUS SIGN
-        rules.add("﹣ > '-';"); // FE63 SMALL HYPHEN-MINUS (dup of em dash token)
-        rules.add("﹤ > '<';"); // FE64 SMALL LESS-THAN SIGN
-        rules.add("﹥ > '>';"); // FE65 SMALL GREATER-THAN SIGN
-        rules.add("﹦ > '=';"); // FE66 SMALL EQUALS SIGN
-        rules.add("﹨ > '\\';"); // FE68 SMALL REVERSE SOLIDUS -> literal
-                                // backslash
-        rules.add("﹩ > '$';"); // FE69 SMALL DOLLAR SIGN
-        rules.add("﹪ > '%';"); // FE6A SMALL PERCENT SIGN
-        rules.add("﹫ > '@';"); // FE6B SMALL COMMERCIAL AT
+        String rule = Icu4jUtils.createIcu4jRule(SmallFormVariantsMapper.class, rules);
 
-        TRANSLITERATOR = Transliterator.createFromRules("SmallFormVariants-BasicLatin", String.join("\n", rules),
-                Transliterator.FORWARD);
+        TRANSLITERATOR = Transliterator.createFromRules("SmallFormVariants-BasicLatin", rule, Transliterator.FORWARD);
     }
 
     @Override

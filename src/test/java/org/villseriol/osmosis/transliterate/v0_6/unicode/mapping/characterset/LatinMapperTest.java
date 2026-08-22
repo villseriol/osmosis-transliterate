@@ -3,7 +3,11 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 
 
@@ -13,12 +17,10 @@ public abstract class LatinMapperTest {
 
     @Test
     public void testUntouched() {
+        List<UnicodeRange> annotatedRanges = Arrays.asList(Icu4jUtils.getAnnotatedUnicodeRanges(LatinMapper.class));
+
         for (UnicodeRange range : UnicodeRange.values()) {
-            if (range == UnicodeRange.LATIN_EXTENDED_A || range == UnicodeRange.LATIN_EXTENDED_B
-                    || range == UnicodeRange.IPA_EXTENSIONS || range == UnicodeRange.NUMBER_FORMS
-                    || range == UnicodeRange.PHONETIC_EXTENSIONS || range == UnicodeRange.PHONETIC_EXTENSIONS_SUPPLEMENT
-                    || range == UnicodeRange.LATIN_EXTENDED_ADDITIONAL || range == UnicodeRange.LATIN_EXTENDED_C
-                    || range == UnicodeRange.LATIN_EXTENDED_D || range == UnicodeRange.ALPHABETIC_PRESENTATION_FORMS) {
+            if (annotatedRanges.contains(range)) {
                 continue;
             }
 

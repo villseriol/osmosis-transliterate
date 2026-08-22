@@ -42,27 +42,29 @@ public class NumberFormsMapperTest extends LatinMapperTest {
         assertEquals("c", transform.action("ⅽ"));
         assertEquals("d", transform.action("ⅾ"));
         assertEquals("m", transform.action("ⅿ"));
+
+        assertEquals(" 1/7", transform.action("⅐"));
+        assertEquals(" 1/9", transform.action("⅑"));
+        assertEquals(" 1/10", transform.action("⅒"));
+        assertEquals(" 1/3", transform.action("⅓"));
+        assertEquals(" 2/3", transform.action("⅔"));
+        assertEquals(" 1/5", transform.action("⅕"));
+        assertEquals(" 2/5", transform.action("⅖"));
+        assertEquals(" 3/5", transform.action("⅗"));
+        assertEquals(" 4/5", transform.action("⅘"));
+        assertEquals(" 1/6", transform.action("⅙"));
+        assertEquals(" 5/6", transform.action("⅚"));
+        assertEquals(" 1/8", transform.action("⅛"));
+        assertEquals(" 3/8", transform.action("⅜"));
+        assertEquals(" 5/8", transform.action("⅝"));
+        assertEquals(" 7/8", transform.action("⅞"));
+        assertEquals(" 1/", transform.action("⅟"));
+        assertEquals(" 0/3", transform.action("↉"));
     }
 
 
     @Test
     public void testUnmappedCharacters() {
-        assertEquals("⅐", transform.action("⅐"));
-        assertEquals("⅑", transform.action("⅑"));
-        assertEquals("⅒", transform.action("⅒"));
-        assertEquals("⅓", transform.action("⅓"));
-        assertEquals("⅔", transform.action("⅔"));
-        assertEquals("⅕", transform.action("⅕"));
-        assertEquals("⅖", transform.action("⅖"));
-        assertEquals("⅗", transform.action("⅗"));
-        assertEquals("⅘", transform.action("⅘"));
-        assertEquals("⅙", transform.action("⅙"));
-        assertEquals("⅚", transform.action("⅚"));
-        assertEquals("⅛", transform.action("⅛"));
-        assertEquals("⅜", transform.action("⅜"));
-        assertEquals("⅝", transform.action("⅝"));
-        assertEquals("⅞", transform.action("⅞"));
-        assertEquals("⅟", transform.action("⅟"));
         assertEquals("ↀ", transform.action("ↀ"));
         assertEquals("ↁ", transform.action("ↁ"));
         assertEquals("ↂ", transform.action("ↂ"));
@@ -72,6 +74,5 @@ public class NumberFormsMapperTest extends LatinMapperTest {
         assertEquals("ↆ", transform.action("ↆ"));
         assertEquals("ↇ", transform.action("ↇ"));
         assertEquals("ↈ", transform.action("ↈ"));
-        assertEquals("↉", transform.action("↉"));
     }
 }

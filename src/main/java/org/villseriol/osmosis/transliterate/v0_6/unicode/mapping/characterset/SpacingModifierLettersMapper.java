@@ -4,19 +4,21 @@ package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.reflection.UnicodeRanges;
 
 import com.ibm.icu.text.ReplaceableString;
 import com.ibm.icu.text.Transliterator;
 
 
+@UnicodeRanges(UnicodeRange.SPACING_MODIFIER_LETTERS)
 public class SpacingModifierLettersMapper implements Unimap {
     private static final Transliterator TRANSLITERATOR;
 
     static {
         List<String> rules = new ArrayList<>();
-
-        rules.add("::[\\u02B0-\\u02FF];");
 
         rules.add("ʰ > 'h';");
         rules.add("ʱ > 'h';");
@@ -99,7 +101,9 @@ public class SpacingModifierLettersMapper implements Unimap {
         rules.add("˾ > ' ';");
         rules.add("˿ > '<-';");
 
-        TRANSLITERATOR = Transliterator.createFromRules("SpacingModifierLetters-Normalized", String.join("\n", rules),
+        String rule = Icu4jUtils.createIcu4jRule(SpacingModifierLettersMapper.class, rules);
+
+        TRANSLITERATOR = Transliterator.createFromRules("SpacingModifierLetters-Normalized", rule,
                 Transliterator.FORWARD);
     }
 
