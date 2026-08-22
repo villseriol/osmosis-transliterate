@@ -4,6 +4,10 @@
         <!-- Ensure our overrides take priority -->
         <run alias="custom">
             <mapping>
+                <replace-with value="No.">
+                    <when-value-is value="№" />
+                </replace-with>
+
                 <replace-with value=" ">
                     <when-value-is value=" " />
                 </replace-with>
