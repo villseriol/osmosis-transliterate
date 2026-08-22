@@ -40,14 +40,14 @@ public class SpacingModifierLettersMapper implements Unimap {
         rules.add("ˁ > ' ';");
         rules.add("˂ > '<';");
         rules.add("˃ > '>';");
-        rules.add("˄ > ' ';");
+        rules.add("˄ > '^';");
         rules.add("˅ > ' ';");
-        rules.add("ˆ > ' ';");
+        rules.add("ˆ > '^';");
         rules.add("ˇ > ' ';");
         rules.add("ˈ > '';");
         rules.add("ˉ > '¯';");
         rules.add("ˊ > '';");
-        rules.add("ˋ > '';");
+        rules.add("ˋ > '`';");
         rules.add("ˌ > ' ';");
         rules.add("ˍ > '_';");
         rules.add("ˎ > ',';");
@@ -64,7 +64,7 @@ public class SpacingModifierLettersMapper implements Unimap {
         rules.add("˙ > ' ';");
         rules.add("˚ > '°';");
         rules.add("˛ > ' ';");
-        rules.add("˜ > ' ';");
+        rules.add("˜ > '~';");
         rules.add("˝ > '\"';");
         rules.add("˞ > ' ';");
         rules.add("˟ > ' ';");

@@ -37,9 +37,7 @@ public class SpacingModifierLettersMapperTest {
      * <li>02BF MODIFIER LETTER LEFT HALF RING</li>
      * <li>02C0 MODIFIER LETTER GLOTTAL STOP</li>
      * <li>02C1 MODIFIER LETTER REVERSED GLOTTAL STOP</li>
-     * <li>02C4 MODIFIER LETTER UP ARROWHEAD</li>
      * <li>02C5 MODIFIER LETTER DOWN ARROWHEAD</li>
-     * <li>02C6 MODIFIER LETTER CIRCUMFLEX ACCENT</li>
      * <li>02C7 CARON</li>
      * <li>02CC MODIFIER LETTER LOW VERTICAL LINE</li>
      * <li>02D1 MODIFIER LETTER HALF TRIANGULAR COLON</li>
@@ -50,7 +48,6 @@ public class SpacingModifierLettersMapperTest {
      * <li>02D8 BREVE</li>
      * <li>02D9 DOT ABOVE</li>
      * <li>02DB OGONEK</li>
-     * <li>02DC SMALL TILDE</li>
      * <li>02DE MODIFIER LETTER RHOTIC HOOK</li>
      * <li>02DF MODIFIER LETTER CROSS ACCENT</li>
      * <li>02E0 MODIFIER LETTER SMALL GAMMA</li>
@@ -87,9 +84,7 @@ public class SpacingModifierLettersMapperTest {
         assertEquals(" ", transform.action("ʿ"));
         assertEquals(" ", transform.action("ˀ"));
         assertEquals(" ", transform.action("ˁ"));
-        assertEquals(" ", transform.action("˄"));
         assertEquals(" ", transform.action("˅"));
-        assertEquals(" ", transform.action("ˆ"));
         assertEquals(" ", transform.action("ˇ"));
         assertEquals(" ", transform.action("ˌ"));
         assertEquals(" ", transform.action("ˑ"));
@@ -100,7 +95,6 @@ public class SpacingModifierLettersMapperTest {
         assertEquals(" ", transform.action("˘"));
         assertEquals(" ", transform.action("˙"));
         assertEquals(" ", transform.action("˛"));
-        assertEquals(" ", transform.action("˜"));
         assertEquals(" ", transform.action("˞"));
         assertEquals(" ", transform.action("˟"));
         assertEquals(" ", transform.action("ˠ"));
@@ -154,6 +148,8 @@ public class SpacingModifierLettersMapperTest {
      * <li>02BD MODIFIER LETTER REVERSED COMMA</li>
      * <li>02C2 MODIFIER LETTER LEFT ARROWHEAD</li>
      * <li>02C3 MODIFIER LETTER RIGHT ARROWHEAD</li>
+     * <li>02C4 MODIFIER LETTER UP ARROWHEAD</li>
+     * <li>02C6 MODIFIER LETTER CIRCUMFLEX ACCENT</li>
      * <li>02C8 MODIFIER LETTER VERTICAL LINE</li>
      * <li>02C9 MODIFIER LETTER MACRON</li>
      * <li>02CA MODIFIER LETTER ACUTE ACCENT</li>
@@ -165,6 +161,7 @@ public class SpacingModifierLettersMapperTest {
      * <li>02D6 MODIFIER LETTER PLUS SIGN</li>
      * <li>02D7 MODIFIER LETTER MINUS SIGN</li>
      * <li>02DA RING ABOVE</li>
+     * <li>02DC SMALL TILDE</li>
      * <li>02DD DOUBLE ACUTE ACCENT</li>
      * <li>02E1 MODIFIER LETTER SMALL L</li>
      * <li>02E2 MODIFIER LETTER SMALL S</li>
@@ -195,7 +192,7 @@ public class SpacingModifierLettersMapperTest {
         assertEquals("'", transform.action("ˈ"));
         assertEquals("¯", transform.action("ˉ"));
         assertEquals("'", transform.action("ˊ"));
-        assertEquals("'", transform.action("ˋ"));
+        assertEquals("`", transform.action("ˋ"));
         assertEquals("_", transform.action("ˍ"));
         assertEquals(",", transform.action("ˎ"));
         assertEquals(",", transform.action("ˏ"));
@@ -203,6 +200,7 @@ public class SpacingModifierLettersMapperTest {
         assertEquals("+", transform.action("˖"));
         assertEquals("-", transform.action("˗"));
         assertEquals("°", transform.action("˚"));
+        assertEquals("~", transform.action("˜"));
         assertEquals("\"", transform.action("˝"));
         assertEquals("l", transform.action("ˡ"));
         assertEquals("s", transform.action("ˢ"));
