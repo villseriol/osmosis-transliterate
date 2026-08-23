@@ -7,18 +7,20 @@ import org.villseriol.osmosis.transliterate.v0_6.config.loader.XmlLoader;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
 
 
-public class MockTransliterateNamePipelineRunner {
+public class MockTransliteratePipelineRunner {
     private final TestDataUtilities dataUtils;
     private final TransliteratePipelineRunner preRunner = new TransliteratePipelineRunner();
     private final TransliteratePipelineRunner nameRunner = new TransliteratePipelineRunner();
+    private final TransliteratePipelineRunner addressRunner = new TransliteratePipelineRunner();
     private final TransliteratePipelineRunner postRunner = new TransliteratePipelineRunner();
     private final XmlLoader<NormalizeConfiguration> loader = XmlLoader.getInstance(NormalizeConfiguration.class);
 
-    public MockTransliterateNamePipelineRunner(TestDataUtilities dataUtils) {
+    public MockTransliteratePipelineRunner(TestDataUtilities dataUtils) {
         this.dataUtils = dataUtils;
 
         preRunner.init(loadConfig("v0_6/pre-processing-config.xml"));
         nameRunner.init(loadConfig("v0_6/standard-name-config.xml"));
+        addressRunner.init(loadConfig("v0_6/standard-address-config.xml"));
         postRunner.init(loadConfig("v0_6/post-processing-config.xml"));
     }
 
@@ -28,7 +30,7 @@ public class MockTransliterateNamePipelineRunner {
     }
 
 
-    public String run(String value) {
-        return postRunner.run("name", nameRunner.run("name", preRunner.run("name", value)));
+    public String run(String tag, String value) {
+        return postRunner.run(tag, addressRunner.run(tag, nameRunner.run(tag, preRunner.run(tag, value))));
     }
 }

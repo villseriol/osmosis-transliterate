@@ -115,6 +115,7 @@
 
         <run alias="all-to-blank" unicode-group="combining-diacritical-marks" />
 
+        <run alias="radicals" />
         <run alias="enclosed" />
     </pipeline>
 
