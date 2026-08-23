@@ -51,12 +51,12 @@ TBD
 
 This project is in compliance with the the following licensing restrictions,
 
-| Entity                                 | Reviewed On | Use       | Notes      |
-| -------------------------------------- | ----------- | --------- | ---------- |
-| org.apache.commons:commons-text:1.15.0 | 29/04/2026  | Embedded  | Apache-2.0 |
-| com.ibm.icu:icu4j:78.3                 | 29/04/2026  | Embedded  | Unicode V3 |
-| io.github.villseriol:kakasi2:2.0.2     | 29/04/2026  | Embedded  | GPL 3.0    |
-| skk-dev/dict                           | 29/04/2026  | Resources | GPL 2.0    |
+| Entity                                 | Use       | Notes      |
+| -------------------------------------- | --------- | ---------- |
+| org.apache.commons:commons-text:1.15.0 | Embedded  | Apache-2.0 |
+| com.ibm.icu:icu4j:78.3                 | Embedded  | Unicode V3 |
+| io.github.villseriol:kakasi2:2.0.2     | Embedded  | GPL 3.0    |
+| skk-dev/dict                           | Resources | GPL 2.0    |
 
 ## Disclaimer
 
