@@ -1,0 +1,103 @@
+tag,input,output
+name,← 熊石方面 国道229,<- kumaishi houmen kokudou 229
+name,ルルドの洞窟 ← 1.5km 徒歩30分,rurudo no doukutsu <- 1.5km toho 30 fun
+name,ルルドの洞窟 ↑,rurudo no doukutsu
+name,至 闐信寺 0.2km→,ita tei shin tera 0.2km->
+name,大型等↑→,oogata nado ->
+name,大型等↑←,oogata nado <-
+name,大型等←→,oogata nado<-->
+name,→駐車禁止,->chuushakinshi
+name,→,->
+name,←,<-
+name,⇔,<=>
+name,県道銚子公園線⇔銚子ドーバーライン,kendou choushi kouen sen<=>choushi do^ba^rain
+name,パノラマ台からの眺望（現地より←徒歩約5分）,panorama dai karano choubou (genchi yori<-toho yaku 5 fun)
+name,小町→（旧）鎌倉,komachi->(kyuu) kamakura
+name,回送⇒運行へ,kaisou=>unkou he
+name,回送⇒運用,kaisou=>unyou
+name,東急線中延駅方面改札口階⇔ホーム階,toukyuusen nakanobe eki houmen kaisatsuguchi kai<=>ho^mu kai
+name,荏原営業所【反０１・反０２＜馬込駅前バス停⇒２番乗り場バス停へ＞】,ehara eigyousho [han 01·han 02<magomeeki mae basu tei=>2 ban noriba basu tei he>]
+name,荏原営業所【反０１・反０２＜車庫⇒始発（２番乗り場バス停）へ＞】,ehara eigyousho [han 01·han 02<shako=>shihatsu (2 ban noriba basu tei) he>]
+name,荏原営業所【井０１＜復路終点⇒往路起点（１番乗り場バス停）へ＞】,ehara eigyousho [i 01<fukuro shuuten=>ouro kiten (1 ban noriba basu tei) he>]
+ref,井０１【復路終点⇒往路起点】,i 01[fukuro shuuten=>ouro kiten]
+name,荏原営業所【井０１＜車庫⇒始発（１番乗り場バス停）へ＞】,ehara eigyousho [i 01<shako=>shihatsu (1 ban noriba basu tei) he>]
+ref,井０１【車庫⇒始発へ】,i 01[shako=>shihatsu he]
+name,荏原営業所【反０１・反０２／森０２＜車庫⇒始発（３番乗り場バス停）へ＞】,ehara eigyousho [han 01·han 02/mori 02<shako=>shihatsu (3 ban noriba basu tei) he>]
+name,荏原営業所【反０１・反０２＜中延駅前バス停⇒３番乗り場バス停へ＞】,ehara eigyousho [han 01·han 02<nakanobe ekimae basu tei=>3 ban noriba basu tei he>]
+name,杉並区立郷土博物館560m→,suginamiku ritsu kyoudo hakubutsukan 560m->
+name,↓,
+name,元 おたふく→つんく♂の店→,moto otafuku->tsunku no mise->
+name,MILK LAND HOKKAIDO → TOKYO,MILK LAND HOKKAIDO -> TOKYO
+name,不動平→,fudou taira->
+name,境川源流入口→,sakai kawa genryuu iriguchi->
+name,境川源流入口←,sakai kawa genryuu iriguchi<-
+name,津久井湖城山公園 小倉登山コース 登山道の入り口は こちら→,tsukuiko shiroyama kouen ogura tozan ko^su tozandou no iriguchi ha kochira->
+name,←家老屋敷,<-karou yashiki
+name,森のステージ→,mori no sute^ji->
+name,←かしの木山自然公園600m,<-kashino kiyama shizenkouen 600m
+name,宝城坊 日向薬師 ← 入口,takara shiro bou hyuuga kusurishi <- iriguchi
+name,石老山入口→,ishi rou yama iriguchi->
+name,至 ← 1時間 景信山,ita <- 1 jikan kei shin yama
+name,三本松→,sanbonmatsu->
+name,国道292号→そば屋方面,kokudou 292 gou->soba ya houmen
+name,→志賀高原方面,->shigakougen houmen
+name,脱皮考　地→空,dappi kou chi->sora
+name,↑大溝城跡,oomizo shiroato
+name,天守閣入口→,tenshukaku iriguchi->
+name,←知覧城,<-chi ran shiro
+name,弥山・駒ヶ林←→大元公園・桟橋,ya yama·koma hayashi<-->oomoto kouen·sanbashi
+name,弥山 2.6km・駒ヶ林←→大元公園 0.8km,ya yama 2.6km·koma hayashi<-->oomoto kouen 0.8km
+name,弥山・駒ヶ林←→大元公園,ya yama·koma hayashi<-->oomoto kouen
+name,弥山・駒ヶ林←→大元公園/→岩屋大師,ya yama·koma hayashi<-->oomoto kouen/->iwaya taishi
+name,ロープウェイ 0.7km←→弥山山頂 0.3km,ro^puuei 0.7km<-->ya yama sanchou 0.3km
+name,弥山登山←→大元公園・岩屋大師/→駒ヶ林,ya yama tozan<-->oomoto kouen·iwaya taishi/->koma hayashi
+name,弥山登山←→大聖院,ya yama tozan<-->dai hijiri in
+name,弥山山頂 0.6km←→大元園地 2.0/宮島水族館 2.0km,ya yama sanchou 0.6km<-->oomoto sono chi 2.0/miyajima suizokukan 2.0km
+name,弥山展望台 0.6km←→駒ヶ林/大元公園 2.8km,ya yama tenboudai 0.6km<-->koma hayashi/oomoto kouen 2.8km
+name,ロープウェイ 0.3km←→弥山山頂 0.7km,ro^puuei 0.3km<-->ya yama sanchou 0.7km
+name,紅葉谷園地 1.7km←→弥山山頂 0.8km,kouyou tani sono chi 1.7km<-->ya yama sanchou 0.8km
+name,紅葉谷園地 1.5km←→弥山山頂 1.0km,kouyou tani sono chi 1.5km<-->ya yama sanchou 1.0km
+name,紅葉谷園地 1.6km←→弥山山頂 0.9km,kouyou tani sono chi 1.6km<-->ya yama sanchou 0.9km
+name,紅葉谷園地 1.4km←→弥山山頂 1.1km,kouyou tani sono chi 1.4km<-->ya yama sanchou 1.1km
+name,紅葉谷園地 1.3km←→弥山山頂 1.2km,kouyou tani sono chi 1.3km<-->ya yama sanchou 1.2km
+name,紅葉谷園地 1.2km←→弥山山頂 1.3km,kouyou tani sono chi 1.2km<-->ya yama sanchou 1.3km
+name,紅葉谷園地 1.1km←→弥山山頂 1.4km,kouyou tani sono chi 1.1km<-->ya yama sanchou 1.4km
+name,弥山山頂 1.5km←→紅葉谷 1.0km,ya yama sanchou 1.5km<-->kouyou tani 1.0km
+name,弥山登山 1.8km←→大聖院 0.7km,ya yama tozan 1.8km<-->dai hijiri in 0.7km
+name,弥山登山道(大聖院コース)←→大聖院/白糸の滝,ya yama tozandou (dai hijiri in ko^su)<-->dai hijiri in/shiroito no taki
+name,紅葉谷 0.9km←→弥山山頂 1.6km,kouyou tani 0.9km<-->ya yama sanchou 1.6km
+name,弥山山頂 1.7km←→紅葉谷 0.8km,ya yama sanchou 1.7km<-->kouyou tani 0.8km
+name,紅葉谷 0.6km←→弥山山頂 1.9km,kouyou tani 0.6km<-->ya yama sanchou 1.9km
+name,紅葉谷園地←→弥山山頂 2.3km,kouyou tani sono chi<-->ya yama sanchou 2.3km
+name,四国汽船 フェリー　宇野⇔宮浦(直島),shikoku kisen feri^ uno<=>miya ura (choku shima)
+name,→宍粟市,->shisou shi
+name,五丁古道↖,go chou ko michi
+name,五丁古道↙,go chou ko michi
+name,↙一丁,itchou
+name,←観音山の絶景,<-kannon yama no zekkei
+name,高座の滝 ロックガーデン→,kouza no taki rokkuga^den->
+name,←会下山遺跡;城山・高座の滝→,<-kai gezan iseki; shiroyama·kouza no taki->
+name,←東ゲート広場案内所,<-higashi ge^to hiroba annaijo
+name,→休憩所,->kyuukeijo
+name,↑杣谷,soma tani
+name,妙号岩←,myou gou iwa<-
+name,←背山二峯（平坦道コース）,<-se yama ni mine (heitan michi ko^su)
+name,←龍之渡井,<-ryuu yuki watari i
+name,←春林軒 →龍之渡井,<-haru hayashi ken ->ryuu yuki watari i
+name,→ブナ林,->buna hayashi
+name,五拾間馬場→,go shuu kan baba->
+name,推古天皇陵参道入口 30m先左→,suiko tennou ryou sandou iriguchi 30m saki hidari->
+name,↑しらみ地蔵,shirami jizou
+name,→浜屋敷 ←宮の前通り,->hama yashiki <-miya no mae toori
+name,↑星のブランコ,hoshi no buranko
+name,→磐船神社,->iwa fune jinja
+name,緑化植物の見本園⇒,ryokka shokubutsu no mihon sono=>
+name,大阪府能勢町←→兵庫県川西市,oosakafu nose machi<-->hyougoken kawanishi shi
+name,古道 長坂道 ←千束 →杉坂,ko michi nagasaka michi <-sen soku ->sugi saka
+name,琵琶湖博物館→,biwakohakubutsukan->
+name,←君想ふ道,<-kun omofu michi
+name,谷川士清 旧宅 次の信号 →,tanigawa samurai kiyoshi kyuu taku tsugino shingou ->
+name,谷川士清 旧宅 700m ← 手前信号,tanigawa samurai kiyoshi kyuu taku 700m <- temae shingou
+name,→帰り道,->kaerimichi
+name,宮口一色（名鉄バス）豊田→名古屋,miyaguchi isshoku (meitetsu basu) toyoda->nagoya
+name,宮口一色（名鉄）名古屋→豊田,miyaguchi isshoku (meitetsu) nagoya->toyoda

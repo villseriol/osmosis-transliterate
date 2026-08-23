@@ -96,8 +96,6 @@
     </dependency>
 
     <!-- Source: https://mvnrepository.com/artifact/org.apache.poi/poi -->
-    <!-- Pinned to 4.1.0: matches the commons-compress 1.18 already pulled in transitively by
-    osmosis-core. -->
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi</artifactId>
@@ -126,6 +124,14 @@
       <groupId>org.openstreetmap.osmosis</groupId>
       <artifactId>osmosis-xml</artifactId>
       <version>${osmosis.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Source: https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-csv</artifactId>
+      <version>1.14.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

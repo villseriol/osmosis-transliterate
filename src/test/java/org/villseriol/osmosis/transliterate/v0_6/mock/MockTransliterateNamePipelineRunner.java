@@ -7,14 +7,14 @@ import org.villseriol.osmosis.transliterate.v0_6.config.loader.XmlLoader;
 import org.villseriol.osmosis.transliterate.v0_6.config.model.NormalizeConfiguration;
 
 
-public class MockTransliteratePipelineRunner {
+public class MockTransliterateNamePipelineRunner {
     private final TestDataUtilities dataUtils;
     private final TransliteratePipelineRunner preRunner = new TransliteratePipelineRunner();
     private final TransliteratePipelineRunner nameRunner = new TransliteratePipelineRunner();
     private final TransliteratePipelineRunner postRunner = new TransliteratePipelineRunner();
     private final XmlLoader<NormalizeConfiguration> loader = XmlLoader.getInstance(NormalizeConfiguration.class);
 
-    public MockTransliteratePipelineRunner(TestDataUtilities dataUtils) {
+    public MockTransliterateNamePipelineRunner(TestDataUtilities dataUtils) {
         this.dataUtils = dataUtils;
 
         preRunner.init(loadConfig("v0_6/pre-processing-config.xml"));
