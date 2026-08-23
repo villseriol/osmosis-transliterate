@@ -67,22 +67,6 @@
                     <when-value-is value="∓" />
                 </replace-with>
 
-                <replace-with value="&lt;">
-                    <when-value-is value="〈" />
-                </replace-with>
-
-                <replace-with value="&lt;&lt;">
-                    <when-value-is value="《" />
-                </replace-with>
-
-                <replace-with value="&gt;">
-                    <when-value-is value="〉" />
-                </replace-with>
-
-                <replace-with value="&gt;&gt;">
-                    <when-value-is value="》" />
-                </replace-with>
-
                 <replace-with value="'">
                     <when-value-is value="ʻ" />
                 </replace-with>
