@@ -82,4 +82,16 @@ public class TransliteratePipelineRunnerTest extends AbstractDataTest {
             assertEquals(record.get("output"), runner.run(record.get("tag"), record.get("input")));
         }
     }
+
+
+    /**
+     * A list of all nodes containing any characters in the unicode latin
+     * extended-b group.
+     */
+    @Test
+    public void testLatinExtendedBFromExport() throws IOException {
+        for (CSVRecord record : loadCsv("v0_6/integration/latin-extended-b.csv")) {
+            assertEquals(record.get("output"), runner.run(record.get("tag"), record.get("input")));
+        }
+    }
 }
