@@ -58,4 +58,16 @@ public class TransliteratePipelineRunnerTest extends AbstractDataTest {
             assertEquals(record.get("output"), runner.run(record.get("tag"), record.get("input")));
         }
     }
+
+
+    /**
+     * A list of all nodes containing any characters in the unicode cjk
+     * radicals supplement group.
+     */
+    @Test
+    public void testCjkRadicalsSupplementFromExport() throws IOException {
+        for (CSVRecord record : loadCsv("v0_6/integration/cjk-radicals-supplement.csv")) {
+            assertEquals(record.get("output"), runner.run(record.get("tag"), record.get("input")));
+        }
+    }
 }
