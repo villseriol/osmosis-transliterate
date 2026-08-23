@@ -70,4 +70,16 @@ public class TransliteratePipelineRunnerTest extends AbstractDataTest {
             assertEquals(record.get("output"), runner.run(record.get("tag"), record.get("input")));
         }
     }
+
+
+    /**
+     * A list of all nodes containing any characters in the unicode halfwidth
+     * and fullwidth forms group.
+     */
+    @Test
+    public void testHalfwidthAndFullwidthFormsFromExport() throws IOException {
+        for (CSVRecord record : loadCsv("v0_6/integration/halfwidth-and-fullwidth-forms.csv")) {
+            assertEquals(record.get("output"), runner.run(record.get("tag"), record.get("input")));
+        }
+    }
 }
