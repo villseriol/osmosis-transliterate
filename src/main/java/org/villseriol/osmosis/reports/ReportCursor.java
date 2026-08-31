@@ -1,23 +1,23 @@
 // This software is released into the Public Domain.  See copying.txt for details.
 package org.villseriol.osmosis.reports;
 
-public class DetReportCursor {
+public class ReportCursor {
     private int col;
     private int row;
 
-    public DetReportCursor(int col, int row) {
+    public ReportCursor(int col, int row) {
         this.col = col;
         this.row = row;
     }
 
 
-    public DetReportCursor() {
+    public ReportCursor() {
         this.col = 0;
         this.row = 0;
     }
 
 
-    public DetReportCursor(DetReportCursor cursor) {
+    public ReportCursor(ReportCursor cursor) {
         this.col = cursor.col;
         this.row = cursor.row;
     }

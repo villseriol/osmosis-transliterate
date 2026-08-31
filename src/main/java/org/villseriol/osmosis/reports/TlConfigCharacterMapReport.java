@@ -16,10 +16,10 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 
 
-public class TlConfigCharacterMapReport extends DetReport {
+public class TlConfigCharacterMapReport extends Report {
     private Map<UnicodeRange, Collection<TlConfigCharacterMapRecord>> data;
 
-    private DetReportCursor cursor = new DetReportCursor();
+    private ReportCursor cursor = new ReportCursor();
 
     private Font headerFont;
     private CellStyle headerStyle;

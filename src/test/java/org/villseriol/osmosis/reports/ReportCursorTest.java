@@ -6,10 +6,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 
-public class DetReportCursorTest {
+public class ReportCursorTest {
     @Test
     public void testNextColIncrementsRowAndReturnsNewValue() {
-        DetReportCursor cursor = new DetReportCursor();
+        ReportCursor cursor = new ReportCursor();
 
         int result = cursor.nextCol();
 
@@ -21,7 +21,7 @@ public class DetReportCursorTest {
 
     @Test
     public void testNextColAccumulatesAcrossCalls() {
-        DetReportCursor cursor = new DetReportCursor();
+        ReportCursor cursor = new ReportCursor();
 
         cursor.nextCol();
         cursor.nextCol();
@@ -34,7 +34,7 @@ public class DetReportCursorTest {
 
     @Test
     public void testNextRowIncrementsColAndReturnsNewValue() {
-        DetReportCursor cursor = new DetReportCursor();
+        ReportCursor cursor = new ReportCursor();
 
         int result = cursor.nextRow();
 
@@ -46,7 +46,7 @@ public class DetReportCursorTest {
 
     @Test
     public void testNextRowAccumulatesAcrossCalls() {
-        DetReportCursor cursor = new DetReportCursor();
+        ReportCursor cursor = new ReportCursor();
 
         cursor.nextRow();
         cursor.nextRow();
@@ -59,7 +59,7 @@ public class DetReportCursorTest {
 
     @Test
     public void testNextColAndNextRowAreIndependent() {
-        DetReportCursor cursor = new DetReportCursor();
+        ReportCursor cursor = new ReportCursor();
 
         cursor.nextCol();
         cursor.nextCol();
@@ -72,7 +72,7 @@ public class DetReportCursorTest {
 
     @Test
     public void testNextColAndNextRowStartFromInitialCursorValues() {
-        DetReportCursor cursor = new DetReportCursor(5, 10);
+        ReportCursor cursor = new ReportCursor(5, 10);
 
         int rowResult = cursor.nextCol();
         int colResult = cursor.nextRow();
@@ -86,9 +86,9 @@ public class DetReportCursorTest {
 
     @Test
     public void testCopyConstructorInheritsRowAndCol() {
-        DetReportCursor original = new DetReportCursor(5, 10);
+        ReportCursor original = new ReportCursor(5, 10);
 
-        DetReportCursor copy = new DetReportCursor(original);
+        ReportCursor copy = new ReportCursor(original);
 
         assertEquals(original.getCol(), copy.getCol());
         assertEquals(original.getRow(), copy.getRow());
@@ -97,8 +97,8 @@ public class DetReportCursorTest {
 
     @Test
     public void testNextColAndNextRowOnCopyDoNotAffectOriginal() {
-        DetReportCursor original = new DetReportCursor(5, 10);
-        DetReportCursor copy = new DetReportCursor(original);
+        ReportCursor original = new ReportCursor(5, 10);
+        ReportCursor copy = new ReportCursor(original);
 
         copy.nextCol();
         copy.nextRow();

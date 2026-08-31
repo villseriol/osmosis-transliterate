@@ -10,7 +10,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
-public abstract class DetReport {
+public abstract class Report {
     protected abstract void generate(Workbook workbook);
 
 
