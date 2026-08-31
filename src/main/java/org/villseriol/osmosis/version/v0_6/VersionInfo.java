@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.version;
+package org.villseriol.osmosis.version.v0_6;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,14 +11,14 @@ public final class VersionInfo {
     private static final String UNKNOWN = "unknown";
     private static final String VERSION = readVersion();
 
-
     private VersionInfo() {
         // Static utility class.
     }
 
 
     /**
-     * Gets the project version, as baked in at build time by Maven resource filtering.
+     * Gets the project version, as baked in at build time by Maven resource
+     * filtering.
      *
      * @return The version, or "unknown" if it could not be determined.
      */
