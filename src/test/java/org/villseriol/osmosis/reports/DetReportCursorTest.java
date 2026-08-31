@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.analysis;
+package org.villseriol.osmosis.reports;
 
 import static org.junit.Assert.assertEquals;
 

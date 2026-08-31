@@ -1,5 +1,5 @@
 // This software is released into the Public Domain.  See copying.txt for details.
-package org.villseriol.osmosis.analysis;
+package org.villseriol.osmosis.reports;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -60,7 +60,8 @@ public class TlConfigCharacterMapRecordTest {
     @Test
     public void testIsFromReservedAndIsToReservedTrueForUnassignedCharacters() {
         char unassigned = '￿';
-        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord((int) unassigned, String.valueOf(unassigned));
+        TlConfigCharacterMapRecord record = new TlConfigCharacterMapRecord((int) unassigned,
+                String.valueOf(unassigned));
 
         assertTrue(record.isFromReserved());
         assertTrue(record.isToReserved());
