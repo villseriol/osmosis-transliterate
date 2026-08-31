@@ -10,7 +10,7 @@
   <version>2.0.0</version>
 
   <name>osmosis-transliterate</name>
-  <description>The kakasi C library as an Osmosis plugin.</description>
+  <description>Osmosis plugin for transliterating Japanese to Basic Latin.</description>
   <inceptionYear>2026</inceptionYear>
   <url>https://osmosis-kakasi.villseriol.org/</url>
   <organization>
