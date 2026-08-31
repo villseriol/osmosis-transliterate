@@ -1,13 +1,13 @@
 name: Deploy Package
 on:
-  push:
-    tags:
-      - '*.*.*'
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
   package-artifacts:
     runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.resolve-tag.outputs.tag }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -19,6 +19,17 @@ jobs:
           distribution: temurin
           java-version: 17
           cache: maven
+      - name: Resolve Tag
+        id: resolve-tag
+        run: |
+          TAG=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists on origin." >&2
+            exit 1
+          fi
+
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
       - name: Package
         run: mvn clean package
       - name: Generate TL Config Character Map Report
@@ -37,6 +48,12 @@ jobs:
             target/${{ steps.get-final-name.outputs.final_name }}.jar
             target/${{ steps.get-final-name.outputs.final_name }}-plugin.zip
             target/reports/tl-config-character-map-report.xlsx
+      - name: Create Tag
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git tag -a '${{ steps.resolve-tag.outputs.tag }}' -m 'Release ${{ steps.resolve-tag.outputs.tag }}'
+          git push origin 'refs/tags/${{ steps.resolve-tag.outputs.tag }}'
 
   create-release:
     runs-on: ubuntu-latest
@@ -50,7 +67,7 @@ jobs:
       - name: Create GitHub Release and upload artifacts
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}
+          tag_name: ${{ needs.package-artifacts.outputs.tag }}
           files: |
             artifacts/*.jar
             artifacts/*.zip
