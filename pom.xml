@@ -9,7 +9,7 @@
   <packaging>jar</packaging>
   <version>2.0.0</version>
 
-  <name>osmosis-kakasi</name>
+  <name>osmosis-transliterate</name>
   <description>The kakasi C library as an Osmosis plugin.</description>
   <inceptionYear>2026</inceptionYear>
   <url>https://osmosis-kakasi.villseriol.org/</url>
@@ -163,6 +163,14 @@
           <include>dict/SKK-JISYO.*</include>
         </includes>
         <filtering>false</filtering>
+      </resource>
+
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>version.properties</include>
+        </includes>
+        <filtering>true</filtering>
       </resource>
     </resources>
     <plugins>

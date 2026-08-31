@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import org.openstreetmap.osmosis.core.container.v0_6.EntityContainer;
 import org.openstreetmap.osmosis.core.task.v0_6.Sink;
+import org.villseriol.osmosis.version.VersionInfo;
 
 
 public class VersionTask implements Sink {
@@ -16,8 +17,7 @@ public class VersionTask implements Sink {
      */
     @Override
     public void initialize(Map<String, Object> metaData) {
-        LOG.info("Villseriol (c) 2026");
-        LOG.info("Licensed under GPL-3.0");
+        LOG.info("osmosis-transliterate " + VersionInfo.getVersion());
     }
 
 
