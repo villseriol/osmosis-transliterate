@@ -1,0 +1,253 @@
+// This software is released into the Public Domain.  See copying.txt for details.
+package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRanges;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
+
+import com.ibm.icu.text.ReplaceableString;
+import com.ibm.icu.text.Transliterator;
+
+
+@UnicodeRanges(UnicodeRange.KANGXI_RADICALS)
+public class KangxiRadicalsMapper implements Unimap {
+    private static final Transliterator TRANSLITERATOR;
+
+    static {
+        List<String> rules = new ArrayList<>();
+
+        rules.add("⼀ > '一';");
+        rules.add("⼁ > '丨';");
+        rules.add("⼂ > '丶';");
+        rules.add("⼃ > '丿';");
+        rules.add("⼄ > '乙';");
+        rules.add("⼅ > '亅';");
+        rules.add("⼆ > '二';");
+        rules.add("⼇ > '亠';");
+        rules.add("⼈ > '人';");
+        rules.add("⼉ > '儿';");
+        rules.add("⼊ > '入';");
+        rules.add("⼋ > '八';");
+        rules.add("⼌ > '冂';");
+        rules.add("⼍ > '冖';");
+        rules.add("⼎ > '冫';");
+        rules.add("⼏ > '几';");
+        rules.add("⼐ > '凵';");
+        rules.add("⼑ > '刀';");
+        rules.add("⼒ > '力';");
+        rules.add("⼓ > '勹';");
+        rules.add("⼔ > '匕';");
+        rules.add("⼕ > '匚';");
+        rules.add("⼖ > '匸';");
+        rules.add("⼗ > '十';");
+        rules.add("⼘ > '卜';");
+        rules.add("⼙ > '卩';");
+        rules.add("⼚ > '厂';");
+        rules.add("⼛ > '厶';");
+        rules.add("⼜ > '又';");
+        rules.add("⼝ > '口';");
+        rules.add("⼞ > '囗';");
+        rules.add("⼟ > '土';");
+        rules.add("⼠ > '士';");
+        rules.add("⼡ > '夂';");
+        rules.add("⼢ > '夊';");
+        rules.add("⼣ > '夕';");
+        rules.add("⼤ > '大';");
+        rules.add("⼥ > '女';");
+        rules.add("⼦ > '子';");
+        rules.add("⼧ > '宀';");
+        rules.add("⼨ > '寸';");
+        rules.add("⼩ > '小';");
+        rules.add("⼪ > '尢';");
+        rules.add("⼫ > '尸';");
+        rules.add("⼬ > '屮';");
+        rules.add("⼭ > '山';");
+        rules.add("⼮ > '巛';");
+        rules.add("⼯ > '工';");
+        rules.add("⼰ > '己';");
+        rules.add("⼱ > '巾';");
+        rules.add("⼲ > '干';");
+        rules.add("⼳ > '幺';");
+        rules.add("⼴ > '广';");
+        rules.add("⼵ > '廴';");
+        rules.add("⼶ > '廾';");
+        rules.add("⼷ > '弋';");
+        rules.add("⼸ > '弓';");
+        rules.add("⼹ > '彐';");
+        rules.add("⼺ > '彡';");
+        rules.add("⼻ > '彳';");
+        rules.add("⼼ > '心';");
+        rules.add("⼽ > '戈';");
+        rules.add("⼾ > '戶';");
+        rules.add("⼿ > '手';");
+        rules.add("⽀ > '支';");
+        rules.add("⽁ > '攴';");
+        rules.add("⽂ > '文';");
+        rules.add("⽃ > '斗';");
+        rules.add("⽄ > '斤';");
+        rules.add("⽅ > '方';");
+        rules.add("⽆ > '无';");
+        rules.add("⽇ > '日';");
+        rules.add("⽈ > '曰';");
+        rules.add("⽉ > '月';");
+        rules.add("⽊ > '木';");
+        rules.add("⽋ > '欠';");
+        rules.add("⽌ > '止';");
+        rules.add("⽍ > '歹';");
+        rules.add("⽎ > '殳';");
+        rules.add("⽏ > '毋';");
+        rules.add("⽐ > '比';");
+        rules.add("⽑ > '毛';");
+        rules.add("⽒ > '氏';");
+        rules.add("⽓ > '气';");
+        rules.add("⽔ > '水';");
+        rules.add("⽕ > '火';");
+        rules.add("⽖ > '爪';");
+        rules.add("⽗ > '父';");
+        rules.add("⽘ > '爻';");
+        rules.add("⽙ > '爿';");
+        rules.add("⽚ > '片';");
+        rules.add("⽛ > '牙';");
+        rules.add("⽜ > '牛';");
+        rules.add("⽝ > '犬';");
+        rules.add("⽞ > '玄';");
+        rules.add("⽟ > '玉';");
+        rules.add("⽠ > '瓜';");
+        rules.add("⽡ > '瓦';");
+        rules.add("⽢ > '甘';");
+        rules.add("⽣ > '生';");
+        rules.add("⽤ > '用';");
+        rules.add("⽥ > '田';");
+        rules.add("⽦ > '疋';");
+        rules.add("⽧ > '疒';");
+        rules.add("⽨ > '癶';");
+        rules.add("⽩ > '白';");
+        rules.add("⽪ > '皮';");
+        rules.add("⽫ > '皿';");
+        rules.add("⽬ > '目';");
+        rules.add("⽭ > '矛';");
+        rules.add("⽮ > '矢';");
+        rules.add("⽯ > '石';");
+        rules.add("⽰ > '示';");
+        rules.add("⽱ > '禸';");
+        rules.add("⽲ > '禾';");
+        rules.add("⽳ > '穴';");
+        rules.add("⽴ > '立';");
+        rules.add("⽵ > '竹';");
+        rules.add("⽶ > '米';");
+        rules.add("⽷ > '糸';");
+        rules.add("⽸ > '缶';");
+        rules.add("⽹ > '网';");
+        rules.add("⽺ > '羊';");
+        rules.add("⽻ > '羽';");
+        rules.add("⽼ > '老';");
+        rules.add("⽽ > '而';");
+        rules.add("⽾ > '耒';");
+        rules.add("⽿ > '耳';");
+        rules.add("⾀ > '聿';");
+        rules.add("⾁ > '肉';");
+        rules.add("⾂ > '臣';");
+        rules.add("⾃ > '自';");
+        rules.add("⾄ > '至';");
+        rules.add("⾅ > '臼';");
+        rules.add("⾆ > '舌';");
+        rules.add("⾇ > '舛';");
+        rules.add("⾈ > '舟';");
+        rules.add("⾉ > '艮';");
+        rules.add("⾊ > '色';");
+        rules.add("⾋ > '艸';");
+        rules.add("⾌ > '虍';");
+        rules.add("⾍ > '虫';");
+        rules.add("⾎ > '血';");
+        rules.add("⾏ > '行';");
+        rules.add("⾐ > '衣';");
+        rules.add("⾑ > '襾';");
+        rules.add("⾒ > '見';");
+        rules.add("⾓ > '角';");
+        rules.add("⾔ > '言';");
+        rules.add("⾕ > '谷';");
+        rules.add("⾖ > '豆';");
+        rules.add("⾗ > '豕';");
+        rules.add("⾘ > '豸';");
+        rules.add("⾙ > '貝';");
+        rules.add("⾚ > '赤';");
+        rules.add("⾛ > '走';");
+        rules.add("⾜ > '足';");
+        rules.add("⾝ > '身';");
+        rules.add("⾞ > '車';");
+        rules.add("⾟ > '辛';");
+        rules.add("⾠ > '辰';");
+        rules.add("⾡ > '辵';");
+        rules.add("⾢ > '邑';");
+        rules.add("⾣ > '酉';");
+        rules.add("⾤ > '釆';");
+        rules.add("⾥ > '里';");
+        rules.add("⾦ > '金';");
+        rules.add("⾧ > '長';");
+        rules.add("⾨ > '門';");
+        rules.add("⾩ > '阜';");
+        rules.add("⾪ > '隶';");
+        rules.add("⾫ > '隹';");
+        rules.add("⾬ > '雨';");
+        rules.add("⾭ > '靑';");
+        rules.add("⾮ > '非';");
+        rules.add("⾯ > '面';");
+        rules.add("⾰ > '革';");
+        rules.add("⾱ > '韋';");
+        rules.add("⾲ > '韭';");
+        rules.add("⾳ > '音';");
+        rules.add("⾴ > '頁';");
+        rules.add("⾵ > '風';");
+        rules.add("⾶ > '飛';");
+        rules.add("⾷ > '食';");
+        rules.add("⾸ > '首';");
+        rules.add("⾹ > '香';");
+        rules.add("⾺ > '馬';");
+        rules.add("⾻ > '骨';");
+        rules.add("⾼ > '高';");
+        rules.add("⾽ > '髟';");
+        rules.add("⾾ > '鬥';");
+        rules.add("⾿ > '鬯';");
+        rules.add("⿀ > '鬲';");
+        rules.add("⿁ > '鬼';");
+        rules.add("⿂ > '魚';");
+        rules.add("⿃ > '鳥';");
+        rules.add("⿄ > '鹵';");
+        rules.add("⿅ > '鹿';");
+        rules.add("⿆ > '麥';");
+        rules.add("⿇ > '麻';");
+        rules.add("⿈ > '黃';");
+        rules.add("⿉ > '黍';");
+        rules.add("⿊ > '黑';");
+        rules.add("⿋ > '黹';");
+        rules.add("⿌ > '黽';");
+        rules.add("⿍ > '鼎';");
+        rules.add("⿎ > '鼓';");
+        rules.add("⿏ > '鼠';");
+        rules.add("⿐ > '鼻';");
+        rules.add("⿑ > '齊';");
+        rules.add("⿒ > '齒';");
+        rules.add("⿓ > '龍';");
+        rules.add("⿔ > '龜';");
+        rules.add("⿕ > '龠';");
+
+        String rule = Icu4jUtils.createIcu4jRule(KangxiRadicalsMapper.class, rules);
+
+        TRANSLITERATOR = Transliterator.createFromRules("KangxiRadicals-Normalized", rule, Transliterator.FORWARD);
+    }
+
+    @Override
+    public String action(String input) {
+        return TRANSLITERATOR.transliterate(input);
+    }
+
+
+    @Override
+    public void action(StringBuffer input) {
+        TRANSLITERATOR.transliterate(new ReplaceableString(input));
+    }
+}

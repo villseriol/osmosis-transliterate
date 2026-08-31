@@ -10,10 +10,10 @@
     <nd ref="3155505284"/>
     <nd ref="3155505287"/>
     <nd ref="3155505277"/>
-    <tag k="addr:city" v="徳島市"/>
+    <tag k="addr:city" v="tokushimashi"/>
     <tag k="addr:housenumber" v="1-8"/>
     <tag k="addr:postcode" v="770-0923"/>
-    <tag k="addr:street" v="大道"/>
+    <tag k="addr:street" v="daidou"/>
     <tag k="building" v="yes"/>
     <tag k="name" v="sauna·kapuseru·samittopuraza"/>
     <tag k="phone" v="088-622-1177"/>

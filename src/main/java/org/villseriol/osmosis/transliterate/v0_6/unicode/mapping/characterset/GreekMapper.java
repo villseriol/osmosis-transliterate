@@ -1,0 +1,38 @@
+// This software is released into the Public Domain.  See copying.txt for details.
+package org.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset;
+
+import java.util.Arrays;
+
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRanges;
+import org.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
+
+import com.ibm.icu.text.ReplaceableString;
+import com.ibm.icu.text.Transliterator;
+
+
+@UnicodeRanges(UnicodeRange.GREEK_AND_COPTIC)
+@UnicodeRanges(UnicodeRange.GREEK_EXTENDED)
+public class GreekMapper implements Unimap {
+    private static final Transliterator TRANSLITERATOR;
+
+    static {
+        UnicodeRange[] ranges = Icu4jUtils.getAnnotatedUnicodeRanges(GreekMapper.class);
+        UnicodeRange[] additional = Arrays.copyOfRange(ranges, 1, ranges.length);
+        String filter = Icu4jUtils.toIcuRange(ranges[0], additional);
+
+        TRANSLITERATOR = Transliterator.getInstance(filter + " Greek-Latin; Latin-ASCII");
+    }
+
+    @Override
+    public String action(String input) {
+        return TRANSLITERATOR.transliterate(input);
+    }
+
+
+    @Override
+    public void action(StringBuffer input) {
+        TRANSLITERATOR.transliterate(new ReplaceableString(input));
+    }
+}

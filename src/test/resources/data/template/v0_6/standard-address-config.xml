@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <pipeline>
+        <run alias="kakasi">
+            <dictionaries>
+                <dictionary alias="station" />
+                <dictionary alias="geo" />
+            </dictionaries>
+        </run>
+    </pipeline>
+
+    <tag-vector>
+        <tag key="ref" />
+        <tag key="addr:city" />
+        <tag key="addr:province" />
+        <tag key="addr:block_number" />
+        <tag key="addr:neighbourhood" />
+        <tag key="addr:postcode" />
+        <tag key="addr:housenumber" />
+        <tag key="addr:quarter" />
+        <tag key="addr:full" />
+        <tag key="addr:suburb" />
+        <tag key="addr:country" />
+        <tag key="addr:street" />
+        <tag key="addr:county" />
+        <tag key="addr:housename" />
+        <tag key="addr:floor" />
+        <tag key="addr:place" />
+        <tag key="addr:flats" />
+        <tag key="addr:room" />
+        <tag key="addr:prefecture" />
+        <tag key="addr:unit" />
+        <tag key="addr:block" />
+        <tag key="addr:district" />
+        <tag key="addr:all" />
+        <tag key="addr:state" />
+        <tag key="addr:pref" />
+        <tag key="addr:hamlet" />
+        <tag key="addr:region" />
+        <tag key="addr:neighborhood" />
+        <tag key="addr:subdistrict" />
+        <tag key="addr:town" />
+    </tag-vector>
+</configuration>

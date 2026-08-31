@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <pipeline>
+        <run alias="kakasi">
+            <dictionaries>
+                <dictionary alias="propernoun" />
+                <dictionary alias="fullname" />
+                <dictionary alias="jinmei" />
+                <dictionary alias="law" />
+                <dictionary alias="hukugougo" />
+                <dictionary alias="mazegaki" />
+            </dictionaries>
+        </run>
+    </pipeline>
+
+    <tag-vector>
+        <tag key="operator" />
+        <tag key="tunnel:name" />
+        <tag key="bridge:name" />
+        <tag key="name" />
+        <tag key="name:ja" />
+        <tag key="name:ja-Hira" />
+        <tag key="alt_name" />
+        <tag key="brand:ja" />
+        <tag key="brand" />
+    </tag-vector>
+</configuration>
