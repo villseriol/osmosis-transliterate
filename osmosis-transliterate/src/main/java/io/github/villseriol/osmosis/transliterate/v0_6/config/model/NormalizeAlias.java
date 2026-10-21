@@ -27,6 +27,7 @@ import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecif
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.DuplicateSpaceTransform;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.KakasiTransform;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.Latin1OnlyTransform;
+import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.NfkcTransform;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToBlankTransform;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToWhitespaceTransform;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.TrimTransform;
@@ -159,6 +160,13 @@ public enum NormalizeAlias {
      * @see Latin1OnlyTransform
      */
     LATIN1_ONLY("latin1-only"),
+
+    /**
+     * TODO.
+     *
+     * @see NfkcTransform
+     */
+    NFKC("nfkc"),
 
     /**
      * TODO.

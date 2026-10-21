@@ -50,6 +50,7 @@ import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecif
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.DuplicateSpaceTransform;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.KakasiTransform;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.Latin1OnlyTransform;
+import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.NfkcTransform;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToBlankTransform;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.RangeToWhitespaceTransform;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.nonspecific.TrimTransform;
@@ -162,6 +163,10 @@ public class TransliteratePipelineBuilder {
         case LATIN1_ONLY:
             LOG.info("Initializing latin1-only transform");
             return new Latin1OnlyTransform();
+
+        case NFKC:
+            LOG.info("Initializing nfkc transform");
+            return new NfkcTransform(run.getUnicodeGroup());
 
         case RADICALS:
             LOG.info("Initializing radicals transform");

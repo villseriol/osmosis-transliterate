@@ -3,13 +3,13 @@ package io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characte
 
 import java.util.Arrays;
 
+import com.ibm.icu.text.ReplaceableString;
+import com.ibm.icu.text.Transliterator;
+
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.Icu4jUtils;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRange;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.UnicodeRanges;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
-
-import com.ibm.icu.text.ReplaceableString;
-import com.ibm.icu.text.Transliterator;
 
 
 @UnicodeRanges(UnicodeRange.LATIN_EXTENDED_A)
