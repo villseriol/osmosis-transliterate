@@ -27,6 +27,7 @@ import io.github.villseriol.osmosis.transliterate.v0_6.config.model.WhenValueIsN
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.Unimap;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.decorator.ConditionalDecorator;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.decorator.SequenceDecorator;
+import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ArabicMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ArrowsMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.BoxDrawingMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.CjkCompatibilityMapper;
@@ -39,6 +40,7 @@ import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.character
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeneralPunctuationMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GreekMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HalfWidthFullWidthMapper;
+import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HebrewMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KangxiRadicalsMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KatakanaPhoneticExtensionsMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LatinMapper;
@@ -90,6 +92,10 @@ public class TransliteratePipelineBuilder {
             LOG.info("Initializing all-to-whitespace transform");
             return new RangeToWhitespaceTransform(run.getUnicodeGroup());
 
+        case ARABIC:
+            LOG.info("Initializing arabic transform");
+            return new ArabicMapper();
+
         case ARROW:
             LOG.info("Initializing arrow transform");
             return new SequenceDecorator(new ArrowsMapper(), new MiscellaneousSymbolsAndArrowsMapper());
@@ -138,6 +144,10 @@ public class TransliteratePipelineBuilder {
         case HALF_WIDTH_FULL_WIDTH:
             LOG.info("Initializing half-width-full-width transform");
             return new HalfWidthFullWidthMapper();
+
+        case HEBREW:
+            LOG.info("Initializing hebrew transform");
+            return new HebrewMapper();
 
         case KAKASI:
             LOG.info("Initializing kakasi transform");

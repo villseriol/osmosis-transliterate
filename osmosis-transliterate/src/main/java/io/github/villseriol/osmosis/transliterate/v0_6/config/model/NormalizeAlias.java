@@ -4,6 +4,7 @@ package io.github.villseriol.osmosis.transliterate.v0_6.config.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ArabicMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.ArrowsMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.BoxDrawingMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.CjkCompatibilityMapper;
@@ -16,6 +17,7 @@ import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.character
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GeneralPunctuationMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.GreekMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HalfWidthFullWidthMapper;
+import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.HebrewMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KangxiRadicalsMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.KatakanaPhoneticExtensionsMapper;
 import io.github.villseriol.osmosis.transliterate.v0_6.unicode.mapping.characterset.LatinMapper;
@@ -58,6 +60,13 @@ public enum NormalizeAlias {
      * @see RangeToWhitespaceTransform
      */
     ALL_TO_WHITESPACE("all-to-whitespace"),
+
+    /**
+     * TODO.
+     *
+     * @see ArabicMapper
+     */
+    ARABIC("arabic"),
 
     /**
      * TODO.
@@ -132,6 +141,13 @@ public enum NormalizeAlias {
      * @see HalfWidthFullWidthMapper
      */
     HALF_WIDTH_FULL_WIDTH("half-width-full-width"),
+
+    /**
+     * TODO.
+     *
+     * @see HebrewMapper
+     */
+    HEBREW("hebrew"),
 
     /**
      * TODO.
