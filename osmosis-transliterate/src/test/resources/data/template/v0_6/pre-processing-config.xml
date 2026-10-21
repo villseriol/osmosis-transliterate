@@ -59,8 +59,10 @@
                     <when-value-is value="€" /> <!-- 20AC EURO SIGN -->
                 </replace-with>
 
-                <replace-with value="·">
+                <replace-with value=" · ">
                     <when-value-is value="・" />
+                    <when-value-is value="•" />
+                    <when-value-is value="･" />
                 </replace-with>
 
                 <replace-with value="±">
@@ -72,6 +74,9 @@
                 </replace-with>
             </mapping>
         </run>
+
+        <run alias="nfkc" unicode-group="math-alphanumeric-symbols" />
+        <run alias="nfkc" unicode-group="letterlike-symbols" />
 
         <run alias="general-punctuation" />
         <run alias="all-to-whitespace" unicode-group="general-punctuation" />
@@ -102,6 +107,15 @@
         <run alias="all-to-whitespace" unicode-group="letterlike-symbols" />
         <run alias="all-to-whitespace" unicode-group="small-form-variants" />
         <run alias="all-to-whitespace" unicode-group="mathematical-operators" />
+
+        <!-- Map hebrew and arabic characters, drop any remaining marks / unmapped letters -->
+        <run alias="hebrew" />
+        <run alias="all-to-blank" unicode-group="hebrew" />
+        <run alias="arabic" />
+        <run alias="all-to-blank" unicode-group="arabic" />
+        <run alias="all-to-blank" unicode-group="arabic-supplement" />
+        <run alias="all-to-blank" unicode-group="arabic-presentation-forms-a" />
+        <run alias="all-to-blank" unicode-group="arabic-presentation-forms-b" />
 
         <run alias="all-to-whitespace" unicode-group="dingbats" />
         <run alias="all-to-whitespace" unicode-group="cjk-compatibility-forms" />

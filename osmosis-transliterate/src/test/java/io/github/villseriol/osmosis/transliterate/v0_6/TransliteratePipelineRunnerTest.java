@@ -15,6 +15,7 @@ import org.apache.commons.csv.CSVRecord;
 import org.junit.Before;
 import org.junit.Test;
 import org.openstreetmap.osmosis.testutil.AbstractDataTest;
+
 import io.github.villseriol.osmosis.transliterate.v0_6.mock.MockTransliteratePipelineRunner;
 
 
@@ -61,8 +62,8 @@ public class TransliteratePipelineRunnerTest extends AbstractDataTest {
 
 
     /**
-     * A list of all nodes containing any characters in the unicode cjk
-     * radicals supplement group.
+     * A list of all nodes containing any characters in the unicode cjk radicals
+     * supplement group.
      */
     @Test
     public void testCjkRadicalsSupplementFromExport() throws IOException {
@@ -97,8 +98,8 @@ public class TransliteratePipelineRunnerTest extends AbstractDataTest {
 
 
     /**
-     * A list of all nodes containing any characters in the unicode box
-     * drawing group.
+     * A list of all nodes containing any characters in the unicode box drawing
+     * group.
      */
     @Test
     public void testBoxDrawingFromExport() throws IOException {
@@ -106,6 +107,7 @@ public class TransliteratePipelineRunnerTest extends AbstractDataTest {
             assertEquals(record.get("output"), runner.run(record.get("tag"), record.get("input")));
         }
     }
+
 
     /**
      * A list of all nodes containing any characters in the unicode general
@@ -116,5 +118,14 @@ public class TransliteratePipelineRunnerTest extends AbstractDataTest {
         for (CSVRecord record : loadCsv("v0_6/integration/general-punctuation.csv")) {
             assertEquals(record.get("output"), runner.run(record.get("tag"), record.get("input")));
         }
+    }
+
+
+    /**
+     * A name containing a stray U+064F ARABIC DAMMA in place of the latin "u".
+     */
+    @Test
+    public void testNameWithArabicDamma() {
+        assertEquals("Kazakura Kogen No. 1 Pair Lift", runner.run("name", "Kazak\u064Fra Kōgen No. 1 Pair Lift"));
     }
 }

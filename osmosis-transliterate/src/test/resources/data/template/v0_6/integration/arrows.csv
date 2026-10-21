@@ -16,14 +16,14 @@ name,小町→（旧）鎌倉,komachi->(kyuu) kamakura
 name,回送⇒運行へ,kaisou=>unkou he
 name,回送⇒運用,kaisou=>unyou
 name,東急線中延駅方面改札口階⇔ホーム階,toukyuusen nakanobe eki houmen kaisatsuguchi kai<=>ho^mu kai
-name,荏原営業所【反０１・反０２＜馬込駅前バス停⇒２番乗り場バス停へ＞】,ehara eigyousho [han 01·han 02<magomeeki mae basu tei=>2 ban noriba basu tei he>]
-name,荏原営業所【反０１・反０２＜車庫⇒始発（２番乗り場バス停）へ＞】,ehara eigyousho [han 01·han 02<shako=>shihatsu (2 ban noriba basu tei) he>]
+name,荏原営業所【反０１・反０２＜馬込駅前バス停⇒２番乗り場バス停へ＞】,ehara eigyousho [han 01 · han 02<magomeeki mae basu tei=>2 ban noriba basu tei he>]
+name,荏原営業所【反０１・反０２＜車庫⇒始発（２番乗り場バス停）へ＞】,ehara eigyousho [han 01 · han 02<shako=>shihatsu (2 ban noriba basu tei) he>]
 name,荏原営業所【井０１＜復路終点⇒往路起点（１番乗り場バス停）へ＞】,ehara eigyousho [i 01<fukuro shuuten=>ouro kiten (1 ban noriba basu tei) he>]
 ref,井０１【復路終点⇒往路起点】,i 01[fukuro shuuten=>ouro kiten]
 name,荏原営業所【井０１＜車庫⇒始発（１番乗り場バス停）へ＞】,ehara eigyousho [i 01<shako=>shihatsu (1 ban noriba basu tei) he>]
 ref,井０１【車庫⇒始発へ】,i 01[shako=>shihatsu he]
-name,荏原営業所【反０１・反０２／森０２＜車庫⇒始発（３番乗り場バス停）へ＞】,ehara eigyousho [han 01·han 02/mori 02<shako=>shihatsu (3 ban noriba basu tei) he>]
-name,荏原営業所【反０１・反０２＜中延駅前バス停⇒３番乗り場バス停へ＞】,ehara eigyousho [han 01·han 02<nakanobe ekimae basu tei=>3 ban noriba basu tei he>]
+name,荏原営業所【反０１・反０２／森０２＜車庫⇒始発（３番乗り場バス停）へ＞】,ehara eigyousho [han 01 · han 02/mori 02<shako=>shihatsu (3 ban noriba basu tei) he>]
+name,荏原営業所【反０１・反０２＜中延駅前バス停⇒３番乗り場バス停へ＞】,ehara eigyousho [han 01 · han 02<nakanobe ekimae basu tei=>3 ban noriba basu tei he>]
 name,杉並区立郷土博物館560m→,suginamiku ritsu kyoudo hakubutsukan 560m->
 name,↓,
 name,元 おたふく→つんく♂の店→,moto otafuku->tsunku no mise->
@@ -45,12 +45,12 @@ name,脱皮考　地→空,dappi kou chi->sora
 name,↑大溝城跡,oomizo shiroato
 name,天守閣入口→,tenshukaku iriguchi->
 name,←知覧城,<-chi ran shiro
-name,弥山・駒ヶ林←→大元公園・桟橋,ya yama·koma hayashi<-->oomoto kouen·sanbashi
-name,弥山 2.6km・駒ヶ林←→大元公園 0.8km,ya yama 2.6km·koma hayashi<-->oomoto kouen 0.8km
-name,弥山・駒ヶ林←→大元公園,ya yama·koma hayashi<-->oomoto kouen
-name,弥山・駒ヶ林←→大元公園/→岩屋大師,ya yama·koma hayashi<-->oomoto kouen/->iwaya taishi
+name,弥山・駒ヶ林←→大元公園・桟橋,ya yama · koma hayashi<-->oomoto kouen · sanbashi
+name,弥山 2.6km・駒ヶ林←→大元公園 0.8km,ya yama 2.6km · koma hayashi<-->oomoto kouen 0.8km
+name,弥山・駒ヶ林←→大元公園,ya yama · koma hayashi<-->oomoto kouen
+name,弥山・駒ヶ林←→大元公園/→岩屋大師,ya yama · koma hayashi<-->oomoto kouen/->iwaya taishi
 name,ロープウェイ 0.7km←→弥山山頂 0.3km,ro^puuei 0.7km<-->ya yama sanchou 0.3km
-name,弥山登山←→大元公園・岩屋大師/→駒ヶ林,ya yama tozan<-->oomoto kouen·iwaya taishi/->koma hayashi
+name,弥山登山←→大元公園・岩屋大師/→駒ヶ林,ya yama tozan<-->oomoto kouen · iwaya taishi/->koma hayashi
 name,弥山登山←→大聖院,ya yama tozan<-->dai hijiri in
 name,弥山山頂 0.6km←→大元園地 2.0/宮島水族館 2.0km,ya yama sanchou 0.6km<-->oomoto sono chi 2.0/miyajima suizokukan 2.0km
 name,弥山展望台 0.6km←→駒ヶ林/大元公園 2.8km,ya yama tenboudai 0.6km<-->koma hayashi/oomoto kouen 2.8km
@@ -76,7 +76,7 @@ name,五丁古道↙,go chou ko michi
 name,↙一丁,itchou
 name,←観音山の絶景,<-kannon yama no zekkei
 name,高座の滝 ロックガーデン→,kouza no taki rokkuga^den->
-name,←会下山遺跡;城山・高座の滝→,<-kai gezan iseki; shiroyama·kouza no taki->
+name,←会下山遺跡;城山・高座の滝→,<-kai gezan iseki; shiroyama · kouza no taki->
 name,←東ゲート広場案内所,<-higashi ge^to hiroba annaijo
 name,→休憩所,->kyuukeijo
 name,↑杣谷,soma tani
